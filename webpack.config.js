@@ -356,10 +356,10 @@ module.exports = async (env, argv) => {
     devtool: argv.mode === "production" ? "source-map" : "inline-source-map",
     devServer: {
       client: {
-        overlay: {
-          errors: true,
-          warnings: false
-        }
+        // private-quest-lounge: no red error overlay in the browser — benign
+        // runtime noise (ResizeObserver, cross-origin "Script error") was
+        // covering the room on mobile/Quest. Real errors still log to console.
+        overlay: false
       },
       server: {
         type: "https",
