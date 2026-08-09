@@ -18,6 +18,9 @@ export function AvatarSettingsContent({
   displayNamePattern,
   pronounsPattern,
   onChangeAvatar,
+  presetAvatars,
+  onSelectPresetAvatar,
+  selectedAvatarUrl,
   ...rest
 }) {
   return (
@@ -50,9 +53,32 @@ export function AvatarSettingsContent({
       />
       <div className={styles.avatarPreviewContainer}>
         {avatarPreview || <div />}
-        <Button type="button" preset="basic" onClick={onChangeAvatar}>
-          <FormattedMessage id="avatar-settings-content.change-avatar-button" defaultMessage="Change Avatar" />
-        </Button>
+        {presetAvatars && presetAvatars.length > 0 ? (
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", justifyContent: "center", marginTop: "8px" }}>
+            {presetAvatars.map(preset => (
+              <button
+                key={preset.name}
+                type="button"
+                title={preset.name}
+                onClick={() => onSelectPresetAvatar(preset)}
+                style={{
+                  width: "36px",
+                  height: "36px",
+                  borderRadius: "50%",
+                  border: selectedAvatarUrl && selectedAvatarUrl.endsWith(preset.url) ? "3px solid #ffffff" : "2px solid rgba(255,255,255,0.3)",
+                  boxShadow: selectedAvatarUrl && selectedAvatarUrl.endsWith(preset.url) ? "0 0 0 2px #1700c7" : "none",
+                  background: preset.swatch,
+                  cursor: "pointer"
+                }}
+                aria-label={preset.name}
+              />
+            ))}
+          </div>
+        ) : (
+          <Button type="button" preset="basic" onClick={onChangeAvatar}>
+            <FormattedMessage id="avatar-settings-content.change-avatar-button" defaultMessage="Change Avatar" />
+          </Button>
+        )}
       </div>
       <AcceptButton preset="accept" type="submit" />
     </Column>
@@ -71,5 +97,8 @@ AvatarSettingsContent.propTypes = {
   onChangeDisplayName: PropTypes.func,
   onChangePronouns: PropTypes.func,
   avatarPreview: PropTypes.node,
-  onChangeAvatar: PropTypes.func
+  onChangeAvatar: PropTypes.func,
+  presetAvatars: PropTypes.array,
+  onSelectPresetAvatar: PropTypes.func,
+  selectedAvatarUrl: PropTypes.string
 };

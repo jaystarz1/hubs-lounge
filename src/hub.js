@@ -23,6 +23,7 @@ import "./react-components/styles/global.scss";
 import "./assets/stylesheets/globals.scss";
 import "./assets/stylesheets/hub.scss";
 import loadingEnvironment from "./assets/models/LoadingEnvironment.glb";
+import loungeEnvironment from "./assets/models/lounge.glb";
 
 import "aframe";
 import "./utils/aframe-overrides";
@@ -391,20 +392,14 @@ export function remountUI(props) {
 
 export async function getSceneUrlForHub(hub) {
   let sceneUrl;
-  let isLegacyBundle; // Deprecated
-  if (hub.scene) {
-    isLegacyBundle = false;
+  let isLegacyBundle = false; // Deprecated
+  // private-quest-lounge: every room is the lounge. A reticulum-assigned scene
+  // (set deliberately by the operator) still wins, but the default and the
+  // "scene removed" fallback are always the bundled lounge environment.
+  if (hub.scene && hub.scene.model_url) {
     sceneUrl = hub.scene.model_url;
-  } else if (hub.scene === null) {
-    // delisted/removed scene
-    sceneUrl = loadingEnvironment;
   } else {
-    const defaultSpaceTopic = hub.topics[0];
-    const glbAsset = defaultSpaceTopic.assets.find(a => a.asset_type === "glb");
-    const bundleAsset = defaultSpaceTopic.assets.find(a => a.asset_type === "gltf_bundle");
-    sceneUrl = (glbAsset || bundleAsset).src || loadingEnvironment;
-    const hasExtension = /\.gltf/i.test(sceneUrl) || /\.glb/i.test(sceneUrl);
-    isLegacyBundle = !(glbAsset || hasExtension);
+    sceneUrl = loungeEnvironment;
   }
 
   if (qsTruthy("debugLocalScene") && sceneUrl?.startsWith("blob:")) {

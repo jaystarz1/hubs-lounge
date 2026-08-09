@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { fetchAvatar } from "../utils/avatar-utils";
+import { PRESET_AVATARS, absoluteAvatarUrl } from "../lounge/avatars";
 import { replaceHistoryState } from "../utils/history";
 import { AvatarSettingsSidebar } from "./room/AvatarSettingsSidebar";
 import { AvatarSetupModal } from "./room/AvatarSetupModal";
@@ -137,8 +138,10 @@ export default class ProfileEntryPanel extends Component {
       avatarPreview: <AvatarPreview avatarGltfUrl={this.state.avatar && this.state.avatar.gltf_url} />,
       onChangeAvatar: e => {
         e.preventDefault();
-        this.props.mediaSearchStore.sourceNavigateWithNoNav("avatars", "use");
       },
+      presetAvatars: PRESET_AVATARS,
+      selectedAvatarUrl: this.state.avatarId,
+      onSelectPresetAvatar: preset => this.setState({ avatarId: absoluteAvatarUrl(preset.url) }),
       onSubmit: this.saveStateAndFinish,
       onClose: this.props.onClose,
       onBack: this.props.onBack

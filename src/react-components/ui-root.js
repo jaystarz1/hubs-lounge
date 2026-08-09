@@ -1162,35 +1162,11 @@ class UIRoot extends Component {
                 icon: EnterIcon,
                 onClick: () => this.showContextualSignInDialog()
               },
-          canCreateRoom && {
-            id: "create-room",
-            label: <FormattedMessage id="more-menu.create-room" defaultMessage="Create Room" />,
-            icon: AddIcon,
-            onClick: () =>
-              this.showNonHistoriedDialog(LeaveRoomModal, {
-                destinationUrl: "/",
-                reason: LeaveReason.createRoom
-              })
-          },
           !isLockedDownDemo && {
             id: "user-profile",
             label: <FormattedMessage id="more-menu.profile" defaultMessage="Change Name & Avatar" />,
             icon: AvatarIcon,
             onClick: () => this.setSidebar("profile")
-          },
-          {
-            id: "favorite-rooms",
-            label: <FormattedMessage id="more-menu.favorite-rooms" defaultMessage="Favorite Rooms" />,
-            icon: FavoritesIcon,
-            onClick: () =>
-              this.props.performConditionalSignIn(
-                () => this.props.hubChannel.signedIn,
-                () => {
-                  showFullScreenIfAvailable();
-                  this.props.mediaSearchStore.sourceNavigateWithNoNav("favorites", "use");
-                },
-                SignInMessages.favoriteRooms
-              )
           },
           {
             id: "preferences",
@@ -1223,30 +1199,6 @@ class UIRoot extends Component {
               label: <FormattedMessage id="more-menu.invite" defaultMessage="Invite" />,
               icon: InviteIcon,
               onClick: () => this.props.scene.emit("action_invite")
-            },
-          this.isFavorited()
-            ? {
-                id: "unfavorite-room",
-                label: <FormattedMessage id="more-menu.unfavorite-room" defaultMessage="Unfavorite Room" />,
-                icon: StarIcon,
-                onClick: () => this.toggleFavorited()
-              }
-            : {
-                id: "favorite-room",
-                label: <FormattedMessage id="more-menu.favorite-room" defaultMessage="Favorite Room" />,
-                icon: StarOutlineIcon,
-                onClick: () => this.toggleFavorited()
-              },
-          isModerator &&
-            entered && {
-              id: "streamer-mode",
-              label: streaming ? (
-                <FormattedMessage id="more-menu.exit-streamer-mode" defaultMessage="Exit Streamer Mode" />
-              ) : (
-                <FormattedMessage id="more-menu.enter-streamer-mode" defaultMessage="Enter Streamer Mode" />
-              ),
-              icon: CameraIcon,
-              onClick: () => this.toggleStreamerMode()
             },
           (this.props.breakpoint === "sm" || this.props.breakpoint === "md") &&
             entered && {
@@ -1412,12 +1364,7 @@ class UIRoot extends Component {
                     {(!this.props.selectedObject ||
                       (this.props.breakpoint !== "sm" && this.props.breakpoint !== "md")) && (
                       <ContentMenu>
-                        {showObjectList && (
-                          <ObjectsMenuButton
-                            active={this.state.sidebarId === "objects"}
-                            onClick={() => this.toggleSidebar("objects")}
-                          />
-                        )}
+                        {/* private-quest-lounge: Objects menu removed */}
                         <PeopleMenuButton
                           active={this.state.sidebarId === "people"}
                           disabled={isLockedDownDemo}
@@ -1626,24 +1573,8 @@ class UIRoot extends Component {
                     )}
                     {entered && (
                       <>
-                        {!isLockedDownDemo && (
-                          <>
-                            <AudioPopoverButtonContainer scene={this.props.scene} />
-                            <SharePopoverContainer scene={this.props.scene} hubChannel={this.props.hubChannel} />
-                            <PlacePopoverContainer
-                              scene={this.props.scene}
-                              hubChannel={this.props.hubChannel}
-                              mediaSearchStore={this.props.mediaSearchStore}
-                              showNonHistoriedDialog={this.showNonHistoriedDialog}
-                            />
-                          </>
-                        )}
-                        {this.props.hubChannel.can("spawn_emoji") && (
-                          <ReactionPopoverContainer
-                            scene={this.props.scene}
-                            initialPresence={getPresenceProfileForSession(this.props.presences, this.props.sessionId)}
-                          />
-                        )}
+                        {/* private-quest-lounge: Share, Place and Reactions removed — voice controls only */}
+                        {!isLockedDownDemo && <AudioPopoverButtonContainer scene={this.props.scene} />}
                       </>
                     )}
                     {!isLockedDownDemo && (
