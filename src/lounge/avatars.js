@@ -6,6 +6,12 @@ import marigold from "../assets/models/lounge-avatars/avatar-marigold.glb";
 import teal from "../assets/models/lounge-avatars/avatar-teal.glb";
 import indigo from "../assets/models/lounge-avatars/avatar-indigo.glb";
 import plum from "../assets/models/lounge-avatars/avatar-plum.glb";
+import slate from "../assets/models/lounge-avatars/avatar-slate.glb";
+import rust from "../assets/models/lounge-avatars/avatar-rust.glb";
+import forest from "../assets/models/lounge-avatars/avatar-forest.glb";
+import wine from "../assets/models/lounge-avatars/avatar-wine.glb";
+import sand from "../assets/models/lounge-avatars/avatar-sand.glb";
+import night from "../assets/models/lounge-avatars/avatar-night.glb";
 
 export const PRESET_AVATARS = [
   { name: "Amber", swatch: "#a8543a", url: amber },
@@ -13,7 +19,13 @@ export const PRESET_AVATARS = [
   { name: "Marigold", swatch: "#c99a3f", url: marigold },
   { name: "Teal", swatch: "#3f6e7a", url: teal },
   { name: "Indigo", swatch: "#3a4a6e", url: indigo },
-  { name: "Plum", swatch: "#6e3a5c", url: plum }
+  { name: "Plum", swatch: "#6e3a5c", url: plum },
+  { name: "Slate", swatch: "#4a5560", url: slate },
+  { name: "Rust", swatch: "#8a4a32", url: rust },
+  { name: "Forest", swatch: "#3d5c3a", url: forest },
+  { name: "Wine", swatch: "#7a2e3a", url: wine },
+  { name: "Sand", swatch: "#b89a6a", url: sand },
+  { name: "Night", swatch: "#2a3244", url: night }
 ];
 
 export function absoluteAvatarUrl(relativeUrl) {
