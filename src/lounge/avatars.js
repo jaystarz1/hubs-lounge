@@ -12,6 +12,8 @@ import forest from "../assets/models/lounge-avatars/avatar-forest.glb";
 import wine from "../assets/models/lounge-avatars/avatar-wine.glb";
 import sand from "../assets/models/lounge-avatars/avatar-sand.glb";
 import night from "../assets/models/lounge-avatars/avatar-night.glb";
+import red from "../assets/models/lounge-avatars/avatar-red.glb";
+import gray from "../assets/models/lounge-avatars/avatar-gray.glb";
 
 export const PRESET_AVATARS = [
   { name: "Amber", swatch: "#a8543a", url: amber },
@@ -25,7 +27,9 @@ export const PRESET_AVATARS = [
   { name: "Forest", swatch: "#3d5c3a", url: forest },
   { name: "Wine", swatch: "#7a2e3a", url: wine },
   { name: "Sand", swatch: "#b89a6a", url: sand },
-  { name: "Night", swatch: "#2a3244", url: night }
+  { name: "Night", swatch: "#2a3244", url: night },
+  { name: "Her", swatch: "#9a5636", url: red },
+  { name: "Him", swatch: "#8a8a84", url: gray }
 ];
 
 export function absoluteAvatarUrl(relativeUrl) {

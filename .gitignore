@@ -72,3 +72,5 @@ results/
 .ret.credentials
 src/assets/locales/en.json
 src/assets/locales/extracted-messages.json
+src/assets/models/lounge-avatars/avatar-red.glb
+src/assets/models/lounge-avatars/avatar-gray.glb
