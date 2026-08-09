@@ -250,18 +250,22 @@ module.exports = async (env, argv) => {
     }
 
     if (env.localDev) {
-      const localDevHost = "hubs.local";
+      // private-quest-lounge: PUBLIC_HOST/PUBLIC_ASSETS_HOST switch the local
+      // dev stack to public tunnel hostnames (portless, behind Cloudflare).
+      const publicHost = process.env.PUBLIC_HOST;
+      const publicAssetsHost = process.env.PUBLIC_ASSETS_HOST;
+      const localDevHost = publicHost || "hubs.local";
       // Local Dev Environment (npm run local)
       Object.assign(process.env, {
         HOST: localDevHost,
         RETICULUM_SOCKET_SERVER: localDevHost,
-        CORS_PROXY_SERVER: "hubs-proxy.local:4000",
-        NON_CORS_PROXY_DOMAINS: `${localDevHost},dev.reticulum.io`,
-        BASE_ASSETS_PATH: `https://${localDevHost}:8080/`,
-        RETICULUM_SERVER: `${localDevHost}:4000`,
+        CORS_PROXY_SERVER: publicHost ? `${publicHost}/cors-proxy` : "hubs-proxy.local:4000",
+        NON_CORS_PROXY_DOMAINS: `${localDevHost},${publicAssetsHost || "hubs.local"},dev.reticulum.io`,
+        BASE_ASSETS_PATH: publicAssetsHost ? `https://${publicAssetsHost}/` : `https://${localDevHost}:8080/`,
+        RETICULUM_SERVER: publicHost ? publicHost : `${localDevHost}:4000`,
         POSTGREST_SERVER: "",
         ITA_SERVER: "",
-        UPLOADS_HOST: `https://${localDevHost}:4000`
+        UPLOADS_HOST: publicHost ? `https://${publicHost}` : `https://${localDevHost}:4000`
       });
     }
   }
@@ -363,7 +367,9 @@ module.exports = async (env, argv) => {
       },
       host: "0.0.0.0",
       port: 8080,
-      allowedHosts: [host, internalHostname],
+      allowedHosts: [host, internalHostname, process.env.PUBLIC_HOST, process.env.PUBLIC_ASSETS_HOST].filter(
+        Boolean
+      ),
       headers: devServerHeaders,
       hot: liveReload,
       liveReload: liveReload,
