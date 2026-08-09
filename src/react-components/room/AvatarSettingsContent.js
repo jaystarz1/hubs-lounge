@@ -53,33 +53,48 @@ export function AvatarSettingsContent({
       />
       <div className={styles.avatarPreviewContainer}>
         {avatarPreview || <div />}
-        {presetAvatars && presetAvatars.length > 0 ? (
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", justifyContent: "center", marginTop: "8px" }}>
-            {presetAvatars.map(preset => (
+        {!(presetAvatars && presetAvatars.length > 0) && (
+          <Button type="button" preset="basic" onClick={onChangeAvatar}>
+            <FormattedMessage id="avatar-settings-content.change-avatar-button" defaultMessage="Change Avatar" />
+          </Button>
+        )}
+      </div>
+      {presetAvatars && presetAvatars.length > 0 && (
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "10px",
+            justifyContent: "center",
+            padding: "10px 4px",
+            maxHeight: "150px",
+            overflowY: "auto"
+          }}
+        >
+          {presetAvatars.map(preset => {
+            const selected = selectedAvatarUrl && selectedAvatarUrl.endsWith(preset.url);
+            return (
               <button
                 key={preset.name}
                 type="button"
                 title={preset.name}
                 onClick={() => onSelectPresetAvatar(preset)}
                 style={{
-                  width: "36px",
-                  height: "36px",
+                  width: "44px",
+                  height: "44px",
                   borderRadius: "50%",
-                  border: selectedAvatarUrl && selectedAvatarUrl.endsWith(preset.url) ? "3px solid #ffffff" : "2px solid rgba(255,255,255,0.3)",
-                  boxShadow: selectedAvatarUrl && selectedAvatarUrl.endsWith(preset.url) ? "0 0 0 2px #1700c7" : "none",
+                  border: selected ? "3px solid #ffffff" : "2px solid rgba(128,128,128,0.5)",
+                  boxShadow: selected ? "0 0 0 3px #1700c7" : "0 1px 3px rgba(0,0,0,0.3)",
                   background: preset.swatch,
-                  cursor: "pointer"
+                  cursor: "pointer",
+                  flex: "0 0 auto"
                 }}
                 aria-label={preset.name}
               />
-            ))}
-          </div>
-        ) : (
-          <Button type="button" preset="basic" onClick={onChangeAvatar}>
-            <FormattedMessage id="avatar-settings-content.change-avatar-button" defaultMessage="Change Avatar" />
-          </Button>
-        )}
-      </div>
+            );
+          })}
+        </div>
+      )}
       <AcceptButton preset="accept" type="submit" />
     </Column>
   );
