@@ -15,6 +15,7 @@ import night from "../assets/models/lounge-avatars/avatar-night.glb";
 import red from "../assets/models/lounge-avatars/avatar-red.glb";
 import gray from "../assets/models/lounge-avatars/avatar-gray.glb";
 import red2 from "../assets/models/lounge-avatars/avatar-red2.glb";
+import jay from "../assets/models/lounge-avatars/avatar-jay.glb";
 
 export const PRESET_AVATARS = [
   { name: "Amber", swatch: "#a8543a", url: amber },
@@ -31,7 +32,8 @@ export const PRESET_AVATARS = [
   { name: "Night", swatch: "#2a3244", url: night },
   { name: "Her", swatch: "#9a5636", url: red },
   { name: "Him", swatch: "#8a8a84", url: gray },
-  { name: "Her 2", swatch: "#3e6b58", url: red2 }
+  { name: "Her 2", swatch: "#3e6b58", url: red2 },
+  { name: "Jay", swatch: "#c86a4a", url: jay }
 ];
 
 export function absoluteAvatarUrl(relativeUrl) {
