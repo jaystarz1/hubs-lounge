@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FormattedMessage, useIntl } from "react-intl";
 import classNames from "classnames";
 import configs from "../../utils/configs";
@@ -20,6 +20,89 @@ import { SignInButton } from "./SignInButton";
 import { AppLogo } from "../misc/AppLogo";
 import { isHmc } from "../../utils/isHmc";
 import maskEmail from "../../utils/mask-email";
+
+// private-quest-lounge: PIN entry that decrypts the room URL client-side.
+// The bundle holds only PBKDF2 salt + AES-GCM ciphertext of the room path.
+function LoungePinGate() {
+  const gate = process.env.LOUNGE_PIN_GATE;
+  const [pin, setPin] = useState("");
+  const [error, setError] = useState(false);
+  const [busy, setBusy] = useState(false);
+
+  const submit = async e => {
+    e.preventDefault();
+    if (!pin || busy) return;
+    setBusy(true);
+    setError(false);
+    try {
+      const b64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+      const keyMaterial = await crypto.subtle.importKey(
+        "raw",
+        new TextEncoder().encode(pin),
+        "PBKDF2",
+        false,
+        ["deriveKey"]
+      );
+      const key = await crypto.subtle.deriveKey(
+        { name: "PBKDF2", salt: b64(gate.salt), iterations: gate.iterations, hash: "SHA-256" },
+        keyMaterial,
+        { name: "AES-GCM", length: 256 },
+        false,
+        ["decrypt"]
+      );
+      const plaintext = await crypto.subtle.decrypt({ name: "AES-GCM", iv: b64(gate.iv) }, key, b64(gate.ct));
+      window.location = new TextDecoder().decode(plaintext);
+    } catch (_e) {
+      setError(true);
+      setBusy(false);
+    }
+  };
+
+  return (
+    <form
+      onSubmit={submit}
+      style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px", padding: "24px 0" }}
+    >
+      <div style={{ fontSize: "1.15em" }}>Enter the PIN to join the lounge</div>
+      <input
+        type="password"
+        inputMode="numeric"
+        autoComplete="off"
+        value={pin}
+        onChange={e => {
+          setPin(e.target.value);
+          setError(false);
+        }}
+        style={{
+          fontSize: "1.6em",
+          letterSpacing: "0.4em",
+          textAlign: "center",
+          width: "9em",
+          padding: "10px",
+          borderRadius: "8px",
+          border: error ? "2px solid #d44" : "2px solid #888"
+        }}
+        aria-label="Lounge PIN"
+      />
+      {error && <div style={{ color: "#d44" }}>That&apos;s not it — try again.</div>}
+      <button
+        type="submit"
+        disabled={busy}
+        style={{
+          fontSize: "1.1em",
+          padding: "10px 28px",
+          borderRadius: "22px",
+          border: "none",
+          background: "#1700c7",
+          color: "#fff",
+          cursor: "pointer"
+        }}
+      >
+        {busy ? "Checking..." : "Enter"}
+      </button>
+    </form>
+  );
+}
 
 export function HomePage() {
   const auth = useContext(AuthContext);
@@ -77,9 +160,13 @@ export function HomePage() {
             <AppLogo />
           </div>
           <div className={styles.appInfo}>
-            <div className={styles.appDescription}>{configs.translation("app-description")}</div>
+            {process.env.LOUNGE_PIN_GATE ? (
+              <LoungePinGate />
+            ) : (
+              <div className={styles.appDescription}>{configs.translation("app-description")}</div>
+            )}
             {canCreateRooms && <CreateRoomButton />}
-            <PWAButton />
+            {!process.env.LOUNGE_PIN_GATE && <PWAButton />}
           </div>
           <div className={styles.heroImageContainer}>
             <img

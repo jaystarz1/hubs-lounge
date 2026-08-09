@@ -754,6 +754,29 @@ module.exports = async (env, argv) => {
       // Define process.env variables in the browser context.
       new webpack.DefinePlugin({
         "process.env": JSON.stringify({
+          LOUNGE_PIN_GATE: (() => {
+            // private-quest-lounge: encrypt the room path with the PIN at build
+            // time. The bundle carries only salt/iv/ciphertext; the right PIN
+            // decrypts to the room URL client-side.
+            if (!process.env.LOUNGE_PIN || !process.env.LOUNGE_ROOM_PATH) return null;
+            const nodeCrypto = require("crypto");
+            const salt = nodeCrypto.randomBytes(16);
+            const iv = nodeCrypto.randomBytes(12);
+            const iterations = 310000;
+            const key = nodeCrypto.pbkdf2Sync(process.env.LOUNGE_PIN, salt, iterations, 32, "sha256");
+            const cipher = nodeCrypto.createCipheriv("aes-256-gcm", key, iv);
+            const ct = Buffer.concat([
+              cipher.update(process.env.LOUNGE_ROOM_PATH, "utf8"),
+              cipher.final(),
+              cipher.getAuthTag()
+            ]);
+            return {
+              salt: salt.toString("base64"),
+              iv: iv.toString("base64"),
+              ct: ct.toString("base64"),
+              iterations
+            };
+          })(),
           NODE_ENV: argv.mode,
           SHORTLINK_DOMAIN: process.env.SHORTLINK_DOMAIN,
           RETICULUM_SERVER: process.env.RETICULUM_SERVER,
