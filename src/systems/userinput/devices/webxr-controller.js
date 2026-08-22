@@ -26,6 +26,8 @@ export class WebXRControllerDevice {
 
     const hand = this.gamepad.hand || "right";
     const path = paths.device.webxr[hand];
+    const pose = xrFrame.getPose(this.gamepad.targetRaySpace, referenceSpace);
+    const isTracked = !!(pose && pose.transform.position && pose.transform.orientation);
 
     if (this.gamepad.buttons[0]) {
       frame.setValueType(path.button.trigger.pressed, this.gamepad.buttons[0].pressed);
@@ -63,11 +65,19 @@ export class WebXRControllerDevice {
       frame.setValueType(path.button.b.value, this.gamepad.buttons[5].value);
     }
 
-    if (this.gamepad.axes.length >= 4) {
+    if (isTracked && this.gamepad.axes.length >= 4) {
       frame.setValueType(path.axis.touchpadX, this.gamepad.axes[0]);
       frame.setValueType(path.axis.touchpadY, this.gamepad.axes[1]);
       frame.setValueType(path.axis.joyX, this.gamepad.axes[2]);
       frame.setValueType(path.axis.joyY, this.gamepad.axes[3]);
+    } else {
+      // WebXR can leave the last gamepad sample in place when a controller
+      // temporarily loses tracking. Always publish a neutral sample so motion
+      // and turning cannot remain latched until the page is refreshed.
+      frame.setValueType(path.axis.touchpadX, 0);
+      frame.setValueType(path.axis.touchpadY, 0);
+      frame.setValueType(path.axis.joyX, 0);
+      frame.setValueType(path.axis.joyY, 0);
     }
     this.rayObject = this.rayObject || document.querySelector(this.selector).object3D;
     this.rayObject.updateMatrixWorld();
@@ -79,9 +89,7 @@ export class WebXRControllerDevice {
 
     frame.setPose(path.pose, this.pose);
 
-    const pose = xrFrame.getPose(this.gamepad.targetRaySpace, referenceSpace);
-
-    if (pose && pose.transform.position && pose.transform.orientation) {
+    if (isTracked) {
       this.position.copy(pose.transform.position);
       this.orientation.copy(pose.transform.orientation);
       this.matrix.compose(this.position, this.orientation, ONES);

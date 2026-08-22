@@ -94,8 +94,8 @@ export const keyboardMouseUserBindings = addSetsToBindings({
     },
     {
       src: { value: paths.device.keyboard.key("q") },
-      dest: { value: paths.actions.snapRotateLeft },
-      xform: xforms.rising
+      dest: { value: paths.actions.smoothRotateLeft },
+      xform: xforms.copy
     },
     {
       src: { value: paths.device.keyboard.key("g") },
@@ -109,8 +109,8 @@ export const keyboardMouseUserBindings = addSetsToBindings({
     },
     {
       src: { value: paths.device.keyboard.key("e") },
-      dest: { value: paths.actions.snapRotateRight },
-      xform: xforms.rising
+      dest: { value: paths.actions.smoothRotateRight },
+      xform: xforms.copy
     },
     {
       src: { value: paths.device.keyboard.key("b") },
@@ -542,8 +542,8 @@ export const keyboardMouseUserBindings = addSetsToBindings({
     },
     {
       src: { value: "/var/notshift+q" },
-      dest: { value: paths.actions.snapRotateLeft },
-      xform: xforms.rising,
+      dest: { value: paths.actions.smoothRotateLeft },
+      xform: xforms.copy,
       priority: 200
     },
     {
@@ -557,8 +557,8 @@ export const keyboardMouseUserBindings = addSetsToBindings({
     },
     {
       src: { value: "/var/notshift+e" },
-      dest: { value: paths.actions.snapRotateRight },
-      xform: xforms.rising,
+      dest: { value: paths.actions.smoothRotateRight },
+      xform: xforms.copy,
       priority: 200
     },
     {

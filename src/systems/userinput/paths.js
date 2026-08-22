@@ -6,6 +6,9 @@ paths.actions.toggleScreenShare = "/actions/toggleScreenShare";
 paths.actions.snapRotateLeft = "/actions/snapRotateLeft";
 paths.actions.snapRotateRight = "/actions/snapRotateRight";
 paths.actions.angularVelocity = "/actions/angularVelocity";
+// lounge: smooth (continuous) rotation — analog via angularVelocity, held keys below
+paths.actions.smoothRotateLeft = "/actions/smoothRotateLeft";
+paths.actions.smoothRotateRight = "/actions/smoothRotateRight";
 paths.actions.logDebugFrame = "/actions/logDebugFrame";
 paths.actions.logInteractionState = "/actions/logInteractionState";
 paths.actions.debugUserInput = {};

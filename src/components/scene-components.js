@@ -2,6 +2,7 @@ import "./animation";
 import "./ambient-light";
 import "./animation-mixer";
 import "./audio-feedback";
+import "./avatar-arm-ik";
 import "./slice9";
 import "./css-class";
 import "./directional-light";

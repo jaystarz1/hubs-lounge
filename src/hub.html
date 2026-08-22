@@ -131,7 +131,7 @@
 
                     <a-entity class="model" gltf-model-plus="inflate: true">
                         <template data-name="AvatarRoot">
-                            <a-entity ik-controller hand-pose__left hand-pose__right networked-audio-analyser>
+                            <a-entity ik-controller avatar-arm-ik hand-pose__left hand-pose__right networked-audio-analyser>
                             </a-entity>
                         </template>
 
@@ -814,7 +814,7 @@
 
             <a-entity gltf-model-plus="inflate: true;" class="model">
                 <template data-name="AvatarRoot">
-                    <a-entity ik-controller="alwaysUpdate: true" disable-frustum-culling hand-pose__left
+                    <a-entity ik-controller="alwaysUpdate: true" avatar-arm-ik disable-frustum-culling hand-pose__left
                         hand-pose__right
                         hand-pose-controller__left="networkedAvatar:#avatar-rig;eventSrc:#player-left-controller"
                         hand-pose-controller__right="networkedAvatar:#avatar-rig;eventSrc:#player-right-controller"></a-entity>
@@ -847,6 +847,9 @@
             body-helper="type: static; mass: 0; collisionFilterGroup: 2; collisionFilterMask: 1;">
             <a-entity id="environment-scene"></a-entity>
         </a-entity>
+
+        <!-- private-quest-lounge: window-view switcher (arrows by the glass wall) -->
+        <a-entity lounge-view-switcher></a-entity>
 
         <!-- Objects -->
         <a-entity id="objects-root">

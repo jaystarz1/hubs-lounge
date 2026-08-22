@@ -34,12 +34,6 @@ const WEBCAM_SIMULCAST_ENCODINGS = [
   { scaleResolutionDownBy: 1, maxBitrate: 5000000 }
 ];
 
-// Used for simulcast screen sharing.
-const SCREEN_SHARING_SIMULCAST_ENCODINGS = [
-  { dtx: true, maxBitrate: 1500000 },
-  { dtx: true, maxBitrate: 6000000 }
-];
-
 export const DIALOG_CONNECTION_CONNECTED = "dialog-connection-connected";
 export const DIALOG_CONNECTION_ERROR_FATAL = "dialog-connection-error-fatal";
 
@@ -61,6 +55,10 @@ export class DialogAdapter extends EventEmitter {
     this.scene = null;
     this._serverParams = {};
     this._consumerStats = {};
+    this._iceRecovery = {
+      send: { timer: null, inFlight: false, lastAttempt: 0 },
+      recv: { timer: null, inFlight: false, lastAttempt: 0 }
+    };
   }
 
   get consumerStats() {
@@ -193,10 +191,7 @@ export class DialogAdapter extends EventEmitter {
    * @param {boolean} connectionState The transport connnection state (ICE connection state)
    */
   checkSendIceStatus(connectionState) {
-    // If the ICE connection state is failed, we force an ICE restart
-    if (connectionState === "failed") {
-      this.restartSendICE();
-    }
+    this.updateIceRecovery("send", connectionState);
   }
 
   async recreateRecvTransport(iceServers) {
@@ -235,9 +230,43 @@ export class DialogAdapter extends EventEmitter {
    * @param {boolean} connectionState The transport connection state (ICE connection state)
    */
   checkRecvIceStatus(connectionState) {
-    // If the ICE connection state is failed, we force an ICE restart
-    if (connectionState === "failed") {
-      this.restartRecvICE();
+    this.updateIceRecovery("recv", connectionState);
+  }
+
+  updateIceRecovery(kind, connectionState) {
+    const recovery = this._iceRecovery[kind];
+    if (connectionState === "connected") {
+      if (recovery.timer) clearTimeout(recovery.timer);
+      recovery.timer = null;
+      recovery.lastAttempt = 0;
+      return;
+    }
+    if (connectionState !== "failed" || recovery.timer || recovery.inFlight) return;
+
+    // A failed transport can emit the same state repeatedly. Unbounded immediate
+    // restarts create an ICE storm and make recovery less likely, so permit one
+    // attempt per 30 seconds for each direction.
+    const delay = Math.max(0, 30000 - (Date.now() - recovery.lastAttempt));
+    recovery.timer = setTimeout(async () => {
+      recovery.timer = null;
+      if (!this._protoo?.connected) return;
+      recovery.inFlight = true;
+      recovery.lastAttempt = Date.now();
+      try {
+        if (kind === "send") await this.restartSendICE();
+        else await this.restartRecvICE();
+      } finally {
+        recovery.inFlight = false;
+      }
+    }, delay);
+  }
+
+  clearIceRecovery() {
+    for (const recovery of Object.values(this._iceRecovery)) {
+      if (recovery.timer) clearTimeout(recovery.timer);
+      recovery.timer = null;
+      recovery.inFlight = false;
+      recovery.lastAttempt = 0;
     }
   }
 
@@ -258,7 +287,17 @@ export class DialogAdapter extends EventEmitter {
     // TODO: Establishing connection could take a very long time.
     //       Inform the user if we are stuck here.
     const protooTransport = new protooClient.WebSocketTransport(urlWithParams.toString(), {
-      retry: { retries: 2 }
+      // Quest can pause sockets briefly during focus changes or Wi-Fi roaming.
+      // Two retries only covered a few seconds and turned a transient network
+      // interruption into a fatal media failure. Keep retrying for roughly one
+      // minute, with jitter so two headsets do not reconnect in lockstep.
+      retry: {
+        retries: 10,
+        factor: 1.7,
+        minTimeout: 500,
+        maxTimeout: 8000,
+        randomize: true
+      }
     });
     this._protoo = new protooClient.Peer(protooTransport);
 
@@ -840,8 +879,13 @@ export class DialogAdapter extends EventEmitter {
     this._shareProducer = await this._sendTransport.produce({
       track,
       stopTracks: false,
-      codecOptions: { videoGoogleStartBitrate: 1000 },
-      encodings: SCREEN_SHARING_SIMULCAST_ENCODINGS,
+      // lounge: 2-person room — no simulcast; one crisp high-bitrate layer so
+      // text (VS Code, docs) survives. Start high so it sharpens immediately.
+      // VP9 tested 2026-08-09: desktop Chrome decodes it, Quest browser shows
+      // nothing. Stay on VP8 (default) — the bitrate/1440p/contentHint gains
+      // carry the sharpness.
+      codecOptions: { videoGoogleStartBitrate: 4000 },
+      encodings: [{ dtx: true, maxBitrate: 10000000 }],
       zeroRtpOnPause: true,
       disableTrackOnPause: true,
       appData: {
@@ -905,6 +949,7 @@ export class DialogAdapter extends EventEmitter {
   }
 
   cleanUpLocalState() {
+    this.clearIceRecovery();
     this._sendTransport && this._sendTransport.close();
     this._sendTransport = null;
     this._recvTransport && this._recvTransport.close();

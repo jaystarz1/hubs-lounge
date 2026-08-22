@@ -109,7 +109,13 @@ export class CharacterControllerSystem {
     const finalScale = new THREE.Vector3();
     const finalPosition = new THREE.Vector3();
     const finalPOV = new THREE.Matrix4();
-    return function travelByWaypoint(inMat4, snapToNavMesh, willMaintainInitialOrientation) {
+    return function travelByWaypoint(
+      inMat4,
+      snapToNavMesh,
+      willMaintainInitialOrientation,
+      willMaintainWorldUp = true,
+      eyeHeight = 1.6
+    ) {
       this.avatarPOV.object3D.updateMatrices();
       if (!this.fly && !snapToNavMesh) {
         this.fly = true;
@@ -130,12 +136,9 @@ export class CharacterControllerSystem {
         translation.makeTranslation(0, getCurrentPlayerHeight(), -0.15);
       } else {
         // If we are not snapping to the nav mesh, align the user's
-        // perspective exactly to the robot eyes as they appear in the
-        // waypoint indicator. (1.6 meters up and 0.15 meters forward)
-        // This does _not_ require taking the player's height into account
-        // on this line because we are only interested in where the
-        // camera will end up.
-        translation.makeTranslation(0, 1.6, -0.15);
+        // perspective to the authored eye height. Ordinary waypoints use
+        // 1.6 m, while furniture can opt into a true seated eye height.
+        translation.makeTranslation(0, eyeHeight, -0.15);
       }
       finalPOV.multiply(translation);
       if (willMaintainInitialOrientation) {
@@ -144,7 +147,9 @@ export class CharacterControllerSystem {
         finalPosition.setFromMatrixPosition(finalPOV);
         finalPOV.copy(initialOrientation).scale(finalScale).setPosition(finalPosition);
       }
-      calculateCameraTransformForWaypoint(this.avatarPOV.object3D.matrixWorld, finalPOV, finalPOV);
+      if (willMaintainWorldUp) {
+        calculateCameraTransformForWaypoint(this.avatarPOV.object3D.matrixWorld, finalPOV, finalPOV);
+      }
       childMatch(this.avatarRig.object3D, this.avatarPOV.object3D, finalPOV);
     };
   })();
@@ -173,6 +178,17 @@ export class CharacterControllerSystem {
       const vrMode = this.scene.is("vr-mode");
       this.sfx = this.sfx || this.scene.systems["hubs-systems"].soundEffectsSystem;
       this.waypointSystem = this.waypointSystem || this.scene.systems["hubs-systems"].waypointSystem;
+
+      // lounge: global eye/avatar lift — +0.50 m everywhere, dropping to
+      // +0.15 m (0.50 − 0.35) while parked on a seat waypoint
+      // (isMotionDisabled), so bodies sink into the cushions. The lift is
+      // removed here, before any waypoint/nav-mesh math runs in un-lifted
+      // space, and re-added just before the final childMatch — otherwise it
+      // would accumulate every tick or get wiped by the nav snap.
+      if (this.loungeLift) {
+        this.avatarRig.object3D.position.y -= this.loungeLift;
+        this.avatarRig.object3D.matrixNeedsUpdate = true;
+      }
 
       if (!this.activeWaypoint && this.waypoints.length) {
         this.activeWaypoint = this.waypoints.splice(0, 1)[0];
@@ -213,14 +229,18 @@ export class CharacterControllerSystem {
         this.travelByWaypoint(
           interpolatedWaypoint,
           false,
-          this.activeWaypoint.waypointComponentData.willMaintainInitialOrientation
+          this.activeWaypoint.waypointComponentData.willMaintainInitialOrientation,
+          this.activeWaypoint.waypointComponentData.willMaintainWorldUp,
+          this.activeWaypoint.waypointComponentData.eyeHeight
         );
       }
       if (this.activeWaypoint && (this.waypoints.length || animationIsOver)) {
         this.travelByWaypoint(
           this.activeWaypoint.transform,
           this.activeWaypoint.waypointComponentData.snapToNavMesh,
-          this.activeWaypoint.waypointComponentData.willMaintainInitialOrientation
+          this.activeWaypoint.waypointComponentData.willMaintainInitialOrientation,
+          this.activeWaypoint.waypointComponentData.willMaintainWorldUp,
+          this.activeWaypoint.waypointComponentData.eyeHeight
         );
         freePooledMatrix4(this.activeWaypoint.transform);
         this.activeWaypoint = null;
@@ -253,6 +273,17 @@ export class CharacterControllerSystem {
       }
       if (snapRotateLeft || snapRotateRight) {
         this.scene.systems["hubs-systems"].soundEffectsSystem.playSoundOneShot(SOUND_SNAP_ROTATE);
+      }
+      // lounge: smooth rotation — analog stick rate plus held Q/E keys.
+      // Works while seated: dXZ is applied before the isMotionDisabled gate.
+      const SMOOTH_TURN_RAD_PER_SEC = (120 * Math.PI) / 180;
+      const analogTurn = userinput.get(paths.actions.angularVelocity) || 0;
+      const keyTurn =
+        (userinput.get(paths.actions.smoothRotateRight) ? 1 : 0) -
+        (userinput.get(paths.actions.smoothRotateLeft) ? 1 : 0);
+      const turnRate = Math.abs(analogTurn) > Math.abs(keyTurn) ? analogTurn : keyTurn;
+      if (turnRate !== 0) {
+        this.dXZ -= turnRate * SMOOTH_TURN_RAD_PER_SEC * (dt / 1000);
       }
       const characterAcceleration = userinput.get(paths.actions.characterAcceleration);
       const hasCharacterAcceleration = characterAcceleration && (characterAcceleration[0] || characterAcceleration[1]);
@@ -348,6 +379,13 @@ export class CharacterControllerSystem {
           }
         }
       }
+
+      // lounge: re-apply the lift (eased so sitting/standing glides, not pops).
+      const targetLift = this.isMotionDisabled ? 0.15 : 0.5;
+      if (this.loungeLift === undefined) this.loungeLift = targetLift;
+      const maxLiftStep = (dt / 1000) * 1.5;
+      this.loungeLift += THREE.MathUtils.clamp(targetLift - this.loungeLift, -maxLiftStep, maxLiftStep);
+      newPOV.elements[13] += this.loungeLift;
 
       childMatch(this.avatarRig.object3D, this.avatarPOV.object3D, newPOV);
       this.relativeMotion.copy(this.nextRelativeMotion);

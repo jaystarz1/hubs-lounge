@@ -16,9 +16,14 @@ const calculateIconTransform = (function () {
     waypoint.updateMatrices();
     viewingCamera.updateMatrices();
     affixToWorldUp(m1.copy(waypoint.matrixWorld), m1).extractBasis(v1, up, backward);
+    const iconHeight = waypoint.name.startsWith("Seat_Bed_")
+      ? 0.45
+      : waypoint.name.startsWith("Seat_HotTub_")
+        ? 0.3
+        : 1.6;
     position
       .setFromMatrixPosition(waypoint.matrixWorld)
-      .add(v1.addVectors(up.multiplyScalar(1.6), backward.multiplyScalar(0.15)));
+      .add(v1.addVectors(up.multiplyScalar(iconHeight), backward.multiplyScalar(0.15)));
     camToWaypoint.subVectors(position, v1.setFromMatrixPosition(viewingCamera.matrixWorld));
     const distance = camToWaypoint.length();
     const minDistance = distance < 0.2 * v1.setFromMatrixColumn(viewingCamera.matrixWorld, 0).length();
@@ -379,7 +384,11 @@ export class WaypointSystem {
         elementFromTemplate.classList.contains("teleport-waypoint-icon") ||
         elementFromTemplate.classList.contains("occupiable-waypoint-icon")
       ) {
-        elementFromTemplate.object3D.visible = this.scene.is("frozen");
+        // Bed targets must be discoverable without knowing that freeze mode
+        // reveals ordinary seat markers.
+        const waypointName = waypointComponent.el.object3D.name;
+        const isFeatureWaypoint = waypointName.startsWith("Seat_Bed_") || waypointName.startsWith("Seat_HotTub_");
+        elementFromTemplate.object3D.visible = this.scene.is("frozen") || isFeatureWaypoint;
         if (elementFromTemplate.object3D.visible) {
           this.viewingCamera = this.viewingCamera || document.getElementById("viewing-camera").object3DMap.camera;
           setMatrixWorld(
@@ -407,6 +416,7 @@ AFRAME.registerComponent("waypoint", {
     snapToNavMesh: { default: false },
     willMaintainInitialOrientation: { default: false },
     willMaintainWorldUp: { default: true },
+    eyeHeight: { default: 1.6 },
     isOccupied: { default: false }
   },
   init() {

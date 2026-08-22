@@ -42,6 +42,9 @@ patchWebGLRenderingContext();
 
 import "networked-aframe/src/index";
 import "webrtc-adapter";
+import "./lounge/view-switcher";
+import "./lounge/tv";
+import { remapStaleAvatarId } from "./lounge/avatars";
 import { detectOS, detect } from "detect-browser";
 import {
   getReticulumFetchUrl,
@@ -221,6 +224,7 @@ preload(
 
 const store = window.APP.store;
 store.update({ preferences: { shouldPromptForRefresh: false } }); // Clear flag that prompts for refresh from preference screen
+remapStaleAvatarId(store); // stored preset avatar URLs go stale on every rebuild (content hash)
 const mediaSearchStore = window.APP.mediaSearchStore;
 const OAUTH_FLOW_PERMS_TOKEN_KEY = "ret-oauth-flow-perms-token";
 const NOISY_OCCUPANT_COUNT = 30; // Above this # of occupants, we stop posting join/leaves/renames
@@ -392,7 +396,7 @@ export function remountUI(props) {
 
 export async function getSceneUrlForHub(hub) {
   let sceneUrl;
-  let isLegacyBundle = false; // Deprecated
+  const isLegacyBundle = false; // Deprecated
   // private-quest-lounge: every room is the lounge. A reticulum-assigned scene
   // (set deliberately by the operator) still wins, but the default and the
   // "scene removed" fallback are always the bundled lounge environment.
@@ -1078,6 +1082,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   window.addEventListener("beforeunload", () => (isReloading = true));
 
   const socket = await connectToReticulum(isDebug);
+  let disconnectTimer = null;
+
+  socket.onOpen(() => {
+    if (disconnectTimer) {
+      clearTimeout(disconnectTimer);
+      disconnectTimer = null;
+    }
+  });
 
   socket.onClose(e => {
     // We don't currently have an easy way to distinguish between being kicked (server closes socket)
@@ -1085,9 +1097,16 @@ document.addEventListener("DOMContentLoaded", async () => {
     // latter are probably more common. Either way, we just tell the user they got disconnected.
     const NORMAL_CLOSURE = 1000;
 
-    if (e.code === NORMAL_CLOSURE && !isReloading) {
-      entryManager.exitScene();
-      remountUI({ roomUnavailableReason: ExitReason.disconnected });
+    if (e.code === NORMAL_CLOSURE && !isReloading && !disconnectTimer) {
+      // Phoenix reconnects automatically. Give transient Wi-Fi and tunnel
+      // interruptions time to recover before tearing down the 3D session.
+      disconnectTimer = setTimeout(() => {
+        disconnectTimer = null;
+        if (!socket.isConnected() && !isReloading) {
+          entryManager.exitScene();
+          remountUI({ roomUnavailableReason: ExitReason.disconnected });
+        }
+      }, 15000);
     }
   });
 

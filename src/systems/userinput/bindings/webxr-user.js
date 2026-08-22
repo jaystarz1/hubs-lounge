@@ -32,6 +32,7 @@ const rightDpadWest = v("rightDpad/west");
 const rightDpadCenter = v("rightDpad/center");
 const rightJoy = v("right/joy");
 const rightJoyY1 = v("right/joyY1");
+const rightTurnX = v("right/turn/x");
 const rightJoyYDeadzoned = v("right/joy/y/deadzoned");
 const leftDpadNorth = v("leftDpad/north");
 const leftDpadSouth = v("leftDpad/south");
@@ -194,10 +195,16 @@ export const webXRUserBindings = addSetsToBindings({
       xform: xforms.vec2dpad(0.2, false, true)
     },
     {
-      src: { value: rightDpadEast },
-      dest: { value: paths.actions.snapRotateRight },
-      xform: xforms.rising,
-      priority: 1
+      // Require a live thumb contact as well as meaningful stick travel. This
+      // prevents a stale WebXR axis sample from becoming continuous rotation.
+      src: { value: rightAxis.joyX },
+      dest: { value: rightTurnX },
+      xform: xforms.deadzone(0.25)
+    },
+    {
+      src: { value: rightTurnX, bool: rightButton.thumbStick.touched },
+      dest: { value: paths.actions.angularVelocity },
+      xform: xforms.copyIfTrue
     },
     {
       src: [leftButton.a.pressed, rightButton.a.pressed],
@@ -208,12 +215,6 @@ export const webXRUserBindings = addSetsToBindings({
       src: [leftButton.b.pressed, rightButton.b.pressed],
       dest: { value: upperButtons },
       xform: xforms.any
-    },
-    {
-      src: { value: rightDpadWest },
-      dest: { value: paths.actions.snapRotateLeft },
-      xform: xforms.rising,
-      priority: 1
     },
     {
       src: { value: leftAxis.joyY },

@@ -36,6 +36,7 @@ const rightJoy = `${name}right/joy`;
 const rightJoyY1 = `${name}right/joyY1`;
 const rightJoyY2 = `${name}right/joyY2`;
 const rightJoyYDeadzoned = `${name}right/joy/y/deadzoned`;
+const rightTurnX = `${name}right/turn/x`;
 const leftDpadNorth = `${name}leftDpad/north`;
 const leftDpadSouth = `${name}leftDpad/south`;
 const leftDpadEast = `${name}leftDpad/east`;
@@ -292,9 +293,15 @@ export const oculusTouchUserBindings = addSetsToBindings({
       xform: xforms.rising
     },
     {
-      src: [rightTouchSnapRight, keyboardSnapRight],
-      dest: { value: paths.actions.snapRotateRight },
-      xform: xforms.any
+      // Require a live thumb contact as well as meaningful stick travel.
+      src: { value: rightAxis("joyX") },
+      dest: { value: rightTurnX },
+      xform: xforms.deadzone(0.25)
+    },
+    {
+      src: { value: rightTurnX, bool: rightButton("thumbStick").touched },
+      dest: { value: paths.actions.angularVelocity },
+      xform: xforms.copyIfTrue
     },
     {
       src: { value: paths.device.keyboard.key("Tab") },
@@ -345,11 +352,6 @@ export const oculusTouchUserBindings = addSetsToBindings({
       src: { value: paths.device.keyboard.key("q") },
       dest: { value: keyboardSnapLeft },
       xform: xforms.rising
-    },
-    {
-      src: [rightTouchSnapLeft, keyboardSnapLeft],
-      dest: { value: paths.actions.snapRotateLeft },
-      xform: xforms.any
     },
     {
       src: {

@@ -348,10 +348,10 @@ export default class MediaDevicesManager extends EventEmitter {
       if (isDisplayMedia) {
         newStream = await navigator.mediaDevices.getDisplayMedia({
           video: {
-            // Work around BMO 1449832 by calculating the width. This will break for multi monitors if you share anything
-            // other than your current monitor that has a different aspect ratio.
-            width: 720 * (screen.width / screen.height),
-            height: 720,
+            // lounge: capture at up to 1440p so text (VS Code, docs) stays
+            // legible on the wall TV and desk monitor.
+            width: { ideal: 2560 },
+            height: { ideal: 1440 },
             frameRate: 30
           },
           audio: {
@@ -377,6 +377,11 @@ export default class MediaDevicesManager extends EventEmitter {
         newStream.getVideoTracks().forEach(track => {
           // Ideally we would use track.contentHint but it seems to be read-only in Chrome so we just add a custom property
           track["_hubs_contentHint"] = isDisplayMedia ? MediaDevices.SCREEN : MediaDevices.CAMERA;
+          if (isDisplayMedia) {
+            try {
+              track.contentHint = "detail"; // favor sharpness over framerate for text
+            } catch {} // eslint-disable-line no-empty
+          }
           track.addEventListener("ended", async () => {
             this._scene.emit(MediaDevicesEvents.VIDEO_SHARE_ENDED);
           });
