@@ -394,7 +394,13 @@ AFRAME.registerSystem("userinput", {
     const gamepadDisconnected = e => {
       for (let i = 0; i < this.activeDevices.items.length; i++) {
         const device = this.activeDevices.items[i];
-        if (device.gamepad && device.gamepad.index === e.gamepad.index) {
+        // Every WebXR gamepad reports index -1, so index matching would
+        // remove whichever XR device happens to be listed first. Match those
+        // by object identity; the Gamepad API path keeps index matching.
+        const matches =
+          device.gamepad &&
+          (e.gamepad.isWebXRGamepad ? device.gamepad === e.gamepad : device.gamepad.index === e.gamepad.index);
+        if (matches) {
           this.registeredMappings.delete(
             vrGamepadMappings.get(device.constructor) || nonVRGamepadMappings.get(device.constructor)
           );
@@ -414,9 +420,21 @@ AFRAME.registerSystem("userinput", {
 
     const retrieveXRGamepads = ({ added, removed }) => {
       for (const inputSource of removed) {
+        // Hand-tracking sources are never registered (below), so don't let
+        // their removal unregister a real controller.
+        if (inputSource.hand) continue;
+        if (!inputSource.gamepad) continue;
+        // Mark it XR even if it was never registered, so removal matches by
+        // identity (a safe no-op) instead of index -1 hitting another device.
+        inputSource.gamepad.isWebXRGamepad = true;
         gamepadDisconnected(inputSource);
       }
       for (const inputSource of added) {
+        // lounge: ignore hand-tracking input sources entirely. Hubs has no
+        // hand bindings; Quest exposes each bare hand as a one-button gamepad
+        // whose pinch maps to the trigger, which spontaneously starts (and
+        // fires) teleports. Hands stay display-only until controllers return.
+        if (inputSource.hand) continue;
         // inputSource.gamepad is null if the device isn't gamepad-like
         if (inputSource.gamepad) {
           inputSource.gamepad.isWebXRGamepad = true;

@@ -31,8 +31,9 @@ function pinEntityToScreen(el, screen) {
   screen.getWorldQuaternion(obj.quaternion);
   // Nudge off the glass so the video z-fights nothing.
   obj.translateZ(0.02);
-  // media video meshes are 1 unit wide at scale 1; fill the 3.2 m screen.
-  obj.scale.setScalar(3.15);
+  // media video meshes are 1 unit wide at scale 1; fill the 2.6 m panel
+  // (16:9 at 2.55 wide is 1.43 tall, inside the 1.5 m screen).
+  obj.scale.setScalar(2.55);
   obj.matrixNeedsUpdate = true;
   // Not grabbable, not hoverable: it is furniture now.
   el.classList.remove("interactable");
@@ -100,13 +101,23 @@ AFRAME.registerSystem("lounge-tv", {
   },
 
   addPowerButton() {
-    // Red: below the TV — summon the Mac's screen (signals bin/tv-daemon).
-    this.wallButton(0xc0392b, 0x8a1f12, -11.4, 0.55, -5.2, () => {
+    // Anchor both buttons to wherever the TVScreen mesh actually is, so a
+    // re-authored wall never strands them inside it again (the old cabin
+    // constants left them buried half a metre behind the penthouse wall).
+    const anchor = new THREE.Vector3(-10.87, 1.9, -6.8);
+    const tv = this.screens?.tv;
+    if (tv) {
+      tv.updateMatrices ? tv.updateMatrices() : tv.updateMatrixWorld(true);
+      tv.getWorldPosition(anchor);
+    }
+    // Red: low, off the TV's south edge — summon the Mac's screen
+    // (signals bin/tv-daemon).
+    this.wallButton(0xc0392b, 0x8a1f12, anchor.x, 0.55, anchor.z + 1.6, () => {
       fetch("/lounge-tv/9c4f/on", { method: "POST" }).catch(() => {});
     });
-    // Green: top-right of the TV (viewer's right = north) — full page reload,
+    // Green: above the TV's north edge (viewer's right) — full page reload,
     // for picking up new client builds without leaving the headset.
-    this.wallButton(0x27ae60, 0x14602f, -11.4, 2.4, -8.4, () => {
+    this.wallButton(0x27ae60, 0x14602f, anchor.x, 2.85, anchor.z - 1.6, () => {
       window.location.reload();
     });
   },

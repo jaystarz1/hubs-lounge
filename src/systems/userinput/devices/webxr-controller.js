@@ -29,40 +29,24 @@ export class WebXRControllerDevice {
     const pose = xrFrame.getPose(this.gamepad.targetRaySpace, referenceSpace);
     const isTracked = !!(pose && pose.transform.position && pose.transform.orientation);
 
-    if (this.gamepad.buttons[0]) {
-      frame.setValueType(path.button.trigger.pressed, this.gamepad.buttons[0].pressed);
-      frame.setValueType(path.button.trigger.touched, this.gamepad.buttons[0].touched);
-      frame.setValueType(path.button.trigger.value, this.gamepad.buttons[0].value);
-    }
-
-    if (this.gamepad.buttons[1]) {
-      frame.setValueType(path.button.grip.pressed, this.gamepad.buttons[1].pressed);
-      frame.setValueType(path.button.grip.touched, this.gamepad.buttons[1].touched);
-      frame.setValueType(path.button.grip.value, this.gamepad.buttons[1].value);
-    }
-
-    if (this.gamepad.buttons[2]) {
-      frame.setValueType(path.button.touchpad.pressed, this.gamepad.buttons[2].pressed);
-      frame.setValueType(path.button.touchpad.touched, this.gamepad.buttons[2].touched);
-      frame.setValueType(path.button.touchpad.value, this.gamepad.buttons[2].value);
-    }
-
-    if (this.gamepad.buttons[3]) {
-      frame.setValueType(path.button.thumbStick.pressed, this.gamepad.buttons[3].pressed);
-      frame.setValueType(path.button.thumbStick.touched, this.gamepad.buttons[3].touched);
-      frame.setValueType(path.button.thumbStick.value, this.gamepad.buttons[3].value);
-    }
-
-    if (this.gamepad.buttons[4]) {
-      frame.setValueType(path.button.a.pressed, this.gamepad.buttons[4].pressed);
-      frame.setValueType(path.button.a.touched, this.gamepad.buttons[4].touched);
-      frame.setValueType(path.button.a.value, this.gamepad.buttons[4].value);
-    }
-
-    if (this.gamepad.buttons[5]) {
-      frame.setValueType(path.button.b.pressed, this.gamepad.buttons[5].pressed);
-      frame.setValueType(path.button.b.touched, this.gamepad.buttons[5].touched);
-      frame.setValueType(path.button.b.value, this.gamepad.buttons[5].value);
+    // When tracking drops mid-press the browser keeps serving the last
+    // sample, which latches pressed buttons (a latched trigger leaves the
+    // teleport arc and its alert loop stuck on until the user rejoins).
+    // Publish a released state instead so every falling edge still fires.
+    const buttonPaths = [
+      path.button.trigger,
+      path.button.grip,
+      path.button.touchpad,
+      path.button.thumbStick,
+      path.button.a,
+      path.button.b
+    ];
+    for (let i = 0; i < buttonPaths.length; i++) {
+      const button = this.gamepad.buttons[i];
+      if (!button) continue;
+      frame.setValueType(buttonPaths[i].pressed, isTracked && button.pressed);
+      frame.setValueType(buttonPaths[i].touched, isTracked && button.touched);
+      frame.setValueType(buttonPaths[i].value, isTracked ? button.value : 0);
     }
 
     if (isTracked && this.gamepad.axes.length >= 4) {
