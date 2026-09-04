@@ -63,8 +63,10 @@ const dpadCenter = v("dpadCenter");
 const dpadCenterStrip = v("dpadCenterStrip");
 const snapRotateRight1 = v("snapRotateRight1");
 const snapRotateRight2 = v("snapRotateRight2");
+const snapRotateRight2Raw = v("snapRotateRight2Raw");
 const snapRotateLeft1 = v("snapRotateLeft1");
 const snapRotateLeft2 = v("snapRotateLeft2");
+const snapRotateLeft2Raw = v("snapRotateLeft2Raw");
 const centerStripPressed = v("centerStripPressed");
 const touchpadReleased = v("touchpadReleased");
 const lowerButtonsReleased = v("lowerButtonsReleased");
@@ -219,7 +221,7 @@ export const webXRUserBindings = addSetsToBindings({
     {
       src: { value: leftAxis.joyY },
       dest: { value: leftJoyYDeadzoned },
-      xform: xforms.deadzone(0.1)
+      xform: xforms.deadzone(0.15)
     },
     {
       src: { value: leftJoyYDeadzoned },
@@ -229,7 +231,7 @@ export const webXRUserBindings = addSetsToBindings({
     {
       src: { value: leftAxis.joyX },
       dest: { value: leftJoyXDeadzoned },
-      xform: xforms.deadzone(0.1)
+      xform: xforms.deadzone(0.15)
     },
     {
       src: { value: leftJoyXDeadzoned },
@@ -245,9 +247,11 @@ export const webXRUserBindings = addSetsToBindings({
       xform: xforms.compose_vec2
     },
     {
-      src: { value: characterAcceleration },
+      // Require a live thumb contact, matching the smooth-turn gate above:
+      // a drifting or stale stick sample must not walk the avatar on its own.
+      src: { value: characterAcceleration, bool: leftButton.thumbStick.touched },
       dest: { value: paths.actions.characterAcceleration },
-      xform: xforms.copy
+      xform: xforms.copyVec2IfTrue
     },
     {
       src: { value: leftButton.b.pressed },
@@ -403,15 +407,27 @@ export const webXRUserBindings = addSetsToBindings({
     },
     {
       src: { value: rightDpadEast },
-      dest: { value: snapRotateRight2 },
+      dest: { value: snapRotateRight2Raw },
       xform: xforms.rising,
       priority: 1
     },
     {
+      // Same thumb-contact gate as smooth turn: stick drift crossing the dpad
+      // threshold must not fire snap rotations by itself.
+      src: { value: snapRotateRight2Raw, bool: rightButton.thumbStick.touched },
+      dest: { value: snapRotateRight2 },
+      xform: xforms.copyIfTrue
+    },
+    {
       src: { value: rightDpadWest },
-      dest: { value: snapRotateLeft2 },
+      dest: { value: snapRotateLeft2Raw },
       xform: xforms.rising,
       priority: 1
+    },
+    {
+      src: { value: snapRotateLeft2Raw, bool: rightButton.thumbStick.touched },
+      dest: { value: snapRotateLeft2 },
+      xform: xforms.copyIfTrue
     },
     {
       src: [snapRotateRight1, snapRotateRight2],
@@ -422,6 +438,31 @@ export const webXRUserBindings = addSetsToBindings({
       src: [snapRotateLeft1, snapRotateLeft2],
       dest: { value: paths.actions.snapRotateLeft },
       xform: xforms.any
+    }
+  ],
+
+  // While a teleport arc is up, "trigger not pressed" IS the stop signal,
+  // published level-triggered at top priority. The global falling-edge
+  // binding can be masked by higher-priority trigger bindings (e.g. cursor
+  // grab while the ray drifts over a seat waypoint or TV button), which used
+  // to leave the arc latched on and turn the NEXT innocent trigger release
+  // into a surprise teleport. A level signal cannot miss its edge, and the
+  // priority also masks UI grabs while aiming, which is the desired order.
+  [sets.leftHandTeleporting]: [
+    {
+      src: { value: leftTriggerPressed2 },
+      dest: { value: paths.actions.leftHand.stopTeleport },
+      xform: xforms.not,
+      priority: 100
+    }
+  ],
+
+  [sets.rightHandTeleporting]: [
+    {
+      src: { value: rightTriggerPressed2 },
+      dest: { value: paths.actions.rightHand.stopTeleport },
+      xform: xforms.not,
+      priority: 100
     }
   ],
 

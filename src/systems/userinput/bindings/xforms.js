@@ -52,6 +52,9 @@ export const xforms = {
   copyIfTrue: function (frame, src, dest) {
     frame.setValueType(dest.value, frame.get(src.bool) ? frame.get(src.value) : undefined);
   },
+  not: function (frame, src, dest) {
+    frame.setValueType(dest.value, !frame.get(src.value));
+  },
   copyVec2IfTrue: function (frame, src, dest) {
     if (frame.get(src.bool)) {
       const v2 = frame.get(src.value);

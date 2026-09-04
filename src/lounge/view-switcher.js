@@ -167,11 +167,16 @@ AFRAME.registerComponent("lounge-view-switcher", {
       if ("colorSpace" in tex && THREE.SRGBColorSpace) tex.colorSpace = THREE.SRGBColorSpace;
       else tex.encoding = THREE.sRGBEncoding;
       tex.wrapS = tex.wrapT = THREE.ClampToEdgeWrapping;
-      // These are large, flat background planes. Mipmaps add one third more GPU
-      // memory without a useful quality gain in headset, so use linear sampling
-      // and release the decoded browser image as soon as WebGL uploads it.
-      tex.generateMipmaps = false;
-      tex.minFilter = THREE.LinearFilter;
+      // The 2K+ views are minified across most of the plane in headset; plain
+      // linear sampling shimmers badly there. Mipmaps + anisotropy cost about
+      // a third more GPU memory but keep the skyline crisp and stable. The
+      // decoded browser image is still released right after upload.
+      tex.generateMipmaps = true;
+      tex.minFilter = THREE.LinearMipmapLinearFilter;
+      const renderer = AFRAME.scenes[0]?.renderer;
+      if (renderer) {
+        tex.anisotropy = Math.min(4, renderer.capabilities.getMaxAnisotropy());
+      }
       // Cover-crop for this wall's plane. Horizontal overflow centres;
       // vertical overflow is positioned so the image's anchor line (the
       // horizon) lands at the centre of the band visible through the glass.
