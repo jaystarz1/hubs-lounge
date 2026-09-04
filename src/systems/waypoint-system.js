@@ -120,6 +120,10 @@ function uuid(el) {
   return el.object3D.uuid;
 }
 
+const ICON_REVEAL_DISTANCE_SQ = 3.5 * 3.5;
+const v1 = new THREE.Vector3();
+const v2 = new THREE.Vector3();
+
 export class WaypointSystem {
   constructor(scene, characterController) {
     this.helperMat4 = new THREE.Matrix4();
@@ -384,13 +388,22 @@ export class WaypointSystem {
         elementFromTemplate.classList.contains("teleport-waypoint-icon") ||
         elementFromTemplate.classList.contains("occupiable-waypoint-icon")
       ) {
-        // Bed targets must be discoverable without knowing that freeze mode
-        // reveals ordinary seat markers.
-        const waypointName = waypointComponent.el.object3D.name;
-        const isFeatureWaypoint = waypointName.startsWith("Seat_Bed_") || waypointName.startsWith("Seat_HotTub_");
-        elementFromTemplate.object3D.visible = this.scene.is("frozen") || isFeatureWaypoint;
-        if (elementFromTemplate.object3D.visible) {
-          this.viewingCamera = this.viewingCamera || document.getElementById("viewing-camera").object3DMap.camera;
+        // Seat markers reveal within arm's-reach-ish range so every sittable
+        // spot (couch, bed, tub) advertises itself the same way as you walk
+        // up, instead of always-on sprites glowing across the room. Freeze
+        // mode still reveals everything at any distance.
+        this.viewingCamera = this.viewingCamera || document.getElementById("viewing-camera").object3DMap.camera;
+        let visible = this.scene.is("frozen");
+        if (!visible) {
+          waypointComponent.el.object3D.updateMatrices();
+          this.viewingCamera.updateMatrices();
+          visible =
+            v1.setFromMatrixPosition(waypointComponent.el.object3D.matrixWorld).distanceToSquared(
+              v2.setFromMatrixPosition(this.viewingCamera.matrixWorld)
+            ) < ICON_REVEAL_DISTANCE_SQ;
+        }
+        elementFromTemplate.object3D.visible = visible;
+        if (visible) {
           setMatrixWorld(
             elementFromTemplate.object3D,
             calculateIconTransform(waypointComponent.el.object3D, this.viewingCamera, this.helperMat4)
