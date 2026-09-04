@@ -16,11 +16,10 @@ const calculateIconTransform = (function () {
     waypoint.updateMatrices();
     viewingCamera.updateMatrices();
     affixToWorldUp(m1.copy(waypoint.matrixWorld), m1).extractBasis(v1, up, backward);
-    const iconHeight = waypoint.name.startsWith("Seat_Bed_")
-      ? 0.45
-      : waypoint.name.startsWith("Seat_HotTub_")
-        ? 0.3
-        : 1.6;
+    // Seat waypoints sit on the cushion/mattress surface, so their icon hovers
+    // just above the seat rather than at a standing head height.
+    // Tub seats sit below the water line, so their icon floats above it.
+    const iconHeight = waypoint.name.startsWith("Seat_HotTub_") ? 0.75 : waypoint.name.startsWith("Seat_") ? 0.45 : 1.6;
     position
       .setFromMatrixPosition(waypoint.matrixWorld)
       .add(v1.addVectors(up.multiplyScalar(iconHeight), backward.multiplyScalar(0.15)));
@@ -121,6 +120,11 @@ function uuid(el) {
 }
 
 const ICON_REVEAL_DISTANCE_SQ = 3.5 * 3.5;
+// Icons are drawn on top of geometry, so a plain 3D radius revealed bedroom
+// seats through the lounge ceiling. Reveal by horizontal distance from the
+// viewer and only for seats on the viewer's own storey (seat height vs the
+// avatar rig's floor height: same floor differs by < 0.6 m, storeys by > 3 m).
+const ICON_REVEAL_MAX_DY = 1.5;
 const v1 = new THREE.Vector3();
 const v2 = new THREE.Vector3();
 
@@ -397,10 +401,13 @@ export class WaypointSystem {
         if (!visible) {
           waypointComponent.el.object3D.updateMatrices();
           this.viewingCamera.updateMatrices();
-          visible =
-            v1.setFromMatrixPosition(waypointComponent.el.object3D.matrixWorld).distanceToSquared(
-              v2.setFromMatrixPosition(this.viewingCamera.matrixWorld)
-            ) < ICON_REVEAL_DISTANCE_SQ;
+          v1.setFromMatrixPosition(waypointComponent.el.object3D.matrixWorld);
+          v2.setFromMatrixPosition(this.viewingCamera.matrixWorld);
+          const rig = this.characterController.avatarRig.object3D;
+          rig.updateMatrices();
+          const dy = Math.abs(v1.y - rig.matrixWorld.elements[13]);
+          v1.y = v2.y = 0;
+          visible = dy < ICON_REVEAL_MAX_DY && v1.distanceToSquared(v2) < ICON_REVEAL_DISTANCE_SQ;
         }
         elementFromTemplate.object3D.visible = visible;
         if (visible) {

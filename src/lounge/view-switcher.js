@@ -1,25 +1,25 @@
-// private-quest-lounge: directional window views. Each of the four backdrop
-// planes (north/east/south/west) has its own emissive material; images in
-// assets/images/lounge-views/ are named <scene>-<direction>-aNN.jpg and every
-// scene (day, dusk, ...) sets all four walls at once, so the whole house stays
-// in one time of day but each compass direction shows what it should — Central
-// Park north, East River east, Hudson west, Midtown south. Two arrow buttons
-// by the kitchen glass cycle scenes; flips broadcast so all occupants match.
+// private-quest-lounge: window views. The skyline is one cylindrical
+// panorama ("ViewPano", stitched by lounge-assets/make-pano.py from the four
+// directional photos with feathered seams) plus an emissive sky dome
+// ("ViewSky"); images in assets/images/lounge-views/ are named
+// <scene>-pano.jpg and <scene>-sky.jpg, and every scene (day, dusk, ...) sets
+// both at once so the whole house stays in one time of day. Two arrow
+// buttons by the kitchen glass cycle scenes; flips broadcast so all occupants
+// match.
 import * as THREE from "three";
 
 const viewContext = require.context("../assets/images/lounge-views", false, /\.(jpe?g|png)$/);
 // "-aNN" filename suffix = vertical anchor: the fraction of the image (percent
 // from the top, i.e. the horizon line) to place at the centre of the band
-// visible through the glass. Defaults to 50 (image centre).
+// visible through the glass. Only meaningful for cropped flat walls; the
+// panorama and sky map 1:1 (aspect null).
 const WALLS = [
-  { mesh: "RockiesView", dir: "north", aspect: 26 / 13 },
-  { mesh: "ViewEast", dir: "east", aspect: 30 / 13 },
-  { mesh: "ViewWest", dir: "west", aspect: 30 / 13 },
-  { mesh: "ViewSouth", dir: "south", aspect: 30 / 13 }
+  { mesh: "ViewPano", dir: "pano", aspect: null },
+  { mesh: "ViewSky", dir: "sky", aspect: null }
 ];
 const SCENES = [];
 for (const k of viewContext.keys().sort()) {
-  const m = k.match(/^\.\/([a-z0-9]+)-(north|east|south|west)(?:-a(\d{1,2}))?\.(?:jpe?g|png)$/i);
+  const m = k.match(/^\.\/([a-z0-9]+)-(north|east|south|west|sky|pano)(?:-a(\d{1,2}))?\.(?:jpe?g|png)$/i);
   if (!m) continue;
   let sc = SCENES.find(s => s.name === m[1]);
   if (!sc) {
@@ -144,7 +144,7 @@ AFRAME.registerComponent("lounge-view-switcher", {
     for (const w of WALLS) {
       const mat = this.materials[w.dir];
       if (!mat) continue;
-      const view = scene.byDir[w.dir] || scene.byDir.north;
+      const view = scene.byDir[w.dir];
       if (!view) continue;
       this.applyTexture(index, w, view, mat);
     }
@@ -167,10 +167,10 @@ AFRAME.registerComponent("lounge-view-switcher", {
       if ("colorSpace" in tex && THREE.SRGBColorSpace) tex.colorSpace = THREE.SRGBColorSpace;
       else tex.encoding = THREE.sRGBEncoding;
       tex.wrapS = tex.wrapT = THREE.ClampToEdgeWrapping;
-      // The 2K+ views are minified across most of the plane in headset; plain
-      // linear sampling shimmers badly there. Mipmaps + anisotropy cost about
-      // a third more GPU memory but keep the skyline crisp and stable. The
-      // decoded browser image is still released right after upload.
+      // The 8K panorama is minified across most of the cylinder in headset;
+      // plain linear sampling shimmers badly there. Mipmaps + anisotropy cost
+      // about a third more GPU memory but keep the skyline crisp and stable.
+      // The decoded browser image is still released right after upload.
       tex.generateMipmaps = true;
       tex.minFilter = THREE.LinearMipmapLinearFilter;
       const renderer = AFRAME.scenes[0]?.renderer;
@@ -182,7 +182,10 @@ AFRAME.registerComponent("lounge-view-switcher", {
       // horizon) lands at the centre of the band visible through the glass.
       const img = tex.image;
       const imgAspect = img.width / img.height;
-      if (imgAspect > wall.aspect) {
+      if (wall.aspect === null) {
+        tex.repeat.set(1, 1);
+        tex.offset.set(0, 0);
+      } else if (imgAspect > wall.aspect) {
         tex.repeat.set(wall.aspect / imgAspect, 1);
         tex.offset.set((1 - tex.repeat.x) / 2, 0);
       } else {
