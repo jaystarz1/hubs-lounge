@@ -47,7 +47,9 @@ const SIDES = [
 ];
 
 const MAX_STRETCH = 1.3;
-const REST_EASE = 5; // 1/s, ease toward the relaxed pose when untracked
+const REST_EASE = 6; // 1/s, ease toward the relaxed pose when tracking is lost
+const BLEND_IN = 0.5; // s, glide back onto the tracked pose when tracking returns
+const MAX_TWIST = 4.71; // rad: past 270 degrees of forearm roll the tracking has flipped, drop the extra turn
 
 const q = new Quaternion();
 const q2 = new Quaternion();
@@ -65,10 +67,13 @@ const target = new Vector3();
 const axis = new Vector3();
 const pole = new Vector3();
 const outward = new Vector3();
+const prevPole = new Vector3();
 const local = new Vector3();
 const upperDir = new Vector3();
 const lowerDir = new Vector3();
 const v = new Vector3();
+const tmpV = new Vector3();
+const tmpQ = new Quaternion();
 const m = new Matrix4();
 
 function snapshotBone(bone, fallbackTail) {
@@ -204,7 +209,14 @@ AFRAME.registerComponent("avatar-arm-ik", {
         twistAngle: 0,
         hasTwist: false,
         stretch: 1,
-        relaxed: false
+        // Pose shown last frame and the blend-in progress, so a controller
+        // dropping out of tracking (or coming back) never snaps the hand.
+        shownPosition: hand.position.clone(),
+        shownQuaternion: hand.quaternion.clone(),
+        blend: 1,
+        everTracked: false,
+        lastPole: new Vector3(),
+        hasPole: false
       });
     }
     this.rigs = rigs;
@@ -224,16 +236,38 @@ AFRAME.registerComponent("avatar-arm-ik", {
     return p.x !== 0 || p.y !== 0 || p.z !== 0;
   },
 
-  // Relaxed hand target in chest space: by the hip, slightly forward, fingers
-  // down, palm toward the body (bone +y = fingers, +z = palm normal).
-  relaxHand(rig, dt) {
+  // Hand placement across tracking transitions. ik-controller writes the
+  // tracked pose into the hand bone every tick while the controller is
+  // visible and leaves the bone alone otherwise. Untracked: ease from what was
+  // shown toward the relaxed pose (by the hip, fingers down, palm to the
+  // body). Tracked again: glide from what was shown onto the tracked pose
+  // over BLEND_IN, then follow it exactly (no filtering while tracking is
+  // steady, so the local avatar's own hands carry no lag). A hand that has
+  // never been tracked (desktop viewer) sits at the relaxed pose at once.
+  placeHand(rig, tracked, dt) {
     const { hand } = rig;
-    const k = rig.relaxed ? 1 - Math.exp(-REST_EASE * dt) : 1;
-    hand.position.lerp(rig.relaxPosition, k);
-    hand.quaternion.slerp(rig.relaxQuaternion, k);
-    hand.matrixNeedsUpdate = true;
-    hand.updateWorldMatrix(true, false);
-    rig.relaxed = true;
+    if (tracked) {
+      rig.everTracked = true;
+      if (rig.blend < 1) {
+        rig.blend = Math.min(1, rig.blend + dt / BLEND_IN);
+        const w = rig.blend * rig.blend * (3 - 2 * rig.blend);
+        tmpV.copy(hand.position);
+        tmpQ.copy(hand.quaternion);
+        hand.position.copy(rig.shownPosition).lerp(tmpV, w);
+        hand.quaternion.copy(rig.shownQuaternion).slerp(tmpQ, w);
+        hand.matrixNeedsUpdate = true;
+        hand.updateWorldMatrix(true, false);
+      }
+    } else {
+      const k = rig.everTracked ? 1 - Math.exp(-REST_EASE * dt) : 1;
+      hand.position.lerp(rig.relaxPosition, k);
+      hand.quaternion.slerp(rig.relaxQuaternion, k);
+      hand.matrixNeedsUpdate = true;
+      hand.updateWorldMatrix(true, false);
+      rig.blend = 0;
+    }
+    rig.shownPosition.copy(hand.position);
+    rig.shownQuaternion.copy(hand.quaternion);
   },
 
   tock(time, dt) {
@@ -242,8 +276,7 @@ AFRAME.registerComponent("avatar-arm-ik", {
     this.chest.getWorldQuaternion(chestQ);
     invChestQ.copy(chestQ).invert();
     for (const rig of this.rigs) {
-      if (!this.effectorTracked(rig.side)) this.relaxHand(rig, dtSeconds);
-      else rig.relaxed = false;
+      this.placeHand(rig, this.effectorTracked(rig.side), dtSeconds);
       const { side, upper, clavicle, lower, hand } = rig;
 
       // Pass 1: elbow hint from where the hand is relative to the shoulder.
@@ -293,12 +326,45 @@ AFRAME.registerComponent("avatar-arm-ik", {
       const d = Math.min(Math.max(d0, Math.abs(a - b) + 0.001), a + b - 0.001);
       const along = (a * a - b * b + d * d) / (2 * d);
       const height = Math.sqrt(Math.max(0, a * a - along * along));
+      // Project the hint off the shoulder-hand axis. When the hand lies along
+      // the hint (reaching down and back) the projection shrinks and its
+      // direction swings with tiny hand moves, so weight it by its length and
+      // fill the rest with last frame's elbow direction (kept in chest space
+      // so a turning body carries it along). That keeps the elbow continuous
+      // instead of whipping around the arm.
+      pole.normalize();
       pole.addScaledVector(axis, -pole.dot(axis));
-      if (pole.lengthSq() < 1e-6) {
-        outward.set(side.sign, 0, 0).applyQuaternion(chestQ);
-        pole.copy(outward).addScaledVector(axis, -outward.dot(axis));
+      const perp = pole.length();
+      const wPole = Math.min(1, Math.max(0, (perp - 0.15) / 0.3));
+      if (rig.hasPole) {
+        prevPole.copy(rig.lastPole).applyQuaternion(chestQ);
+      } else {
+        prevPole.set(side.sign, -0.35, 0).applyQuaternion(chestQ);
+      }
+      prevPole.addScaledVector(axis, -prevPole.dot(axis));
+      if (prevPole.lengthSq() > 1e-8) prevPole.normalize();
+      else
+        prevPole
+          .set(side.sign, 0, 0)
+          .applyQuaternion(chestQ)
+          .addScaledVector(axis, -axis.x * side.sign)
+          .normalize();
+      if (perp > 1e-6) {
+        // Rotate last frame's direction toward the hint by a fraction of the
+        // angle between them (both lie in the plane normal to the arm axis),
+        // so a hint on the far side swings the elbow round instead of
+        // collapsing the blend through zero.
+        pole.multiplyScalar(1 / perp);
+        const wSmooth = wPole * wPole * (3 - 2 * wPole);
+        outward.crossVectors(axis, prevPole);
+        const theta = Math.atan2(outward.dot(pole), prevPole.dot(pole)) * wSmooth;
+        pole.copy(prevPole).multiplyScalar(Math.cos(theta)).addScaledVector(outward, Math.sin(theta));
+      } else {
+        pole.copy(prevPole);
       }
       pole.normalize();
+      rig.lastPole.copy(pole).applyQuaternion(invChestQ);
+      rig.hasPole = true;
       elbow.copy(shoulder).addScaledVector(axis, along).addScaledVector(pole, height);
       upperDir.subVectors(elbow, shoulder).normalize();
       lowerDir.subVectors(wrist, elbow).normalize();
@@ -309,6 +375,11 @@ AFRAME.registerComponent("avatar-arm-ik", {
       v.copy(lowerDir).applyQuaternion(invChestQ);
       let twist = signedTwist(q2, v);
       twist = rig.hasTwist ? unwrap(twist, rig.twistAngle) : twist;
+      // Unwrapping keeps the forearm continuous across the 180-degree seam,
+      // but a controller turned over in the fingers would otherwise bank whole
+      // turns and leave the forearm skin wound up for good.
+      if (twist > MAX_TWIST) twist -= 2 * Math.PI;
+      else if (twist < -MAX_TWIST) twist += 2 * Math.PI;
       rig.hasTwist = true;
       rig.twistAngle = twist;
 
