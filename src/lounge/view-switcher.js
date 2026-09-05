@@ -2,10 +2,12 @@
 // panorama ("ViewPano", stitched by lounge-assets/make-pano.py from the four
 // directional photos with feathered seams) plus an emissive sky dome
 // ("ViewSky"); images in assets/images/lounge-views/ are named
-// <scene>-pano.jpg and <scene>-sky.jpg, and every scene (day, dusk, ...) sets
-// both at once so the whole house stays in one time of day. Two arrow
-// buttons by the kitchen glass cycle scenes; flips broadcast so all occupants
-// match.
+// <scene>-pano.jpg and <scene>-sky.jpg, and every scene (day, dusk, night)
+// sets both at once so the whole house stays in one time of day. Each scene
+// also scales the interior lighting (ambient down and the warm fixtures up
+// at night) so the rooms read as evening, not a daylit house with a dark
+// window. Two arrow buttons by the kitchen glass cycle scenes; flips
+// broadcast so all occupants match.
 import * as THREE from "three";
 
 const viewContext = require.context("../assets/images/lounge-views", false, /\.(jpe?g|png)$/);
@@ -30,6 +32,14 @@ for (const k of viewContext.keys().sort()) {
 }
 SCENES.sort((a, b) => (a.name === "day" ? -1 : b.name === "day" ? 1 : a.name.localeCompare(b.name)));
 
+// Interior light multipliers per scene (ambient, point fixtures), relative to
+// the intensities baked into the GLB.
+const LIGHTING = {
+  day: { ambient: 1.0, point: 1.0 },
+  dusk: { ambient: 0.8, point: 1.08 },
+  night: { ambient: 0.42, point: 1.25 }
+};
+
 const CHANNEL = "lounge_view";
 // The planes span y -2.5..10.5 but the penthouse glass shows y 0..6.3; the
 // centre of that visible band sits at 0.565 of the plane, from the top.
@@ -41,6 +51,7 @@ AFRAME.registerComponent("lounge-view-switcher", {
     this.textures = new Map(); // only the active scene's four textures
     this.replacedTextures = new WeakSet();
     this.materials = null; // dir -> material
+    this.lights = null; // [{ light, base }]
     this.loader = new THREE.TextureLoader();
 
     this.onSceneLoaded = this.onSceneLoaded.bind(this);
@@ -82,6 +93,10 @@ AFRAME.registerComponent("lounge-view-switcher", {
       if (mesh) this.materials[w.dir] = mesh.material;
       else console.warn(`lounge-view-switcher: ${w.mesh} mesh not found`);
     }
+    this.lights = [];
+    envRoot.object3D.traverse(o => {
+      if (o.isAmbientLight || o.isPointLight) this.lights.push({ light: o, base: o.intensity });
+    });
     // The GLB ships with capped placeholder textures; swap to the selected
     // directional set now.
     this.applyScene(this.index);
@@ -141,6 +156,10 @@ AFRAME.registerComponent("lounge-view-switcher", {
   applyScene(index) {
     const scene = SCENES[index];
     if (!scene) return;
+    const profile = LIGHTING[scene.name] || LIGHTING.day;
+    for (const { light, base } of this.lights || []) {
+      light.intensity = base * (light.isAmbientLight ? profile.ambient : profile.point);
+    }
     for (const w of WALLS) {
       const mat = this.materials[w.dir];
       if (!mat) continue;
