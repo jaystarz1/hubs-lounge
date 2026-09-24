@@ -48,7 +48,7 @@ export function label(scene, anchor, rotation, x, y, width, height, lines, onPre
 }
 
 export class TvControls {
-  constructor(scene, screen) {
+  constructor(scene, screen, onToggleMute) {
     this.scene = scene;
     this.anchor = screen.getWorldPosition(new THREE.Vector3());
     this.rotation = screen.getWorldQuaternion(new THREE.Quaternion());
@@ -65,6 +65,11 @@ export class TvControls {
       );
     });
     this.add(1.65, 0.6, 0.55, 0.19, ["RELOAD"], () => window.location.reload());
+    // Local only: needs no pairing and never touches the Mac or the other viewer.
+    const mute = this.add(1.65, -1.34, 0.59, 0.2, ["MUTE TV"], () => {
+      const muted = onToggleMute();
+      mute.draw([muted ? "UNMUTE TV" : "MUTE TV"], false, muted ? "#ffb347" : "#202a30");
+    });
     this.poll = setInterval(() => this.refresh(), 3000);
     this.refresh();
   }

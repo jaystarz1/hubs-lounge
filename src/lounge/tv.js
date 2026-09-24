@@ -10,6 +10,7 @@ import qsTruthy from "../utils/qs_truthy";
 import { TvControls } from "./tv-controls";
 import { LightsPanel, setTvLive } from "./lights";
 import { MediaDevicesEvents } from "../utils/media-devices-utils";
+import { updateAudioSettings } from "../update-audio-settings";
 
 const feederToken = new URLSearchParams(window.location.hash.slice(1)).get("tv-session");
 const isTvClient = qsTruthy("tv") && /^[a-f0-9]{64}$/.test(feederToken || "");
@@ -48,6 +49,10 @@ AFRAME.registerSystem("lounge-tv", {
     this.isFeeder = isTvClient;
     this.pinned = new Set();
     this.sceneEl = this.el;
+    // Per-viewer TV mute. Only the TV's own audio (feeder avatar + pinned
+    // screen-share) is silenced; people's voices are untouched.
+    this.tvMuted = false;
+    this.mutedByTv = new Set();
 
     this.sceneEl.addEventListener("environment-scene-loaded", () => {
       this.screens = findScreens(this.sceneEl);
@@ -99,7 +104,7 @@ AFRAME.registerSystem("lounge-tv", {
     const tv = this.screens?.tv;
     if (!tv || this.controls) return;
     tv.updateMatrices ? tv.updateMatrices() : tv.updateMatrixWorld(true);
-    this.controls = new TvControls(this.sceneEl, tv);
+    this.controls = new TvControls(this.sceneEl, tv, () => this.toggleMute());
     this.lightsPanel = new LightsPanel(this.sceneEl, tv);
   },
 
@@ -127,7 +132,46 @@ AFRAME.registerSystem("lounge-tv", {
         }
       }
     }
+    this.applyMute();
     this.mirrorToMonitor();
+  },
+
+  toggleMute() {
+    this.tvMuted = !this.tvMuted;
+    this.applyMute();
+    return this.tvMuted;
+  },
+
+  tvAudioEls() {
+    const els = [...this.pinned].filter(el => el.isConnected);
+    if (this.tvClientId) {
+      for (const el of document.querySelectorAll("[networked-avatar]")) {
+        if (el.components.networked?.data?.owner !== this.tvClientId) continue;
+        el.querySelectorAll("[avatar-audio-source]").forEach(audioEl => els.push(audioEl));
+      }
+    }
+    return els;
+  },
+
+  applyMute() {
+    const targets = this.tvMuted ? new Set(this.tvAudioEls()) : new Set();
+    const changed = [];
+    for (const el of targets) {
+      if (APP.mutedState.has(el)) continue;
+      APP.mutedState.add(el);
+      this.mutedByTv.add(el);
+      changed.push(el);
+    }
+    for (const el of [...this.mutedByTv]) {
+      if (targets.has(el)) continue;
+      APP.mutedState.delete(el);
+      this.mutedByTv.delete(el);
+      changed.push(el);
+    }
+    for (const el of changed) {
+      const audio = APP.audios.get(el);
+      if (audio) updateAudioSettings(el, audio);
+    }
   },
 
   // Give the desk monitor the same live video material as the wall TV.
