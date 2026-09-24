@@ -9,6 +9,7 @@
 // window. Two arrow buttons by the kitchen glass cycle scenes; flips
 // broadcast so all occupants match.
 import * as THREE from "three";
+import { getLightLevel, onLightLevel } from "./lights";
 
 const viewContext = require.context("../assets/images/lounge-views", false, /\.(jpe?g|png)$/);
 // "-aNN" filename suffix = vertical anchor: the fraction of the image (percent
@@ -40,7 +41,6 @@ const LIGHTING = {
   night: { ambient: 0.42, point: 1.25 }
 };
 
-const CHANNEL = "lounge_view";
 // The planes span y -2.5..10.5 but the penthouse glass shows y 0..6.3; the
 // centre of that visible band sits at 0.565 of the plane, from the top.
 const WINDOW_CENTER = 0.565;
@@ -55,29 +55,36 @@ AFRAME.registerComponent("lounge-view-switcher", {
     this.loader = new THREE.TextureLoader();
 
     this.onSceneLoaded = this.onSceneLoaded.bind(this);
-    this.onNetMessage = (_fromId, _type, data) => {
-      if (data && typeof data.index === "number") this.setScene(data.index, false);
+    this.offLightLevel = onLightLevel(() => this.applyLighting());
+    this.revision = -1;
+    this.onNetMessage = data => {
+      const index = SCENES.findIndex(scene => scene.name === data?.name);
+      if (index < 0 || !Number.isSafeInteger(data.revision) || data.revision < this.revision) return;
+      this.revision = data.revision;
+      this.setScene(index, false);
     };
     this.el.sceneEl.addEventListener("environment-scene-loaded", this.onSceneLoaded);
 
-    // NAF.connection.adapter appears only after the room connects; poll briefly.
+    // State lives in the room database, including when the room is empty.
+    // Rebind after socket migration and query periodically to cover reconnects
+    // and changes that arrived before the environment finished loading.
     this.subscribeTimer = setInterval(() => {
-      if (window.NAF && NAF.connection && NAF.connection.adapter) {
-        clearInterval(this.subscribeTimer);
-        this.subscribeTimer = null;
-        NAF.connection.subscribeToDataChannel(CHANNEL, this.onNetMessage);
+      const channel = window.APP?.hubChannel?.channel;
+      if (!channel || channel.state !== "joined") return;
+      if (this.channel !== channel) {
+        if (this.channel) this.channel.off("lounge_view:state", this.binding);
+        this.channel = channel;
+        this.binding = channel.on("lounge_view:state", this.onNetMessage);
       }
-    }, 1000);
+      channel.push("lounge_view:get", {}).receive("ok", this.onNetMessage);
+    }, 3000);
   },
 
   remove() {
+    this.offLightLevel();
     if (this.subscribeTimer) clearInterval(this.subscribeTimer);
     this.el.sceneEl.removeEventListener("environment-scene-loaded", this.onSceneLoaded);
-    try {
-      NAF.connection.unsubscribeToDataChannel(CHANNEL, this.onNetMessage);
-    } catch {
-      /* not connected */
-    }
+    if (this.channel) this.channel.off("lounge_view:state", this.binding);
     for (const tex of this.textures.values()) tex.dispose();
     this.textures.clear();
     this.prevEl?.remove();
@@ -140,26 +147,41 @@ AFRAME.registerComponent("lounge-view-switcher", {
   },
 
   setScene(index, broadcast) {
-    if (!this.materials || index === this.index || !SCENES[index]) return;
+    if (!SCENES[index]) return;
+    if (broadcast) {
+      const channel = window.APP?.hubChannel?.channel;
+      if (!channel || channel.state !== "joined") {
+        console.warn("Time of day unchanged: room is disconnected");
+        return;
+      }
+      channel
+        .push("lounge_view:set", { name: SCENES[index].name })
+        .receive("ok", this.onNetMessage)
+        .receive("error", error => console.warn("Time of day was not saved", error))
+        .receive("timeout", () => console.warn("Time of day update timed out"));
+      return;
+    }
+    if (index === this.index) return;
     this.index = index;
+    if (!this.materials) return; // onSceneLoaded applies this pending selection.
     this.releaseInactiveTextures(index);
     this.applyScene(index);
-    if (broadcast) {
-      try {
-        NAF.connection.broadcastDataGuaranteed(CHANNEL, { index });
-      } catch {
-        /* solo in room */
-      }
+  },
+
+  // Time-of-day profile times the viewer's dimmer (lights.js).
+  applyLighting(scene = SCENES[this.index]) {
+    const profile = LIGHTING[scene?.name] || LIGHTING.day;
+    const level = getLightLevel();
+    for (const { light, base } of this.lights || []) {
+      light.intensity = base * level * (light.isAmbientLight ? profile.ambient : profile.point);
     }
   },
 
   applyScene(index) {
     const scene = SCENES[index];
     if (!scene) return;
-    const profile = LIGHTING[scene.name] || LIGHTING.day;
-    for (const { light, base } of this.lights || []) {
-      light.intensity = base * (light.isAmbientLight ? profile.ambient : profile.point);
-    }
+    this.applyLighting(scene);
+
     for (const w of WALLS) {
       const mat = this.materials[w.dir];
       if (!mat) continue;

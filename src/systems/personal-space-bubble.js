@@ -88,6 +88,9 @@ AFRAME.registerSystem("personal-space-bubble", {
     const setInvaderFlag = (i, invaders, bubble) => {
       // Hide the invader if inside the bubble
       const invader = invaders[i];
+      // Only a mutually enabled touch partner or an explicitly accepted pose
+      // bypasses fading. Everyone else keeps the existing personal-space rule.
+      if (invader.el.sceneEl.systems["lounge-social"]?.allowsCloseContact(invader.el)) return;
       invaderPos.setFromMatrixPosition(invader.el.object3D.matrixWorld);
 
       const distanceSquared = bubblePos.distanceToSquared(invaderPos);

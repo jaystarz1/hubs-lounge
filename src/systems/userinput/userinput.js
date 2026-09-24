@@ -418,11 +418,18 @@ AFRAME.registerSystem("userinput", {
       gamepad && gamepadConnected({ gamepad });
     }
 
+    // The session never requests the "hand-tracking" feature, so on Quest
+    // inputSource.hand is always null and bare hands still arrive as pinch
+    // "controllers" (profiles "generic-hand-select", "oculus-hand"...). Detect
+    // them by profile too; Touch controller profiles never contain "hand".
+    const isHandInputSource = inputSource =>
+      !!inputSource.hand || (inputSource.profiles || []).some(profile => /hand/i.test(profile));
+
     const retrieveXRGamepads = ({ added, removed }) => {
       for (const inputSource of removed) {
         // Hand-tracking sources are never registered (below), so don't let
         // their removal unregister a real controller.
-        if (inputSource.hand) continue;
+        if (isHandInputSource(inputSource)) continue;
         if (!inputSource.gamepad) continue;
         // Mark it XR even if it was never registered, so removal matches by
         // identity (a safe no-op) instead of index -1 hitting another device.
@@ -434,7 +441,7 @@ AFRAME.registerSystem("userinput", {
         // hand bindings; Quest exposes each bare hand as a one-button gamepad
         // whose pinch maps to the trigger, which spontaneously starts (and
         // fires) teleports. Hands stay display-only until controllers return.
-        if (inputSource.hand) continue;
+        if (isHandInputSource(inputSource)) continue;
         // inputSource.gamepad is null if the device isn't gamepad-like
         if (inputSource.gamepad) {
           inputSource.gamepad.isWebXRGamepad = true;

@@ -559,7 +559,25 @@ AFRAME.registerComponent("media-video", {
       // Set src on video to begin loading.
       if (url.startsWith("hubs://")) {
         const streamClientId = url.substring(7).split("/")[1]; // /clients/<client id>/video is only URL for now
-        const stream = await APP.dialog.getMediaStream(streamClientId, "video");
+        // lounge: bind to the peer's current live video track, and rebind if that
+        // track ends (its producer was replaced). Subscribe before the first
+        // await so a producer that arrives meanwhile is not missed.
+        const bindStream = stream => {
+          const tracks = stream ? stream.getVideoTracks() : [];
+          if (!tracks.length) return;
+          videoEl.srcObject = new MediaStream(tracks);
+          tracks[0].addEventListener(
+            "ended",
+            () => {
+              if (videoEl.srcObject?.getVideoTracks()[0] !== tracks[0]) return;
+              APP.dialog
+                .getMediaStream(streamClientId, "video")
+                .then(bindStream)
+                .catch(e => console.error(`Error rebinding video stream for ${streamClientId}`, e));
+            },
+            { once: true }
+          );
+        };
         // We subscribe to video stream notifications for this peer to update the video element
         // This could happen in case there is an ICE failure that requires a transport recreation.
         if (this._onStreamUpdated) {
@@ -571,13 +589,12 @@ AFRAME.registerComponent("media-video", {
             const stream = await APP.dialog.getMediaStream(peerId, "video").catch(e => {
               console.error(`Error getting video stream for ${peerId}`, e);
             });
-            if (stream) {
-              videoEl.srcObject = new MediaStream(stream);
-            }
+            bindStream(stream);
           }
         };
         APP.dialog.on("stream_updated", this._onStreamUpdated, this);
-        videoEl.srcObject = new MediaStream(stream.getVideoTracks());
+        const stream = await APP.dialog.getMediaStream(streamClientId, "video");
+        if (!videoEl.srcObject) bindStream(stream);
         // If hls.js is supported we always use it as it gives us better events
       } else if (contentType.startsWith("application/dash")) {
         texture.dash = createDashPlayer(url, videoEl, failLoad);

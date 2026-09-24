@@ -59,6 +59,10 @@ typings/
 
 # Ignore dist folder with webpack build output
 dist/
+.public-releases/
+.public-current*.json
+.public-current*.tmp
+.public-build.lock/
 dist-types/
 
 # local storybook files
@@ -77,3 +81,10 @@ src/assets/models/lounge-avatars/avatar-gray.glb
 src/assets/models/lounge-avatars/avatar-red2.glb
 src/assets/models/lounge-avatars/avatar-jay.glb
 src/assets/images/lounge-views/*
+# These six files are runtime webpack inputs, not disposable build output.
+!src/assets/images/lounge-views/day-pano.jpg
+!src/assets/images/lounge-views/day-sky-a50.jpg
+!src/assets/images/lounge-views/dusk-pano.jpg
+!src/assets/images/lounge-views/dusk-sky-a50.jpg
+!src/assets/images/lounge-views/night-pano.jpg
+!src/assets/images/lounge-views/night-sky-a50.jpg

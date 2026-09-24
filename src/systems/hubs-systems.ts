@@ -1,6 +1,7 @@
 import { CursorTargettingSystem } from "./cursor-targetting-system";
 import { PositionAtBorderSystem } from "../components/position-at-border";
 import { BoneVisibilitySystem } from "../components/bone-visibility";
+import { prepareAvatarArmsForRender } from "../components/avatar-arm-ik";
 import { AnimationMixerSystem } from "../components/animation-mixer";
 import { UVScrollSystem } from "../components/uv-scroll";
 import { CursorTogglingSystem } from "./cursor-toggling-system";
@@ -172,6 +173,12 @@ export function mainTick(xrFrame: XRFrame, renderer: WebGLRenderer, scene: Scene
   timeSystem(world);
   const t = world.time.elapsed;
   const dt = world.time.delta;
+  // A-Frame's onAfterRender passes these to component/system tocks. Hubs owns
+  // the main loop, so A-Frame never fills them itself. Without this bridge,
+  // post-render timers stay undefined (leg floor sampling runs only once).
+  const aframeClock = sceneEl as typeof sceneEl & { time: number; delta: number };
+  aframeClock.time = t;
+  aframeClock.delta = dt;
 
   // Tick AFrame components
   const tickComponents = sceneEl.behaviors.tick;
@@ -312,6 +319,7 @@ export function mainTick(xrFrame: XRFrame, renderer: WebGLRenderer, scene: Scene
 
   // We run this late in the frame so that its the last thing to have an opinion about the scale of an object
   hubsSystems.boneVisibilitySystem.tick();
+  prepareAvatarArmsForRender();
 
   entityPersistenceSystem(world, APP.hubChannel!);
   networkSendSystem(world);

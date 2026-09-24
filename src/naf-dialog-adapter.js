@@ -75,22 +75,26 @@ export class DialogAdapter extends EventEmitter {
     this._serverUrl = `wss://${host}:${port}`;
 
     if (turn && turn.enabled) {
-      turn.transports.forEach(ts => {
-        // Try both TURN DTLS and TCP/TLS
-        if (!this._forceTcp) {
+      if (turn.urls?.length) {
+        const urls = turn.urls.filter(url => !this._forceTcp || /transport=tcp/.test(url));
+        if (urls.length) iceServers.push({ urls, username: turn.username, credential: turn.credential });
+      } else
+        turn.transports.forEach(ts => {
+          // Try both TURN DTLS and TCP/TLS
+          if (!this._forceTcp) {
+            iceServers.push({
+              urls: `turns:${host}:${ts.port}`,
+              username: turn.username,
+              credential: turn.credential
+            });
+          }
+
           iceServers.push({
-            urls: `turns:${host}:${ts.port}`,
+            urls: `turns:${host}:${ts.port}?transport=tcp`,
             username: turn.username,
             credential: turn.credential
           });
-        }
-
-        iceServers.push({
-          urls: `turns:${host}:${ts.port}?transport=tcp`,
-          username: turn.username,
-          credential: turn.credential
         });
-      });
       iceServers.push({ urls: "stun:stun1.l.google.com:19302" });
     } else {
       iceServers.push({ urls: "stun:stun1.l.google.com:19302" }, { urls: "stun:stun2.l.google.com:19302" });
@@ -146,6 +150,11 @@ export class DialogAdapter extends EventEmitter {
   }
 
   async iceRestart(transport) {
+    // TURN credentials expire quickly. An ICE recovery after a long meeting
+    // must request fresh credentials instead of retrying the expired ones.
+    this._serverParams = await APP.hubChannel.getHost();
+    const { host, port, turn } = this._serverParams;
+    await transport.updateIceServers({ iceServers: this.getIceServers(host, port, turn) });
     // Force an ICE restart to gather new candidates and trigger a reconnection
     this.emitRTCEvent(
       "log",
@@ -176,6 +185,7 @@ export class DialogAdapter extends EventEmitter {
         await this.iceRestart(this._sendTransport);
       } else {
         // If the transport is closed but the signaling is connected, we try to recreate
+        this._serverParams = await APP.hubChannel.getHost();
         const { host, port, turn } = this._serverParams;
         const iceServers = this.getIceServers(host, port, turn);
         await this.recreateSendTransport(iceServers);
@@ -215,6 +225,7 @@ export class DialogAdapter extends EventEmitter {
         await this.iceRestart(this._recvTransport);
       } else {
         // If the transport is closed but the signaling is connected, we try to recreate
+        this._serverParams = await APP.hubChannel.getHost();
         const { host, port, turn } = this._serverParams;
         const iceServers = this.getIceServers(host, port, turn);
         await this.recreateRecvTransport(iceServers);
@@ -554,7 +565,12 @@ export class DialogAdapter extends EventEmitter {
       }
     } else {
       this._consumers.forEach(consumer => {
-        if (consumer.appData.peerId === clientId && kind == consumer.track.kind) {
+        if (
+          consumer.appData.peerId === clientId &&
+          kind == consumer.track.kind &&
+          !consumer.closed &&
+          consumer.track.readyState !== "ended"
+        ) {
           track = consumer.track;
         }
       });
@@ -771,7 +787,17 @@ export class DialogAdapter extends EventEmitter {
     }
   }
 
-  async setLocalMediaStream(stream) {
+  // lounge: callers (screen share, mic share, transport recreation) can run
+  // concurrently. Two overlapping passes each saw no producer and published the
+  // same screen track twice; the orphaned duplicate later closed and any viewer
+  // bound to it lost the TV. Run the passes one at a time.
+  setLocalMediaStream(stream) {
+    const run = () => this._setLocalMediaStream(stream);
+    this._localMediaStreamQueue = (this._localMediaStreamQueue || Promise.resolve()).then(run, run);
+    return this._localMediaStreamQueue;
+  }
+
+  async _setLocalMediaStream(stream) {
     if (!this._sendTransport) {
       console.error("Tried to setLocalMediaStream before a _sendTransport existed");
       return;
@@ -875,6 +901,10 @@ export class DialogAdapter extends EventEmitter {
   }
 
   async enableShare(track) {
+    if (this._shareProducer && !this._shareProducer.closed) {
+      if (this._shareProducer.track === track) return;
+      await this.disableShare();
+    }
     // stopTracks = false because otherwise the track will end during a temporary disconnect
     this._shareProducer = await this._sendTransport.produce({
       track,

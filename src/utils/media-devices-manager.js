@@ -354,11 +354,15 @@ export default class MediaDevicesManager extends EventEmitter {
             height: { ideal: 1440 },
             frameRate: 30
           },
-          audio: {
-            echoCancellation: window.APP.store.state.preferences.disableEchoCancellation === true ? false : true,
-            noiseSuppression: window.APP.store.state.preferences.disableNoiseSuppression === true ? false : true,
-            autoGainControl: window.APP.store.state.preferences.disableAutoGainControl === true ? false : true
-          }
+          // The authenticated Mac feeder uses BlackHole separately. Capturing
+          // display audio too would mix the same system sound twice.
+          audio: this._scene.systems["lounge-tv"]?.isFeeder
+            ? false
+            : {
+                echoCancellation: window.APP.store.state.preferences.disableEchoCancellation === true ? false : true,
+                noiseSuppression: window.APP.store.state.preferences.disableNoiseSuppression === true ? false : true,
+                autoGainControl: window.APP.store.state.preferences.disableAutoGainControl === true ? false : true
+              }
         });
       } else {
         newStream = await navigator.mediaDevices.getUserMedia({

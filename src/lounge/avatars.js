@@ -1,7 +1,7 @@
 // private-quest-lounge: the fixed, preloaded avatar set. These are the only
 // avatars offered in the UI; arbitrary avatar browsing/uploading is removed.
 // Photo-real avatars built via MetaPerson (see lounge-assets/metaperson-*/),
-// converted to Hubs half-body by hubsify.py. Max four personal avatars; the
+// converted to Hubs-compatible full-body rigs by hubsify.py. The
 // retired procedural set still lives in lounge-assets/avatars/.
 import jayReal from "../assets/models/lounge-avatars/avatar-jay-real.glb";
 import herReal from "../assets/models/lounge-avatars/avatar-her-real.glb";

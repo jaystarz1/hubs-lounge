@@ -349,6 +349,7 @@ module.exports = async (env, argv) => {
       "webxr-polyfill": path.join(__dirname, "src", "webxr-polyfill.js")
     },
     output: {
+      path: process.env.PUBLIC_BUILD_DIR || path.resolve(__dirname, "dist"),
       filename: "assets/js/[name]-[chunkhash].js",
       publicPath: process.env.BASE_ASSETS_PATH || ""
     },
@@ -367,9 +368,7 @@ module.exports = async (env, argv) => {
       },
       host: "0.0.0.0",
       port: 8080,
-      allowedHosts: [host, internalHostname, process.env.PUBLIC_HOST, process.env.PUBLIC_ASSETS_HOST].filter(
-        Boolean
-      ),
+      allowedHosts: [host, internalHostname, process.env.PUBLIC_HOST, process.env.PUBLIC_ASSETS_HOST].filter(Boolean),
       headers: devServerHeaders,
       hot: liveReload,
       liveReload: liveReload,

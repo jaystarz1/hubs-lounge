@@ -2,17 +2,18 @@
 //
 // Any screen-share video object in the room is pinned onto the TVScreen mesh
 // on the west wall instead of floating wherever it spawned. A client opened
-// with ?tv=1 is the dedicated screen feeder (Jay's Mac): after entering the
-// room (enter WITHOUT microphone; screen-share audio still flows) it
-// auto-starts a display share and parks its avatar in the corner behind the
-// TV so the third occupant is out of sight.
-//
-// macOS note: Chrome only captures audio when sharing a TAB — play the movie
-// in a tab and share that tab for sound.
+// with a daemon-issued ?tv=1 launch capability is the Mac screen feeder.
+// It captures Screen 1 and BlackHole system audio, silences room playback to
+// avoid feedback, and stops both tracks if control connectivity is lost.
 
 import qsTruthy from "../utils/qs_truthy";
+import { TvControls } from "./tv-controls";
+import { LightsPanel, setTvLive } from "./lights";
+import { MediaDevicesEvents } from "../utils/media-devices-utils";
 
-const isTvClient = qsTruthy("tv");
+const feederToken = new URLSearchParams(window.location.hash.slice(1)).get("tv-session");
+const isTvClient = qsTruthy("tv") && /^[a-f0-9]{64}$/.test(feederToken || "");
+if (isTvClient) window.history.replaceState(null, "", window.location.pathname + window.location.search);
 const VIDEO_SRC_RE = /^hubs:\/\/clients\/\S+\/video$/;
 
 function findScreens(scene) {
@@ -44,6 +45,7 @@ function pinEntityToScreen(el, screen) {
 
 AFRAME.registerSystem("lounge-tv", {
   init() {
+    this.isFeeder = isTvClient;
     this.pinned = new Set();
     this.sceneEl = this.el;
 
@@ -68,14 +70,7 @@ AFRAME.registerSystem("lounge-tv", {
     this.scanInterval = setInterval(() => this.scan(), 1500);
 
     if (isTvClient) {
-      this.sceneEl.addEventListener("entered", () => this.becomeTv(), { once: true });
-      // Auto-enter the room (no mic) so bin/tv-daemon can run hands-free.
-      const tryEnter = setInterval(() => {
-        if (window.APP?.entryManager && window.NAF?.connection?.isConnected()) {
-          clearInterval(tryEnter);
-          window.APP.entryManager.enterSceneWhenLoaded(false, false);
-        }
-      }, 500);
+      this.initFeeder();
     } else {
       // Power button on the wall below the TV: press in-room to summon the
       // Mac's screen (signals bin/tv-daemon through the tunnel).
@@ -101,25 +96,11 @@ AFRAME.registerSystem("lounge-tv", {
   },
 
   addPowerButton() {
-    // Anchor both buttons to wherever the TVScreen mesh actually is, so a
-    // re-authored wall never strands them inside it again (the old cabin
-    // constants left them buried half a metre behind the penthouse wall).
-    const anchor = new THREE.Vector3(-10.87, 1.9, -6.8);
     const tv = this.screens?.tv;
-    if (tv) {
-      tv.updateMatrices ? tv.updateMatrices() : tv.updateMatrixWorld(true);
-      tv.getWorldPosition(anchor);
-    }
-    // Red: low, off the TV's south edge — summon the Mac's screen
-    // (signals bin/tv-daemon).
-    this.wallButton(0xc0392b, 0x8a1f12, anchor.x, 0.55, anchor.z + 1.6, () => {
-      fetch("/lounge-tv/9c4f/on", { method: "POST" }).catch(() => {});
-    });
-    // Green: above the TV's north edge (viewer's right) — full page reload,
-    // for picking up new client builds without leaving the headset.
-    this.wallButton(0x27ae60, 0x14602f, anchor.x, 2.85, anchor.z - 1.6, () => {
-      window.location.reload();
-    });
+    if (!tv || this.controls) return;
+    tv.updateMatrices ? tv.updateMatrices() : tv.updateMatrixWorld(true);
+    this.controls = new TvControls(this.sceneEl, tv);
+    this.lightsPanel = new LightsPanel(this.sceneEl, tv);
   },
 
   scan() {
@@ -152,7 +133,6 @@ AFRAME.registerSystem("lounge-tv", {
   // Give the desk monitor the same live video material as the wall TV.
   mirrorToMonitor() {
     const monitor = this.screens?.monitor;
-    if (!monitor) return;
     let liveMaterial = null;
     for (const el of this.pinned) {
       if (!el.isConnected) continue;
@@ -160,16 +140,19 @@ AFRAME.registerSystem("lounge-tv", {
         if (!liveMaterial && o.isMesh && o.material?.map?.isVideoTexture) liveMaterial = o.material;
       });
     }
-    if (liveMaterial && monitor.material !== liveMaterial) {
+    // Dim the room while a live picture is on the wall (viewers only).
+    if (!this.isFeeder) setTvLive(!!liveMaterial);
+    if (monitor && liveMaterial && monitor.material !== liveMaterial) {
       monitor.userData.idleMaterial = monitor.userData.idleMaterial || monitor.material;
       monitor.material = liveMaterial;
-    } else if (!liveMaterial && monitor.userData.idleMaterial && monitor.material !== monitor.userData.idleMaterial) {
+    } else if (!liveMaterial && monitor?.userData.idleMaterial && monitor.material !== monitor.userData.idleMaterial) {
       monitor.material = monitor.userData.idleMaterial;
     }
     // Max anisotropic filtering: keeps text sharp when the screen is viewed
     // at any angle or distance (default filtering smears it).
-    if (liveMaterial?.map && liveMaterial.map.anisotropy < 16) {
-      liveMaterial.map.anisotropy = 16;
+    const anisotropy = Math.min(16, this.sceneEl.renderer.capabilities.getMaxAnisotropy());
+    if (liveMaterial?.map && liveMaterial.map.anisotropy < anisotropy) {
+      liveMaterial.map.anisotropy = anisotropy;
       liveMaterial.map.needsUpdate = true;
     }
   },
@@ -182,7 +165,114 @@ AFRAME.registerSystem("lounge-tv", {
     }
   },
 
+  async initFeeder() {
+    this.feederReport = { audio: "connecting" };
+    this.feederFailures = 0;
+    this.onFeederEnded = () => {
+      if (this.feederStopped) return;
+      this.feederReport.error = "Screen sharing ended. Press START to share again.";
+      this.heartbeat();
+      this.stopFeeder();
+    };
+    this.sceneEl.addEventListener("share_video_failed", this.onFeederEnded);
+    this.sceneEl.addEventListener("share_video_disabled", this.onFeederEnded);
+    this.sceneEl.addEventListener("share_video_enabled", () => {
+      this.videoPublished = true;
+      if (this.feederStopped) this.stopFeeder(); // Capture permission may finish after Stop.
+    });
+    this.sceneEl.addEventListener("entered", () => this.becomeTv(), { once: true });
+    // Authenticate the per-launch capability before entering or capturing.
+    if (!(await this.heartbeat())) return;
+    this.feederPoll = setInterval(() => this.heartbeat(), 2000);
+    this.enterPoll = setInterval(() => {
+      if (this.feederStopped) return;
+      if (window.APP?.entryManager && window.NAF?.connection?.isConnected()) {
+        clearInterval(this.enterPoll);
+        window.APP.entryManager.enterSceneWhenLoaded(false, false);
+      }
+    }, 500);
+  },
+
+  async heartbeat() {
+    if (this.heartbeatBusy) return false;
+    this.heartbeatBusy = true;
+    const manager = window.APP?.mediaDevicesManager;
+    const video = manager?.mediaStream?.getVideoTracks().find(t => t.readyState === "live");
+    if (video && this.videoPublished) {
+      const settings = video.getSettings();
+      this.feederReport.video = {
+        width: settings.width,
+        height: settings.height,
+        fps: settings.frameRate,
+        display: settings.displaySurface || video.label
+      };
+    }
+    if (manager?.audioTrack?.readyState === "live" && /blackhole/i.test(manager.audioTrack.label)) {
+      this.feederReport.audio = true;
+    } else if (this.feederReport.audio === true) {
+      this.feederReport.audio = "BlackHole audio disconnected";
+    }
+    try {
+      const response = await fetch("/lounge-tv/v1/heartbeat", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${feederToken}`, "Content-Type": "application/json" },
+        body: JSON.stringify(this.feederReport),
+        signal: AbortSignal.timeout(5000)
+      });
+      if (!response.ok) throw new Error("TV control unavailable");
+      const data = await response.json();
+      if (data.command !== "continue") {
+        this.stopFeeder();
+        return false;
+      }
+      this.feederFailures = 0;
+      return true;
+    } catch {
+      if (++this.feederFailures >= 2 || !this.feederPoll) this.stopFeeder();
+      return false;
+    } finally {
+      this.heartbeatBusy = false;
+    }
+  },
+
+  async stopFeeder() {
+    this.feederStopped = true;
+    clearInterval(this.feederPoll);
+    clearInterval(this.enterPoll);
+    clearTimeout(this.captureDelay);
+    const manager = window.APP?.mediaDevicesManager;
+    // Stop tracks synchronously too: failed signaling must not leave capture on.
+    manager?.mediaStream?.getVideoTracks().forEach(track => track.stop());
+    manager?.audioTrack?.stop();
+    await Promise.allSettled([manager?.stopVideoShare(), manager?.stopMicShare()]);
+    this.sceneEl.emit(MediaDevicesEvents.VIDEO_SHARE_ENDED);
+    // Leave the room. A stopped feeder that stays connected is a ghost
+    // participant: it counts against the two-person cap, holds SFU transports
+    // and piles up with every Start/Retry (each launch is a new tab).
+    if (!this.leaveTimer) {
+      this.leaveTimer = setTimeout(() => {
+        window.close();
+        window.location.replace("about:blank");
+      }, 1500);
+    }
+  },
+
+  remove() {
+    this.observer?.disconnect();
+    clearInterval(this.scanInterval);
+    this.controls?.remove();
+    this.lightsPanel?.remove();
+    if (isTvClient) this.stopFeeder();
+  },
+
   becomeTv() {
+    if (this.feederStopped) return;
+    if (!window.APP.hubChannel.can("spawn_and_move_media")) {
+      this.feederReport.error = "The TV feeder does not have screen-sharing permission in this room.";
+      this.heartbeat();
+      this.stopFeeder();
+      return;
+    }
     // Park the avatar in the north-west corner, facing the wall.
     const rig = document.getElementById("avatar-rig");
     if (rig) {
@@ -207,18 +297,28 @@ AFRAME.registerSystem("lounge-tv", {
     // System audio: if a BlackHole loopback device exists, use it as this
     // client's "microphone" — the daemon routes Mac output into it, so all
     // Mac audio (any app, not just tabs) streams into the room.
-    setTimeout(async () => {
+    this.captureDelay = setTimeout(async () => {
+      // Video and loopback audio have separate permission paths. A pending
+      // microphone prompt must not prevent the display from connecting.
+      this.sceneEl.emit("action_share_screen");
       try {
         const devices = await navigator.mediaDevices.enumerateDevices();
         const loopback = devices.find(d => d.kind === "audioinput" && /blackhole/i.test(d.label));
         if (loopback) {
-          await window.APP.mediaDevicesManager.startMicShare({ deviceId: loopback.deviceId, unmute: true });
-        }
+          const started = await window.APP.mediaDevicesManager.startMicShare({
+            deviceId: loopback.deviceId,
+            unmute: true
+          });
+          this.feederReport.audio = started ? true : "BlackHole permission denied";
+        } else this.feederReport.audio = "BlackHole unavailable; video only";
       } catch (e) {
+        this.feederReport.audio = "BlackHole capture failed; video only";
         console.warn("lounge-tv: loopback audio unavailable", e);
       }
-      // Auto-start the screen share.
-      this.sceneEl.emit("action_share_screen");
+      if (this.feederStopped) {
+        this.stopFeeder();
+        return;
+      }
     }, 1000);
   }
 });

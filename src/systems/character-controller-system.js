@@ -11,6 +11,7 @@ import {
   affixToWorldUp
 } from "../utils/three-utils";
 import { getCurrentPlayerHeight } from "../utils/get-current-player-height";
+import { StandingHeight } from "../lounge/standing-height.cjs";
 import qsTruthy from "../utils/qs_truthy";
 import { releaseOccupiedWaypoint } from "../bit-systems/waypoint";
 import { shouldUseNewLoader } from "../utils/bit-utils";
@@ -48,6 +49,9 @@ const BASE_SPEED = 3.2; //TODO: in what units?
 export class CharacterControllerSystem {
   constructor(scene) {
     this.scene = scene;
+    this.standingHeight = new StandingHeight();
+    this.scene.addEventListener("enter-vr", () => this.standingHeight.reset());
+    this.scene.addEventListener("exit-vr", () => this.standingHeight.reset());
     this.fly = false;
     this.shouldLandWhenPossible = false;
     this.waypoints = [];
@@ -96,6 +100,9 @@ export class CharacterControllerSystem {
       targetForRig.copy(rig).add(deltaFromHeadToTargetForHead);
       const navMeshExists = NAV_ZONE in this.scene.systems.nav.pathfinder.zones;
       this.findPositionOnNavMesh(targetForRig, targetForRig, this.avatarRig.object3D.position, navMeshExists);
+      // Teleport runs outside tick: keep the same lifted rig convention so
+      // the next tick can remove/reapply the offset exactly once.
+      this.avatarRig.object3D.position.y += this.loungeLift || 0;
       this.avatarRig.object3D.matrixNeedsUpdate = true;
     };
   })();
@@ -179,12 +186,8 @@ export class CharacterControllerSystem {
       this.sfx = this.sfx || this.scene.systems["hubs-systems"].soundEffectsSystem;
       this.waypointSystem = this.waypointSystem || this.scene.systems["hubs-systems"].waypointSystem;
 
-      // lounge: global eye/avatar lift — +0.50 m everywhere, dropping to
-      // +0.15 m (0.50 − 0.35) while parked on a seat waypoint
-      // (isMotionDisabled), so bodies sink into the cushions. The lift is
-      // removed here, before any waypoint/nav-mesh math runs in un-lifted
-      // space, and re-added just before the final childMatch — otherwise it
-      // would accumulate every tick or get wiped by the nav snap.
+      // Strip the previous comfort offset before navigation, then apply the
+      // current offset once to the entire rig (head and both controllers).
       if (this.loungeLift) {
         this.avatarRig.object3D.position.y -= this.loungeLift;
         this.avatarRig.object3D.matrixNeedsUpdate = true;
@@ -380,10 +383,13 @@ export class CharacterControllerSystem {
         }
       }
 
-      // lounge: re-apply the lift (eased so sitting/standing glides, not pops).
-      const targetLift = this.isMotionDisabled ? 0.15 : 0.5;
+      // Calibrate physical seated use to standing once per XR entry. Keeping
+      // a fixed offset preserves subsequent real leaning/crouching. Explicit
+      // furniture and floor seats keep their authored eye height.
+      const standingLift = this.standingHeight.sample(t, getCurrentPlayerHeight(), vrMode, this.isMotionDisabled);
+      const targetLift = this.isMotionDisabled ? 0.15 : standingLift;
       if (this.loungeLift === undefined) this.loungeLift = targetLift;
-      const maxLiftStep = (dt / 1000) * 1.5;
+      const maxLiftStep = (Math.min(100, Math.max(0, dt)) / 1000) * 1.5;
       this.loungeLift += THREE.MathUtils.clamp(targetLift - this.loungeLift, -maxLiftStep, maxLiftStep);
       newPOV.elements[13] += this.loungeLift;
 

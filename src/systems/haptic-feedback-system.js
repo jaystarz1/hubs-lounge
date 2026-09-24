@@ -54,6 +54,7 @@ function determineStretchStrength(stretchSystem) {
 
 export class HapticFeedbackSystem {
   constructor() {
+    this.socialPulses = { left: { until: 0, strength: 0 }, right: { until: 0, strength: 0 } };
     this.state = {
       rightHand: {
         held: null,
@@ -76,6 +77,16 @@ export class HapticFeedbackSystem {
         isTeleporting: false
       }
     };
+  }
+
+  requestSocialPulse(side, strength = 0.22, duration = 80) {
+    const now = performance.now();
+    for (const hand of side === "both" ? ["left", "right"] : [side]) {
+      const pulse = this.socialPulses[hand];
+      if (!pulse || !Number.isFinite(strength) || !Number.isFinite(duration)) continue;
+      pulse.until = now + THREE.MathUtils.clamp(duration, 0, 120);
+      pulse.strength = THREE.MathUtils.clamp(strength, 0, 0.35);
+    }
   }
 
   tick(twoPointStretchingSystem, interactLeft, interactRight) {
@@ -101,15 +112,30 @@ export class HapticFeedbackSystem {
     const buttonRightStrength = interactRight ? STRENGTH.BUTTON_PRESSED : 0;
     const stretchingStrength = determineStretchStrength(twoPointStretchingSystem);
 
-    const leftStrength = Math.max(leftHandStrength, leftRemoteStrength, stretchingStrength, buttonLeftStrength);
-    const rightStrength = Math.max(rightHandStrength, rightRemoteStrength, stretchingStrength, buttonRightStrength);
+    const now = performance.now();
+    const leftSocial = now < this.socialPulses.left.until ? this.socialPulses.left.strength : 0;
+    const rightSocial = now < this.socialPulses.right.until ? this.socialPulses.right.strength : 0;
+    const leftStrength = Math.max(
+      leftHandStrength,
+      leftRemoteStrength,
+      stretchingStrength,
+      buttonLeftStrength,
+      leftSocial
+    );
+    const rightStrength = Math.max(
+      rightHandStrength,
+      rightRemoteStrength,
+      stretchingStrength,
+      buttonRightStrength,
+      rightSocial
+    );
 
     if (leftStrength && leftActuator) {
-      leftActuator.pulse(leftStrength, 15);
+      Promise.resolve(leftActuator.pulse(leftStrength, 15)).catch(() => {});
     }
 
     if (rightStrength && rightActuator) {
-      rightActuator.pulse(rightStrength, 15);
+      Promise.resolve(rightActuator.pulse(rightStrength, 15)).catch(() => {});
     }
 
     copyState(this.state.rightHand, rightHand, this.rightTeleporter.isTeleporting);

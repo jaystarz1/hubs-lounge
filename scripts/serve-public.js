@@ -1,8 +1,9 @@
 const fs = require("fs");
 const https = require("https");
 const path = require("path");
+const { resolveFile } = require("./public-release");
 
-const root = path.resolve(__dirname, "..", "dist");
+const root = path.resolve(__dirname, "..");
 const port = Number(process.env.PORT || 8080);
 const rewrites = [
   [/^\/link(?:\/|$)/, "/link.html"],
@@ -42,6 +43,10 @@ https
       key: fs.readFileSync(path.resolve(__dirname, "..", "certs", "key.pem"))
     },
     (req, res) => {
+      if (req.method !== "GET" && req.method !== "HEAD") {
+        res.writeHead(405, { Allow: "GET, HEAD" }).end();
+        return;
+      }
       let pathname;
       try {
         pathname = decodeURIComponent(new URL(req.url, "http://localhost").pathname);
@@ -54,29 +59,31 @@ https
       if (rewrite) pathname = rewrite[1];
       if (pathname === "/") pathname = "/index.html";
 
-      const filename = path.resolve(root, `.${pathname}`);
-      if (filename !== root && !filename.startsWith(`${root}${path.sep}`)) {
-        res.writeHead(403).end("Forbidden");
-        return;
-      }
-
-      fs.stat(filename, (statError, stat) => {
-        if (statError || !stat.isFile()) {
+      try {
+        const file = resolveFile(root, pathname);
+        if (!file) {
           res.writeHead(404, { "Access-Control-Allow-Origin": "*" }).end("Not found");
           return;
         }
+        const { filename, stat } = file;
         const extension = path.extname(filename).toLowerCase();
         const immutable = pathname.startsWith("/assets/") && /-[a-f0-9]{8,}\./i.test(pathname);
         res.writeHead(200, {
           "Access-Control-Allow-Origin": "*",
-          "Cache-Control": immutable ? "public, max-age=31536000, immutable" : "public, max-age=300",
+          "Cache-Control": immutable ? "public, max-age=31536000, immutable" : "no-cache",
           "Content-Length": stat.size,
           "Content-Type": mimeTypes[extension] || "application/octet-stream",
           "X-Content-Type-Options": "nosniff"
         });
         if (req.method === "HEAD") res.end();
-        else fs.createReadStream(filename).pipe(res);
-      });
+        else
+          fs.createReadStream(filename)
+            .on("error", () => res.destroy())
+            .pipe(res);
+      } catch (error) {
+        console.error("Public release unavailable:", error.message);
+        res.writeHead(503, { "Cache-Control": "no-store" }).end("Client release unavailable");
+      }
     }
   )
   .listen(port, "0.0.0.0", () => console.log(`Serving production client on https://0.0.0.0:${port}`));

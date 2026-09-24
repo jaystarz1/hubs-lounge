@@ -153,6 +153,9 @@ window.changeHub = changeHub;
 
 // TODO see if there is a better way to do this with react router
 window.addEventListener("popstate", function () {
+  // Reload/history restoration can fire before the initial hub response.
+  // Initial loading already owns the URL; there is no active room to migrate.
+  if (!APP.hub) return;
   const qs = new URLSearchParams(location.search);
   const newHubId = qs.get("hub_id") || document.location.pathname.substring(1).split("/")[0];
   if (newHubId !== APP.hub.hub_id) {

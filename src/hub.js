@@ -44,6 +44,7 @@ import "networked-aframe/src/index";
 import "webrtc-adapter";
 import "./lounge/view-switcher";
 import "./lounge/tv";
+import "./lounge/social";
 import { remapStaleAvatarId } from "./lounge/avatars";
 import { detectOS, detect } from "detect-browser";
 import {

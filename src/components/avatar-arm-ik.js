@@ -25,7 +25,17 @@
 //    happened to be.
 //  - An untracked hand (controller off, desktop viewer, tracking lost) eases
 //    to a relaxed pose by the hip instead of freezing in the export T-pose.
+//  - Rest directions/orientations live in bind-chest space, not the world
+//    frame at setup. Turning the body must not deform an unchanged arm pose.
 const { Vector3, Quaternion, Matrix4 } = THREE;
+const renderComponents = new Set();
+
+// Called after BoneVisibilitySystem.tick() and before the scene is rendered.
+// Stock half-body hiding collapses invisible hands to near-zero scale, which
+// tears the skin of these connected, full-body arms in desktop/relaxed poses.
+export function prepareAvatarArmsForRender() {
+  for (const component of renderComponents) component.prepareForRender();
+}
 
 const SIDES = [
   {
@@ -60,6 +70,8 @@ const invChestQ = new Quaternion();
 const handQ = new Quaternion();
 const twistQ = new Quaternion();
 const blendQ = new Quaternion();
+const restWorldQ = new Quaternion();
+const restWorldDirection = new Vector3();
 const shoulder = new Vector3();
 const wrist = new Vector3();
 const elbow = new Vector3();
@@ -76,25 +88,6 @@ const tmpV = new Vector3();
 const tmpQ = new Quaternion();
 const m = new Matrix4();
 
-function snapshotBone(bone, fallbackTail) {
-  bone.updateWorldMatrix(true, false);
-  const head = new Vector3();
-  const tail = new Vector3();
-  bone.getWorldPosition(head);
-  const child = bone.children.find(childBone => childBone.isBone);
-  if (child) {
-    child.updateWorldMatrix(true, false);
-    child.getWorldPosition(tail);
-  } else if (fallbackTail) {
-    tail.copy(fallbackTail);
-  } else {
-    return null;
-  }
-  const direction = tail.sub(head).normalize();
-  bone.getWorldQuaternion(q);
-  return { bone, restDirection: direction, restQuaternion: q.clone(), restLocalQuaternion: bone.quaternion.clone() };
-}
-
 function findSkeleton(root) {
   let skeleton = null;
   root.traverse(object => {
@@ -109,20 +102,37 @@ function bindMatrixOf(skeleton, boneName) {
   return skeleton.boneInverses[index].clone().invert();
 }
 
+function snapshotBone(skeleton, bone, inverseBindChest, fallbackTail) {
+  const bind = bindMatrixOf(skeleton, bone.name);
+  const child = bone.children.find(childBone => childBone.isBone);
+  const tailBind = child ? bindMatrixOf(skeleton, child.name) : fallbackTail;
+  if (!bind || !tailBind) return null;
+  const head = new Vector3().setFromMatrixPosition(bind).applyMatrix4(inverseBindChest);
+  const tail = new Vector3().setFromMatrixPosition(tailBind).applyMatrix4(inverseBindChest);
+  const relativeBind = inverseBindChest.clone().multiply(bind);
+  return {
+    bone,
+    restDirection: tail.sub(head).normalize(),
+    restQuaternion: new Quaternion().setFromRotationMatrix(new Matrix4().extractRotation(relativeBind))
+  };
+}
+
 // Rotate `bone` so that its rest direction points along worldDirection,
 // optionally rolled about that direction by `roll` radians; `amount` < 1
 // blends from the rest orientation (used for the collarbone shrug).
 function aim(snapshot, worldDirection, roll = 0, amount = 1) {
   const { bone, restDirection, restQuaternion } = snapshot;
-  deltaQ.setFromUnitVectors(restDirection, worldDirection);
-  q.copy(deltaQ).multiply(restQuaternion);
+  restWorldDirection.copy(restDirection).applyQuaternion(chestQ);
+  restWorldQ.copy(chestQ).multiply(restQuaternion);
+  deltaQ.setFromUnitVectors(restWorldDirection, worldDirection);
+  q.copy(deltaQ).multiply(restWorldQ);
   if (roll !== 0) {
     twistQ.setFromAxisAngle(worldDirection, roll);
     q.premultiply(twistQ);
   }
   if (amount < 1) {
     blendQ.copy(q);
-    q.copy(restQuaternion).slerp(blendQ, amount);
+    q.copy(restWorldQ).slerp(blendQ, amount);
   }
   bone.parent.getWorldQuaternion(parentQ).invert();
   bone.quaternion.copy(parentQ.multiply(q));
@@ -148,12 +158,27 @@ AFRAME.registerComponent("avatar-arm-ik", {
     this.chest = null;
   },
 
+  play() {
+    renderComponents.add(this);
+  },
+
+  pause() {
+    renderComponents.delete(this);
+  },
+
+  remove() {
+    renderComponents.delete(this);
+    this.rigs = null;
+    this.chest = null;
+  },
+
   setup() {
     const root = this.el.object3D;
     const skeleton = findSkeleton(root);
     const chest = root.getObjectByName("Spine");
     if (!skeleton || !chest) return false;
-    root.updateWorldMatrix(true, true);
+    root.updateWorldMatrix(true, false);
+    root.updateMatrixWorld(false, true);
     const rigs = [];
     for (const side of SIDES) {
       const hand = root.getObjectByName(side.hand);
@@ -170,10 +195,10 @@ AFRAME.registerComponent("avatar-arm-ik", {
       const elbowPos = new Vector3().setFromMatrixPosition(bindElbow);
       const wristPos = new Vector3().setFromMatrixPosition(bindWrist);
       const upperPos = new Vector3().setFromMatrixPosition(bindUpper);
-      const bindWristWorld = wristPos.clone().applyMatrix4(root.matrixWorld);
-      const clavicle = snapshotBone(clavicleBone);
-      const upper = snapshotBone(upperBone);
-      const lower = lowerBones.map(bone => snapshotBone(bone, bindWristWorld));
+      const inverseBindChest = bindChest.clone().invert();
+      const clavicle = snapshotBone(skeleton, clavicleBone, inverseBindChest);
+      const upper = snapshotBone(skeleton, upperBone, inverseBindChest);
+      const lower = lowerBones.map(bone => snapshotBone(skeleton, bone, inverseBindChest, bindWrist));
       if (!clavicle || !upper || lower.some(x => !x)) return false;
       // Hand orientation at bind, expressed in chest space: the wrist-roll reference.
       m.copy(bindChest).invert().multiply(bindWrist);
@@ -236,6 +261,29 @@ AFRAME.registerComponent("avatar-arm-ik", {
     return p.x !== 0 || p.y !== 0 || p.z !== 0;
   },
 
+  prepareForRender() {
+    if (!this.rigs) return;
+    const social = this.el.sceneEl?.systems?.["lounge-social"];
+    const hasPose = !!social?.poseFor?.(this.el);
+    for (const rig of this.rigs) {
+      const hand = rig.hand;
+      const invader = hand.el?.components?.["personal-space-invader"];
+      const estimated = !this.effectorTracked(rig.side) || hasPose || rig.socialWeight > 0.001;
+      // Controller loss is not a privacy decision. Keep its estimated avatar
+      // hand, but never override an active personal-space invasion.
+      if (estimated && (!invader?.invading || invader.disabled)) {
+        if (invader?.alwaysHidden) invader.setAlwaysHidden(false);
+        hand.visible = true;
+      }
+      if (hand.visible && (hand.scale.x !== 1 || hand.scale.y !== 1 || hand.scale.z !== 1)) {
+        hand.scale.setScalar(1);
+        hand.matrixNeedsUpdate = true;
+        hand.updateWorldMatrix(true, false);
+        hand.updateMatrixWorld(true, true);
+      }
+    }
+  },
+
   // Hand placement across tracking transitions. ik-controller writes the
   // tracked pose into the hand bone every tick while the controller is
   // visible and leaves the bone alone otherwise. Untracked: ease from what was
@@ -272,11 +320,13 @@ AFRAME.registerComponent("avatar-arm-ik", {
 
   tock(time, dt) {
     if (!this.rigs && !this.setup()) return;
+    this.prepareForRender();
     const dtSeconds = Math.min(0.1, (dt || 16) / 1000);
     this.chest.getWorldQuaternion(chestQ);
     invChestQ.copy(chestQ).invert();
     for (const rig of this.rigs) {
       this.placeHand(rig, this.effectorTracked(rig.side), dtSeconds);
+      this.el.sceneEl?.systems?.["lounge-social"]?.applyHandPose?.(this.el, rig, dtSeconds);
       const { side, upper, clavicle, lower, hand } = rig;
 
       // Pass 1: elbow hint from where the hand is relative to the shoulder.

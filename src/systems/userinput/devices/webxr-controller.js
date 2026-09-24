@@ -26,6 +26,12 @@ export class WebXRControllerDevice {
 
     const hand = this.gamepad.hand || "right";
     const path = paths.device.webxr[hand];
+    // WebXR gamepads bypass the legacy Oculus driver. Publish their output
+    // actuator here as well, otherwise every Quest pulse is silently dropped.
+    const actuator = this.gamepad.hapticActuators?.[0];
+    if (actuator && typeof actuator.pulse === "function") {
+      frame.setValueType(paths.haptics.actuators[hand], actuator);
+    }
     const pose = xrFrame.getPose(this.gamepad.targetRaySpace, referenceSpace);
     const isTracked = !!(pose && pose.transform.position && pose.transform.orientation);
 
