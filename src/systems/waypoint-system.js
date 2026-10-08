@@ -119,7 +119,8 @@ function uuid(el) {
   return el.object3D.uuid;
 }
 
-const ICON_REVEAL_DISTANCE_SQ = 3.5 * 3.5;
+// 3 ft: a seat marker only lights when the avatar is standing right beside it.
+const ICON_REVEAL_DISTANCE_SQ = 0.9144 * 0.9144;
 // Icons are drawn on top of geometry, so a plain 3D radius revealed bedroom
 // seats through the lounge ceiling. Reveal by horizontal distance from the
 // viewer and only for seats on the viewer's own storey (seat height vs the
@@ -387,24 +388,26 @@ export class WaypointSystem {
       this.mightNeedRespawn = false;
       this.moveToSpawnPoint();
     }
+    // While seated, every marker stays dark; standing up releases the seat.
+    const seated = this.ready.some(isOccupiedByMe);
     const tickTemplateEl = (elementFromTemplate, waypointComponent) => {
       if (
         elementFromTemplate.classList.contains("teleport-waypoint-icon") ||
         elementFromTemplate.classList.contains("occupiable-waypoint-icon")
       ) {
-        // Seat markers reveal within arm's-reach-ish range so every sittable
-        // spot (couch, bed, tub) advertises itself the same way as you walk
-        // up, instead of always-on sprites glowing across the room. Freeze
-        // mode still reveals everything at any distance.
+        // Seat markers reveal only within 3 ft of the avatar (horizontal), so
+        // every sittable spot (couch, bed, tub) advertises itself as you walk
+        // right up to it instead of glowing across the room, and all of them
+        // go dark while you are seated. Freeze mode still reveals everything.
         this.viewingCamera = this.viewingCamera || document.getElementById("viewing-camera").object3DMap.camera;
         let visible = this.scene.is("frozen");
-        if (!visible) {
+        if (!visible && !seated) {
           waypointComponent.el.object3D.updateMatrices();
+          const rig = this.characterController.avatarRig.object3D;
+          rig.updateMatrices();
           this.viewingCamera.updateMatrices();
           v1.setFromMatrixPosition(waypointComponent.el.object3D.matrixWorld);
           v2.setFromMatrixPosition(this.viewingCamera.matrixWorld);
-          const rig = this.characterController.avatarRig.object3D;
-          rig.updateMatrices();
           const dy = Math.abs(v1.y - rig.matrixWorld.elements[13]);
           v1.y = v2.y = 0;
           visible = dy < ICON_REVEAL_MAX_DY && v1.distanceToSquared(v2) < ICON_REVEAL_DISTANCE_SQ;

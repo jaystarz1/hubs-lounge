@@ -144,6 +144,38 @@ const checkLineIntersection = (function () {
   };
 })();
 
+// Solid scene geometry stops the arc. The arc only tested the navmesh, and
+// furniture carves a hole in it, so aiming at a table, bed or sofa upstairs
+// passed through it and the floor beneath and landed on the storey below.
+// The backdrop, sky and tub water are not solid; everything else is.
+// Only floor-like faces block: tabletops, slabs, ceilings. Walls, doors,
+// door glass and frames are vertical, so the beam still passes through them
+// into the next room.
+const NOT_SOLID = /^(NavMesh|View|Sky|Rockies|Pano|HotTubWater|Seat_|Spawn_)/;
+// A surface closer than this to the navmesh behind it (floor under its own
+// nav, stair treads over the ramped stair nav) does not block the landing.
+const BLOCK_TOLERANCE = 0.4;
+// Ignore geometry right at the controller (hands resting in a cushion).
+const BLOCK_START = 0.25;
+// |normal.y| above this counts as floor-like (about 60 degrees from vertical).
+const BLOCK_MIN_NORMAL_Y = 0.5;
+let blockerNavMesh = null;
+let blockers = [];
+function solidEnvironmentMeshes(navMesh) {
+  if (navMesh === blockerNavMesh) return blockers;
+  blockerNavMesh = navMesh;
+  blockers = [];
+  const env = document.querySelector("#environment-scene");
+  if (!env) return blockers;
+  env.object3D.traverse(o => {
+    if (!o.isMesh || o === navMesh || !o.visible || NOT_SOLID.test(o.name)) return;
+    const materials = Array.isArray(o.material) ? o.material : [o.material];
+    if (materials.every(m => !m || !m.visible || NOT_SOLID.test(m.name || ""))) return;
+    blockers.push(o);
+  });
+  return blockers;
+}
+
 const MISS_OPACITY = 0.1;
 const HIT_OPACITY = 0.3;
 const MISS_COLOR = 0xff0000;
@@ -155,6 +187,15 @@ const DRAW_TIME_MS = 400;
 const q = new THREE.Quaternion();
 const vecHelper = new THREE.Vector3();
 const v = new THREE.Vector3();
+const blockDirection = new THREE.Vector3();
+const blockNormal = new THREE.Vector3();
+const blockNormalMatrix = new THREE.Matrix3();
+function isFloorLike(hit) {
+  if (!hit.face) return true;
+  blockNormalMatrix.getNormalMatrix(hit.object.matrixWorld);
+  blockNormal.copy(hit.face.normal).applyMatrix3(blockNormalMatrix).normalize();
+  return Math.abs(blockNormal.y) > BLOCK_MIN_NORMAL_Y;
+}
 
 let uiRoot;
 AFRAME.registerComponent("teleporter", {
@@ -181,6 +222,9 @@ AFRAME.registerComponent("teleporter", {
     this.hit = false;
     this.hitPoint = new THREE.Vector3();
     this.raycaster = new THREE.Raycaster();
+    // All hits, not firstHitOnly: a wall face in front must not hide the
+    // floor face of the same merged mesh behind it.
+    this.blockRaycaster = new THREE.Raycaster();
     this.rigWorldPosition = new THREE.Vector3();
     this.newRigWorldPosition = new THREE.Vector3();
     this.teleportOriginWorldPosition = new THREE.Vector3();
@@ -280,10 +324,30 @@ AFRAME.registerComponent("teleporter", {
     this.parabola[0].copy(this.p0);
     const timeSegment = 1 / (this.rayCurve.numPoints - 1);
     const navMesh = AFRAME?.scenes[0]?.systems?.nav?.mesh;
+    const solids = navMesh ? solidEnvironmentMeshes(navMesh) : [];
+    let arcLength = 0;
+    let blockedAt = Infinity;
     for (let i = 1; i < this.rayCurve.numPoints; i++) {
       const t = i * timeSegment;
       parabolicCurve(this.p0, this.v0, t, vecHelper);
       this.parabola[i].copy(vecHelper);
+      const segmentStart = this.parabola[i - 1];
+      const segmentLength = segmentStart.distanceTo(this.parabola[i]);
+
+      if (blockedAt === Infinity && solids.length && segmentLength > 0) {
+        this.blockRaycaster.far = segmentLength;
+        this.blockRaycaster.set(segmentStart, blockDirection.copy(this.parabola[i]).sub(segmentStart).normalize());
+        for (const hit of this.blockRaycaster.intersectObjects(solids, false)) {
+          if (arcLength + hit.distance >= BLOCK_START && isFloorLike(hit)) {
+            blockedAt = arcLength + hit.distance;
+            break;
+          }
+        }
+      }
+      if (arcLength > blockedAt + BLOCK_TOLERANCE) {
+        collidedIndex = i - 1;
+        break;
+      }
 
       if (navMesh) {
         // HACK TODO Fix navmesh visibility + raycasting
@@ -300,11 +364,12 @@ AFRAME.registerComponent("teleporter", {
         );
         navMesh.visible = visible;
         if (result) {
-          this.hit = true;
+          this.hit = arcLength + segmentStart.distanceTo(this.hitPoint) <= blockedAt + BLOCK_TOLERANCE;
           collidedIndex = i;
           break;
         }
       }
+      arcLength += segmentLength;
     }
     if (this.characterController.isTeleportingDisabled) {
       this.hit = false;

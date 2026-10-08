@@ -25,6 +25,23 @@ export function updateSceneCopresentState(presence, scene) {
   }
 }
 
+// When this page first joined the room. It rides in the presence context so
+// every client agrees on when the current session began (the earliest joiner
+// still present), and it survives reconnects so a dropout doesn't restart it.
+let joinedAt = null;
+
+export function sessionStart() {
+  const state = window.APP?.hubChannel?.presence?.state;
+  let start = Infinity;
+  if (state) {
+    for (const id in state) {
+      const j = state[id]?.metas?.[0]?.context?.joined_at;
+      if (typeof j === "number" && j < start) start = j;
+    }
+  }
+  return Number.isFinite(start) ? start : (joinedAt ?? Date.now());
+}
+
 export function createHubChannelParams({
   permsToken,
   profile,
@@ -35,6 +52,7 @@ export function createHubChannelParams({
   hubInviteId,
   authToken
 }) {
+  if (joinedAt === null) joinedAt = Date.now();
   return {
     profile,
     push_subscription_endpoint: pushSubscriptionEndpoint,
@@ -43,7 +61,8 @@ export function createHubChannelParams({
     context: {
       mobile: isMobile || isMobileVR,
       embed: isEmbed,
-      hmd: isMobileVR
+      hmd: isMobileVR,
+      joined_at: joinedAt
     },
     hub_invite_id: hubInviteId
   };

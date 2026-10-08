@@ -1133,9 +1133,12 @@ AFRAME.registerComponent("gltf-model-plus", {
       if (gltf.animations.length > 0) {
         this.el.setAttribute("animation-mixer", {});
         this.el.components["animation-mixer"].initMixer(gltf.animations);
-      } else {
-        generateMeshBVH(this.model);
       }
+      // Always build the BVH: the lounge scene carries one small animated
+      // figure (the Rovers barman), and without it every teleport/cursor ray
+      // would test the whole static scene brute force. Animated rigid or
+      // skinned parts keep a bind-pose BVH, which is harmless here.
+      generateMeshBVH(this.model);
 
       const indexToEntityMap = {};
 
