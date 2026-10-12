@@ -18,14 +18,19 @@ AFRAME.registerComponent("loop-animation", {
     // Drive the clip from the shared server clock instead of local load time,
     // so everyone in the room sees the same moment whenever they arrived.
     serverClock: { type: "boolean", default: false },
-    // With serverClock: the first clip plays once from the start of the room
-    // session (the earliest joiner still present), the second loops after it.
+    // With serverClock: the clips play in sequence from the start of the room
+    // session (the earliest joiner still present): clip k from cues[k-1] (0 for
+    // the first) until cues[k], at (session time - its cue) modulo its length;
+    // the last one loops on. Without cues the first clip plays once and the
+    // second loops after it. A clip may be listed twice (its action is shared).
     session: { type: "boolean", default: false },
-    // Session mode, phase-locked: part of the first clip's window
-    // [lingerAt, lingerAt + lingerLen) is skipped (cross-faded over fade s) so
-    // the first clip always ends on a server-time multiple of phase; the loop
-    // after it then runs in step with every clip looping on the server clock
-    // with that period (the first clip's length must be a multiple of phase).
+    cues: { type: "string", default: "" },
+    // Session mode, phase-locked: the session is taken to have begun at the
+    // last server-time multiple of phase before the earliest joiner arrived
+    // (so up to one phase of the first clip has already played), which keeps
+    // both clips in step from the first second with every clip looping on the
+    // server clock with that period (the first clip's length must be a
+    // multiple of phase). lingerAt/lingerLen/fade are no longer used.
     lingerAt: { type: "number", default: -1 },
     lingerLen: { type: "number", default: 0 },
     phase: { type: "number", default: 0 },
@@ -100,66 +105,37 @@ AFRAME.registerComponent("loop-animation", {
       action.setLoop(THREE.LoopRepeat, Infinity).play();
       this.currentActions.push(action);
     }
-    if (this.data.session && this.data.lingerLen > 0 && this.data.phase > 0 && clips.length >= 2) {
-      // A second copy of the first clip to cross-fade across the skipped part.
-      const copy = mixer.clipAction(clips[0].clone(), this.el.object3D);
-      copy.enabled = false;
-      copy.setLoop(THREE.LoopRepeat, Infinity).play();
-      this.skipAction = copy;
-    }
   },
 
   tick() {
     if (!this.data.serverClock || this.data.paused) return;
     const seconds = getServerTime() / 1000;
     if (this.data.session && this.currentActions.length >= 2) {
-      const [once, loop] = this.currentActions;
-      const start = sessionStart() / 1000;
+      const acts = this.currentActions;
+      const { phase } = this.data;
+      let start = sessionStart() / 1000;
+      if (phase > 0) start = Math.floor(start / phase) * phase; // (on the regulars' beat)
       const t = Math.max(0, seconds - start);
-      const first = once.getClip().duration;
-      const copy = this.skipAction;
-      // How much of the linger window to skip, so the first clip ends at a
-      // server time that is a whole number of phases.
-      let skip = 0;
-      let cut = Infinity;
-      const { lingerAt, lingerLen, phase, fade } = this.data;
-      if (copy && phase > 0 && lingerAt >= 0) {
-        const keep = ((-(start + first) % phase) + phase) % phase; // seconds of the window that are played
-        skip = Math.max(0, lingerLen - keep);
-        cut = lingerAt + keep;
+      if (this.cueText !== this.data.cues) {
+        this.cueText = this.data.cues;
+        this.cueList = this.data.cues
+          .split(",")
+          .map(Number)
+          .filter(v => Number.isFinite(v) && v > 0);
       }
-      const end = first - skip;
-      const inFirst = t < end;
-      loop.enabled = !inFirst;
-      if (!inFirst) {
-        once.enabled = false;
-        if (copy) copy.enabled = false;
-        const d = loop.getClip().duration;
-        if (d > 0) loop.time = (t - end) % d;
-        loop.setEffectiveWeight(1);
-        return;
+      const cues = this.cueList.length ? this.cueList : [acts[0].getClip().duration];
+      let k = 0;
+      while (k < cues.length && k < acts.length - 1 && t >= cues[k]) k++;
+      const from = k === 0 ? 0 : cues[k - 1];
+      const active = acts[k];
+      for (const a of acts) {
+        if (a !== active) a.enabled = false;
       }
-      if (t < cut) {
-        once.enabled = true;
-        once.time = t;
-        once.setEffectiveWeight(1);
-        if (copy) copy.enabled = false;
-      } else if (copy && t < cut + fade) {
-        // Cross-fade from where the clip is to where it jumps to.
-        const s = (t - cut) / fade;
-        const w = s * s * (3 - 2 * s);
-        once.enabled = true;
-        once.time = t;
-        once.setEffectiveWeight(1 - w);
-        copy.enabled = true;
-        copy.time = t + skip;
-        copy.setEffectiveWeight(w);
-      } else {
-        once.enabled = true;
-        once.time = t + skip;
-        once.setEffectiveWeight(1);
-        if (copy) copy.enabled = false;
-      }
+      if (this.skipAction) this.skipAction.enabled = false;
+      active.enabled = true;
+      active.setEffectiveWeight(1);
+      const d = active.getClip().duration;
+      active.time = d > 0 ? (t - from) % d : 0;
       return;
     }
     for (let i = 0; i < this.currentActions.length; i++) {

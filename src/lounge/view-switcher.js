@@ -41,6 +41,17 @@ const LIGHTING = {
   night: { ambient: 0.42, point: 1.25 }
 };
 
+// The mime's finale in the Rovers (lounge-assets/cafe_figures.py) takes the
+// house lights down and puts him in a spotlight. The café prop rig carries a
+// bone, DinCafeProps_Show, on the dinner party's session clock: its scale is how
+// far down the lights are (0.001 up .. 1 down), its position where the
+// spotlight hangs (just above and in front of him). Lights down: ambient and
+// the other fixtures dim, the Rovers' globes dim, and the Rovers' own point
+// light (Light_G) slides down to that spot with a short reach, so it lights him
+// and the stage and little else. No light is added (a new light recompiles
+// every shader on the headset).
+const SHOW = { ambient: 0.75, others: 0.6, spotGain: 2.2, spotRange: 2.6, globes: 0.85 };
+
 // The planes span y -2.5..10.5 but the penthouse glass shows y 0..6.3; the
 // centre of that visible band sits at 0.565 of the plane, from the top.
 const WINDOW_CENTER = 0.565;
@@ -103,6 +114,26 @@ AFRAME.registerComponent("lounge-view-switcher", {
     this.lights = [];
     envRoot.object3D.traverse(o => {
       if (o.isAmbientLight || o.isPointLight) this.lights.push({ light: o, base: o.intensity });
+    });
+    this.showBone = envRoot.object3D.getObjectByName("DinCafeProps_Show") || null;
+    this.showDim = 0;
+    this.spot = null;
+    for (const entry of this.lights) {
+      for (let o = entry.light; o; o = o.parent) {
+        if (o.name === "Light_G") {
+          entry.spot = true;
+          this.spot = { entry, home: entry.light.position.clone(), range: entry.light.distance };
+          break;
+        }
+      }
+    }
+    this.globes = [];
+    const glow = envRoot.object3D.getObjectByName("RoversGlow");
+    glow?.traverse(o => {
+      const mats = o.material ? (Array.isArray(o.material) ? o.material : [o.material]) : [];
+      for (const m of mats) {
+        if (m && "emissiveIntensity" in m) this.globes.push({ m, base: m.emissiveIntensity });
+      }
     });
     // The GLB ships with capped placeholder textures; swap to the selected
     // directional set now.
@@ -172,9 +203,36 @@ AFRAME.registerComponent("lounge-view-switcher", {
   applyLighting(scene = SCENES[this.index]) {
     const profile = LIGHTING[scene?.name] || LIGHTING.day;
     const level = getLightLevel();
-    for (const { light, base } of this.lights || []) {
-      light.intensity = base * level * (light.isAmbientLight ? profile.ambient : profile.point);
+    const d = this.showDim || 0;
+    for (const { light, base, spot } of this.lights || []) {
+      const show = light.isAmbientLight
+        ? 1 - SHOW.ambient * d
+        : spot
+          ? 1 + (SHOW.spotGain - 1) * d
+          : 1 - SHOW.others * d;
+      light.intensity = base * level * (light.isAmbientLight ? profile.ambient : profile.point) * show;
     }
+  },
+
+  // The finale's lights (see SHOW): follow the show bone every frame while
+  // the lights are down; nothing to do otherwise.
+  tick() {
+    const bone = this.showBone;
+    if (!bone) return;
+    const s = bone.scale.x;
+    const d = Math.min(1, Math.max(0, (s - 0.001) / 0.999));
+    if (d < 0.002 && (this.showDim || 0) < 0.002) return;
+    this.showDim = d < 0.002 ? 0 : d;
+    if (this.spot) {
+      const light = this.spot.entry.light;
+      const target = bone.getWorldPosition(this.tmp || (this.tmp = new THREE.Vector3()));
+      light.parent?.updateWorldMatrix(true, false);
+      const local = light.parent ? light.parent.worldToLocal(target) : target;
+      light.position.copy(this.spot.home).lerp(local, this.showDim);
+      light.distance = this.spot.range + (SHOW.spotRange - this.spot.range) * this.showDim;
+    }
+    for (const g of this.globes) g.m.emissiveIntensity = g.base * (1 - SHOW.globes * this.showDim);
+    this.applyLighting();
   },
 
   applyScene(index) {
