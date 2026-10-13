@@ -45,6 +45,7 @@ import "webrtc-adapter";
 import "./lounge/view-switcher";
 import "./lounge/tv";
 import "./lounge/social";
+import "./lounge/drinks";
 import { remapStaleAvatarId } from "./lounge/avatars";
 import { detectOS, detect } from "detect-browser";
 import {

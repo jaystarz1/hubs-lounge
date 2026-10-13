@@ -2,6 +2,25 @@ import { findAncestorWithComponent } from "../utils/scene-graph";
 import { getServerTime } from "../phoenix-adapter";
 import { sessionStart } from "../utils/hub-utils";
 
+// The night of the week a session belongs to (Monday 0 .. Sunday 6), in the
+// lounge's time zone, the night running to 6 a.m. (a session that starts after
+// midnight is still the evening before). ?mimeNight=0..6 (or mon..sun) picks one.
+const NIGHT_NAMES = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+const weekday = new Intl.DateTimeFormat("en-US", { timeZone: "America/Toronto", weekday: "short" });
+export function nightOf(startSeconds) {
+  const forced = new URLSearchParams(window.location.search).get("mimeNight");
+  if (forced !== null) {
+    const k = NIGHT_NAMES.indexOf(forced.slice(0, 3).toLowerCase());
+    if (k >= 0) return k;
+    if (/^[0-6]$/.test(forced)) return Number(forced);
+  }
+  const day = weekday
+    .format(new Date((startSeconds - 6 * 3600) * 1000))
+    .slice(0, 3)
+    .toLowerCase();
+  return Math.max(0, NIGHT_NAMES.indexOf(day));
+}
+
 /**
  * Loops the given clip using this entity's animation mixer
  * @component loop-animation
@@ -25,6 +44,10 @@ AFRAME.registerComponent("loop-animation", {
     // second loops after it. A clip may be listed twice (its action is shared).
     session: { type: "boolean", default: false },
     cues: { type: "string", default: "" },
+    // Session mode: "first,count": clips first..first+count-1 are one slot of
+    // the sequence with a variant per night of the week (nightOf); the others
+    // and the cues as above.
+    nights: { type: "string", default: "" },
     // Session mode, phase-locked: the session is taken to have begun at the
     // last server-time multiple of phase before the earliest joiner arrived
     // (so up to one phase of the first clip has already played), which keeps
@@ -123,11 +146,21 @@ AFRAME.registerComponent("loop-animation", {
           .map(Number)
           .filter(v => Number.isFinite(v) && v > 0);
       }
-      const cues = this.cueList.length ? this.cueList : [acts[0].getClip().duration];
+      let seq = acts;
+      if (this.data.nights) {
+        if (this.nightKey !== `${this.data.nights}@${start}`) {
+          this.nightKey = `${this.data.nights}@${start}`;
+          const [first, count] = this.data.nights.split(",").map(Number);
+          const night = Math.min(count - 1, nightOf(start));
+          this.nightSeq = [...acts.slice(0, first), acts[first + night], ...acts.slice(first + count)];
+        }
+        seq = this.nightSeq;
+      }
+      const cues = this.cueList.length ? this.cueList : [seq[0].getClip().duration];
       let k = 0;
-      while (k < cues.length && k < acts.length - 1 && t >= cues[k]) k++;
+      while (k < cues.length && k < seq.length - 1 && t >= cues[k]) k++;
       const from = k === 0 ? 0 : cues[k - 1];
-      const active = acts[k];
+      const active = seq[k];
       for (const a of acts) {
         if (a !== active) a.enabled = false;
       }
