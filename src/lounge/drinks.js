@@ -1,10 +1,12 @@
 import * as THREE from "three";
 import { hasComponent } from "bitecs";
 import { Held } from "../bit-components";
+import { sipState, sipTick, sipRelax, tipped, srgb } from "./sip";
 
 // Jay's table in the Rovers (rovers_figures JAY_GLASSES): a red wine and a pint
 // he and his guest can pick up (grip in VR, or grab with the cursor) and drink
-// from: tip the glass at your mouth and it goes down. Put down on the table it
+// from: bring it to your mouth and it tips to your lips and goes down a sip
+// (sip.js). Put down on the table it
 // stays where it was set (upright); let go anywhere else and it goes back to
 // its place. Left on the table it is quietly topped up again (nobody brings
 // drinks to that table any more). Where a glass is, and how full, is shared
@@ -39,18 +41,14 @@ const KINDS = {
     halfHeight: 0.075
   }
 };
-const MOUTH_RANGE = 0.17; // rim this close to the eyes
-const TIP = Math.cos(THREE.MathUtils.degToRad(35)); // and the glass tipped past this
-const DRINK_RATE = 1 / 9; // full to empty in nine seconds of drinking
 const REFILL_TIME = 120; // empty to full, standing on the table
 const SEND_EVERY = 0.1; // s, while held
 const TELL_EVERY = 8; // s, the last mover repeats its state (late joiners)
 const TABLE_R = 0.3;
 
 const v = new THREE.Vector3();
-const up = new THREE.Vector3();
-const eye = new THREE.Vector3();
-const q = new THREE.Quaternion();
+const tp = new THREE.Vector3();
+const tq = new THREE.Quaternion();
 
 function glassMesh(kind) {
   const k = KINDS[kind];
@@ -59,7 +57,7 @@ function glassMesh(kind) {
   const glass = new THREE.Mesh(
     new THREE.LatheGeometry(pts, 20),
     new THREE.MeshStandardMaterial({
-      color: 0xdfe8ee,
+      color: srgb(0xdfe8ee),
       roughness: 0.08,
       metalness: 0.0,
       transparent: true,
@@ -74,14 +72,14 @@ function glassMesh(kind) {
   // The liquid: a cylinder from the inside bottom, scaled up and down from it.
   const geo = new THREE.CylinderGeometry(L.r1, L.r0, L.to - L.from, 20);
   geo.translate(0, (L.to - L.from) / 2, 0);
-  const liquid = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ color: L.colour, roughness: 0.25 }));
+  const liquid = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ color: srgb(L.colour), roughness: 0.25 }));
   liquid.position.y = L.from;
   group.add(liquid);
   let head = null;
   if (L.head) {
     head = new THREE.Mesh(
       new THREE.CylinderGeometry(L.r1, L.r1, 0.014, 20),
-      new THREE.MeshStandardMaterial({ color: L.head, roughness: 0.9 })
+      new THREE.MeshStandardMaterial({ color: srgb(L.head), roughness: 0.9 })
     );
     group.add(head);
   }
@@ -151,6 +149,7 @@ AFRAME.registerSystem("lounge-drinks", {
         mesh,
         home,
         fill: 1,
+        sip: sipState(KINDS[kind].halfHeight),
         held: false, // held here
         remote: null, // { by, p, q, at } held (or last placed) by someone else
         owner: false, // we moved it last: we keep the room told
@@ -169,12 +168,12 @@ AFRAME.registerSystem("lounge-drinks", {
   },
 
   send(g, reliable) {
-    const o = g.el.object3D;
+    tipped(g.el.object3D, g.mesh.group, tp, tq);
     const data = {
       i: g.i,
       held: g.held,
-      p: o.position.toArray().map(n => Math.round(n * 1000) / 1000),
-      q: o.quaternion.toArray().map(n => Math.round(n * 10000) / 10000),
+      p: tp.toArray().map(n => Math.round(n * 1000) / 1000),
+      q: tq.toArray().map(n => Math.round(n * 10000) / 10000),
       fill: Math.round(g.fill * 1000) / 1000,
       by: window.NAF?.clientId || ""
     };
@@ -276,16 +275,11 @@ AFRAME.registerSystem("lounge-drinks", {
         g.nextTell = 0;
       }
       if (g.held) {
-        // Drinking: the rim at the mouth, the glass tipped.
-        if (camera) {
-          camera.getWorldPosition(eye);
-          o.getWorldQuaternion(q);
-          up.set(0, 1, 0).applyQuaternion(q);
-          v.set(0, 0.15, 0).applyQuaternion(q).add(o.getWorldPosition(new THREE.Vector3()));
-          if (v.distanceTo(eye) < MOUTH_RANGE && up.y < TIP && g.fill > 0) {
-            g.fill = Math.max(0, g.fill - DRINK_RATE * dt);
-            changed = true;
-          }
+        // Drinking: up to the mouth, it tips to the lips and goes down a sip.
+        const fill = sipTick(g.sip, o, g.mesh.group, g.fill, dt, camera);
+        if (fill !== g.fill) {
+          g.fill = fill;
+          changed = true;
         }
         if (now >= g.nextSend) {
           this.send(g, false);
@@ -293,6 +287,7 @@ AFRAME.registerSystem("lounge-drinks", {
         }
         continue;
       }
+      sipRelax(g.sip, g.mesh.group, dt);
       if (g.settle) {
         const s = g.settle;
         s.t = Math.min(1, s.t + dt / 0.35);

@@ -21,50 +21,34 @@ import { AppLogo } from "../misc/AppLogo";
 import { isHmc } from "../../utils/isHmc";
 import maskEmail from "../../utils/mask-email";
 
-// private-quest-lounge: PIN entry that decrypts the room URL client-side.
-// The bundle holds only PBKDF2 salt + AES-GCM ciphertext of the room path.
+// Admission is server-owned; no client-side PIN verification or room ciphertext.
 function LoungePinGate() {
-  const gate = process.env.LOUNGE_PIN_GATE;
+  const intl = useIntl();
   const [pin, setPin] = useState("");
   const [error, setError] = useState(false);
   const [busy, setBusy] = useState(false);
 
-  const submit = async e => {
+  const submit = e => {
     e.preventDefault();
     if (!pin || busy) return;
     setBusy(true);
     setError(false);
-    try {
-      const b64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
-      const keyMaterial = await crypto.subtle.importKey(
-        "raw",
-        new TextEncoder().encode(pin),
-        "PBKDF2",
-        false,
-        ["deriveKey"]
-      );
-      const key = await crypto.subtle.deriveKey(
-        { name: "PBKDF2", salt: b64(gate.salt), iterations: gate.iterations, hash: "SHA-256" },
-        keyMaterial,
-        { name: "AES-GCM", length: 256 },
-        false,
-        ["decrypt"]
-      );
-      const plaintext = await crypto.subtle.decrypt({ name: "AES-GCM", iv: b64(gate.iv) }, key, b64(gate.ct));
-      window.location = new TextDecoder().decode(plaintext);
-    } catch (_e) {
-      setError(true);
-      setBusy(false);
-    }
+    // Native navigation executes the server's bounded cross-host handoff.
+    e.currentTarget.submit();
   };
 
   return (
     <form
       onSubmit={submit}
+      method="post"
+      action="/_lounge/login"
       style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px", padding: "24px 0" }}
     >
-      <div style={{ fontSize: "1.15em" }}>Enter the PIN to join the lounge</div>
+      <div style={{ fontSize: "1.15em" }}>
+        <FormattedMessage id="lounge.pin.prompt" defaultMessage="Enter the PIN to join the lounge" />
+      </div>
       <input
+        name="pin"
         type="password"
         inputMode="numeric"
         autoComplete="off"
@@ -82,9 +66,13 @@ function LoungePinGate() {
           borderRadius: "8px",
           border: error ? "2px solid #d44" : "2px solid #888"
         }}
-        aria-label="Lounge PIN"
+        aria-label={intl.formatMessage({ id: "lounge.pin.label", defaultMessage: "Lounge PIN" })}
       />
-      {error && <div style={{ color: "#d44" }}>That&apos;s not it — try again.</div>}
+      {error && (
+        <div style={{ color: "#d44" }}>
+          <FormattedMessage id="lounge.pin.error" defaultMessage="That's not it — try again." />
+        </div>
+      )}
       <button
         type="submit"
         disabled={busy}

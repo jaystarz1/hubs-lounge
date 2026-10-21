@@ -477,14 +477,44 @@ export class DialogAdapter extends EventEmitter {
 
         try {
           await this._joinRoom();
+          this._voiceRestarts = 0;
           resolve();
           this.emit(DIALOG_CONNECTION_CONNECTED);
         } catch (err) {
-          this.emitRTCEvent("warn", "Adapter", () => `Error during connect: ${error}`);
+          this.emitRTCEvent("warn", "Adapter", () => `Error during connect: ${err}`);
           reject(err);
-          this.emit(DIALOG_CONNECTION_ERROR_FATAL);
+          this._restartVoice();
         }
       });
+    });
+  }
+
+  // A rejoin can fail when the voice server closes the room's router because
+  // our old connection dropped just as the new one arrives ("last Peer in the
+  // room left, closing the room", then "Channel request handler ... not
+  // found"). That peer is stuck on the closed room, so start the voice
+  // connection over from scratch a few times before giving up on the room
+  // (Jay was put out of the lounge twice that way, 2026-10-20).
+  async _restartVoice() {
+    this._voiceRestarts = (this._voiceRestarts || 0) + 1;
+    if (this._voiceRestarts > 4) {
+      this.emit(DIALOG_CONNECTION_ERROR_FATAL);
+      return;
+    }
+    await new Promise(r => setTimeout(r, 1000 * this._voiceRestarts));
+    console.warn(`Restarting the voice connection (try ${this._voiceRestarts})`);
+    this.disconnect();
+    this.connect({
+      serverUrl: this._serverUrl,
+      roomId: this._roomId,
+      serverParams: this._serverParams,
+      scene: this.scene,
+      clientId: this._clientId,
+      forceTcp: this._forceTcp,
+      forceTurn: this._forceTurn,
+      iceTransportPolicy: this._iceTransportPolicy
+    }).catch(() => {
+      /* (a failed join restarts again from the open handler) */
     });
   }
 

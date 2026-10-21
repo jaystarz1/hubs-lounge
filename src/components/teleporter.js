@@ -266,6 +266,7 @@ AFRAME.registerComponent("teleporter", {
     if (
       !this.isTeleporting &&
       userinput.get(start) &&
+      !this.el.sceneEl.is("lounge-gun") && // (holding a shotgun on the Rovers roof: triggers fire it)
       !this.characterController.isTeleportingDisabled &&
       !window.APP.store.state.preferences.disableTeleporter
     ) {
@@ -284,6 +285,14 @@ AFRAME.registerComponent("teleporter", {
     }
 
     if (!this.isTeleporting) {
+      return;
+    }
+    if (this.el.sceneEl.is("lounge-gun")) {
+      // The trigger pull that started this arc picked up a gun: drop the arc.
+      this.hitEntity.visible = false;
+      this.isTeleporting = false;
+      this.rayCurve.visible = false;
+      if (this.teleportingSound) this.stopPlayingTeleportSound();
       return;
     }
     if (this.teleportingSound) {

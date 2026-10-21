@@ -46,6 +46,14 @@ import "./lounge/view-switcher";
 import "./lounge/tv";
 import "./lounge/social";
 import "./lounge/drinks";
+import "./lounge/balloons";
+import "./lounge/menu";
+import "./lounge/settings";
+import "./lounge/dinner-glasses";
+import "./lounge/dinner-plates";
+import "./lounge/skeet";
+import "./lounge/ambience";
+import "./lounge/telemetry";
 import { remapStaleAvatarId } from "./lounge/avatars";
 import { detectOS, detect } from "detect-browser";
 import {

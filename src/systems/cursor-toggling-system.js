@@ -21,7 +21,16 @@ function shouldEnableRemote(world, scene, handHovering, handHeld, remoteHeld, te
     hasComponent(world, Pen, remoteHeld) &&
     world.eid2obj.get(remoteHeld).el.children[0].components.pen.intersection;
 
-  return scene.is("entered") && woke && !handHovering && !handHeld && !teleporting && !vrRemotePenIntersection;
+  // (No pointer rays while holding a lounge shotgun: both hands are on the gun.)
+  return (
+    scene.is("entered") &&
+    woke &&
+    !handHovering &&
+    !handHeld &&
+    !teleporting &&
+    !vrRemotePenIntersection &&
+    !scene.is("lounge-gun")
+  );
 }
 
 export class CursorTogglingSystem {

@@ -29,6 +29,12 @@ AFRAME.registerComponent("freeze-controller", {
         NAF.connection.adapter.toggleFreeze();
       }
       this.wasInspecting = false;
+    } else if (scene.is("lounge-nofreeze")) {
+      // A gun is up on the Rovers roof (or was just put down): A/X would
+      // freeze the room and pop the "leave room" button up under your view,
+      // where a grip or trigger meant for the gun lands on it (Jay was put out
+      // of the room that way, 2026-10-20). Up there the buttons do nothing.
+      if (this.el.is("frozen")) this.onToggle();
     } else {
       const userinput = scene.systems.userinput;
       const ensureFrozen = userinput.get(paths.actions.ensureFrozen);

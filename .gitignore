@@ -88,3 +88,6 @@ src/assets/images/lounge-views/*
 !src/assets/images/lounge-views/dusk-sky-a50.jpg
 !src/assets/images/lounge-views/night-pano.jpg
 !src/assets/images/lounge-views/night-sky-a50.jpg
+
+# Field telemetry from headsets (src/lounge/telemetry.js)
+telemetry/

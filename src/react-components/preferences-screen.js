@@ -393,6 +393,10 @@ const preferenceLabels = defineMessages({
     id: "preferences-screen.preference.global-sfx-volume",
     defaultMessage: "SFX Volume"
   },
+  loungeAmbienceVolume: {
+    id: "preferences-screen.preference.lounge-ambience-volume",
+    defaultMessage: "Lounge Sound (rooms, shows)"
+  },
   avatarVoiceLevels: {
     id: "preferences-screen.preference.avatar-volumes",
     defaultMessage: "Stored avatar volumes"
@@ -1131,6 +1135,14 @@ class PreferencesScreen extends Component {
             prefType: PREFERENCE_LIST_ITEM_TYPE.NUMBER_WITH_RANGE,
             min: 0,
             max: 200,
+            step: 5,
+            digits: 0
+          },
+          {
+            key: "loungeAmbienceVolume",
+            prefType: PREFERENCE_LIST_ITEM_TYPE.NUMBER_WITH_RANGE,
+            min: 0,
+            max: 100,
             step: 5,
             digits: 0
           },
