@@ -1,0 +1,3618 @@
+{
+ "_": "Tuesday's case (Jay, 2026-10-24). Dame Margot Fenn's supper for forty years on the stage; the lights go out at the chicken and when they come back her rival is dead. Source of services/hubs/src/lounge/mysteries/tue.json (mystery-script.py).",
+ "title": "LIGHTS OUT: WHO KILLED CLAUDIA DEVERE?",
+ "voices": {
+  "major": "jay",
+  "claudia": "us-female-p059",
+  "toby": "us-male-ex03",
+  "lucy": "house-us",
+  "okafor": "us-male-p046",
+  "margot": "us-female-p050",
+  "albert": "us-male-p097"
+ },
+ "who": {
+  "major": "DinGa",
+  "claudia": "DinGb",
+  "toby": "DinGd",
+  "lucy": "DinGe",
+  "okafor": "DinGf",
+  "margot": "DinGh",
+  "albert": "DinButler"
+ },
+ "suspects": [
+  {
+   "id": "margot",
+   "name": "DAME MARGOT FENN",
+   "role": "the leading lady"
+  },
+  {
+   "id": "toby",
+   "name": "TOBY FENN",
+   "role": "her son, a playwright"
+  },
+  {
+   "id": "lucy",
+   "name": "LUCY MARCH",
+   "role": "her dresser"
+  },
+  {
+   "id": "okafor",
+   "name": "DOCTOR SIMON OKAFOR",
+   "role": "her doctor"
+  },
+  {
+   "id": "albert",
+   "name": "ALBERT",
+   "role": "the butler"
+  }
+ ],
+ "cast": [
+  {
+   "id": "claudia",
+   "name": "CLAUDIA DEVERE",
+   "role": "the understudy"
+  },
+  {
+   "id": "major",
+   "name": "MAJOR HUGH BRAMWELL",
+   "role": "an old friend"
+  }
+ ],
+ "killer": "albert",
+ "gone": [
+  "claudia",
+  "albert"
+ ],
+ "clues": {
+  "switch": {
+   "text": "The lights were switched off, not blown",
+   "on": [
+    "albert"
+   ]
+  },
+  "gloves": {
+   "text": "Something white moved behind the chairs in the dark",
+   "on": [
+    "albert",
+    "lucy"
+   ]
+  },
+  "syringe": {
+   "text": "A syringe from the doctor's bag",
+   "on": [
+    "okafor",
+    "albert"
+   ]
+  },
+  "insulin": {
+   "text": "Albert gives Margot her injections every night",
+   "on": [
+    "albert",
+    "margot"
+   ]
+  },
+  "secret": {
+   "text": "Claudia knew a secret about Toby's father",
+   "on": [
+    "margot",
+    "toby",
+    "albert"
+   ]
+  },
+  "play": {
+   "text": "Claudia laughed at Toby's play in the papers",
+   "on": [
+    "toby"
+   ]
+  }
+ },
+ "blocks": [
+  {
+   "at": 4.0,
+   "lines": [
+    [
+     "margot",
+     "Forty years. Forty years on the stage, and tonight I don't have to learn a single line. Isn't it heaven?",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "major",
+     "You look exactly as you did in nineteen twenty three, Margot. In Private Lives.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "I was dreadful in Private Lives, Hugh. Noel said so. Noel said so in print.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "claudia",
+     "Noel says that about everybody, darling. It's how he says hello.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "Claudia. You came. How brave of you.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "I wouldn't miss your farewell for anything, Margot. I've been waiting for it for years.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "toby",
+     "Mother, the Major's brought you a present. It ticks. I think it's a clock, but I'd stand back.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "major",
+     "It's a carriage clock, Toby. For a woman who has never once been on time.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "margot",
+     "Hugh, I'm touched. I shall keep it in a drawer, where it can't see me.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "okafor",
+     "And I know every pill. Margot, did you take your evening dose?",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "Albert gave it to me at six, Simon. Albert never forgets.",
+     {
+      "to": "okafor"
+     }
+    ],
+    [
+     "albert",
+     "Supper is served, madam.",
+     {
+      "to": "margot"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 78.0,
+   "lines": [
+    [
+     "margot",
+     "In, everybody. Hugh, your arm. Toby, take Claudia in, and try not to argue with her before the soup.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "toby",
+     "I never argue with Claudia. I simply disagree with everything she says.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "That's arguing, Toby. They teach it at Cambridge.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "okafor",
+     "Lucy, after you.",
+     {
+      "to": "lucy"
+     }
+    ],
+    [
+     "lucy",
+     "Thank you, Doctor. Mind the step. Everybody minds the step but nobody ever sees it.",
+     {
+      "to": "okafor"
+     }
+    ],
+    [
+     "margot",
+     "Sit, sit. Albert hates people standing about. It upsets his arrangements.",
+     {
+      "to": "all"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 117.0,
+   "lines": [
+    [
+     "margot",
+     "Glasses up, darlings. To forty years. To every theatre that's ever had me, and every critic who never will again.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "major",
+     "To Margot.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "pause",
+     2.0
+    ],
+    [
+     "margot",
+     "Now. For our two friends in the middle, who don't know any of these people. I'll do the honours, I always do.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "margot",
+     "Major Hugh Bramwell. My oldest friend. He spent the war in intelligence, which is to say he spent it in a basement, being very clever in a whisper.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "margot",
+     "My son, Toby. A playwright. His last play ran for a week.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "toby",
+     "Nine days. Mother never counts the matinees.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "margot",
+     "Miss Claudia Devere. My understudy for the last five years. She's played my part twice, when I had the flu, and she's never let me forget it.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "claudia",
+     "The notices were very kind, darling. Kinder than they've been to you.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "margot",
+     "Doctor Simon Okafor. My doctor. He keeps me alive for a living, and sends a very large bill for it.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "margot",
+     "Miss Lucy March. My dresser. She has sewn me into every costume I've worn since the war.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "margot",
+     "And Albert. Albert has been with me thirty one years. Butler, chauffeur, and the only man who has never once let me down.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "albert",
+     "Madam is very kind."
+    ]
+   ]
+  },
+  {
+   "at": 190.0,
+   "lines": [
+    [
+     "claudia",
+     "Asparagus, Toby. Just like your play. Long, thin, and nobody quite knew what to do with it.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "toby",
+     "You never saw my play, Claudia.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "I read the notices, darling. I read all of them. Out loud. At the Ivy.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "toby",
+     "Mother, must she?",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "She must, Toby. She's an actress. They must everything.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "major",
+     "Margot, is it true? You're really finished? No more first nights?",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "No more first nights, Hugh. The Haymarket is reviving Hedda Gabler in the spring, and for the first time in thirty years, I shan't be Hedda.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "claudia",
+     "Then who will be?",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "That hasn't been decided, Claudia.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "Hasn't it? I'd heard it had.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "lucy",
+     "Miss Devere, the green suits you. It always did.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "You'd know, Lucy. You used to steam it for me. Before you went to Dame Margot.",
+     {
+      "to": "lucy"
+     }
+    ],
+    [
+     "lucy",
+     "Before you dismissed me, Miss Devere.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "Over a brooch, darling. You borrowed a brooch. It was in all the papers.",
+     {
+      "to": "lucy"
+     }
+    ],
+    [
+     "lucy",
+     "It was in one paper. And I gave it back.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "margot",
+     "Leave Lucy alone, Claudia. Lucy's mine now. Nobody is unkind to my dresser but me.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "toby",
+     "Doctor, is it true Mother's diabetic? She tells everybody but she won't tell me.",
+     {
+      "to": "okafor"
+     }
+    ],
+    [
+     "okafor",
+     "Since nineteen fifty, Toby. Insulin, every evening. It's no secret.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "margot",
+     "It's not a secret, darling. It's simply nobody's business.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "claudia",
+     "Albert does her injections. Don't you, Albert? Every night at six. Behind a locked door.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "albert",
+     "Madam's injections are madam's business, miss.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "okafor",
+     "Albert has the steadiest hands in London. Steadier than mine. I trained him myself.",
+     {
+      "to": "all",
+      "ev": "clue:insulin"
+     }
+    ],
+    [
+     "margot",
+     "You did, Simon. In nineteen fifty. He practised on an orange for a month. We had marmalade until Easter.",
+     {
+      "to": "okafor"
+     }
+    ],
+    [
+     "toby",
+     "Albert, is that true? An orange?",
+     {
+      "to": "albert"
+     }
+    ],
+    [
+     "albert",
+     "Several oranges, Master Toby. And a grapefruit, for the difficult days.",
+     {
+      "to": "toby"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 356.0,
+   "lines": [
+    [
+     "claudia",
+     "Margot, I'm writing my memoirs. Did I mention?",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "You mentioned it at the door, Claudia, and in the lift, and on the terrace.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "Chapter nine is about this flat. And about the summer of nineteen thirty five.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "margot",
+     "Nobody wants to read about nineteen thirty five, Claudia. It was a very dull year.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "Not for you, darling. You were away for six months. Switzerland, wasn't it? For your chest.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "For my chest. Yes.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "toby",
+     "I was born in nineteen thirty five. In Switzerland. Mother says the air was very good for me.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "Oh, I know, Toby. I know all about where you came from.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "major",
+     "Miss Devere, I think that's quite enough about Switzerland.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "Do you, Major? I think it's only the beginning.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "okafor",
+     "Margot, your colour. Are you all right?",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "Perfectly all right, Simon. It's the asparagus. It always makes me want to kill somebody.",
+     {
+      "to": "okafor"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "lucy",
+     "Mister Toby, will there be a new play? After the last one?",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "toby",
+     "There's always a new play, Lucy. It's what playwrights have instead of money.",
+     {
+      "to": "lucy"
+     }
+    ],
+    [
+     "claudia",
+     "There's always a new play, and there's always a new bank manager.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "toby",
+     "At least I write my own lines, Claudia.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "Darling, I improve other people's. It's much harder.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "major",
+     "Albert, is there more of the white? It's very good.",
+     {
+      "to": "albert"
+     }
+    ],
+    [
+     "albert",
+     "There is, sir. The waiters will bring it with the fish.",
+     {
+      "to": "major"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 482.0,
+   "lines": [
+    [
+     "albert",
+     "The soup, madam. Pea and mint.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "Thank you, Albert. Everybody eat. Lucy, eat. You're thinner than my last review.",
+     {
+      "to": "albert"
+     }
+    ],
+    [
+     "lucy",
+     "I'm always thin when you're nervous, Dame Margot.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "I'm never nervous, Lucy. I'm an actress. I'm simply alert.",
+     {
+      "to": "lucy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "okafor",
+     "I telephoned the Haymarket today, Margot. About the spring. They said you'd recommended someone for Hedda.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "Did they, Simon. How very indiscreet of them.",
+     {
+      "to": "okafor"
+     }
+    ],
+    [
+     "claudia",
+     "Have you recommended someone, Margot? Have you?",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "I've recommended a girl from Bristol, Claudia. She's twenty three and she can cry on cue.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "I can cry on cue.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "You cry on cue, darling. She cries when it matters.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "claudia",
+     "You'll change your mind. You'll change it before the spring. I know you will.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "I never change my mind, Claudia. I only change my costume.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "toby",
+     "Major, were you really in intelligence? What did you do?",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "I listened, Toby. For six years I sat in a basement in Bletchley with a pair of earphones and a very cold cup of tea, and listened.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "toby",
+     "To what?",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "To people lying, mostly. You get an ear for it. It never quite goes away.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "claudia",
+     "How awkward for you, Major. At dinner parties.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "Very awkward, Miss Devere. Especially tonight.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "lucy",
+     "Albert, did you bring Dame Margot's shawl up from the car? She'll want it later.",
+     {
+      "to": "albert"
+     }
+    ],
+    [
+     "albert",
+     "It's in the hall, Miss March. With the doctor's bag and the Major's umbrella. Everything is where it should be.",
+     {
+      "to": "lucy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "margot",
+     "These lights. Look at them.",
+     {
+      "to": "all",
+      "ev": "flicker:1.6"
+     }
+    ],
+    [
+     "toby",
+     "The fuses again, Mother?",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "Albert. The fuses. They've been doing that all week.",
+     {
+      "to": "albert"
+     }
+    ],
+    [
+     "albert",
+     "It's the building, madam. They're rewiring the floor below. I'll stand by the switch, in case.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "claudia",
+     "Albert's always standing by something of Margot's. Aren't you, Albert? Thirty one years.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "albert",
+     "I stand where madam needs me, miss.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "okafor",
+     "Margot, if the lights go, nobody move. I don't want anyone breaking a hip on my account. I'd have to set it.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "Simon, darling, if the lights go, I'll be the one sitting quite still in the dark, enjoying the rest.",
+     {
+      "to": "okafor"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "major",
+     "Toby, what's your middle name? I've known you thirty years and I've never asked.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "toby",
+     "Albert. Tobias Albert Fenn. Mother named me after the butler. She says he's the only man who never let her down.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "margot",
+     "It's true, Hugh. It was either Albert or Noel, and Noel would have charged me for it.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "claudia",
+     "Albert. How very appropriate.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "margot",
+     "What does that mean, Claudia?",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "Nothing, darling. Nothing yet.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ]
+   ]
+  },
+  {
+   "at": 700.0,
+   "lines": [
+    [
+     "claudia",
+     "Margot, darling, I'll be frank. I want Hedda.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "I know you do, Claudia. You've wanted every part I've ever had, including the husband.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "I could have had the husband. I didn't want him. Reginald wore spats.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "Reginald was a very kind man.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "Reginald was a very kind man in spats, darling. There's a limit.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "toby",
+     "Why don't you leave her alone? It's her night. It's her party.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "Because, Toby, I've left her alone for five years, standing in the wings, while she coughed through Ibsen. Now it's my turn.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "toby",
+     "Then audition. Like everybody else.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "Darling. I don't audition. I negotiate.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "lucy",
+     "Dame Margot, the Haymarket. Is it really the girl from Bristol?",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "It's really the girl from Bristol, Lucy. I saw her Rosalind in Bath. She made me cry, and I hadn't cried since the Coronation.",
+     {
+      "to": "lucy"
+     }
+    ],
+    [
+     "claudia",
+     "Margot cried at the Coronation because she wasn't asked to read anything.",
+     {
+      "to": "lucy"
+     }
+    ],
+    [
+     "margot",
+     "I cried because the Queen looked so tired, Claudia. And she had to be nice to Noel.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "major",
+     "You two in the middle are very quiet. Clever. Never say anything at a theatrical supper. They'll put it in a play.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "toby",
+     "I've never put anyone in a play, Major.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "claudia",
+     "Oh, Toby. Darling. Your last one was entirely about your mother. The lead had a son with no father.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "toby",
+     "It was a metaphor.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "It was a confession, darling. Just not yours.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "toby",
+     "What does that mean?",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "Ask your mother, Toby. At the cheese. Mothers always tell the truth at the cheese.",
+     {
+      "to": "toby"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 829.0,
+   "lines": [
+    [
+     "albert",
+     "The fish, madam. Cod, with a parsley sauce.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "Thank you, Albert. Cod. How very honest.",
+     {
+      "to": "albert"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "okafor",
+     "Claudia, you said something earlier. About my wife. I'd rather you didn't.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "Did I, Simon? I'm sure I didn't mean anything. I never mean anything at supper.",
+     {
+      "to": "okafor"
+     }
+    ],
+    [
+     "okafor",
+     "You never mean anything anywhere, Claudia. That's what frightens people.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "major",
+     "Miss Devere, you seem to know something about everybody at this table.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "I'm an understudy, Major. Understudies watch. For five years I've stood in the wings and watched. You'd be amazed what you see from the wings.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "I spent six years in a basement listening. I can imagine.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "Then we're the same, Major. Except that I'm going to be paid for it.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "toby",
+     "Mother, what happened in Switzerland? She keeps saying it like it's a joke I'm not in on.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "Nothing happened in Switzerland, Toby. You were born, and the air was very good, and we came home.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "toby",
+     "And my father? He died in nineteen thirty six. You always say. A riding accident.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "A riding accident, darling. A very brave man on a very stupid horse.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "claudia",
+     "Very brave. Very stupid. Very conveniently dead. Wasn't he, Albert?",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "albert",
+     "I couldn't say, miss. I wasn't there.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "Weren't you, Albert? I've seen the photographs. Montreux, nineteen thirty five. You were driving.",
+     {
+      "to": "albert",
+      "ev": "clue:secret"
+     }
+    ],
+    [
+     "margot",
+     "That will do, Claudia.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "major",
+     "Margot. Is everything quite all right?",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "Everything is perfectly all right, Hugh. Claudia has had three glasses of champagne and she's rehearsing her memoirs.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "claudia",
+     "Chapter nine, darling. It's going to be wonderful.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "okafor",
+     "My bag. I left my bag in the hall. Is that safe, Margot? There's insulin in it, and syringes.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "margot",
+     "Everything in my hall is safe, Simon. Albert sees to it.",
+     {
+      "to": "okafor"
+     }
+    ],
+    [
+     "albert",
+     "Your bag is on the chair by the umbrellas, sir. Nobody has touched it but me.",
+     {
+      "to": "okafor"
+     }
+    ],
+    [
+     "okafor",
+     "You touched it?",
+     {
+      "to": "albert"
+     }
+    ],
+    [
+     "albert",
+     "To move it, sir. Off the hall table, where the coats go.",
+     {
+      "to": "okafor"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ]
+   ]
+  },
+  {
+   "at": 1003.0,
+   "lines": [
+    [
+     "claudia",
+     "Toby, darling, read us something. From your new play. I'm dying to hear it.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "toby",
+     "You're not dying to hear anything, Claudia. You're dying to laugh.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "Both, darling. I can do both. I trained.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "toby",
+     "You wrote in the Express that my last play was the first tragedy in history in which only the audience died.",
+     {
+      "to": "claudia",
+      "ev": "clue:play"
+     }
+    ],
+    [
+     "claudia",
+     "It was a very good line, Toby. You should have written it.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "margot",
+     "Claudia, that was cruel, and you know it. He was twenty six.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "I was twenty six once, Margot. Somebody was cruel to me. It was you, in the Telegraph, in nineteen fifty.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "I said you had a lovely speaking voice.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "You said I had a lovely speaking voice for radio.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "major",
+     "Doctor, what's in insulin that makes it dangerous? I've always wondered.",
+     {
+      "to": "okafor"
+     }
+    ],
+    [
+     "okafor",
+     "Nothing, if you need it, Major. If you don't, a large dose drops the blood sugar like a stone. Confusion. Collapse. And then you don't wake up.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "Quickly?",
+     {
+      "to": "okafor"
+     }
+    ],
+    [
+     "okafor",
+     "Into a vein, very quickly. A minute, perhaps. Why do you ask?",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "I'm a nosy old man, Doctor. It's all I've got left.",
+     {
+      "to": "okafor"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "lucy",
+     "Dame Margot, shall I fetch your biscuit? You look pale.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "Albert has my biscuit, Lucy. In his waistcoat. Albert has everything I need.",
+     {
+      "to": "lucy"
+     }
+    ],
+    [
+     "albert",
+     "Madam.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "claudia",
+     "Isn't it sweet? Thirty one years. Albert has everything she needs. Albert drives her. Albert dresses her wounds. Albert even gives her injections.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "claudia",
+     "You've been very loyal, Albert. Very loyal indeed. More loyal than a butler has any need to be.",
+     {
+      "to": "albert"
+     }
+    ],
+    [
+     "albert",
+     "Thank you, miss.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "It wasn't a compliment, Albert. It was a question. We'll come back to it.",
+     {
+      "to": "albert"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "okafor",
+     "Margot, I really think you should eat something. Your hands are shaking.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "My hands are shaking because I'm sitting next to a woman writing a book about me, Simon. It isn't my sugar.",
+     {
+      "to": "okafor"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "toby",
+     "Major, you knew my father, didn't you? Before the horse?",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "I met him once, Toby. At the races. He was very charming and he didn't know a thing about horses.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "toby",
+     "That's what killed him.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "So I'm told.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "claudia",
+     "Margot, I'll be honest. If I have Hedda, there's no chapter nine. I'll never write it. I'll be far too busy being brilliant.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "And if you don't have Hedda?",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "Then I'll have Thursday at the Ivy, darling, with my publisher, and a very good lunch.",
+     {
+      "to": "margot"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 1203.0,
+   "lines": [
+    [
+     "albert",
+     "The sorbet, madam. Mango.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "Mango. How exotic. Albert, you're spoiling us.",
+     {
+      "to": "albert"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "lucy",
+     "Miss Devere, you can't. You can't put her in a book. Not after forty years.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "Forty years is precisely why, Lucy. Nobody wants to read about a beginner.",
+     {
+      "to": "lucy"
+     }
+    ],
+    [
+     "lucy",
+     "You're a horrible woman. I always thought so. Even when I steamed your green.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "Thank you, Lucy. I'll put that in chapter four.",
+     {
+      "to": "lucy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "major",
+     "Miss Devere, do you have it written down? This chapter nine?",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "Oh, Major. I don't need it written down. It's all up here. And in a letter to my publisher, in a safe, in Fleet Street. I'm not a fool.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "No. I don't think anybody here thinks you're a fool.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "okafor",
+     "Excuse me. I must check my bag. My wife may have telephoned the porter.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "margot",
+     "Sit down, Simon. If your wife had telephoned, Albert would have told you. Albert hears telephones in his sleep.",
+     {
+      "to": "okafor"
+     }
+    ],
+    [
+     "albert",
+     "Nobody has telephoned, sir.",
+     {
+      "to": "okafor"
+     }
+    ],
+    [
+     "okafor",
+     "Then I'll sit."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "toby",
+     "Claudia. What do you want? Really? Not Hedda. What do you actually want?",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "I want to be Dame Claudia, Toby. And I want your mother to hand me the part herself, in front of everybody, at her own party.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "toby",
+     "And if she doesn't?",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "Then everybody finds out who your father was.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "margot",
+     "Claudia. After the chicken. We'll talk. Privately.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "We'll talk now, Margot. I've waited five years. I'm not waiting for a chicken.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "Please.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "Oh. Please. In five years you've never said please to me. I'm going to remember this.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "major",
+     "Margot, shall I take Miss Devere for a little walk on the terrace? Some air?",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "No, Hugh. Let her sit. Let her have her supper. She's earned it, standing in my wings.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "lucy",
+     "Albert, Dame Margot needs her biscuit. Now, please. Look at her.",
+     {
+      "to": "albert"
+     }
+    ],
+    [
+     "albert",
+     "Madam.",
+     {
+      "to": "margot",
+      "do": "show:albert=syringe"
+     }
+    ],
+    [
+     "albert",
+     "Not that. Forgive me, madam. That's tomorrow's."
+    ],
+    [
+     "margot",
+     "Oh, Albert. Not at the table. Put it away.",
+     {
+      "to": "albert",
+      "do": "pocket:albert"
+     }
+    ],
+    [
+     "albert",
+     "The biscuit is in the other pocket, madam. I'm sorry. It's been a long evening.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "okafor",
+     "You carry madam's syringe about with you, Albert?",
+     {
+      "to": "albert"
+     }
+    ],
+    [
+     "albert",
+     "Always, sir. In case. You told me so yourself, in nineteen fifty.",
+     {
+      "to": "okafor"
+     }
+    ],
+    [
+     "okafor",
+     "I did. I did, didn't I.",
+     {
+      "to": "albert"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "toby",
+     "Major, you're watching everybody. Like a cat.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "Bletchley, Toby. A man who's listened to lies for six years never really stops. It's terribly bad for dinner parties.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "claudia",
+     "I'd like to make a speech. At the chicken. For Margot. A little tribute.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "margot",
+     "Claudia, you will not.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "I will, darling. I've written it. It's very moving. There's a part about Switzerland.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "Claudia, if you stand up with that speech, I'll never speak to you again.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "You've never spoken to me, Margot. You've spoken at me, for five years, from the stage.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "major",
+     "Margot, let her. Let everyone hear it. Things are always worse said in the dark.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "Hugh, you have no idea what you're saying.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "I spent six years listening, Margot. I generally know what I'm saying.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "lucy",
+     "Doctor, is Dame Margot all right? She's very white.",
+     {
+      "to": "okafor"
+     }
+    ],
+    [
+     "okafor",
+     "Her sugar, Lucy. And Claudia. Neither is good for her.",
+     {
+      "to": "lucy"
+     }
+    ],
+    [
+     "okafor",
+     "Margot, eat something. Anything. A bread roll.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "I'll eat at the chicken, Simon. I'll need my strength for the chicken.",
+     {
+      "to": "okafor"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 1474.0,
+   "lines": [
+    [
+     "albert",
+     "The chicken, madam. Roasted, with tarragon.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "Thank you, Albert.",
+     {
+      "to": "albert"
+     }
+    ],
+    [
+     "claudia",
+     "And now, while we've all got our chicken. My speech.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "margot",
+     "Claudia, sit down. Please. I'm asking you.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "Forty years ago, a girl from Harrogate stepped onto a stage in a borrowed frock and stole a play from under the nose of the leading lady. That girl was Margot Fenn.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "major",
+     "Very gracious, Miss Devere.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "Thank you, Major. And twenty five years ago, that girl went to Switzerland for her chest, and came back with a son. And a very loyal chauffeur.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "toby",
+     "Stop it. Claudia, stop it.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "I won't stop it, Toby. I'm the understudy. It's my job to know the lines when the star can't say them.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "major",
+     "Miss Devere, sit down. You've had a great deal of champagne.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "I've had exactly enough, Major. Any less and I'd be polite.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "claudia",
+     "Where was I? Switzerland. The air. The chest. The chauffeur, waiting in the car with the engine running, every single night.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "margot",
+     "Claudia, I'm begging you.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "Beg, darling. You do it so beautifully. You did it to the Haymarket every spring for thirty years.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "okafor",
+     "Claudia, for heaven's sake.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "lucy",
+     "Miss Devere, please.",
+     {
+      "to": "claudia"
+     }
+    ],
+    [
+     "claudia",
+     "And so, to Margot. To forty years. And to Toby's father, who is with us tonight, in a manner of speaking.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "margot",
+     "Albert.",
+     {
+      "to": "albert"
+     }
+    ],
+    [
+     "pause",
+     2.0
+    ],
+    [
+     "margot",
+     "The lights. Albert, the lights.",
+     {
+      "to": "all",
+      "ev": "dark:18",
+      "do": "creep:albert=claudia"
+     }
+    ],
+    [
+     "toby",
+     "Mother? Mother, where are you?",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "okafor",
+     "Nobody move! Nobody move, you'll break something!",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "lucy",
+     "I can't see my hands. I can't see anything.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "major",
+     "Stay in your seats. All of you. Stay exactly where you are.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "toby",
+     "Who's that? Somebody's moving. I heard a chair.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "margot",
+     "Albert! Albert, the switch!",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "lucy",
+     "There's something. Behind the chairs. Something white.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "major",
+     "Quiet. Everybody quiet. Listen.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "lucy",
+     "Oh, thank God. The lights.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "toby",
+     "Mother, are you all right?",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "Yes, darling. Yes. Hugh? Simon?",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "okafor",
+     "All present. Nobody hurt. Claudia? Claudia, you can stop now. The lights are back.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "lucy",
+     "Miss Devere? Miss Devere!",
+     {
+      "to": "claudia",
+      "ev": "gasp"
+     }
+    ],
+    [
+     "major",
+     "Miss Devere.",
+     {
+      "to": "claudia",
+      "do": "go:major"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "okafor",
+     "Let me see her. Major, I'm a doctor.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "Stay where you are, Doctor. She's past doctors.",
+     {
+      "to": "okafor",
+      "do": "home:major"
+     }
+    ],
+    [
+     "lucy",
+     "She's dead. She's dead, isn't she.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "major",
+     "She's dead, Lucy. There's a mark on her neck. A pinprick. Just here.",
+     {
+      "to": "all"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 1600.0,
+   "lines": [
+    [
+     "margot",
+     "Hugh. Hugh, what's happening?",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "Murder, Margot. In the dark. At your table.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "toby",
+     "Murder? She had a heart attack. She was shouting, she was drinking...",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "Hearts don't leave a pinprick, Toby. Somebody walked round this table in the dark and put a needle in her neck.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "okafor",
+     "A needle. Good God. My bag.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "Your bag, Doctor. In the hall. With the insulin and the syringes.",
+     {
+      "to": "okafor"
+     }
+    ],
+    [
+     "okafor",
+     "I haven't left this table since the soup! You all saw me!",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "Nobody saw anything for eighteen seconds, Doctor. That's rather the point.",
+     {
+      "to": "okafor"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "major",
+     "Albert. Telephone the police. And bring the doctor's bag from the hall. Don't open it.",
+     {
+      "to": "albert",
+      "do": "up:albert"
+     }
+    ],
+    [
+     "albert",
+     "Very good, sir.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "lucy",
+     "Major, I saw something. In the dark. Behind the chairs on the other side. Something white. Moving.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "White? Like what, Lucy?",
+     {
+      "to": "lucy"
+     }
+    ],
+    [
+     "lucy",
+     "Like a glove. Like a pair of gloves. Going round, very fast and very quiet.",
+     {
+      "to": "major",
+      "ev": "clue:gloves"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "major",
+     "You two in the middle. One of you was right by her. Somebody walked behind your chair in the dark, didn't they? You'd have felt it.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "major",
+     "There's a board at the end of the table. Put your pins on whoever you think it was. Change your mind as often as you like. When the pudding comes, it closes.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "albert",
+     "The police are coming, sir. The bag, sir. It was open, on the chair by the umbrellas. One syringe gone from the case. I found it in the umbrella stand.",
+     {
+      "to": "major",
+      "do": "back:albert"
+     }
+    ],
+    [
+     "albert",
+     "This, sir.",
+     {
+      "to": "major",
+      "do": "show:albert=syringe"
+     }
+    ],
+    [
+     "okafor",
+     "That's mine. That's one of mine. The case is mine.",
+     {
+      "to": "albert"
+     }
+    ],
+    [
+     "major",
+     "You found it in the umbrella stand, Albert. In the dark hall. In half a minute.",
+     {
+      "to": "albert",
+      "ev": "clue:syringe"
+     }
+    ],
+    [
+     "albert",
+     "I have good eyes, sir. For my age.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "You do, Albert. Keep it in your pocket, where I can see the shape of it. And go back to your switch.",
+     {
+      "to": "albert",
+      "do": "pocket:albert"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "major",
+     "Doctor. Your bag. Did anyone know what was in it?",
+     {
+      "to": "okafor"
+     }
+    ],
+    [
+     "okafor",
+     "Everybody knew. Margot's insulin. I said so at the fish. I said it to the whole table.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "You did. And a syringe of insulin, into a vein, would do exactly what we saw.",
+     {
+      "to": "okafor"
+     }
+    ],
+    [
+     "okafor",
+     "In a minute. Perhaps less. But I'll tell you something, Major. A layman couldn't find a vein in the dark. Not in a neck. Not in eighteen seconds.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "A doctor could.",
+     {
+      "to": "okafor"
+     }
+    ],
+    [
+     "okafor",
+     "A doctor could. Or a nurse. Or anyone who'd done it every night for years.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "okafor",
+     "Major, I'll be frank too. Claudia and I. Two years ago. Briefly. She's been writing to my wife.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "Writing what?",
+     {
+      "to": "okafor"
+     }
+    ],
+    [
+     "okafor",
+     "Nothing, yet. She sends a blank card every Christmas. My wife thinks it's a joke. I know it's a warning.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ]
+   ]
+  },
+  {
+   "at": 1905.0,
+   "lines": [
+    [
+     "albert",
+     "The cheese, madam. Brie, with grapes and walnuts.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "Thank you, Albert. I don't think anybody wants cheese.",
+     {
+      "to": "albert"
+     }
+    ],
+    [
+     "major",
+     "I want cheese, Albert. Murder makes me hungry. It always did. Thank you.",
+     {
+      "to": "albert"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "major",
+     "Excuse me, all of you. Toby, keep everybody in their seats. I want to look at something in the hall.",
+     {
+      "to": "all",
+      "do": "up:major"
+     }
+    ],
+    [
+     "toby",
+     "Major, you said nobody leaves the table.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "Nobody but me, Toby. Rank has its privileges.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "margot",
+     "I need a drink. Somebody. Anything.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "okafor",
+     "The white, Margot. Not the brandy. Not with your sugar.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "Simon, if I want brandy at my own murder, I'll have brandy.",
+     {
+      "to": "okafor"
+     }
+    ],
+    [
+     "okafor",
+     "It's not your murder, Margot.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "It's my party, Simon. Everything at it is mine.",
+     {
+      "to": "okafor"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "major",
+     "Thank you. Nobody moved, I hope.",
+     {
+      "to": "all",
+      "do": "back:major"
+     }
+    ],
+    [
+     "major",
+     "Albert. The lights. The fuses have gone all week, you said.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "albert",
+     "Yes, sir. The rewiring.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "I've just been out to the hall. I looked at the fuse box. Every fuse is perfect. Nothing blew tonight.",
+     {
+      "to": "all",
+      "ev": "clue:switch"
+     }
+    ],
+    [
+     "margot",
+     "Then how?",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "The switch, Margot. By the door. Somebody switched the lights off, and eighteen seconds later, somebody switched them on again.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "toby",
+     "But Albert was by the switch. All evening. Mother asked him to stand there, in case.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "He was, Toby. Albert has stood by that switch since the soup.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "albert",
+     "I did, sir. And when the lights went, I went to the table. To madam. In case she fell.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "Did you, Albert. And then?",
+     {
+      "to": "albert"
+     }
+    ],
+    [
+     "albert",
+     "And then I came back and found the switch, sir. It took me a moment. In the dark.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "It took you eighteen seconds.",
+     {
+      "to": "albert"
+     }
+    ],
+    [
+     "albert",
+     "About that, sir.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "toby",
+     "Major. Tell me. About my father. If you know, tell me. I'm thirty one years old.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "I'd rather your mother told you, Toby.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "margot",
+     "I can't. I can't, darling. I've never said it out loud.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "lucy",
+     "Dame Margot, shall I get you your biscuit? Albert, the biscuit.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "albert",
+     "Here, madam.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "Thank you, Albert. Thirty one years, and you've never once forgotten my biscuit.",
+     {
+      "to": "albert"
+     }
+    ],
+    [
+     "albert",
+     "No, madam.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "okafor",
+     "Major, one thing. The mark on her neck. Did you see where it was?",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "Just below the ear, Doctor. On the left.",
+     {
+      "to": "okafor"
+     }
+    ],
+    [
+     "okafor",
+     "Left. Then whoever did it stood behind her and to her left. Right handed. Reaching over the chair back. That's not a stab in the dark. That's a nurse. Or someone trained by one.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "Or someone trained by a doctor.",
+     {
+      "to": "okafor"
+     }
+    ],
+    [
+     "okafor",
+     "Yes. I suppose so. Yes.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "major",
+     "Albert. Your gloves. You've worn white gloves all night.",
+     {
+      "to": "albert"
+     }
+    ],
+    [
+     "albert",
+     "I always wear them at table, sir. Madam likes it.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "Lucy saw something white moving in the dark, behind the chairs, going round the far side of the table. Toward Miss Devere.",
+     {
+      "to": "albert"
+     }
+    ],
+    [
+     "albert",
+     "Miss March was very frightened, sir. In the dark everybody sees things.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "lucy",
+     "I saw what I saw, Major. I've been in the theatre since I was fourteen. I know what a pair of gloves looks like, moving in the dark. I've watched a hundred stagehands.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ]
+   ]
+  },
+  {
+   "at": 2100.0,
+   "lines": [
+    [
+     "major",
+     "Ladies and gentlemen. Albert.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "major",
+     "An understudy who wanted the part. A son she laughed at in the papers. A dresser she sacked for a brooch. A doctor whose wife gets blank cards at Christmas. And a butler who has stood by the switch for thirty one years.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "albert",
+     "Madam asked me to, sir.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "I know, Albert.",
+     {
+      "to": "albert"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "major",
+     "You two in the middle. The board. You have until the pudding.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "margot",
+     "Albert. Pour the Major a brandy. And yourself one.",
+     {
+      "to": "albert"
+     }
+    ],
+    [
+     "albert",
+     "I couldn't, madam. Not at table.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "Thirty one years, Albert. Just once. For me.",
+     {
+      "to": "albert"
+     }
+    ],
+    [
+     "albert",
+     "Later, madam. When the pudding's done.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "toby",
+     "Lucy, you knew Claudia before. Was she always like this?",
+     {
+      "to": "lucy"
+     }
+    ],
+    [
+     "lucy",
+     "Always, Mister Toby. But she was kind to me once. She lent me her coat in the snow in nineteen fifty four. I'd forgotten that until tonight.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "margot",
+     "Remember it, Lucy. Somebody should remember something kind about her.",
+     {
+      "to": "lucy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "albert",
+     "The pudding is coming up now, sir.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "Thank you, Albert.",
+     {
+      "to": "albert"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 2257.0,
+   "lines": [
+    [
+     "albert",
+     "The pudding, madam. Eton mess.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "major",
+     "Pudding. Pins down, please. The board is closed.",
+     {
+      "to": "mid",
+      "ev": "lock"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "major",
+     "Claudia Devere was killed in eighteen seconds of darkness by somebody who walked round this table, behind the chairs, and put a needle of insulin into a vein in her neck, from behind, on the left, without a sound.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "major",
+     "The lights were not blown. They were switched off, at the switch by the door, and switched on again eighteen seconds later. Albert was by the switch all evening.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "major",
+     "The needle came from the doctor's bag in the hall, and Albert moved that bag tonight, and found the needle again in half a minute, in the dark.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "major",
+     "Lucy saw a pair of white gloves going round behind the chairs. Nobody at this table wears gloves.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "major",
+     "And there is only one person in this flat who has given an injection every evening for twenty years, and who could find a vein in the dark with his eyes shut.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "major",
+     "And Claudia knew who Toby's father was. She was going to say it out loud, at Margot's party, between the chicken and the cheese.",
+     {
+      "to": "albert"
+     }
+    ],
+    [
+     "pause",
+     2.0
+    ],
+    [
+     "major",
+     "Albert.",
+     {
+      "to": "albert",
+      "ev": "reveal"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "albert",
+     "Yes, sir.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "margot",
+     "Albert. No.",
+     {
+      "to": "albert"
+     }
+    ],
+    [
+     "albert",
+     "Madam. I'm sorry. I couldn't let her. Not in front of the boy. Not in a book.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "toby",
+     "The boy. You mean me.",
+     {
+      "to": "albert"
+     }
+    ],
+    [
+     "albert",
+     "Yes, Master Toby. I mean you. I drove your mother to Montreux in the spring of nineteen thirty five. I drove her back in the autumn. With you.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "toby",
+     "You're my father.",
+     {
+      "to": "albert"
+     }
+    ],
+    [
+     "albert",
+     "I'm the butler, sir. I've been the butler for thirty one years. It was the best way to be anything at all.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "margot",
+     "Toby. Darling. I wanted to tell you. Every birthday I wanted to. And every birthday Albert said, not yet, madam. Let the boy have his father on the horse.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "toby",
+     "The horse.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "There was never a horse, Toby. There was Albert.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "major",
+     "Albert, the police will be here directly.",
+     {
+      "to": "albert"
+     }
+    ],
+    [
+     "albert",
+     "Then I'll wait for them downstairs, sir, if I may. In the hall, by the door. I'd like to put my coat on. I'll not run. Where would I go? Madam's here.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "margot",
+     "Albert.",
+     {
+      "to": "albert"
+     }
+    ],
+    [
+     "albert",
+     "Your biscuit, madam. In my other pocket. Lucy will know which. Goodnight, madam. Goodnight, Toby.",
+     {
+      "to": "margot",
+      "do": "out:albert"
+     }
+    ],
+    [
+     "toby",
+     "Goodnight.",
+     {
+      "to": "albert"
+     }
+    ],
+    [
+     "pause",
+     4.0
+    ],
+    [
+     "lucy",
+     "Dame Margot. Oh, Dame Margot.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "Don't, Lucy. Don't be kind. I've been an actress for forty years. I'll fall down in the morning, on my own, like a professional.",
+     {
+      "to": "lucy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "okafor",
+     "Major. Thank you. I thought for an hour that you'd hang it on me.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "I thought about it, Doctor. You had a very good reason. But you were on the wrong side of the table, and you can't find a vein in a hurry. I've seen you try.",
+     {
+      "to": "okafor"
+     }
+    ],
+    [
+     "okafor",
+     "Nineteen fifty one. The vicar's wife. She's never forgiven me.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "toby",
+     "Major. Did you know? All these years?",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "I guessed, Toby. At your christening. You had his hands. Albert held you like a man holding something he wasn't allowed to keep.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "toby",
+     "And you never said.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "It wasn't mine to say. In Bletchley we had a rule. You only tell a secret to the man it belongs to.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "lucy",
+     "Mister Toby, your middle name. Albert. She named you after him in front of everyone.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "toby",
+     "In front of everyone. And nobody ever saw it. Not even me.",
+     {
+      "to": "lucy"
+     }
+    ],
+    [
+     "margot",
+     "It was the bravest thing I ever did on any stage, darling. And nobody clapped.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "okafor",
+     "Margot, Claudia's memoirs. The letter in the safe. In Fleet Street.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "Let them print it, Simon. Let them print every word. It's true. I've spent thirty one years making sure it wasn't. I'm tired.",
+     {
+      "to": "okafor"
+     }
+    ],
+    [
+     "major",
+     "You'll have a lot of visitors, Margot. Reporters. Photographers.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "Let them come, Hugh. I'll give them the performance of my life. It'll be the first time I've played myself.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "toby",
+     "You two. In the middle. You were right next to her. Did you feel him go past?",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "major",
+     "They felt it, Toby. Look at them. Some of them had their pins on him before I'd said a word.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "toby",
+     "Then you knew before I did. Everybody always knows before I do.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "lucy",
+     "Dame Margot, the girl from Bristol. For Hedda. Is it still her?",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "It's still her, Lucy. She cries when it matters. We need more people who do.",
+     {
+      "to": "lucy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "toby",
+     "Mother. When I was nine, I had the measles. Somebody sat up with me every night for a fortnight. I thought it was you.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "It was Albert, darling. I was in Manchester. In Mrs Warren's Profession. I telephoned every night at the interval.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "toby",
+     "He read me Treasure Island. All of it. Twice. He did the voices.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "He did Long John Silver very badly. I heard him through the door once. He sounded like a Methodist.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "toby",
+     "He sounded like my father."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "major",
+     "Margot. May I tell them about nineteen twenty three?",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "Must you, Hugh?",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "I asked her to marry me. In Harrogate, at the stage door, with a ring I'd borrowed from my mother. She said no, because she had a matinee.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "margot",
+     "It was a very good matinee, Hugh.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "It was Juliet, Margot. You were alarming.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "I was nineteen. I'm still alarming. Ask the Haymarket.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "lucy",
+     "Dame Margot, I'll do your hair in the morning. Before the reporters. The way you like it for a first night.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "Thank you, Lucy. It will be a first night, won't it. The first time I've played the truth.",
+     {
+      "to": "lucy"
+     }
+    ],
+    [
+     "lucy",
+     "Then we'll do the good wig. The truth deserves the good wig.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "okafor",
+     "Major, about my wife. The cards. Will it come out? At the trial?",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "I shouldn't think so, Doctor. Claudia's dead, and dead women send very few cards.",
+     {
+      "to": "okafor"
+     }
+    ],
+    [
+     "okafor",
+     "Then I'll tell her myself. On Sunday. Before somebody else does.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "That's the bravest thing anybody's said tonight, Doctor. Don't let it go cold.",
+     {
+      "to": "okafor"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "toby",
+     "Major, Claudia's letter. The one in the safe in Fleet Street. Chapter nine.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "I'll make a telephone call in the morning, Toby. Bletchley still has a few friends in Fleet Street. Safes are surprisingly easy to lose things from.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "margot",
+     "Hugh. No. Let them print it. I meant that.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "Then I'll ask them to print it properly, Margot. With the right dates. And Albert's name spelled correctly.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "Thank you, Hugh."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "toby",
+     "You know the worst of it? I'd have liked him for a father. I'd have chosen him. Out of everybody.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "margot",
+     "You did choose him, darling. Every Christmas, for thirty one years, you gave Albert the best present under the tree. I never knew why.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "toby",
+     "Neither did I. I just thought he looked lonely in the kitchen.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "lucy",
+     "Will you come to the Haymarket in the spring? To see the girl from Bristol? I'll get you seats. In the stalls. Not the gods.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "margot",
+     "Come. Please. You've sat through the worst night of my life very politely. You deserve a good one.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "okafor",
+     "Margot, your sugar. You've had nothing since the chicken.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "Albert would have had a biscuit, Simon. In his waistcoat.",
+     {
+      "to": "okafor"
+     }
+    ],
+    [
+     "lucy",
+     "It's in his other pocket, Dame Margot. He said so on his way out. I'll fetch it from the hall.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "No, Lucy. Leave it with him. He'll want something of mine tonight.",
+     {
+      "to": "lucy"
+     }
+    ],
+    [
+     "major",
+     "Margot, you're a remarkable woman.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "I'm a remarkable actress, Hugh. The woman's been rather a disappointment.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "Not to me. Not since Harrogate.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "toby",
+     "Major, will you stay in London? Now that it's over?",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "As long as your mother needs a man who listens, Toby. I've nothing better to do. I've retired from listening to Germans.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "margot",
+     "Stay for the spring, Hugh. For the girl from Bristol. Sit in my box and listen to her.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "Only if you sit beside me, Margot, and don't mouth the words.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "okafor",
+     "Major, the police will want statements. All of us.",
+     {
+      "to": "major"
+     }
+    ],
+    [
+     "major",
+     "Downstairs, Doctor. In the Rovers. Everybody. I'm not giving a statement anywhere with a dead understudy in it.",
+     {
+      "to": "okafor"
+     }
+    ],
+    [
+     "margot",
+     "Yes. Downstairs. All of you. I want a large brandy, and I want to sit somewhere Albert never stood.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "toby",
+     "Mother. He'll be in the hall. When we go down.",
+     {
+      "to": "margot"
+     }
+    ],
+    [
+     "margot",
+     "I know, darling. We'll say goodnight to him properly. Both of us. For the first time.",
+     {
+      "to": "toby"
+     }
+    ],
+    [
+     "lucy",
+     "Come down with us. Please. There's safety in numbers, and we're two short.",
+     {
+      "to": "mid"
+     }
+    ]
+   ]
+  }
+ ]
+}

@@ -1,0 +1,3341 @@
+{
+ "_": "Sunday's case (Jay, 2026-10-24). Sir Miles, the crime novelist, never comes down to his own Sunday dinner; his butler, a retired sergeant of the Yard, goes up to see why. Source of services/hubs/src/lounge/mysteries/sun.json (mystery-script.py).",
+ "title": "THE EMPTY CHAIR: WHO KILLED SIR MILES CARRADINE?",
+ "voices": {
+  "miles": "us-male-p097",
+  "verity": "us-female-p092",
+  "sebastian": "us-male-p046",
+  "poppy": "house-us",
+  "ellis": "us-male-p022",
+  "june": "us-female-ex02",
+  "jarvis": "jay"
+ },
+ "who": {
+  "miles": "DinGa",
+  "verity": "DinGb",
+  "sebastian": "DinGd",
+  "poppy": "DinGe",
+  "ellis": "DinGf",
+  "june": "DinGh",
+  "jarvis": "DinButler"
+ },
+ "suspects": [
+  {
+   "id": "june",
+   "name": "LADY JUNE CARRADINE",
+   "role": "the wife"
+  },
+  {
+   "id": "sebastian",
+   "name": "SEBASTIAN CARRADINE",
+   "role": "the son"
+  },
+  {
+   "id": "verity",
+   "name": "VERITY CROSS",
+   "role": "the secretary"
+  },
+  {
+   "id": "poppy",
+   "name": "POPPY CARRADINE",
+   "role": "the daughter"
+  },
+  {
+   "id": "ellis",
+   "name": "DOCTOR RAYMOND ELLIS",
+   "role": "the oldest friend"
+  }
+ ],
+ "cast": [
+  {
+   "id": "miles",
+   "name": "SIR MILES CARRADINE",
+   "role": "the novelist"
+  },
+  {
+   "id": "jarvis",
+   "name": "JARVIS",
+   "role": "the butler, once of the Yard"
+  }
+ ],
+ "killer": "june",
+ "gone": [
+  "miles",
+  "june"
+ ],
+ "clues": {
+  "tea": {
+   "text": "The tea in the study was full and cold",
+   "on": [
+    "june"
+   ]
+  },
+  "page": {
+   "text": "The last page stops in the middle of a word",
+   "on": [
+    "june",
+    "verity"
+   ]
+  },
+  "ghost": {
+   "text": "Verity wrote Sir Miles's last three books",
+   "on": [
+    "verity"
+   ]
+  },
+  "will": {
+   "text": "Sebastian was cut out of the will at lunch",
+   "on": [
+    "sebastian"
+   ]
+  },
+  "knife": {
+   "text": "The paper knife is engraved with a J",
+   "on": [
+    "june"
+   ]
+  },
+  "chapter": {
+   "text": "The last chapter: the wife did it",
+   "on": [
+    "june"
+   ]
+  }
+ },
+ "blocks": [
+  {
+   "at": 4.0,
+   "lines": [
+    [
+     "june",
+     "Sunday dinner. Every Sunday for thirty years, and every Sunday for thirty years Miles has been late for it.",
+     {
+      "to": "all",
+      "do": "absent:miles"
+     }
+    ],
+    [
+     "poppy",
+     "He's finishing a chapter, Mummy. He's always finishing a chapter.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "sebastian",
+     "He's finishing his fortieth novel. He'll come down when somebody's dead in it.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "ellis",
+     "June, my dear. You look tired.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "I've been married to a crime writer for thirty years, Raymond. I've been tired since nineteen thirty six.",
+     {
+      "to": "ellis"
+     }
+    ],
+    [
+     "verity",
+     "He's on the last chapter, Lady Carradine. He was typing when I left at five. Very fast. He only types fast when he's being cruel.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "poppy",
+     "Verity, is the last chapter really finished? He said it was finished last week too.",
+     {
+      "to": "verity"
+     }
+    ],
+    [
+     "verity",
+     "He finishes it every week, Poppy. Then he reads it in the bath and starts again.",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "sebastian",
+     "He reads everything in the bath. He read my school report in the bath. It never dried.",
+     {
+      "to": "verity"
+     }
+    ],
+    [
+     "jarvis",
+     "Dinner is served, my lady. Shall I lay Sir Miles's place?",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "Lay it, Jarvis. He'll come down when he's hungry. He always does. Eventually.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "Very good, my lady.",
+     {
+      "to": "june"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 78.0,
+   "lines": [
+    [
+     "june",
+     "In, everyone. Raymond, your arm. Sebastian, help your sister. Verity, you're beside the empty chair. You always are.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "verity",
+     "I'm used to it, Lady Carradine. I've sat beside his empty chair for eleven years. He dictates from the bath.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "poppy",
+     "Don't push, Sebastian.",
+     {
+      "to": "sebastian"
+     }
+    ],
+    [
+     "sebastian",
+     "I'm not pushing, Poppy. I'm guiding. Father says it's the same thing.",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "june",
+     "Sit, everybody. Jarvis hates a crowd in a doorway. He was a policeman. He thinks they're all riots.",
+     {
+      "to": "all"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 117.0,
+   "lines": [
+    [
+     "june",
+     "Glasses up. To Miles. Wherever he is. Probably killing someone.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "ellis",
+     "To Miles.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "poppy",
+     "To Daddy. And chapter forty.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "sebastian",
+     "To the empty chair. The best seat in the house. Nobody can ever interrupt it.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "pause",
+     2.0
+    ],
+    [
+     "june",
+     "For our two friends in the middle. You'll have read my husband, everybody has. Sir Miles Carradine. Forty novels. Thirty nine murders. He's upstairs. He'll be down.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "june",
+     "My son, Sebastian. He's going to be a poet. He's been going to be a poet since nineteen fifty.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "sebastian",
+     "I am a poet, Mother. I just haven't written it down.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "june",
+     "My daughter, Poppy. Engaged to a saxophonist. Her father has views.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "june",
+     "Miss Verity Cross. My husband's secretary for eleven years. She types everything he says, and some things he doesn't.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "verity",
+     "Lady Carradine is very kind.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "june",
+     "Doctor Raymond Ellis. Miles's doctor, and his chess partner, and the only man in London he lets win.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "june",
+     "And Jarvis. Twenty two years a sergeant at Scotland Yard. Then he came to us, and Miles has been stealing his cases ever since.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "jarvis",
+     "Eleven of Sir Miles's books are my cases, sir. Madam. I get a signed copy of each.",
+     {
+      "to": "mid"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 190.0,
+   "lines": [
+    [
+     "poppy",
+     "Terrine. Mummy, you know Daddy hates terrine.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "That's why I ordered it, darling. It's a Sunday. If he wants something he likes, he can come down for it.",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "sebastian",
+     "Doctor, how is Father? Really? He told me he'd been to see you.",
+     {
+      "to": "ellis"
+     }
+    ],
+    [
+     "ellis",
+     "He's seventy, Sebastian. His heart is tired and his temper isn't. I gave him something to sleep.",
+     {
+      "to": "sebastian"
+     }
+    ],
+    [
+     "sebastian",
+     "Something strong?",
+     {
+      "to": "ellis"
+     }
+    ],
+    [
+     "ellis",
+     "Something he shouldn't mix with whisky. So he'll mix it with whisky.",
+     {
+      "to": "sebastian"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "verity",
+     "Lady Carradine, the new book. Did he tell you the title?",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "The Empty Chair. He told me at breakfast. He said, June, it's my best, and you'll hate it.",
+     {
+      "to": "verity"
+     }
+    ],
+    [
+     "verity",
+     "You will hate it, Lady Carradine. I've typed the first nineteen chapters. It's about a wife.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "They're always about a wife, Verity. Every one of his books has a dreadful wife in it. I've been forty of them.",
+     {
+      "to": "verity"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "jarvis",
+     "My lady, shall I take Sir Miles up a tray? Since he isn't coming down?",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "At the soup, Jarvis. Let him starve a little first. It improves his prose.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "sebastian",
+     "Verity, what did Father say at lunch? After I left? Was he still shouting?",
+     {
+      "to": "verity"
+     }
+    ],
+    [
+     "verity",
+     "He was typing, Sebastian. Very fast. The way he types when he's cutting somebody out of something.",
+     {
+      "to": "sebastian"
+     }
+    ],
+    [
+     "sebastian",
+     "Out of the will. He cut me out of the will. At lunch. Over the rabbit. Because I told him his last three books were dull.",
+     {
+      "to": "verity",
+      "ev": "clue:will"
+     }
+    ],
+    [
+     "poppy",
+     "You told Daddy his books were dull?",
+     {
+      "to": "sebastian"
+     }
+    ],
+    [
+     "sebastian",
+     "They are dull, Poppy. They're nothing like the early ones. The early ones were wonderful. The last three are like somebody else wrote them.",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "verity",
+     "Yes."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "june",
+     "Nobody is cut out of anything until Miles has had his supper. He changes his will more often than his shirts.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "ellis",
+     "June, does he still keep the whisky in the globe? Behind Australia?",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "Behind New Zealand now, Raymond. He moved it when Sebastian found Australia.",
+     {
+      "to": "ellis"
+     }
+    ],
+    [
+     "sebastian",
+     "I was fourteen. It was a very educational globe."
+    ]
+   ]
+  },
+  {
+   "at": 356.0,
+   "lines": [
+    [
+     "jarvis",
+     "My lady, the post this morning. There was a letter for Sir Miles from his publisher. Marked urgent.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "There's always a letter from his publisher, Jarvis. They're always urgent. They want the last chapter.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "Yes, my lady. He told me at noon he'd finished it.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "verity",
+     "He'd finished it on Friday, Jarvis. He made me type it on Friday. He's been rewriting it ever since.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "ellis",
+     "Miss Cross, what happens in the last chapter? Who did it?",
+     {
+      "to": "verity"
+     }
+    ],
+    [
+     "verity",
+     "I'm not allowed to say, Doctor. Sir Miles makes me sign a paper.",
+     {
+      "to": "ellis"
+     }
+    ],
+    [
+     "ellis",
+     "Surely not.",
+     {
+      "to": "verity"
+     }
+    ],
+    [
+     "verity",
+     "Every book. Eleven years. I've signed eleven papers. I've a drawer full of secrets. All fictional.",
+     {
+      "to": "ellis"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "sebastian",
+     "Doctor, if Father's heart is tired. How long?",
+     {
+      "to": "ellis"
+     }
+    ],
+    [
+     "ellis",
+     "Years, Sebastian, if he's sensible. Months, if he's Miles.",
+     {
+      "to": "sebastian"
+     }
+    ],
+    [
+     "sebastian",
+     "Then I've got months to get back in the will.",
+     {
+      "to": "ellis"
+     }
+    ],
+    [
+     "ellis",
+     "You've got until the cheese, my boy. He forgives everything at the cheese.",
+     {
+      "to": "sebastian"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "verity",
+     "Lady Carradine, may I go up? Just to tell him we've started. He hates to think we've started without him.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "Leave him, Verity. If you go up, he'll dictate to you for an hour. We'll be at the crumble.",
+     {
+      "to": "verity"
+     }
+    ],
+    [
+     "poppy",
+     "Mummy, why does Daddy always lock the door when he's writing?",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "So that nobody can see him being frightened, darling. Writers are always frightened at the end.",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "sebastian",
+     "Of what?",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "Of the last page, Sebastian. Once it's typed, it's true. He always said so.",
+     {
+      "to": "sebastian"
+     }
+    ],
+    [
+     "ellis",
+     "Miles said that to me about chess. Once the piece is moved, it's moved.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "He said everything to everybody, Raymond. Just in different words. It saved him thinking.",
+     {
+      "to": "ellis"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ]
+   ]
+  },
+  {
+   "at": 482.0,
+   "lines": [
+    [
+     "jarvis",
+     "The soup, my lady. Leek and potato.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "Thank you, Jarvis. Now take Sir Miles his tray. And tell him we're all here and the soup is getting cold, and so am I.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "Very good, my lady.",
+     {
+      "to": "june",
+      "do": "up:jarvis"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "poppy",
+     "Daddy used to come down for the soup when we were little. He'd tell us who'd died in the book that day. Mummy hated it.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "june",
+     "I hated it at the table, Poppy. In bed, I loved it. It was the only time he talked to me.",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "sebastian",
+     "Verity. You said the early books were wonderful. I said that. You said yes.",
+     {
+      "to": "verity"
+     }
+    ],
+    [
+     "verity",
+     "I said yes, Sebastian.",
+     {
+      "to": "sebastian"
+     }
+    ],
+    [
+     "sebastian",
+     "Who wrote the last three?",
+     {
+      "to": "verity"
+     }
+    ],
+    [
+     "verity",
+     "Your father did. With help.",
+     {
+      "to": "sebastian"
+     }
+    ],
+    [
+     "sebastian",
+     "How much help?",
+     {
+      "to": "verity"
+     }
+    ],
+    [
+     "verity",
+     "All of it, Sebastian. Every word. He had the stroke in nineteen fifty three. He couldn't hold a pen for a year. He dictated the plots, and I wrote them.",
+     {
+      "to": "sebastian",
+      "ev": "clue:ghost"
+     }
+    ],
+    [
+     "poppy",
+     "You wrote Daddy's books?",
+     {
+      "to": "verity"
+     }
+    ],
+    [
+     "verity",
+     "Three of them. Nobody knew. Not even your mother.",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "june",
+     "I knew, Verity. I've always known. He started using semicolons. Miles has never used a semicolon in his life.",
+     {
+      "to": "verity"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "ellis",
+     "Miss Cross, was he going to tell people? About you?",
+     {
+      "to": "verity"
+     }
+    ],
+    [
+     "verity",
+     "On Friday he said he was going to put my name on the fortieth. Under his. In small letters. He was very proud of himself. I cried.",
+     {
+      "to": "ellis"
+     }
+    ],
+    [
+     "ellis",
+     "That's very generous. For Miles.",
+     {
+      "to": "verity"
+     }
+    ],
+    [
+     "verity",
+     "He said it was cheaper than a rise.",
+     {
+      "to": "ellis"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "sebastian",
+     "Mother, did you take him his tea? At six? Like always?",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "At six, Sebastian, like always. He was typing. He said thank you, June, without looking up. Like always.",
+     {
+      "to": "sebastian"
+     }
+    ],
+    [
+     "sebastian",
+     "Then he was alive at six.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "He was alive at six, Sebastian, and rude at six. As at every other hour.",
+     {
+      "to": "sebastian"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "jarvis",
+     "My lady. Sir Miles's study door is locked. He doesn't answer.",
+     {
+      "to": "june",
+      "do": "back:jarvis"
+     }
+    ],
+    [
+     "june",
+     "He's asleep, Jarvis. Or sulking. Knock louder.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "I knocked very loud, my lady. And I listened. The typewriter isn't going. He always types until dinner.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "sebastian",
+     "He's asleep. Doctor Ellis's powders. And whisky.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "ellis",
+     "I told him, not with whisky.",
+     {
+      "to": "sebastian"
+     }
+    ],
+    [
+     "jarvis",
+     "I left the tray at the door, my lady. And the pages. If he wants them, he'll open it.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "june",
+     "Leave him. He does this. He locks himself in when the last chapter isn't right. Once he stayed in for two days. In nineteen forty one.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "verity",
+     "The Hanging Garden. He threw his typewriter out of the window.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "It was a very good typewriter. It landed on the vicar.",
+     {
+      "to": "verity"
+     }
+    ],
+    [
+     "poppy",
+     "Did the vicar mind?",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "The vicar put him in a sermon, Poppy. The Sin of Wrath. Your father sent him a signed copy of the next book. They were friends for twenty years.",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "sebastian",
+     "Father made friends with everybody he hurt. It was cheaper than apologising."
+    ]
+   ]
+  },
+  {
+   "at": 700.0,
+   "lines": [
+    [
+     "poppy",
+     "Mummy, shouldn't somebody go up again? It's been ages.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "He's seventy, darling. He's entitled to a sulk.",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "ellis",
+     "Jarvis. Was there any light under the door?",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "The lamp was on, sir. The green one, on his desk. I could see it in the gap.",
+     {
+      "to": "ellis"
+     }
+    ],
+    [
+     "ellis",
+     "And no sound at all?",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "The clock, sir. And a draught. The window was open. He never opens the window. He says the pigeons read over his shoulder.",
+     {
+      "to": "ellis"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "sebastian",
+     "He's doing it on purpose. A crime writer who won't come to dinner. He wants us all frightened. It's his idea of a party game.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "verity",
+     "He's done it before, Sebastian. Christmas, nineteen fifty one. He hid in the airing cupboard for four hours to see who'd notice.",
+     {
+      "to": "sebastian"
+     }
+    ],
+    [
+     "sebastian",
+     "Who noticed?",
+     {
+      "to": "verity"
+     }
+    ],
+    [
+     "verity",
+     "Jarvis. Nobody else.",
+     {
+      "to": "sebastian"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "jarvis",
+     "My lady, with respect. I'd like to go up again. With Master Sebastian, and Doctor Ellis. At the fish. If he doesn't answer, I'd like to open the door.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "Jarvis, you'll do no such thing. It's his study. It's sacred.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "So is a man's life, my lady. I was a policeman for twenty two years. A locked door and a silent typewriter. I've seen it before.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "In his books, Jarvis.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "In mine first, my lady.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "poppy",
+     "Now you're frightening me.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "ellis",
+     "Jarvis is a policeman, Poppy. They're always frightened. It's what they're for.",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "jarvis",
+     "Not always, sir. Only when it's quiet.",
+     {
+      "to": "ellis"
+     }
+    ],
+    [
+     "poppy",
+     "Is it quiet now, Jarvis?",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "Very quiet, miss. Too quiet for a man who types until dinner.",
+     {
+      "to": "poppy"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 829.0,
+   "lines": [
+    [
+     "jarvis",
+     "The fish, my lady. Haddock, with a parsley sauce.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "Thank you, Jarvis.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "verity",
+     "Lady Carradine, Jarvis is right. I'd like him to go up. Please. He'd never miss the fish. He loves haddock.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "Very well. Very well. Go up, Jarvis. Take Sebastian. Raymond, go with them, he'll want a doctor if he's done something stupid with his powders.",
+     {
+      "to": "verity"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "sebastian",
+     "If he's playing a joke, I'll never speak to him again.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "poppy",
+     "You never speak to him anyway, Sebastian.",
+     {
+      "to": "sebastian"
+     }
+    ],
+    [
+     "sebastian",
+     "Then he won't notice.",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "ellis",
+     "Jarvis, if he's taken my powders with whisky, he'll be very hard to wake. Bring water. And a towel.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "I've a jug on the landing, sir. And the towel is on my arm. I've done this before, for Sir Miles. Christmas, nineteen forty eight.",
+     {
+      "to": "ellis"
+     }
+    ],
+    [
+     "ellis",
+     "What happened at Christmas, nineteen forty eight?",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "Sir Miles finished a book, sir. He celebrated with the whole of the second act of a bottle of port.",
+     {
+      "to": "ellis"
+     }
+    ],
+    [
+     "poppy",
+     "Jarvis, be gentle with him. If he's asleep. He's always cross when he wakes up.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "I'm always gentle with Sir Miles, miss. He's always cross anyway. It's an arrangement.",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "jarvis",
+     "Come along, sir. Doctor.",
+     {
+      "to": "all",
+      "do": "up:jarvis"
+     }
+    ],
+    [
+     "sebastian",
+     "I'm coming, Jarvis.",
+     {
+      "to": "jarvis",
+      "do": "up:sebastian"
+     }
+    ],
+    [
+     "ellis",
+     "Excuse me, June. Ladies. I'll bring him down by the ear.",
+     {
+      "to": "all",
+      "do": "up:ellis"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "poppy",
+     "Mummy, you're shaking.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "I'm cold, darling. The window's open in the hall. Jarvis said.",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "poppy",
+     "Jarvis said the window was open in the study, Mummy.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "Then it's both. It's a draughty flat.",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "verity",
+     "Poppy, did your father say anything to you today? Anything strange?",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "poppy",
+     "He said I could marry Tommy if Tommy played at his funeral. I thought he was joking.",
+     {
+      "to": "verity"
+     }
+    ],
+    [
+     "verity",
+     "Your father never jokes about funerals. He plans them. He's planned all of ours.",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "poppy",
+     "What's yours?",
+     {
+      "to": "verity"
+     }
+    ],
+    [
+     "verity",
+     "Small. Typed. In triplicate.",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "june",
+     "Verity, the last chapter. What happens? You can tell me now.",
+     {
+      "to": "verity"
+     }
+    ],
+    [
+     "verity",
+     "I signed a paper, Lady Carradine.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "He's upstairs being dramatic, Verity. I'm his wife. Tell me.",
+     {
+      "to": "verity"
+     }
+    ],
+    [
+     "verity",
+     "The wife did it, Lady Carradine. In the last chapter. The wife did it.",
+     {
+      "to": "june",
+      "ev": "clue:chapter"
+     }
+    ],
+    [
+     "june",
+     "Of course she did. She always does. He has no imagination.",
+     {
+      "to": "verity"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "sebastian",
+     "Mother. Mother, sit down.",
+     {
+      "to": "all",
+      "do": "back:sebastian"
+     }
+    ],
+    [
+     "june",
+     "Sebastian. What is it?",
+     {
+      "to": "sebastian"
+     }
+    ],
+    [
+     "sebastian",
+     "He's dead. Father's dead. At his desk. At the typewriter.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "poppy",
+     "No. No. Daddy.",
+     {
+      "to": "all",
+      "ev": "gasp"
+     }
+    ],
+    [
+     "ellis",
+     "June, I'm so sorry. He's been dead some hours. Since about six, I'd say.",
+     {
+      "to": "june",
+      "do": "back:ellis"
+     }
+    ],
+    [
+     "jarvis",
+     "Nobody is to go up, please. I've locked the study again. Sir Miles was stabbed, madam. In the back. With a paper knife. I'm very sorry.",
+     {
+      "to": "all",
+      "do": "back:jarvis"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 1003.0,
+   "lines": [
+    [
+     "june",
+     "Stabbed. Miles. In his study. On a Sunday.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "Yes, my lady.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "He'd have hated that. He always said stabbings were vulgar. He preferred poison. Poison has manners.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "ellis",
+     "Jarvis, the police. Shall I telephone?",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "I telephoned the Yard from the hall, sir, on the way down. Inspector Harrow. He served under me. He'll be twenty minutes. He's coming from Wimbledon.",
+     {
+      "to": "ellis"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "jarvis",
+     "Sir. Madam. You in the middle. Sir Miles always said a guest who doesn't speak is the only one worth watching. There's a board at the end of the table. Put your pin on whoever you think did this.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "jarvis",
+     "Move it as often as you like. When the pudding comes, the board closes. That was his rule too. Nobody solves anything before the pudding.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "sebastian",
+     "Jarvis, you're running this? You're the butler.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "I was a sergeant at the Yard for twenty two years, sir. I still know the forms. And I knew your father better than anyone at this table. I made his tea for eleven years when Lady Carradine was away.",
+     {
+      "to": "sebastian"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "verity",
+     "Jarvis, the window. You said the study window was open.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "It was, miss. Wide open. On the fourth floor. With a drainpipe beside it that wouldn't hold a cat.",
+     {
+      "to": "verity"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "poppy",
+     "Jarvis, the door. You said it was locked.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "It was, miss. From the outside. The key was in the lock. On the outside. Anybody could have turned it.",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "june",
+     "Miles always locks himself in, Jarvis. From the inside.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "Not tonight, my lady. Tonight somebody locked him in from the outside, and left the key in the door, and opened his window.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "ellis",
+     "I keep thinking of Wednesday. He beat me at chess. He said, Raymond, you always lose because you always look at the queen. Watch the pawns.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "verity",
+     "He said that to me too, Doctor. About the plots. Watch the pawns.",
+     {
+      "to": "ellis"
+     }
+    ],
+    [
+     "poppy",
+     "Jarvis, what does it mean? Watch the pawns?",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "The little ones, miss. The ones nobody looks at. They do all the work, and they're the ones that get you in the end.",
+     {
+      "to": "poppy"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 1203.0,
+   "lines": [
+    [
+     "jarvis",
+     "The sorbet, my lady. Blood orange.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "Blood orange. Of course it is. He'd have chosen it himself.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "jarvis",
+     "My lady, may I ask. You took Sir Miles his tea at six.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "At six, Jarvis. As always. You saw me go up with the tray.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "I did, my lady. And the tea tray was on his desk when we went in, with the pot and the cup. The cup was full. Stone cold. He hadn't touched it.",
+     {
+      "to": "june",
+      "ev": "clue:tea"
+     }
+    ],
+    [
+     "june",
+     "He often lets it go cold, Jarvis. When he's working.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "With respect, my lady. In eleven years I never once saw Sir Miles let his tea go cold. He drank it the moment it came. Scalding. It was the only thing he was ever in a hurry for.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "poppy",
+     "He did. He did, Jarvis. He drank it boiling. Mummy used to say he had an asbestos mouth.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "june",
+     "Then perhaps he was already dead when I brought it, Jarvis. Perhaps I didn't look. I put it down and said, your tea, Miles, and I went out. I didn't look at him. I never look at him when he's writing. He hates it.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "You said he said thank you, June, my lady. Without looking up.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "He always says that. I suppose I heard it because I always hear it.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "ellis",
+     "Jarvis, when I saw him, he'd been dead some hours. Six, half past five. I couldn't swear closer than that. Not without the hospital.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "Thank you, sir. Five to six, then. Roughly.",
+     {
+      "to": "ellis"
+     }
+    ],
+    [
+     "ellis",
+     "Roughly.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "sebastian",
+     "Jarvis, where was everybody at six? We should do it properly. Like in his books.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "I'd be glad to, sir. Where were you?",
+     {
+      "to": "sebastian"
+     }
+    ],
+    [
+     "sebastian",
+     "In my room. Writing a poem about being cut out of the will. It rhymed with nobody.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "Thank you, sir. Miss Poppy?",
+     {
+      "to": "sebastian"
+     }
+    ],
+    [
+     "poppy",
+     "In the bath. Then on the telephone to Tommy for an hour. You can ask Tommy. He'll remember. I told him Daddy said yes.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "Miss Cross?",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "verity",
+     "I left at five, Jarvis. I went home to Pimlico. I came back at seven for dinner. My landlady saw me go in and out.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "Doctor?",
+     {
+      "to": "verity"
+     }
+    ],
+    [
+     "ellis",
+     "At the hospital until half past six. Then I came here. You let me in at a quarter to seven, Jarvis.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "I did, sir. And my lady?",
+     {
+      "to": "ellis"
+     }
+    ],
+    [
+     "june",
+     "In the drawing room, Jarvis. Then up with his tea at six. Then dressing. Then here.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "Thank you, my lady. And I was in the kitchen, with Cook, from five until we sat down. Cook will say so. Cook says everything.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "poppy",
+     "So nobody was with Daddy at six. Except Mummy.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "june",
+     "Poppy. Darling. What are you saying?",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "poppy",
+     "I'm not saying anything, Mummy. I'm counting. Like Jarvis.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "ellis",
+     "Jarvis, I'll say it. I was at the hospital until half past six. But I left the ward at half past five, for a cigarette, and I sat in my car for an hour. Alone.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "Why, sir?",
+     {
+      "to": "ellis"
+     }
+    ],
+    [
+     "ellis",
+     "Because Miles beat me at chess on Wednesday, Jarvis, and laughed, and I was trying to decide whether to come tonight at all.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "Thank you for telling me, sir. That's the second most useful thing anybody's said.",
+     {
+      "to": "ellis"
+     }
+    ],
+    [
+     "ellis",
+     "What was the first?",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "Miss Poppy. Counting.",
+     {
+      "to": "ellis"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "verity",
+     "Jarvis, my landlady. Mrs Pike. She'll say I came in at five and went out at a quarter to seven. She watches the door. It's all she does.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "I know Mrs Pike, miss. She gave evidence for me in nineteen forty nine. She's very reliable, and very nosy.",
+     {
+      "to": "verity"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 1474.0,
+   "lines": [
+    [
+     "jarvis",
+     "The roast beef, my lady.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "Thank you, Jarvis. I don't think anybody wants beef.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "ellis",
+     "I'll have some beef, Jarvis. Miles would have wanted somebody to. He always said the beef was the only honest thing in the house.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "jarvis",
+     "My lady. When we went in, Sir Miles had a page in the typewriter. The last page. I took it out, carefully, by the edges. I thought the police might rather it wasn't in a draught.",
+     {
+      "to": "june",
+      "do": "show:jarvis=page"
+     }
+    ],
+    [
+     "verity",
+     "Read it, Jarvis. Please. I need to know what he was writing.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "It's the last chapter, miss. The bottom of the page. And at six o'clock, as she had every day for thirty years, she brought his tea, and stood behind him, and he said, thank you, J. And then it stops. In the middle of the word.",
+     {
+      "to": "all",
+      "ev": "clue:page"
+     }
+    ],
+    [
+     "verity",
+     "Thank you, J.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "Thank you, J, miss. He stopped typing in the middle of thank you, June.",
+     {
+      "to": "verity"
+     }
+    ],
+    [
+     "sebastian",
+     "He was typing. At six. When she came in. He was typing what was happening.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "jarvis",
+     "He always did, sir. He typed what he heard. It was how he wrote dialogue. Miss Cross will tell you.",
+     {
+      "to": "sebastian",
+      "do": "pocket:jarvis"
+     }
+    ],
+    [
+     "verity",
+     "He did. He typed whatever anybody said in the room. It drove me mad. I'd say, Sir Miles, the coal man's here, and it would turn up in chapter nine.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "june",
+     "It's a novel, Jarvis. It's fiction. He was writing his last chapter. The wife brings the tea.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "Yes, my lady. And he stopped in the middle of a word, with his hands on the keys, at six o'clock.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "You're very sure of six o'clock.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "The clock on his desk, my lady. He always typed the time at the top of each page. Habit from the newspaper. This page says five fifty two.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "poppy",
+     "Mummy. Mummy, look at me.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "Poppy, darling, eat your beef.",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "poppy",
+     "You took him his tea at six. You stood behind him. He typed thank you, J. And then he stopped.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "He stopped because he was dead, Poppy. Somebody had already killed him. I didn't look.",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "ellis",
+     "Jarvis, the knife. In his back. Whose was it? Did you see?",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "I saw, sir. A silver paper knife, with an ivory handle. It isn't Sir Miles's. He used a bread knife on his letters. He liked the noise.",
+     {
+      "to": "ellis"
+     }
+    ],
+    [
+     "ellis",
+     "Then whose?",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "It's engraved, sir. On the handle. A single letter. A J.",
+     {
+      "to": "ellis",
+      "ev": "clue:knife"
+     }
+    ],
+    [
+     "sebastian",
+     "J. Jarvis. Your initial, Jarvis.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "It is, sir. And my lady's. It's a very common letter.",
+     {
+      "to": "sebastian"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "june",
+     "It's mine. The knife. Miles gave it to me in nineteen thirty six, on our honeymoon in Florence. It lives on my writing desk in the drawing room. Anybody could have taken it.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "jarvis",
+     "Yes, my lady. Anybody in the drawing room.",
+     {
+      "to": "june"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 1700.0,
+   "lines": [
+    [
+     "sebastian",
+     "Jarvis, I want to say. I was angry with Father at lunch. I said terrible things. I said his books were dull. I didn't mean the early ones.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "I know, sir. You meant the last three. Miss Cross wrote those.",
+     {
+      "to": "sebastian"
+     }
+    ],
+    [
+     "sebastian",
+     "Verity, I'm sorry. I said your books were dull.",
+     {
+      "to": "verity"
+     }
+    ],
+    [
+     "verity",
+     "They were dull, Sebastian. I was writing in somebody else's voice. It's very hard to be interesting in a dead man's semicolons.",
+     {
+      "to": "sebastian"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "poppy",
+     "Jarvis, could it have been a burglar? The window was open.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "A burglar who climbed four floors of drainpipe, miss, and stabbed your father with your mother's paper knife, and locked the door from outside, and stole nothing. His watch is on his wrist. His wallet is on the desk with eleven pounds in it.",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "poppy",
+     "No. Not a burglar.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "ellis",
+     "Jarvis, my sleeping powders. He had a packet. If someone had drugged him first. He'd have been easy to.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "The packet's unopened, sir. On the mantelpiece. I looked. He hadn't slept since Friday, he told me. He was too excited about the ending.",
+     {
+      "to": "ellis"
+     }
+    ],
+    [
+     "ellis",
+     "Excited.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "He said it was the truest thing he'd ever written, sir. He said it would cost him everything.",
+     {
+      "to": "ellis"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "verity",
+     "Jarvis. The last chapter. The one he made me type on Friday. It's not just a story. Is it?",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "I don't know yet, miss. What happens in it? You can tell us now.",
+     {
+      "to": "verity"
+     }
+    ],
+    [
+     "verity",
+     "The wife killed her first husband. Years before. In Florence. On their honeymoon. A fall from a balcony. Everybody thought it was an accident. And her second husband finds out. Thirty years later. He works it out from a photograph.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "june",
+     "That's enough, Verity.",
+     {
+      "to": "verity"
+     }
+    ],
+    [
+     "verity",
+     "And he writes it down. In a novel. So he won't have to say it out loud. And at the end the wife brings him his tea, and stands behind him.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "I said that's enough.",
+     {
+      "to": "verity"
+     }
+    ],
+    [
+     "poppy",
+     "Mummy. You were married before. Daddy told me once. Your first husband. He died.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "In nineteen thirty five, Poppy. In Florence. He fell. The balcony at the Hotel Bellini. It was an accident. Everybody said so.",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "poppy",
+     "And then you married Daddy. In Florence. In nineteen thirty six.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "Your father was at the hotel, Poppy. He was very kind to me. He was a young writer. He wrote everything down. Even then.",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ]
+   ]
+  },
+  {
+   "at": 1905.0,
+   "lines": [
+    [
+     "jarvis",
+     "The cheese, my lady. Cheddar and Wensleydale. With apple, and Cook's chutney.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "Thank you, Jarvis.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "sebastian",
+     "I can't eat. I can't.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "ellis",
+     "Eat the apple, Sebastian. It's only an apple. Nothing in this house is only anything tonight, but the apple is.",
+     {
+      "to": "sebastian"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "jarvis",
+     "My lady. Sir Miles told me something on Friday. I didn't understand it. He said, Jarvis, I've found a photograph. From the Bellini. Nineteen thirty five. On the balcony. There are two people in it. And only one of them fell.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "Jarvis, you're a butler.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "I was a sergeant first, my lady. For twenty two years. Sir Miles always said I was wasted on the silver.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "ellis",
+     "June. Is this true?",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "Raymond, you've known me thirty years. You were at my wedding.",
+     {
+      "to": "ellis"
+     }
+    ],
+    [
+     "ellis",
+     "I was, June. You wore blue. You looked like you'd been crying for a week.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "I had. I'd been widowed for a year.",
+     {
+      "to": "ellis"
+     }
+    ],
+    [
+     "ellis",
+     "You looked happy, June. Under the crying. I always thought it was odd.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "sebastian",
+     "Mother, you never talk about Florence. Never. Not once in my life.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "There's nothing to say about Florence, Sebastian. It was a long time ago, and it was very hot, and everybody was very sad.",
+     {
+      "to": "sebastian"
+     }
+    ],
+    [
+     "poppy",
+     "Daddy said you met at the Bellini. He said you were wearing blue and you asked him for a cigarette.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "I didn't smoke, Poppy. I wanted something to do with my hands.",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "ellis",
+     "Jarvis, the Bellini. Do you know it?",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "I was there in nineteen fifty two, sir. With Sir Miles. Research. He photographed every balcony. I thought it was for a book.",
+     {
+      "to": "ellis"
+     }
+    ],
+    [
+     "ellis",
+     "Wasn't it?",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "Everything was for a book, sir. That's what frightened me tonight.",
+     {
+      "to": "ellis"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "verity",
+     "Jarvis, will you read them the photograph? From the chapter? I typed it. I know it by heart. I couldn't sleep after.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "Please, miss. In his words.",
+     {
+      "to": "verity"
+     }
+    ],
+    [
+     "verity",
+     "She stood at the rail in a pale dress, and he stood beside her, and in the next photograph on the roll the rail is empty. And she is still in the pale dress, looking down.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "poppy",
+     "That's horrible.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "verity",
+     "It's chapter thirty, Poppy. He called it The Empty Chair. Because her first husband's chair at breakfast was empty the next morning, and she ate her breakfast anyway. And asked for more toast.",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "june",
+     "He wrote it as a novel. He was going to publish it as a novel. My husband was going to sell my life to his readers at twelve and six a copy.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "jarvis",
+     "He was going to send it to the publisher on Monday, my lady. The letter this morning said so. They'd read the first nineteen chapters. They loved it.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "Of course they loved it, Jarvis. It was true.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "sebastian",
+     "Mother. Did you kill Father?",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "Sebastian. I'm your mother.",
+     {
+      "to": "sebastian"
+     }
+    ],
+    [
+     "sebastian",
+     "That isn't an answer.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "It's the only one I've got tonight.",
+     {
+      "to": "sebastian"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ]
+   ]
+  },
+  {
+   "at": 2100.0,
+   "lines": [
+    [
+     "jarvis",
+     "My lady. Master Sebastian. Miss Poppy. Miss Cross. Doctor.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "jarvis",
+     "A son who was cut out of the will at lunch. A daughter who wanted to marry a saxophonist. A secretary who wrote three of his books and was about to have her name on the fortieth. A doctor who owed him a game and five pounds. And a wife who took him his tea at six.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "jarvis",
+     "You in the middle. The board. You have until the pudding.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "poppy",
+     "Jarvis, you knew Daddy best. Better than any of us. What would he say now?",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "He'd say, Jarvis, you've got it. Don't spoil it by saying it before the pudding.",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "verity",
+     "I'll finish the book. If anybody wants me to. The last chapter's done. It only needs the last page typed again. In my own name.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "sebastian",
+     "Under his.",
+     {
+      "to": "verity"
+     }
+    ],
+    [
+     "verity",
+     "Under his, Sebastian. In small letters. He'd have liked that. It's cheaper than a rise.",
+     {
+      "to": "sebastian"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "poppy",
+     "I keep looking at his chair. I keep thinking he'll come down. Late. Complaining about the terrine.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "ellis",
+     "So do I, Poppy. He'd say, Raymond, who ordered this pâté, and June would say, I did, Miles, to annoy you.",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "poppy",
+     "And he'd laugh. He always laughed when she annoyed him. It was the only time.",
+     {
+      "to": "ellis"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "sebastian",
+     "Jarvis, how did you know? To look at the tea? To read the page?",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "Twenty two years at the Yard, sir. You look at what's ordinary. A murderer never thinks about the tea.",
+     {
+      "to": "sebastian"
+     }
+    ],
+    [
+     "poppy",
+     "Daddy put that in a book. The Ordinary Things.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "jarvis",
+     "My case, miss. The Hampstead poisoner. I got a signed copy.",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "jarvis",
+     "The pudding is coming up now, my lady. Apple crumble. Sir Miles's favourite. He ordered it on Friday.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "june",
+     "Thank you, Jarvis.",
+     {
+      "to": "jarvis"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 2257.0,
+   "lines": [
+    [
+     "jarvis",
+     "Apple crumble, my lady.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "jarvis",
+     "Pudding. Pins down, please. The board is closed.",
+     {
+      "to": "mid",
+      "ev": "lock"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "jarvis",
+     "Sir Miles was stabbed in the back with Lady Carradine's paper knife, at his typewriter, at about six. His tea was on the desk, full and cold. He never in his life let his tea go cold.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "jarvis",
+     "His study was locked from the outside and his window opened, to make us think of a burglar who stole nothing and climbed a drainpipe that wouldn't hold a cat.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "jarvis",
+     "He typed whatever he heard. The last thing he heard was somebody behind him with his tea, and he began to type thank you, and he got as far as J.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "jarvis",
+     "And he'd found a photograph, from a balcony in Florence in nineteen thirty five, and written a last chapter about a wife who pushed her first husband and brought her second his tea. He was going to send it to his publisher on Monday.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "jarvis",
+     "You took him his tea at six, my lady. You stood behind him, as you have for thirty years. And this time you'd brought your paper knife on the tray.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "pause",
+     2.0
+    ],
+    [
+     "jarvis",
+     "Lady June Carradine.",
+     {
+      "to": "june",
+      "ev": "reveal"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "june",
+     "You were always far too good for the silver, Jarvis. Miles said so.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "june",
+     "He wouldn't stop. I asked him on Friday. I begged him. Burn it, Miles. Burn the chapter. And he said, June, it's the best thing I've ever written. He said, it's the only one that's true.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "june",
+     "Thirty years I brought him his tea. And he sat there typing my life. And the last thing he ever wrote was thank you.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "poppy",
+     "Mummy.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "I'm sorry, darling. I'm so sorry. You were never supposed to know about Florence. Nobody was. He promised me, in nineteen thirty six, he'd never write about it. He kept it thirty years. Then he wanted a fortieth book.",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "sebastian",
+     "And the first one? In Florence? Did you?",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "He was a cruel man, Sebastian. You'd have hated him. And it was a very low rail.",
+     {
+      "to": "sebastian"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "jarvis",
+     "My lady, Inspector Harrow is in the hall. Will you go down? I'll come with you, if you like.",
+     {
+      "to": "june",
+      "do": "up:jarvis"
+     }
+    ],
+    [
+     "june",
+     "No, Jarvis. I'll go down on my own. I know where the lift is. Look after the children. Look after Verity. And somebody eat that crumble. Miles ordered it.",
+     {
+      "to": "jarvis",
+      "do": "out:june"
+     }
+    ],
+    [
+     "poppy",
+     "Mummy.",
+     {
+      "to": "june"
+     }
+    ],
+    [
+     "june",
+     "Marry your saxophonist, Poppy. Tell him to play something cheerful at the hearing.",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "pause",
+     4.0
+    ],
+    [
+     "verity",
+     "She's gone.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "sebastian",
+     "She's gone. And he's gone. And it's Sunday.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "ellis",
+     "Sebastian, my boy. Sit with your sister. Hold her hand.",
+     {
+      "to": "sebastian"
+     }
+    ],
+    [
+     "sebastian",
+     "Poppy.",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "poppy",
+     "I'm all right, Sebastian. I'm not. But I will be. Daddy always said I was the strong one. He put me in a book. I was the detective.",
+     {
+      "to": "sebastian"
+     }
+    ],
+    [
+     "sebastian",
+     "He put me in one too. I was the body. Chapter one.",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "verity",
+     "The fortieth book. What do we do with it now? The Empty Chair.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "jarvis",
+     "That's for the family to say, miss. And the police. It's evidence now. Every page.",
+     {
+      "to": "verity"
+     }
+    ],
+    [
+     "verity",
+     "It's the best thing he ever wrote, Jarvis. He was right. It's the only true one.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "Then it'll keep, miss. True things keep. Sir Miles always said the false ones go off in the heat.",
+     {
+      "to": "verity"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "jarvis",
+     "The Inspector has taken Lady Carradine down in the lift, sir, miss. She asked for her coat. The blue one. From Florence.",
+     {
+      "to": "all",
+      "do": "back:jarvis"
+     }
+    ],
+    [
+     "ellis",
+     "Thank you, Jarvis. You did very well tonight. Miles would have put you in a book.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "He did, sir. Eleven times. I always came out shorter.",
+     {
+      "to": "ellis"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "poppy",
+     "Jarvis, will you stay? With us? Now that there's nobody to take tea to?",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "I'll stay, miss. Someone has to answer the door. And I'll take tea to whoever wants it. I'll stand in front of them while they drink it.",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "poppy",
+     "In front of them.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "Always in front, miss. From now on.",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "sebastian",
+     "Verity, the poem. The one about the will. I'll finish it. It still rhymes with nobody.",
+     {
+      "to": "verity"
+     }
+    ],
+    [
+     "verity",
+     "Then make it rhyme with somebody, Sebastian. It's time somebody in this family did.",
+     {
+      "to": "sebastian"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "jarvis",
+     "There's one more thing. I'll say it now, so it's said in front of all of you, and not to the police first. On Friday Sir Miles gave me an envelope. He said, Jarvis, open this if I'm ever found with my tea cold.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "sebastian",
+     "Found with his tea cold.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "Those were his words, sir. I opened it in the study tonight. Before I came down. It's how I knew to look at the cup.",
+     {
+      "to": "sebastian"
+     }
+    ],
+    [
+     "poppy",
+     "What did it say?",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "It said, Jarvis, if you're reading this, it was June. Don't let them say it was a burglar. I've left the window open so they'll think so, and I want you to know better. Look after the children. Finish the silver. M.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "verity",
+     "He left the window open himself.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "jarvis",
+     "He did, miss. On Friday. He knew. And he wrote the chapter anyway, and drank his tea every night, and waited.",
+     {
+      "to": "verity"
+     }
+    ],
+    [
+     "ellis",
+     "Good God. He knew she might, and he kept writing.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "jarvis",
+     "He said it was the only true one, sir. He wasn't going to stop for a little thing like that.",
+     {
+      "to": "ellis"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "poppy",
+     "Then he wanted to be found out. Or her to be. Or both.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "I think he wanted to finish his book, miss. Everything else came second. It always did. You'll know that better than me.",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "poppy",
+     "Thirty years of second, Jarvis.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "Yes, miss. Twenty two at the Yard and eleven here. I know the feeling.",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "sebastian",
+     "Verity, when you finish it. The last page. Will you type it the way he would have?",
+     {
+      "to": "verity"
+     }
+    ],
+    [
+     "verity",
+     "I'll type thank you, June, Sebastian. All of it. The whole word. He never got to finish it. Somebody should.",
+     {
+      "to": "sebastian"
+     }
+    ],
+    [
+     "sebastian",
+     "That's very kind. For him.",
+     {
+      "to": "verity"
+     }
+    ],
+    [
+     "verity",
+     "It's not for him. It's for the book. He taught me that. The book always gets the last word.",
+     {
+      "to": "sebastian"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "ellis",
+     "Jarvis, his chess. We were halfway through a game. On Wednesday. It's still set up in the study.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "I saw it, sir. White to move. He'd left a note under the king. Raymond, you'll lose because you're watching my queen.",
+     {
+      "to": "ellis"
+     }
+    ],
+    [
+     "ellis",
+     "He was right. He was always right about that.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "He left another note under the pawn, sir. It says, Watch June.",
+     {
+      "to": "ellis"
+     }
+    ],
+    [
+     "ellis",
+     "Good God."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "poppy",
+     "Tommy's going to play at the funeral. Daddy said he could. If Tommy played at his funeral, I could marry him. I think he meant it as a joke.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "sebastian",
+     "Father never joked about funerals. Verity said so.",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "poppy",
+     "Then Tommy's playing. Something slow. And then something very fast. He'd hate it. That's how we'll know it's right.",
+     {
+      "to": "sebastian"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "jarvis",
+     "I'll clear his place. The empty chair. If nobody minds.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "poppy",
+     "Leave it, Jarvis. Leave it laid. Just for tonight. He was always late. Let him be late one more time.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "Very good, miss. I'll leave the crumble too. He'd want the crumble.",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "verity",
+     "You two. You've been at his table all evening and you never met him. I'm sorry. He was a dreadful man and a wonderful writer, and you'd have liked one of them.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "sebastian",
+     "Read the early ones. The ones before nineteen fifty three. That's him. The others are Verity. Read those too. They're better than he'd ever admit.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "ellis",
+     "Jarvis, you'll give evidence?",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "I'll give evidence, sir. In my old suit. The one from the Yard. It still fits, mostly.",
+     {
+      "to": "ellis"
+     }
+    ],
+    [
+     "poppy",
+     "Daddy would put that in a book. The butler gave evidence in his old suit.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "He'd say it was too long, miss. He'd cut it to, the butler did it.",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "poppy",
+     "The butler didn't.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "No, miss. Not this time.",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "poppy",
+     "Jarvis, Daddy's last chapter. Verity's going to finish it. Will you read it first? Before the publisher?",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "If Miss Cross will let me, miss. I'll read it in the kitchen, with Cook. We'll check the procedure.",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "verity",
+     "You'll find three mistakes in the police work, Jarvis. He always got the police wrong on purpose. He said it kept you in a job.",
+     {
+      "to": "jarvis"
+     }
+    ],
+    [
+     "jarvis",
+     "It did, miss. Eleven times.",
+     {
+      "to": "verity"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "sebastian",
+     "Poppy, the will. Father cut me out at lunch. Do you think he signed it?",
+     {
+      "to": "poppy"
+     }
+    ],
+    [
+     "poppy",
+     "Ask Jarvis. Jarvis knows everything.",
+     {
+      "to": "sebastian"
+     }
+    ],
+    [
+     "jarvis",
+     "He didn't sign it, sir. He tore it up at four o'clock and put it in the fire. He said, Jarvis, the boy's right about the last three books.",
+     {
+      "to": "sebastian"
+     }
+    ],
+    [
+     "jarvis",
+     "He did, sir. And then he said, don't tell him. So I'm telling you now.",
+     {
+      "to": "sebastian"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "ellis",
+     "I need a drink. One poured in front of me. By someone I can see.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "jarvis",
+     "Downstairs, everybody. The Rovers. Inspector Harrow will want the flat, and I'll want somewhere with a bar between me and the tea trays.",
+     {
+      "to": "all",
+      "do": "out:jarvis"
+     }
+    ],
+    [
+     "poppy",
+     "Will you come down with us? Please. I don't want to be in a room with an empty chair tonight.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "verity",
+     "Bring your coats. And bring your notebooks. Somebody should write this down. Properly. In their own name.",
+     {
+      "to": "mid"
+     }
+    ]
+   ]
+  }
+ ]
+}

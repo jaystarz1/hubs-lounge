@@ -1,0 +1,3123 @@
+{
+"_": "Written by lounge-assets/mystery-talk.py build from wed.json: each line's start (t) and length (d) in seconds on the dinner clock.",
+"cues": [
+{
+"t": 4.0,
+"d": 4.776,
+"who": "eleanor",
+"n": "wed-0-0",
+"to": "all"
+},
+{
+"t": 9.48,
+"d": 5.928,
+"who": "freddie",
+"n": "wed-0-1",
+"to": "eleanor"
+},
+{
+"t": 16.1,
+"d": 4.08,
+"who": "henry",
+"n": "wed-0-2",
+"to": "freddie"
+},
+{
+"t": 20.88,
+"d": 1.776,
+"who": "eleanor",
+"n": "wed-0-3",
+"to": "henry"
+},
+{
+"t": 23.36,
+"d": 7.944,
+"who": "zara",
+"n": "wed-0-4",
+"to": "all"
+},
+{
+"t": 32.0,
+"d": 6.528,
+"who": "daisy",
+"n": "wed-0-5",
+"to": "zara"
+},
+{
+"t": 39.23,
+"d": 4.008,
+"who": "zara",
+"n": "wed-0-6",
+"to": "daisy"
+},
+{
+"t": 43.94,
+"d": 6.84,
+"who": "daisy",
+"n": "wed-0-7",
+"to": "zara"
+},
+{
+"t": 51.48,
+"d": 2.64,
+"who": "pryce",
+"n": "wed-0-8",
+"to": "eleanor"
+},
+{
+"t": 54.82,
+"d": 2.976,
+"who": "eleanor",
+"n": "wed-0-9",
+"to": "pryce"
+},
+{
+"t": 58.5,
+"d": 1.992,
+"who": "parfitt",
+"n": "wed-0-10",
+"to": "eleanor"
+},
+{
+"t": 78.0,
+"d": 4.08,
+"who": "eleanor",
+"n": "wed-1-0",
+"to": "all"
+},
+{
+"t": 82.78,
+"d": 4.08,
+"who": "henry",
+"n": "wed-1-1",
+"to": "eleanor"
+},
+{
+"t": 87.56,
+"d": 4.92,
+"who": "freddie",
+"n": "wed-1-2",
+"to": "all"
+},
+{
+"t": 93.18,
+"d": 6.624,
+"who": "zara",
+"n": "wed-1-3",
+"to": "freddie"
+},
+{
+"t": 100.5,
+"d": 3.36,
+"who": "eleanor",
+"n": "wed-1-4",
+"to": "all"
+},
+{
+"t": 117.0,
+"d": 2.448,
+"who": "eleanor",
+"n": "wed-2-0",
+"to": "all"
+},
+{
+"t": 120.15,
+"d": 1.128,
+"who": "henry",
+"n": "wed-2-1",
+"to": "eleanor"
+},
+{
+"t": 121.98,
+"d": 2.76,
+"who": "freddie",
+"n": "wed-2-2",
+"to": "eleanor"
+},
+{
+"t": 125.44,
+"d": 2.616,
+"who": "zara",
+"n": "wed-2-3",
+"to": "all"
+},
+{
+"t": 130.75,
+"d": 7.104,
+"who": "eleanor",
+"n": "wed-2-5",
+"to": "mid"
+},
+{
+"t": 138.56,
+"d": 4.344,
+"who": "henry",
+"n": "wed-2-6",
+"to": "mid"
+},
+{
+"t": 143.6,
+"d": 5.568,
+"who": "eleanor",
+"n": "wed-2-7",
+"to": "mid"
+},
+{
+"t": 149.87,
+"d": 3.96,
+"who": "freddie",
+"n": "wed-2-8",
+"to": "mid"
+},
+{
+"t": 154.53,
+"d": 4.704,
+"who": "eleanor",
+"n": "wed-2-9",
+"to": "mid"
+},
+{
+"t": 159.93,
+"d": 5.616,
+"who": "pryce",
+"n": "wed-2-10",
+"to": "mid"
+},
+{
+"t": 166.25,
+"d": 5.304,
+"who": "eleanor",
+"n": "wed-2-11",
+"to": "mid"
+},
+{
+"t": 172.25,
+"d": 4.392,
+"who": "zara",
+"n": "wed-2-12",
+"to": "mid"
+},
+{
+"t": 177.34,
+"d": 3.864,
+"who": "eleanor",
+"n": "wed-2-13",
+"to": "mid"
+},
+{
+"t": 181.91,
+"d": 9.408,
+"who": "daisy",
+"n": "wed-2-14",
+"to": "mid"
+},
+{
+"t": 192.02,
+"d": 3.864,
+"who": "eleanor",
+"n": "wed-2-15",
+"to": "mid"
+},
+{
+"t": 196.58,
+"d": 0.768,
+"who": "parfitt",
+"n": "wed-2-16"
+},
+{
+"t": 198.35,
+"d": 3.648,
+"who": "henry",
+"n": "wed-3-0",
+"to": "eleanor"
+},
+{
+"t": 202.7,
+"d": 4.632,
+"who": "eleanor",
+"n": "wed-3-1",
+"to": "henry"
+},
+{
+"t": 211.03,
+"d": 5.568,
+"who": "freddie",
+"n": "wed-3-3",
+"to": "pryce"
+},
+{
+"t": 217.3,
+"d": 4.104,
+"who": "pryce",
+"n": "wed-3-4",
+"to": "freddie"
+},
+{
+"t": 222.1,
+"d": 3.36,
+"who": "freddie",
+"n": "wed-3-5",
+"to": "pryce"
+},
+{
+"t": 226.16,
+"d": 4.44,
+"who": "pryce",
+"n": "wed-3-6",
+"to": "freddie"
+},
+{
+"t": 231.3,
+"d": 2.28,
+"who": "freddie",
+"n": "wed-3-7",
+"to": "pryce"
+},
+{
+"t": 234.28,
+"d": 1.992,
+"who": "eleanor",
+"n": "wed-3-8",
+"to": "freddie"
+},
+{
+"t": 239.97,
+"d": 6.528,
+"who": "daisy",
+"n": "wed-3-10",
+"to": "zara"
+},
+{
+"t": 247.2,
+"d": 9.24,
+"who": "zara",
+"n": "wed-3-11",
+"to": "daisy"
+},
+{
+"t": 257.14,
+"d": 7.032,
+"who": "daisy",
+"n": "wed-3-12",
+"to": "zara"
+},
+{
+"t": 264.87,
+"d": 3.048,
+"who": "zara",
+"n": "wed-3-13",
+"to": "daisy"
+},
+{
+"t": 268.62,
+"d": 3.672,
+"who": "henry",
+"n": "wed-3-14",
+"to": "zara"
+},
+{
+"t": 275.99,
+"d": 2.976,
+"who": "pryce",
+"n": "wed-3-16",
+"to": "henry"
+},
+{
+"t": 279.67,
+"d": 7.032,
+"who": "henry",
+"n": "wed-3-17",
+"to": "pryce"
+},
+{
+"t": 287.4,
+"d": 2.112,
+"who": "pryce",
+"n": "wed-3-18",
+"to": "henry"
+},
+{
+"t": 290.21,
+"d": 3.936,
+"who": "henry",
+"n": "wed-3-19",
+"to": "pryce"
+},
+{
+"t": 294.85,
+"d": 6.144,
+"who": "eleanor",
+"n": "wed-3-20",
+"to": "all"
+},
+{
+"t": 304.69,
+"d": 5.664,
+"who": "freddie",
+"n": "wed-3-22",
+"to": "henry"
+},
+{
+"t": 311.06,
+"d": 4.32,
+"who": "henry",
+"n": "wed-3-23",
+"to": "freddie"
+},
+{
+"t": 316.08,
+"d": 1.32,
+"who": "freddie",
+"n": "wed-3-24",
+"to": "henry"
+},
+{
+"t": 318.1,
+"d": 2.52,
+"who": "henry",
+"n": "wed-3-25",
+"to": "freddie"
+},
+{
+"t": 324.32,
+"d": 3.0,
+"who": "daisy",
+"n": "wed-3-27",
+"to": "parfitt"
+},
+{
+"t": 328.02,
+"d": 5.232,
+"who": "parfitt",
+"n": "wed-3-28",
+"to": "daisy"
+},
+{
+"t": 333.95,
+"d": 2.04,
+"who": "daisy",
+"n": "wed-3-29",
+"to": "parfitt"
+},
+{
+"t": 336.69,
+"d": 3.48,
+"who": "parfitt",
+"n": "wed-3-30",
+"to": "daisy"
+},
+{
+"t": 356.0,
+"d": 9.024,
+"who": "zara",
+"n": "wed-4-0",
+"to": "eleanor"
+},
+{
+"t": 365.72,
+"d": 1.344,
+"who": "eleanor",
+"n": "wed-4-1",
+"to": "zara"
+},
+{
+"t": 367.77,
+"d": 4.776,
+"who": "zara",
+"n": "wed-4-2",
+"to": "eleanor"
+},
+{
+"t": 373.24,
+"d": 2.856,
+"who": "freddie",
+"n": "wed-4-3",
+"to": "all"
+},
+{
+"t": 376.8,
+"d": 8.448,
+"who": "daisy",
+"n": "wed-4-4",
+"to": "zara"
+},
+{
+"t": 385.95,
+"d": 5.592,
+"who": "zara",
+"n": "wed-4-5",
+"to": "daisy"
+},
+{
+"t": 395.24,
+"d": 5.28,
+"who": "henry",
+"n": "wed-4-7",
+"to": "eleanor"
+},
+{
+"t": 401.22,
+"d": 1.248,
+"who": "eleanor",
+"n": "wed-4-8",
+"to": "henry"
+},
+{
+"t": 403.17,
+"d": 4.464,
+"who": "henry",
+"n": "wed-4-9",
+"ev": "clue:police",
+"to": "eleanor"
+},
+{
+"t": 408.33,
+"d": 3.072,
+"who": "pryce",
+"n": "wed-4-10",
+"to": "henry"
+},
+{
+"t": 412.1,
+"d": 3.072,
+"who": "henry",
+"n": "wed-4-11",
+"to": "pryce"
+},
+{
+"t": 418.88,
+"d": 3.6,
+"who": "eleanor",
+"n": "wed-4-13",
+"to": "all"
+},
+{
+"t": 423.18,
+"d": 3.672,
+"who": "henry",
+"n": "wed-4-14",
+"to": "eleanor"
+},
+{
+"t": 430.55,
+"d": 3.84,
+"who": "freddie",
+"n": "wed-4-16",
+"to": "daisy"
+},
+{
+"t": 435.09,
+"d": 6.12,
+"who": "daisy",
+"n": "wed-4-17",
+"to": "freddie"
+},
+{
+"t": 441.91,
+"d": 1.512,
+"who": "freddie",
+"n": "wed-4-18",
+"to": "daisy"
+},
+{
+"t": 444.12,
+"d": 4.128,
+"who": "daisy",
+"n": "wed-4-19",
+"to": "freddie"
+},
+{
+"t": 451.95,
+"d": 2.088,
+"who": "pryce",
+"n": "wed-4-21",
+"to": "eleanor"
+},
+{
+"t": 454.74,
+"d": 4.2,
+"who": "eleanor",
+"n": "wed-4-22",
+"to": "pryce"
+},
+{
+"t": 459.64,
+"d": 4.008,
+"who": "zara",
+"n": "wed-4-23",
+"to": "eleanor"
+},
+{
+"t": 482.0,
+"d": 2.016,
+"who": "parfitt",
+"n": "wed-5-0",
+"to": "eleanor"
+},
+{
+"t": 484.72,
+"d": 1.44,
+"who": "eleanor",
+"n": "wed-5-1",
+"to": "parfitt"
+},
+{
+"t": 486.86,
+"d": 6.192,
+"who": "henry",
+"n": "wed-5-2",
+"to": "all"
+},
+{
+"t": 493.75,
+"d": 4.392,
+"who": "eleanor",
+"n": "wed-5-3",
+"to": "henry"
+},
+{
+"t": 501.84,
+"d": 4.68,
+"who": "daisy",
+"n": "wed-5-5",
+"to": "zara"
+},
+{
+"t": 507.22,
+"d": 7.944,
+"who": "zara",
+"n": "wed-5-6",
+"to": "daisy"
+},
+{
+"t": 515.86,
+"d": 1.848,
+"who": "freddie",
+"n": "wed-5-7",
+"to": "zara"
+},
+{
+"t": 518.41,
+"d": 5.28,
+"who": "zara",
+"n": "wed-5-8",
+"to": "freddie"
+},
+{
+"t": 527.39,
+"d": 4.584,
+"who": "pryce",
+"n": "wed-5-10",
+"to": "freddie"
+},
+{
+"t": 532.68,
+"d": 6.216,
+"who": "freddie",
+"n": "wed-5-11",
+"to": "pryce"
+},
+{
+"t": 539.59,
+"d": 4.344,
+"who": "henry",
+"n": "wed-5-12",
+"to": "freddie"
+},
+{
+"t": 547.64,
+"d": 3.72,
+"who": "daisy",
+"n": "wed-5-14",
+"to": "parfitt"
+},
+{
+"t": 552.06,
+"d": 2.136,
+"who": "parfitt",
+"n": "wed-5-15",
+"to": "daisy"
+},
+{
+"t": 554.89,
+"d": 2.208,
+"who": "daisy",
+"n": "wed-5-16",
+"to": "parfitt"
+},
+{
+"t": 557.8,
+"d": 4.92,
+"who": "parfitt",
+"n": "wed-5-17",
+"to": "daisy"
+},
+{
+"t": 566.42,
+"d": 4.8,
+"who": "eleanor",
+"n": "wed-5-19",
+"to": "all"
+},
+{
+"t": 571.92,
+"d": 5.568,
+"who": "zara",
+"n": "wed-5-20",
+"to": "eleanor"
+},
+{
+"t": 578.19,
+"d": 2.448,
+"who": "eleanor",
+"n": "wed-5-21",
+"to": "zara"
+},
+{
+"t": 581.34,
+"d": 7.752,
+"who": "zara",
+"n": "wed-5-22",
+"to": "eleanor"
+},
+{
+"t": 589.79,
+"d": 3.408,
+"who": "daisy",
+"n": "wed-5-23",
+"to": "zara"
+},
+{
+"t": 596.9,
+"d": 4.464,
+"who": "henry",
+"n": "wed-5-25",
+"to": "pryce"
+},
+{
+"t": 602.06,
+"d": 3.648,
+"who": "pryce",
+"n": "wed-5-26",
+"to": "henry"
+},
+{
+"t": 606.41,
+"d": 4.032,
+"who": "henry",
+"n": "wed-5-27",
+"to": "pryce"
+},
+{
+"t": 614.14,
+"d": 5.952,
+"who": "freddie",
+"n": "wed-5-29",
+"to": "eleanor"
+},
+{
+"t": 620.79,
+"d": 4.704,
+"who": "eleanor",
+"n": "wed-5-30",
+"to": "freddie"
+},
+{
+"t": 626.2,
+"d": 5.664,
+"who": "freddie",
+"n": "wed-5-31",
+"to": "eleanor"
+},
+{
+"t": 632.56,
+"d": 4.128,
+"who": "eleanor",
+"n": "wed-5-32",
+"to": "freddie"
+},
+{
+"t": 640.39,
+"d": 5.856,
+"who": "zara",
+"n": "wed-5-34",
+"to": "eleanor"
+},
+{
+"t": 646.94,
+"d": 1.728,
+"who": "eleanor",
+"n": "wed-5-35",
+"to": "zara"
+},
+{
+"t": 652.37,
+"d": 2.064,
+"who": "pryce",
+"n": "wed-5-37",
+"to": "daisy"
+},
+{
+"t": 655.14,
+"d": 3.456,
+"who": "daisy",
+"n": "wed-5-38",
+"to": "pryce"
+},
+{
+"t": 659.29,
+"d": 1.512,
+"who": "pryce",
+"n": "wed-5-39",
+"to": "daisy"
+},
+{
+"t": 661.5,
+"d": 5.184,
+"who": "daisy",
+"n": "wed-5-40",
+"to": "pryce"
+},
+{
+"t": 700.0,
+"d": 3.408,
+"who": "parfitt",
+"n": "wed-6-0",
+"to": "eleanor"
+},
+{
+"t": 704.11,
+"d": 4.536,
+"who": "eleanor",
+"n": "wed-6-1",
+"to": "parfitt"
+},
+{
+"t": 712.34,
+"d": 5.784,
+"who": "henry",
+"n": "wed-6-3",
+"to": "eleanor"
+},
+{
+"t": 718.83,
+"d": 6.144,
+"who": "eleanor",
+"n": "wed-6-4",
+"to": "henry"
+},
+{
+"t": 725.67,
+"d": 1.8,
+"who": "henry",
+"n": "wed-6-5",
+"to": "eleanor"
+},
+{
+"t": 728.17,
+"d": 4.368,
+"who": "eleanor",
+"n": "wed-6-6",
+"to": "henry"
+},
+{
+"t": 733.24,
+"d": 1.8,
+"who": "henry",
+"n": "wed-6-7",
+"to": "eleanor"
+},
+{
+"t": 738.74,
+"d": 2.544,
+"who": "freddie",
+"n": "wed-6-9",
+"to": "henry"
+},
+{
+"t": 741.98,
+"d": 4.824,
+"who": "henry",
+"n": "wed-6-10",
+"to": "freddie"
+},
+{
+"t": 750.51,
+"d": 4.056,
+"who": "daisy",
+"n": "wed-6-12",
+"to": "zara"
+},
+{
+"t": 755.26,
+"d": 2.304,
+"who": "zara",
+"n": "wed-6-13",
+"to": "daisy"
+},
+{
+"t": 758.27,
+"d": 2.352,
+"who": "daisy",
+"n": "wed-6-14",
+"to": "zara"
+},
+{
+"t": 761.32,
+"d": 3.192,
+"who": "zara",
+"n": "wed-6-15",
+"to": "daisy"
+},
+{
+"t": 765.21,
+"d": 5.808,
+"who": "freddie",
+"n": "wed-6-16",
+"to": "daisy"
+},
+{
+"t": 771.72,
+"d": 2.28,
+"who": "daisy",
+"n": "wed-6-17",
+"to": "freddie"
+},
+{
+"t": 774.7,
+"d": 2.736,
+"who": "freddie",
+"n": "wed-6-18",
+"to": "daisy"
+},
+{
+"t": 781.14,
+"d": 3.024,
+"who": "pryce",
+"n": "wed-6-20",
+"to": "eleanor"
+},
+{
+"t": 784.86,
+"d": 5.136,
+"who": "eleanor",
+"n": "wed-6-21",
+"to": "pryce"
+},
+{
+"t": 790.7,
+"d": 1.68,
+"who": "pryce",
+"n": "wed-6-22",
+"to": "eleanor"
+},
+{
+"t": 793.08,
+"d": 1.728,
+"who": "eleanor",
+"n": "wed-6-23",
+"to": "pryce"
+},
+{
+"t": 798.5,
+"d": 3.792,
+"who": "parfitt",
+"n": "wed-6-25",
+"to": "eleanor"
+},
+{
+"t": 803.0,
+"d": 4.2,
+"who": "eleanor",
+"n": "wed-6-26",
+"to": "parfitt"
+},
+{
+"t": 829.0,
+"d": 1.632,
+"who": "parfitt",
+"n": "wed-7-0",
+"to": "eleanor"
+},
+{
+"t": 831.33,
+"d": 1.44,
+"who": "eleanor",
+"n": "wed-7-1",
+"to": "parfitt"
+},
+{
+"t": 833.47,
+"d": 5.136,
+"who": "henry",
+"n": "wed-7-2",
+"to": "eleanor"
+},
+{
+"t": 839.31,
+"d": 4.2,
+"who": "eleanor",
+"n": "wed-7-3",
+"to": "henry"
+},
+{
+"t": 847.21,
+"d": 4.416,
+"who": "daisy",
+"n": "wed-7-5",
+"to": "parfitt"
+},
+{
+"t": 852.32,
+"d": 2.832,
+"who": "parfitt",
+"n": "wed-7-6",
+"to": "daisy"
+},
+{
+"t": 855.86,
+"d": 8.952,
+"who": "daisy",
+"n": "wed-7-7",
+"to": "parfitt"
+},
+{
+"t": 865.51,
+"d": 2.136,
+"who": "parfitt",
+"n": "wed-7-8",
+"to": "daisy"
+},
+{
+"t": 868.34,
+"d": 4.992,
+"who": "daisy",
+"n": "wed-7-9",
+"to": "parfitt"
+},
+{
+"t": 877.04,
+"d": 2.76,
+"who": "freddie",
+"n": "wed-7-11",
+"to": "daisy"
+},
+{
+"t": 880.5,
+"d": 7.368,
+"who": "daisy",
+"n": "wed-7-12",
+"to": "freddie"
+},
+{
+"t": 888.56,
+"d": 2.016,
+"who": "freddie",
+"n": "wed-7-13",
+"to": "daisy"
+},
+{
+"t": 891.28,
+"d": 2.76,
+"who": "daisy",
+"n": "wed-7-14",
+"to": "freddie"
+},
+{
+"t": 897.74,
+"d": 3.096,
+"who": "zara",
+"n": "wed-7-16",
+"to": "daisy"
+},
+{
+"t": 901.54,
+"d": 6.408,
+"who": "daisy",
+"n": "wed-7-17",
+"to": "zara"
+},
+{
+"t": 911.64,
+"d": 4.2,
+"who": "henry",
+"n": "wed-7-19",
+"to": "pryce"
+},
+{
+"t": 916.54,
+"d": 2.976,
+"who": "pryce",
+"n": "wed-7-20",
+"to": "henry"
+},
+{
+"t": 920.22,
+"d": 2.928,
+"who": "henry",
+"n": "wed-7-21",
+"to": "pryce"
+},
+{
+"t": 923.85,
+"d": 3.96,
+"who": "pryce",
+"n": "wed-7-22",
+"to": "henry"
+},
+{
+"t": 928.51,
+"d": 5.16,
+"who": "henry",
+"n": "wed-7-23",
+"to": "pryce"
+},
+{
+"t": 934.37,
+"d": 5.664,
+"who": "eleanor",
+"n": "wed-7-24",
+"to": "henry"
+},
+{
+"t": 940.73,
+"d": 3.552,
+"who": "pryce",
+"n": "wed-7-25",
+"to": "eleanor"
+},
+{
+"t": 947.98,
+"d": 2.688,
+"who": "freddie",
+"n": "wed-7-27",
+"to": "eleanor"
+},
+{
+"t": 951.37,
+"d": 5.376,
+"who": "eleanor",
+"n": "wed-7-28",
+"to": "freddie"
+},
+{
+"t": 957.45,
+"d": 2.976,
+"who": "pryce",
+"n": "wed-7-29",
+"to": "freddie"
+},
+{
+"t": 961.12,
+"d": 1.968,
+"who": "freddie",
+"n": "wed-7-30",
+"to": "pryce"
+},
+{
+"t": 963.79,
+"d": 2.64,
+"who": "eleanor",
+"n": "wed-7-31",
+"to": "freddie"
+},
+{
+"t": 970.13,
+"d": 7.32,
+"who": "daisy",
+"n": "wed-7-33",
+"to": "all"
+},
+{
+"t": 978.15,
+"d": 8.856,
+"who": "zara",
+"n": "wed-7-34",
+"to": "daisy"
+},
+{
+"t": 987.71,
+"d": 2.352,
+"who": "daisy",
+"n": "wed-7-35",
+"to": "zara"
+},
+{
+"t": 990.76,
+"d": 4.056,
+"who": "zara",
+"n": "wed-7-36",
+"to": "daisy"
+},
+{
+"t": 1003.0,
+"d": 3.672,
+"who": "eleanor",
+"n": "wed-8-0",
+"to": "henry"
+},
+{
+"t": 1007.37,
+"d": 2.688,
+"who": "henry",
+"n": "wed-8-1",
+"to": "eleanor"
+},
+{
+"t": 1010.76,
+"d": 1.512,
+"who": "eleanor",
+"n": "wed-8-2",
+"to": "henry"
+},
+{
+"t": 1012.97,
+"d": 3.168,
+"who": "henry",
+"n": "wed-8-3",
+"to": "eleanor"
+},
+{
+"t": 1019.84,
+"d": 5.424,
+"who": "pryce",
+"n": "wed-8-5",
+"to": "henry"
+},
+{
+"t": 1025.96,
+"d": 9.456,
+"who": "henry",
+"n": "wed-8-6",
+"to": "pryce"
+},
+{
+"t": 1036.12,
+"d": 4.2,
+"who": "pryce",
+"n": "wed-8-7",
+"to": "henry"
+},
+{
+"t": 1041.02,
+"d": 2.496,
+"who": "henry",
+"n": "wed-8-8",
+"ev": "clue:certificate",
+"to": "pryce"
+},
+{
+"t": 1047.22,
+"d": 1.296,
+"who": "freddie",
+"n": "wed-8-10",
+"to": "pryce"
+},
+{
+"t": 1049.21,
+"d": 5.448,
+"who": "pryce",
+"n": "wed-8-11",
+"to": "freddie"
+},
+{
+"t": 1055.36,
+"d": 3.648,
+"who": "freddie",
+"n": "wed-8-12",
+"to": "pryce"
+},
+{
+"t": 1059.71,
+"d": 4.32,
+"who": "pryce",
+"n": "wed-8-13",
+"to": "freddie"
+},
+{
+"t": 1067.73,
+"d": 6.168,
+"who": "zara",
+"n": "wed-8-15",
+"to": "pryce"
+},
+{
+"t": 1074.6,
+"d": 1.536,
+"who": "pryce",
+"n": "wed-8-16",
+"to": "zara"
+},
+{
+"t": 1076.83,
+"d": 8.088,
+"who": "zara",
+"n": "wed-8-17",
+"to": "pryce"
+},
+{
+"t": 1085.62,
+"d": 2.736,
+"who": "pryce",
+"n": "wed-8-18",
+"to": "zara"
+},
+{
+"t": 1089.06,
+"d": 5.448,
+"who": "daisy",
+"n": "wed-8-19",
+"to": "pryce"
+},
+{
+"t": 1095.2,
+"d": 2.136,
+"who": "parfitt",
+"n": "wed-8-20",
+"to": "daisy"
+},
+{
+"t": 1101.04,
+"d": 4.2,
+"who": "eleanor",
+"n": "wed-8-22",
+"to": "all"
+},
+{
+"t": 1105.94,
+"d": 4.704,
+"who": "henry",
+"n": "wed-8-23",
+"to": "eleanor"
+},
+{
+"t": 1114.34,
+"d": 3.888,
+"who": "daisy",
+"n": "wed-8-25",
+"to": "freddie"
+},
+{
+"t": 1118.93,
+"d": 8.376,
+"who": "freddie",
+"n": "wed-8-26",
+"to": "daisy"
+},
+{
+"t": 1128.01,
+"d": 2.112,
+"who": "daisy",
+"n": "wed-8-27",
+"to": "freddie"
+},
+{
+"t": 1130.82,
+"d": 5.4,
+"who": "freddie",
+"n": "wed-8-28",
+"to": "daisy"
+},
+{
+"t": 1139.92,
+"d": 7.68,
+"who": "henry",
+"n": "wed-8-30",
+"to": "eleanor"
+},
+{
+"t": 1148.3,
+"d": 4.008,
+"who": "eleanor",
+"n": "wed-8-31",
+"to": "henry"
+},
+{
+"t": 1153.01,
+"d": 4.608,
+"who": "henry",
+"n": "wed-8-32",
+"to": "eleanor"
+},
+{
+"t": 1158.32,
+"d": 1.272,
+"who": "eleanor",
+"n": "wed-8-33",
+"to": "henry"
+},
+{
+"t": 1160.29,
+"d": 3.408,
+"who": "henry",
+"n": "wed-8-34",
+"to": "eleanor"
+},
+{
+"t": 1203.0,
+"d": 3.096,
+"who": "parfitt",
+"n": "wed-9-0",
+"to": "eleanor"
+},
+{
+"t": 1206.8,
+"d": 4.536,
+"who": "eleanor",
+"n": "wed-9-1",
+"to": "parfitt"
+},
+{
+"t": 1215.03,
+"d": 11.136,
+"who": "zara",
+"n": "wed-9-3",
+"to": "all"
+},
+{
+"t": 1226.87,
+"d": 1.272,
+"who": "henry",
+"n": "wed-9-4",
+"to": "zara"
+},
+{
+"t": 1228.84,
+"d": 6.72,
+"who": "zara",
+"n": "wed-9-5",
+"to": "henry"
+},
+{
+"t": 1239.26,
+"d": 10.68,
+"who": "daisy",
+"n": "wed-9-7",
+"to": "parfitt"
+},
+{
+"t": 1250.64,
+"d": 4.416,
+"who": "parfitt",
+"n": "wed-9-8",
+"to": "daisy"
+},
+{
+"t": 1255.76,
+"d": 2.352,
+"who": "daisy",
+"n": "wed-9-9",
+"to": "parfitt"
+},
+{
+"t": 1258.81,
+"d": 7.632,
+"who": "parfitt",
+"n": "wed-9-10",
+"ev": "clue:informant",
+"to": "daisy"
+},
+{
+"t": 1270.14,
+"d": 7.488,
+"who": "zara",
+"n": "wed-9-12",
+"to": "daisy"
+},
+{
+"t": 1278.33,
+"d": 4.008,
+"who": "daisy",
+"n": "wed-9-13",
+"to": "zara"
+},
+{
+"t": 1283.04,
+"d": 4.584,
+"who": "zara",
+"n": "wed-9-14",
+"to": "daisy"
+},
+{
+"t": 1291.32,
+"d": 3.336,
+"who": "freddie",
+"n": "wed-9-16",
+"to": "zara"
+},
+{
+"t": 1295.36,
+"d": 5.184,
+"who": "zara",
+"n": "wed-9-17",
+"to": "freddie"
+},
+{
+"t": 1304.24,
+"d": 6.528,
+"who": "pryce",
+"n": "wed-9-19",
+"to": "eleanor"
+},
+{
+"t": 1311.47,
+"d": 7.8,
+"who": "eleanor",
+"n": "wed-9-20",
+"to": "pryce"
+},
+{
+"t": 1319.97,
+"d": 1.896,
+"who": "henry",
+"n": "wed-9-21",
+"to": "eleanor"
+},
+{
+"t": 1322.56,
+"d": 3.24,
+"who": "eleanor",
+"n": "wed-9-22",
+"to": "henry"
+},
+{
+"t": 1329.5,
+"d": 10.32,
+"who": "henry",
+"n": "wed-9-24",
+"to": "freddie"
+},
+{
+"t": 1340.52,
+"d": 2.112,
+"who": "freddie",
+"n": "wed-9-25",
+"to": "henry"
+},
+{
+"t": 1343.34,
+"d": 3.552,
+"who": "henry",
+"n": "wed-9-26",
+"to": "freddie"
+},
+{
+"t": 1347.59,
+"d": 1.608,
+"who": "eleanor",
+"n": "wed-9-27",
+"to": "henry"
+},
+{
+"t": 1349.9,
+"d": 3.288,
+"who": "henry",
+"n": "wed-9-28",
+"to": "eleanor"
+},
+{
+"t": 1356.88,
+"d": 5.856,
+"who": "daisy",
+"n": "wed-9-30",
+"to": "henry"
+},
+{
+"t": 1363.44,
+"d": 7.728,
+"who": "henry",
+"n": "wed-9-31",
+"to": "daisy"
+},
+{
+"t": 1374.87,
+"d": 6.528,
+"who": "zara",
+"n": "wed-9-33",
+"to": "all"
+},
+{
+"t": 1382.1,
+"d": 3.672,
+"who": "eleanor",
+"n": "wed-9-34",
+"to": "all"
+},
+{
+"t": 1386.47,
+"d": 3.168,
+"who": "parfitt",
+"n": "wed-9-35",
+"to": "eleanor"
+},
+{
+"t": 1393.34,
+"d": 3.552,
+"who": "freddie",
+"n": "wed-9-37",
+"to": "daisy"
+},
+{
+"t": 1397.59,
+"d": 6.192,
+"who": "daisy",
+"n": "wed-9-38",
+"to": "freddie"
+},
+{
+"t": 1407.48,
+"d": 3.288,
+"who": "zara",
+"n": "wed-9-40",
+"to": "daisy"
+},
+{
+"t": 1411.47,
+"d": 4.8,
+"who": "daisy",
+"n": "wed-9-41",
+"to": "zara"
+},
+{
+"t": 1419.97,
+"d": 4.392,
+"who": "pryce",
+"n": "wed-9-43",
+"to": "eleanor"
+},
+{
+"t": 1425.06,
+"d": 5.832,
+"who": "eleanor",
+"n": "wed-9-44",
+"to": "pryce"
+},
+{
+"t": 1431.59,
+"d": 2.496,
+"who": "henry",
+"n": "wed-9-45",
+"to": "pryce"
+},
+{
+"t": 1434.79,
+"d": 2.856,
+"who": "pryce",
+"n": "wed-9-46",
+"to": "henry"
+},
+{
+"t": 1474.0,
+"d": 2.904,
+"who": "parfitt",
+"n": "wed-10-0",
+"to": "eleanor"
+},
+{
+"t": 1477.6,
+"d": 1.44,
+"who": "eleanor",
+"n": "wed-10-1",
+"to": "parfitt"
+},
+{
+"t": 1479.74,
+"d": 6.408,
+"who": "zara",
+"n": "wed-10-2",
+"to": "all"
+},
+{
+"t": 1486.85,
+"d": 2.448,
+"who": "henry",
+"n": "wed-10-3",
+"to": "zara"
+},
+{
+"t": 1490.0,
+"d": 2.952,
+"who": "zara",
+"n": "wed-10-4",
+"to": "henry"
+},
+{
+"t": 1496.65,
+"d": 3.888,
+"who": "pryce",
+"n": "wed-10-6",
+"to": "henry"
+},
+{
+"t": 1501.24,
+"d": 4.512,
+"who": "henry",
+"n": "wed-10-7",
+"to": "pryce"
+},
+{
+"t": 1506.45,
+"d": 2.256,
+"who": "eleanor",
+"n": "wed-10-8",
+"to": "henry"
+},
+{
+"t": 1512.41,
+"d": 6.384,
+"who": "daisy",
+"n": "wed-10-10",
+"to": "freddie"
+},
+{
+"t": 1519.49,
+"d": 5.28,
+"who": "freddie",
+"n": "wed-10-11",
+"to": "daisy"
+},
+{
+"t": 1525.47,
+"d": 4.032,
+"who": "daisy",
+"n": "wed-10-12",
+"to": "freddie"
+},
+{
+"t": 1533.2,
+"d": 3.792,
+"who": "freddie",
+"n": "wed-10-14",
+"to": "zara"
+},
+{
+"t": 1537.7,
+"d": 4.704,
+"who": "zara",
+"n": "wed-10-15",
+"to": "freddie"
+},
+{
+"t": 1543.1,
+"d": 3.216,
+"who": "freddie",
+"n": "wed-10-16",
+"to": "zara"
+},
+{
+"t": 1547.02,
+"d": 5.352,
+"who": "zara",
+"n": "wed-10-17",
+"to": "freddie"
+},
+{
+"t": 1556.07,
+"d": 5.52,
+"who": "eleanor",
+"n": "wed-10-19",
+"to": "zara"
+},
+{
+"t": 1562.29,
+"d": 4.68,
+"who": "zara",
+"n": "wed-10-20",
+"to": "eleanor"
+},
+{
+"t": 1570.67,
+"d": 10.296,
+"who": "zara",
+"n": "wed-10-22",
+"do": "join",
+"to": "all"
+},
+{
+"t": 1581.66,
+"d": 2.688,
+"who": "eleanor",
+"n": "wed-10-23",
+"to": "henry"
+},
+{
+"t": 1585.05,
+"d": 2.208,
+"who": "henry",
+"n": "wed-10-24",
+"to": "eleanor"
+},
+{
+"t": 1587.96,
+"d": 3.072,
+"who": "eleanor",
+"n": "wed-10-25",
+"to": "henry"
+},
+{
+"t": 1594.73,
+"d": 8.976,
+"who": "zara",
+"n": "wed-10-27",
+"do": "trance:zara",
+"to": "all"
+},
+{
+"t": 1608.41,
+"d": 5.856,
+"who": "zara",
+"n": "wed-10-29",
+"to": "all"
+},
+{
+"t": 1614.96,
+"d": 1.152,
+"who": "freddie",
+"n": "wed-10-30",
+"to": "zara"
+},
+{
+"t": 1619.82,
+"d": 2.352,
+"who": "george",
+"n": "wed-10-32",
+"q": 1,
+"to": "all"
+},
+{
+"t": 1622.87,
+"d": 3.528,
+"who": "freddie",
+"n": "wed-10-33",
+"to": "all"
+},
+{
+"t": 1627.1,
+"d": 5.616,
+"who": "george",
+"n": "wed-10-34",
+"ev": "clue:spirit",
+"do": "slip:eleanor=henry",
+"to": "all"
+},
+{
+"t": 1633.41,
+"d": 2.28,
+"who": "eleanor",
+"n": "wed-10-35",
+"to": "all"
+},
+{
+"t": 1636.39,
+"d": 8.28,
+"who": "george",
+"n": "wed-10-36",
+"to": "all"
+},
+{
+"t": 1645.37,
+"d": 3.888,
+"who": "henry",
+"n": "wed-10-37",
+"to": "all"
+},
+{
+"t": 1649.96,
+"d": 5.304,
+"who": "george",
+"n": "wed-10-38",
+"to": "all"
+},
+{
+"t": 1658.96,
+"d": 4.248,
+"who": "zara",
+"n": "wed-10-40",
+"q": 1,
+"to": "all"
+},
+{
+"t": 1667.91,
+"d": 3.72,
+"who": "zara",
+"n": "wed-10-42",
+"do": "part",
+"to": "all"
+},
+{
+"t": 1675.33,
+"d": 2.304,
+"who": "freddie",
+"n": "wed-10-44",
+"to": "all"
+},
+{
+"t": 1678.34,
+"d": 6.48,
+"who": "daisy",
+"n": "wed-10-45",
+"to": "freddie"
+},
+{
+"t": 1685.52,
+"d": 4.104,
+"who": "zara",
+"n": "wed-10-46",
+"to": "daisy"
+},
+{
+"t": 1693.32,
+"d": 4.056,
+"who": "henry",
+"n": "wed-10-48",
+"do": "sip:henry",
+"to": "all"
+},
+{
+"t": 1698.08,
+"d": 2.496,
+"who": "pryce",
+"n": "wed-10-49",
+"to": "henry"
+},
+{
+"t": 1701.27,
+"d": 1.992,
+"who": "henry",
+"n": "wed-10-50",
+"to": "pryce"
+},
+{
+"t": 1706.96,
+"d": 5.232,
+"who": "henry",
+"n": "wed-10-52",
+"to": "eleanor"
+},
+{
+"t": 1712.9,
+"d": 6.336,
+"who": "henry",
+"n": "wed-10-53",
+"do": "slump:henry",
+"to": "pryce"
+},
+{
+"t": 1719.93,
+"d": 1.08,
+"who": "eleanor",
+"n": "wed-10-54",
+"ev": "gasp",
+"to": "henry"
+},
+{
+"t": 1721.71,
+"d": 2.592,
+"who": "pryce",
+"n": "wed-10-55",
+"do": "go:pryce",
+"to": "all"
+},
+{
+"t": 1728.0,
+"d": 2.688,
+"who": "pryce",
+"n": "wed-10-57",
+"to": "henry"
+},
+{
+"t": 1733.39,
+"d": 3.312,
+"who": "pryce",
+"n": "wed-10-59",
+"do": "home:pryce",
+"to": "all"
+},
+{
+"t": 1737.7,
+"d": 3.0,
+"who": "freddie",
+"n": "wed-11-0",
+"to": "all"
+},
+{
+"t": 1741.4,
+"d": 6.192,
+"who": "eleanor",
+"n": "wed-11-1",
+"to": "all"
+},
+{
+"t": 1748.3,
+"d": 5.304,
+"who": "zara",
+"n": "wed-11-2",
+"to": "eleanor"
+},
+{
+"t": 1757.3,
+"d": 5.232,
+"who": "daisy",
+"n": "wed-11-4",
+"to": "all"
+},
+{
+"t": 1763.23,
+"d": 3.0,
+"who": "pryce",
+"n": "wed-11-5",
+"to": "daisy"
+},
+{
+"t": 1766.93,
+"d": 9.936,
+"who": "daisy",
+"n": "wed-11-6",
+"do": "up:parfitt",
+"to": "pryce"
+},
+{
+"t": 1777.57,
+"d": 1.488,
+"who": "parfitt",
+"n": "wed-11-7",
+"to": "daisy"
+},
+{
+"t": 1782.76,
+"d": 3.408,
+"who": "freddie",
+"n": "wed-11-9",
+"to": "daisy"
+},
+{
+"t": 1786.86,
+"d": 14.016,
+"who": "daisy",
+"n": "wed-11-10",
+"to": "freddie"
+},
+{
+"t": 1804.58,
+"d": 5.016,
+"who": "daisy",
+"n": "wed-11-12",
+"to": "mid"
+},
+{
+"t": 1810.3,
+"d": 10.368,
+"who": "daisy",
+"n": "wed-11-13",
+"to": "mid"
+},
+{
+"t": 1824.36,
+"d": 6.576,
+"who": "zara",
+"n": "wed-11-15",
+"to": "all"
+},
+{
+"t": 1831.64,
+"d": 7.944,
+"who": "daisy",
+"n": "wed-11-16",
+"ev": "clue:circle",
+"to": "zara"
+},
+{
+"t": 1840.28,
+"d": 1.728,
+"who": "freddie",
+"n": "wed-11-17",
+"to": "daisy"
+},
+{
+"t": 1842.71,
+"d": 11.328,
+"who": "daisy",
+"n": "wed-11-18",
+"to": "freddie"
+},
+{
+"t": 1854.74,
+"d": 4.848,
+"who": "parfitt",
+"n": "wed-11-19",
+"do": "back:parfitt",
+"to": "daisy"
+},
+{
+"t": 1860.29,
+"d": 1.968,
+"who": "daisy",
+"n": "wed-11-20",
+"to": "parfitt"
+},
+{
+"t": 1865.96,
+"d": 9.24,
+"who": "daisy",
+"n": "wed-11-22",
+"to": "pryce"
+},
+{
+"t": 1875.9,
+"d": 6.936,
+"who": "pryce",
+"n": "wed-11-23",
+"to": "daisy"
+},
+{
+"t": 1883.53,
+"d": 6.432,
+"who": "daisy",
+"n": "wed-11-24",
+"to": "pryce"
+},
+{
+"t": 1890.66,
+"d": 1.272,
+"who": "pryce",
+"n": "wed-11-25",
+"to": "daisy"
+},
+{
+"t": 1895.64,
+"d": 6.696,
+"who": "freddie",
+"n": "wed-11-27",
+"to": "eleanor"
+},
+{
+"t": 1903.03,
+"d": 1.776,
+"who": "eleanor",
+"n": "wed-11-28",
+"to": "freddie"
+},
+{
+"t": 1905.81,
+"d": 4.2,
+"who": "parfitt",
+"n": "wed-12-0",
+"to": "eleanor"
+},
+{
+"t": 1910.71,
+"d": 2.544,
+"who": "eleanor",
+"n": "wed-12-1",
+"to": "parfitt"
+},
+{
+"t": 1913.95,
+"d": 5.64,
+"who": "daisy",
+"n": "wed-12-2",
+"to": "parfitt"
+},
+{
+"t": 1923.29,
+"d": 5.976,
+"who": "daisy",
+"n": "wed-12-4",
+"do": "up:parfitt",
+"to": "parfitt"
+},
+{
+"t": 1929.97,
+"d": 1.488,
+"who": "parfitt",
+"n": "wed-12-5",
+"to": "daisy"
+},
+{
+"t": 1935.16,
+"d": 6.144,
+"who": "pryce",
+"n": "wed-12-7",
+"to": "daisy"
+},
+{
+"t": 1942.0,
+"d": 2.928,
+"who": "daisy",
+"n": "wed-12-8",
+"to": "pryce"
+},
+{
+"t": 1948.63,
+"d": 17.256,
+"who": "zara",
+"n": "wed-12-10",
+"to": "daisy"
+},
+{
+"t": 1966.58,
+"d": 1.632,
+"who": "daisy",
+"n": "wed-12-11",
+"to": "zara"
+},
+{
+"t": 1968.92,
+"d": 3.6,
+"who": "zara",
+"n": "wed-12-12",
+"to": "daisy"
+},
+{
+"t": 1973.22,
+"d": 4.584,
+"who": "parfitt",
+"n": "wed-12-13",
+"do": "back:parfitt",
+"to": "daisy"
+},
+{
+"t": 1978.5,
+"d": 4.8,
+"who": "daisy",
+"n": "wed-12-14",
+"do": "show:parfitt=vial",
+"to": "parfitt"
+},
+{
+"t": 1984.0,
+"d": 4.512,
+"who": "parfitt",
+"n": "wed-12-15",
+"ev": "clue:pills",
+"to": "all"
+},
+{
+"t": 1989.21,
+"d": 4.104,
+"who": "pryce",
+"n": "wed-12-16",
+"to": "all"
+},
+{
+"t": 1994.02,
+"d": 4.344,
+"who": "daisy",
+"n": "wed-12-17",
+"do": "pocket:parfitt",
+"to": "parfitt"
+},
+{
+"t": 2002.06,
+"d": 2.784,
+"who": "freddie",
+"n": "wed-12-19",
+"to": "eleanor"
+},
+{
+"t": 2005.54,
+"d": 4.848,
+"who": "eleanor",
+"n": "wed-12-20",
+"to": "freddie"
+},
+{
+"t": 2011.09,
+"d": 2.688,
+"who": "freddie",
+"n": "wed-12-21",
+"to": "eleanor"
+},
+{
+"t": 2014.48,
+"d": 9.432,
+"who": "eleanor",
+"n": "wed-12-22",
+"to": "freddie"
+},
+{
+"t": 2027.61,
+"d": 6.192,
+"who": "daisy",
+"n": "wed-12-24",
+"to": "eleanor"
+},
+{
+"t": 2034.5,
+"d": 3.096,
+"who": "eleanor",
+"n": "wed-12-25",
+"to": "daisy"
+},
+{
+"t": 2038.3,
+"d": 2.28,
+"who": "daisy",
+"n": "wed-12-26",
+"to": "eleanor"
+},
+{
+"t": 2041.28,
+"d": 4.2,
+"who": "eleanor",
+"n": "wed-12-27",
+"to": "daisy"
+},
+{
+"t": 2046.18,
+"d": 4.608,
+"who": "daisy",
+"n": "wed-12-28",
+"to": "eleanor"
+},
+{
+"t": 2051.49,
+"d": 4.968,
+"who": "eleanor",
+"n": "wed-12-29",
+"to": "daisy"
+},
+{
+"t": 2060.16,
+"d": 10.536,
+"who": "pryce",
+"n": "wed-12-31",
+"to": "daisy"
+},
+{
+"t": 2077.39,
+"d": 5.424,
+"who": "freddie",
+"n": "wed-12-34",
+"to": "pryce"
+},
+{
+"t": 2083.52,
+"d": 5.376,
+"who": "pryce",
+"n": "wed-12-35",
+"to": "freddie"
+},
+{
+"t": 2089.59,
+"d": 5.784,
+"who": "zara",
+"n": "wed-12-36",
+"to": "freddie"
+},
+{
+"t": 2096.08,
+"d": 4.92,
+"who": "freddie",
+"n": "wed-12-37",
+"to": "zara"
+},
+{
+"t": 2101.7,
+"d": 6.576,
+"who": "daisy",
+"n": "wed-12-38",
+"to": "freddie"
+},
+{
+"t": 2109.27,
+"d": 8.208,
+"who": "daisy",
+"n": "wed-13-0",
+"to": "all"
+},
+{
+"t": 2118.18,
+"d": 12.744,
+"who": "daisy",
+"n": "wed-13-1",
+"to": "all"
+},
+{
+"t": 2131.62,
+"d": 2.544,
+"who": "parfitt",
+"n": "wed-13-2",
+"to": "daisy"
+},
+{
+"t": 2134.87,
+"d": 2.208,
+"who": "daisy",
+"n": "wed-13-3",
+"to": "parfitt"
+},
+{
+"t": 2140.78,
+"d": 7.632,
+"who": "daisy",
+"n": "wed-13-5",
+"to": "mid"
+},
+{
+"t": 2152.11,
+"d": 4.2,
+"who": "freddie",
+"n": "wed-13-7",
+"to": "pryce"
+},
+{
+"t": 2157.01,
+"d": 4.896,
+"who": "pryce",
+"n": "wed-13-8",
+"to": "freddie"
+},
+{
+"t": 2162.6,
+"d": 1.128,
+"who": "freddie",
+"n": "wed-13-9",
+"to": "pryce"
+},
+{
+"t": 2164.43,
+"d": 2.832,
+"who": "pryce",
+"n": "wed-13-10",
+"to": "freddie"
+},
+{
+"t": 2170.96,
+"d": 1.992,
+"who": "eleanor",
+"n": "wed-13-12",
+"to": "daisy"
+},
+{
+"t": 2173.66,
+"d": 9.096,
+"who": "daisy",
+"n": "wed-13-13",
+"to": "eleanor"
+},
+{
+"t": 2183.45,
+"d": 2.856,
+"who": "eleanor",
+"n": "wed-13-14",
+"to": "daisy"
+},
+{
+"t": 2187.01,
+"d": 2.28,
+"who": "daisy",
+"n": "wed-13-15",
+"to": "eleanor"
+},
+{
+"t": 2192.99,
+"d": 4.392,
+"who": "eleanor",
+"n": "wed-13-17",
+"to": "all"
+},
+{
+"t": 2198.08,
+"d": 3.888,
+"who": "daisy",
+"n": "wed-13-18",
+"to": "eleanor"
+},
+{
+"t": 2202.67,
+"d": 1.32,
+"who": "eleanor",
+"n": "wed-13-19",
+"to": "daisy"
+},
+{
+"t": 2204.69,
+"d": 5.712,
+"who": "daisy",
+"n": "wed-13-20",
+"to": "eleanor"
+},
+{
+"t": 2214.1,
+"d": 5.448,
+"who": "zara",
+"n": "wed-13-22",
+"to": "all"
+},
+{
+"t": 2220.25,
+"d": 4.368,
+"who": "freddie",
+"n": "wed-13-23",
+"to": "zara"
+},
+{
+"t": 2225.32,
+"d": 6.24,
+"who": "zara",
+"n": "wed-13-24",
+"to": "freddie"
+},
+{
+"t": 2232.26,
+"d": 2.808,
+"who": "freddie",
+"n": "wed-13-25",
+"to": "zara"
+},
+{
+"t": 2235.76,
+"d": 6.624,
+"who": "zara",
+"n": "wed-13-26",
+"to": "freddie"
+},
+{
+"t": 2246.09,
+"d": 3.24,
+"who": "parfitt",
+"n": "wed-13-28",
+"to": "daisy"
+},
+{
+"t": 2250.03,
+"d": 1.968,
+"who": "daisy",
+"n": "wed-13-29",
+"to": "parfitt"
+},
+{
+"t": 2257.0,
+"d": 3.552,
+"who": "parfitt",
+"n": "wed-14-0",
+"to": "eleanor"
+},
+{
+"t": 2261.25,
+"d": 4.992,
+"who": "daisy",
+"n": "wed-14-1",
+"ev": "lock",
+"to": "mid"
+},
+{
+"t": 2269.94,
+"d": 11.568,
+"who": "daisy",
+"n": "wed-14-3",
+"to": "all"
+},
+{
+"t": 2282.21,
+"d": 13.416,
+"who": "daisy",
+"n": "wed-14-4",
+"to": "all"
+},
+{
+"t": 2296.33,
+"d": 8.472,
+"who": "daisy",
+"n": "wed-14-5",
+"to": "all"
+},
+{
+"t": 2305.5,
+"d": 19.128,
+"who": "daisy",
+"n": "wed-14-6",
+"to": "all"
+},
+{
+"t": 2325.33,
+"d": 7.224,
+"who": "daisy",
+"n": "wed-14-7",
+"to": "eleanor"
+},
+{
+"t": 2335.25,
+"d": 2.064,
+"who": "daisy",
+"n": "wed-14-9",
+"ev": "reveal",
+"to": "eleanor"
+},
+{
+"t": 2341.02,
+"d": 10.368,
+"who": "eleanor",
+"n": "wed-14-11",
+"to": "daisy"
+},
+{
+"t": 2352.08,
+"d": 7.224,
+"who": "eleanor",
+"n": "wed-14-12",
+"to": "daisy"
+},
+{
+"t": 2360.01,
+"d": 1.344,
+"who": "freddie",
+"n": "wed-14-13",
+"to": "eleanor"
+},
+{
+"t": 2362.05,
+"d": 4.08,
+"who": "eleanor",
+"n": "wed-14-14",
+"to": "freddie"
+},
+{
+"t": 2369.83,
+"d": 2.832,
+"who": "pryce",
+"n": "wed-14-16",
+"to": "eleanor"
+},
+{
+"t": 2373.36,
+"d": 7.416,
+"who": "eleanor",
+"n": "wed-14-17",
+"to": "pryce"
+},
+{
+"t": 2384.48,
+"d": 6.504,
+"who": "daisy",
+"n": "wed-14-19",
+"do": "up:parfitt",
+"to": "eleanor"
+},
+{
+"t": 2391.68,
+"d": 4.824,
+"who": "eleanor",
+"n": "wed-14-20",
+"do": "out:eleanor",
+"to": "daisy"
+},
+{
+"t": 2397.21,
+"d": 0.936,
+"who": "freddie",
+"n": "wed-14-21",
+"to": "eleanor"
+},
+{
+"t": 2398.84,
+"d": 4.104,
+"who": "eleanor",
+"n": "wed-14-22",
+"to": "freddie"
+},
+{
+"t": 2407.65,
+"d": 9.048,
+"who": "zara",
+"n": "wed-14-24",
+"to": "freddie"
+},
+{
+"t": 2417.4,
+"d": 5.184,
+"who": "freddie",
+"n": "wed-14-25",
+"to": "zara"
+},
+{
+"t": 2426.28,
+"d": 7.104,
+"who": "daisy",
+"n": "wed-14-27",
+"to": "freddie"
+},
+{
+"t": 2434.08,
+"d": 1.128,
+"who": "freddie",
+"n": "wed-14-28",
+"to": "daisy"
+},
+{
+"t": 2435.91,
+"d": 9.192,
+"who": "daisy",
+"n": "wed-14-29",
+"to": "freddie"
+},
+{
+"t": 2448.8,
+"d": 3.36,
+"who": "pryce",
+"n": "wed-14-31",
+"to": "daisy"
+},
+{
+"t": 2452.86,
+"d": 7.872,
+"who": "daisy",
+"n": "wed-14-32",
+"to": "pryce"
+},
+{
+"t": 2461.44,
+"d": 2.112,
+"who": "pryce",
+"n": "wed-14-33",
+"to": "daisy"
+},
+{
+"t": 2464.25,
+"d": 5.4,
+"who": "daisy",
+"n": "wed-14-34",
+"to": "pryce"
+},
+{
+"t": 2473.35,
+"d": 8.832,
+"who": "parfitt",
+"n": "wed-14-36",
+"do": "back:parfitt",
+"to": "daisy"
+},
+{
+"t": 2482.88,
+"d": 3.888,
+"who": "daisy",
+"n": "wed-14-37",
+"to": "parfitt"
+},
+{
+"t": 2487.47,
+"d": 6.672,
+"who": "parfitt",
+"n": "wed-14-38",
+"to": "daisy"
+},
+{
+"t": 2494.84,
+"d": 5.808,
+"who": "daisy",
+"n": "wed-14-39",
+"to": "parfitt"
+},
+{
+"t": 2504.35,
+"d": 5.496,
+"who": "freddie",
+"n": "wed-14-41",
+"to": "pryce"
+},
+{
+"t": 2510.54,
+"d": 3.792,
+"who": "pryce",
+"n": "wed-14-42",
+"to": "freddie"
+},
+{
+"t": 2518.04,
+"d": 13.728,
+"who": "zara",
+"n": "wed-14-44",
+"to": "all"
+},
+{
+"t": 2532.46,
+"d": 2.688,
+"who": "daisy",
+"n": "wed-14-45",
+"to": "zara"
+},
+{
+"t": 2535.85,
+"d": 3.528,
+"who": "zara",
+"n": "wed-14-46",
+"to": "daisy"
+},
+{
+"t": 2543.08,
+"d": 6.168,
+"who": "freddie",
+"n": "wed-14-48",
+"to": "daisy"
+},
+{
+"t": 2549.95,
+"d": 3.96,
+"who": "daisy",
+"n": "wed-14-49",
+"to": "freddie"
+},
+{
+"t": 2554.61,
+"d": 1.152,
+"who": "freddie",
+"n": "wed-14-50",
+"to": "daisy"
+},
+{
+"t": 2556.46,
+"d": 8.832,
+"who": "daisy",
+"n": "wed-14-51",
+"to": "freddie"
+},
+{
+"t": 2568.99,
+"d": 5.256,
+"who": "freddie",
+"n": "wed-14-53",
+"to": "daisy"
+},
+{
+"t": 2574.95,
+"d": 3.96,
+"who": "daisy",
+"n": "wed-14-54",
+"to": "freddie"
+},
+{
+"t": 2579.61,
+"d": 8.208,
+"who": "freddie",
+"n": "wed-14-55",
+"to": "daisy"
+},
+{
+"t": 2588.52,
+"d": 6.288,
+"who": "daisy",
+"n": "wed-14-56",
+"do": "up:parfitt",
+"to": "parfitt"
+},
+{
+"t": 2595.5,
+"d": 1.728,
+"who": "parfitt",
+"n": "wed-14-57",
+"to": "daisy"
+},
+{
+"t": 2600.93,
+"d": 4.656,
+"who": "zara",
+"n": "wed-14-59",
+"to": "freddie"
+},
+{
+"t": 2606.29,
+"d": 6.312,
+"who": "freddie",
+"n": "wed-14-60",
+"to": "zara"
+},
+{
+"t": 2613.3,
+"d": 3.984,
+"who": "zara",
+"n": "wed-14-61",
+"to": "freddie"
+},
+{
+"t": 2617.98,
+"d": 4.752,
+"who": "daisy",
+"n": "wed-14-62",
+"to": "zara"
+},
+{
+"t": 2626.44,
+"d": 3.84,
+"who": "pryce",
+"n": "wed-14-64",
+"to": "daisy"
+},
+{
+"t": 2630.98,
+"d": 11.232,
+"who": "daisy",
+"n": "wed-14-65",
+"to": "pryce"
+},
+{
+"t": 2642.91,
+"d": 1.032,
+"who": "pryce",
+"n": "wed-14-66",
+"to": "daisy"
+},
+{
+"t": 2644.64,
+"d": 6.048,
+"who": "daisy",
+"n": "wed-14-67",
+"to": "pryce"
+},
+{
+"t": 2654.39,
+"d": 6.6,
+"who": "parfitt",
+"n": "wed-14-69",
+"do": "back:parfitt",
+"to": "freddie"
+},
+{
+"t": 2661.69,
+"d": 4.608,
+"who": "freddie",
+"n": "wed-14-70",
+"do": "show:parfitt=letters",
+"to": "parfitt"
+},
+{
+"t": 2667.0,
+"d": 8.712,
+"who": "daisy",
+"n": "wed-14-71",
+"to": "freddie"
+},
+{
+"t": 2676.41,
+"d": 13.2,
+"who": "freddie",
+"n": "wed-14-72",
+"to": "all"
+},
+{
+"t": 2693.31,
+"d": 1.776,
+"who": "freddie",
+"n": "wed-14-74",
+"to": "all"
+},
+{
+"t": 2695.78,
+"d": 0.96,
+"who": "parfitt",
+"n": "wed-14-75",
+"do": "pocket:parfitt",
+"to": "freddie"
+},
+{
+"t": 2697.44,
+"d": 4.44,
+"who": "freddie",
+"n": "wed-14-76",
+"to": "parfitt"
+},
+{
+"t": 2702.58,
+"d": 4.512,
+"who": "parfitt",
+"n": "wed-14-77",
+"to": "freddie"
+},
+{
+"t": 2710.8,
+"d": 6.096,
+"who": "daisy",
+"n": "wed-14-79",
+"to": "freddie"
+},
+{
+"t": 2717.59,
+"d": 5.088,
+"who": "freddie",
+"n": "wed-14-80",
+"to": "daisy"
+},
+{
+"t": 2723.38,
+"d": 7.656,
+"who": "daisy",
+"n": "wed-14-81",
+"to": "freddie"
+},
+{
+"t": 2734.74,
+"d": 4.728,
+"who": "freddie",
+"n": "wed-14-83",
+"to": "daisy"
+},
+{
+"t": 2740.16,
+"d": 7.272,
+"who": "daisy",
+"n": "wed-14-84",
+"to": "freddie"
+},
+{
+"t": 2748.14,
+"d": 5.184,
+"who": "freddie",
+"n": "wed-14-85",
+"to": "daisy"
+},
+{
+"t": 2754.02,
+"d": 6.456,
+"who": "daisy",
+"n": "wed-14-86",
+"to": "freddie"
+},
+{
+"t": 2761.18,
+"d": 6.192,
+"who": "freddie",
+"n": "wed-14-87",
+"to": "daisy"
+},
+{
+"t": 2768.07,
+"d": 3.648,
+"who": "daisy",
+"n": "wed-14-88",
+"to": "freddie"
+},
+{
+"t": 2775.42,
+"d": 6.144,
+"who": "pryce",
+"n": "wed-14-90",
+"to": "freddie"
+},
+{
+"t": 2782.26,
+"d": 4.272,
+"who": "freddie",
+"n": "wed-14-91",
+"to": "pryce"
+},
+{
+"t": 2790.23,
+"d": 7.488,
+"who": "parfitt",
+"n": "wed-14-93",
+"to": "freddie"
+},
+{
+"t": 2798.42,
+"d": 4.056,
+"who": "freddie",
+"n": "wed-14-94",
+"to": "parfitt"
+},
+{
+"t": 2803.18,
+"d": 1.296,
+"who": "parfitt",
+"n": "wed-14-95",
+"to": "freddie"
+},
+{
+"t": 2805.17,
+"d": 3.264,
+"who": "freddie",
+"n": "wed-14-96",
+"to": "parfitt"
+},
+{
+"t": 2812.14,
+"d": 8.088,
+"who": "zara",
+"n": "wed-14-98",
+"to": "daisy"
+},
+{
+"t": 2820.92,
+"d": 3.432,
+"who": "daisy",
+"n": "wed-14-99",
+"to": "zara"
+},
+{
+"t": 2825.06,
+"d": 5.4,
+"who": "zara",
+"n": "wed-14-100",
+"to": "daisy"
+},
+{
+"t": 2834.16,
+"d": 4.704,
+"who": "pryce",
+"n": "wed-14-102",
+"to": "freddie"
+},
+{
+"t": 2839.56,
+"d": 3.672,
+"who": "freddie",
+"n": "wed-14-103",
+"to": "pryce"
+},
+{
+"t": 2843.93,
+"d": 2.688,
+"who": "pryce",
+"n": "wed-14-104",
+"to": "freddie"
+},
+{
+"t": 2847.32,
+"d": 3.336,
+"who": "freddie",
+"n": "wed-14-105",
+"to": "pryce"
+},
+{
+"t": 2854.36,
+"d": 7.08,
+"who": "parfitt",
+"n": "wed-14-107",
+"to": "freddie"
+},
+{
+"t": 2862.14,
+"d": 4.728,
+"who": "freddie",
+"n": "wed-14-108",
+"to": "parfitt"
+},
+{
+"t": 2870.56,
+"d": 3.24,
+"who": "pryce",
+"n": "wed-14-110",
+"to": "all"
+},
+{
+"t": 2874.5,
+"d": 10.704,
+"who": "daisy",
+"n": "wed-14-111",
+"to": "all"
+},
+{
+"t": 2885.91,
+"d": 7.128,
+"who": "freddie",
+"n": "wed-14-112",
+"to": "mid"
+},
+{
+"t": 2893.74,
+"d": 6.672,
+"who": "zara",
+"n": "wed-14-113",
+"to": "mid"
+}
+]
+}

@@ -1,25 +1,10 @@
 import { findAncestorWithComponent } from "../utils/scene-graph";
 import { getServerTime } from "../phoenix-adapter";
-import { sessionStart } from "../utils/hub-utils";
+import { sessionStart, mysteryOn, mysteryNight, mysteryGone, nightOf, NIGHT_NAMES } from "../utils/hub-utils";
 
-// The night of the week a session belongs to (Monday 0 .. Sunday 6), in the
-// lounge's time zone, the night running to 6 a.m. (a session that starts after
-// midnight is still the evening before). ?mimeNight=0..6 (or mon..sun) picks one.
-const NIGHT_NAMES = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
-const weekday = new Intl.DateTimeFormat("en-US", { timeZone: "America/Toronto", weekday: "short" });
-export function nightOf(startSeconds) {
-  const forced = new URLSearchParams(window.location.search).get("mimeNight");
-  if (forced !== null) {
-    const k = NIGHT_NAMES.indexOf(forced.slice(0, 3).toLowerCase());
-    if (k >= 0) return k;
-    if (/^[0-6]$/.test(forced)) return Number(forced);
-  }
-  const day = weekday
-    .format(new Date((startSeconds - 6 * 3600) * 1000))
-    .slice(0, 3)
-    .toLowerCase();
-  return Math.max(0, NIGHT_NAMES.indexOf(day));
-}
+// The night of the week a session belongs to (hub-utils, where the mystery
+// needs it too): kept exported from here for the finale and the menus.
+export { nightOf };
 
 /**
  * Loops the given clip using this entity's animation mixer
@@ -128,6 +113,24 @@ AFRAME.registerComponent("loop-animation", {
       action.setLoop(THREE.LoopRepeat, Infinity).play();
       this.currentActions.push(action);
     }
+    // The mystery nights' dinners (lounge/mystery.js): a figure with a <first
+    // clip>Mys<Night> plays tonight's in the first clip's place while the
+    // mystery is on, up to where it ends (mystery_figures.py eases it into the
+    // dinner there); one the case leaves where it is (hub-utils mysteryGone:
+    // the dead, the taken away) keeps the clip's last frame after it.
+    this.mysActions = {};
+    this.mysAction = null;
+    this.figTag = clips[0].name.replace(/^Fig_/, "").replace(/Dinner$/, "");
+    if (this.data.session) {
+      for (const n of NIGHT_NAMES) {
+        const mys = animations.find(({ name }) => name === `${clips[0].name}Mys${n[0].toUpperCase()}${n.slice(1)}`);
+        if (!mys) continue;
+        const a = mixer.clipAction(mys, this.el.object3D);
+        a.enabled = false;
+        a.setLoop(THREE.LoopRepeat, Infinity).play();
+        this.mysActions[n] = a;
+      }
+    }
   },
 
   tick() {
@@ -160,15 +163,25 @@ AFRAME.registerComponent("loop-animation", {
       let k = 0;
       while (k < cues.length && k < seq.length - 1 && t >= cues[k]) k++;
       const from = k === 0 ? 0 : cues[k - 1];
-      const active = seq[k];
+      // (tonight's case's clip ends just before they get up: the dinner carries
+      // on from there, but for whoever the case leaves where they are)
+      const night = mysteryOn() ? mysteryNight(start) : null;
+      const ma = night ? this.mysActions[night] : null;
+      if (this.mysAction && this.mysAction !== ma) this.mysAction.enabled = false;
+      this.mysAction = ma;
+      const md = ma ? ma.getClip().duration : 0;
+      const held = ma && t >= md && mysteryGone.has(this.figTag);
+      const mys = ma && ((k === 0 && t < md) || held);
+      const active = mys ? ma : seq[k];
       for (const a of acts) {
         if (a !== active) a.enabled = false;
       }
+      if (ma && ma !== active) ma.enabled = false;
       if (this.skipAction) this.skipAction.enabled = false;
       active.enabled = true;
       active.setEffectiveWeight(1);
       const d = active.getClip().duration;
-      active.time = d > 0 ? (t - from) % d : 0;
+      active.time = held ? d - 1e-3 : d > 0 ? (t - from) % d : 0;
       return;
     }
     for (let i = 0; i < this.currentActions.length; i++) {
@@ -189,5 +202,11 @@ AFRAME.registerComponent("loop-animation", {
       this.skipAction.stop();
       this.skipAction = null;
     }
+    for (const a of Object.values(this.mysActions || {})) {
+      a.enabled = false;
+      a.stop();
+    }
+    this.mysActions = {};
+    this.mysAction = null;
   }
 });

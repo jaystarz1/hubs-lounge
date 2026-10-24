@@ -1,0 +1,2832 @@
+{
+"_": "Written by lounge-assets/mystery-talk.py build from sun.json: each line's start (t) and length (d) in seconds on the dinner clock.",
+"cues": [
+{
+"t": 4.0,
+"d": 5.712,
+"who": "june",
+"n": "sun-0-0",
+"do": "absent:miles",
+"to": "all"
+},
+{
+"t": 10.41,
+"d": 5.808,
+"who": "poppy",
+"n": "sun-0-1",
+"to": "june"
+},
+{
+"t": 16.92,
+"d": 5.28,
+"who": "sebastian",
+"n": "sun-0-2",
+"to": "june"
+},
+{
+"t": 22.9,
+"d": 2.784,
+"who": "ellis",
+"n": "sun-0-3",
+"to": "june"
+},
+{
+"t": 26.38,
+"d": 6.312,
+"who": "june",
+"n": "sun-0-4",
+"to": "ellis"
+},
+{
+"t": 33.4,
+"d": 7.8,
+"who": "verity",
+"n": "sun-0-5",
+"to": "june"
+},
+{
+"t": 41.9,
+"d": 7.632,
+"who": "poppy",
+"n": "sun-0-6",
+"to": "verity"
+},
+{
+"t": 50.23,
+"d": 4.872,
+"who": "verity",
+"n": "sun-0-7",
+"to": "poppy"
+},
+{
+"t": 55.8,
+"d": 6.144,
+"who": "sebastian",
+"n": "sun-0-8",
+"to": "verity"
+},
+{
+"t": 62.64,
+"d": 4.224,
+"who": "jarvis",
+"n": "sun-0-9",
+"to": "june"
+},
+{
+"t": 67.57,
+"d": 5.4,
+"who": "june",
+"n": "sun-0-10",
+"to": "jarvis"
+},
+{
+"t": 73.67,
+"d": 1.488,
+"who": "jarvis",
+"n": "sun-0-11",
+"to": "june"
+},
+{
+"t": 78.0,
+"d": 7.728,
+"who": "june",
+"n": "sun-1-0",
+"to": "all"
+},
+{
+"t": 86.43,
+"d": 5.856,
+"who": "verity",
+"n": "sun-1-1",
+"to": "june"
+},
+{
+"t": 92.98,
+"d": 2.424,
+"who": "poppy",
+"n": "sun-1-2",
+"to": "sebastian"
+},
+{
+"t": 96.11,
+"d": 5.376,
+"who": "sebastian",
+"n": "sun-1-3",
+"to": "poppy"
+},
+{
+"t": 102.18,
+"d": 6.672,
+"who": "june",
+"n": "sun-1-4",
+"to": "all"
+},
+{
+"t": 117.0,
+"d": 6.192,
+"who": "june",
+"n": "sun-2-0",
+"to": "all"
+},
+{
+"t": 123.89,
+"d": 2.112,
+"who": "ellis",
+"n": "sun-2-1",
+"to": "june"
+},
+{
+"t": 126.7,
+"d": 3.576,
+"who": "poppy",
+"n": "sun-2-2",
+"to": "june"
+},
+{
+"t": 130.98,
+"d": 5.736,
+"who": "sebastian",
+"n": "sun-2-3",
+"to": "all"
+},
+{
+"t": 139.42,
+"d": 10.344,
+"who": "june",
+"n": "sun-2-5",
+"to": "mid"
+},
+{
+"t": 150.46,
+"d": 5.808,
+"who": "june",
+"n": "sun-2-6",
+"to": "mid"
+},
+{
+"t": 156.97,
+"d": 3.72,
+"who": "sebastian",
+"n": "sun-2-7",
+"to": "mid"
+},
+{
+"t": 161.39,
+"d": 6.36,
+"who": "june",
+"n": "sun-2-8",
+"to": "mid"
+},
+{
+"t": 168.45,
+"d": 8.208,
+"who": "june",
+"n": "sun-2-9",
+"to": "mid"
+},
+{
+"t": 177.36,
+"d": 2.112,
+"who": "verity",
+"n": "sun-2-10",
+"to": "mid"
+},
+{
+"t": 180.17,
+"d": 7.2,
+"who": "june",
+"n": "sun-2-11",
+"to": "mid"
+},
+{
+"t": 188.07,
+"d": 10.224,
+"who": "june",
+"n": "sun-2-12",
+"to": "mid"
+},
+{
+"t": 198.99,
+"d": 6.192,
+"who": "jarvis",
+"n": "sun-2-13",
+"to": "mid"
+},
+{
+"t": 206.18,
+"d": 5.16,
+"who": "poppy",
+"n": "sun-3-0",
+"to": "june"
+},
+{
+"t": 212.04,
+"d": 5.808,
+"who": "june",
+"n": "sun-3-1",
+"to": "poppy"
+},
+{
+"t": 221.55,
+"d": 5.688,
+"who": "sebastian",
+"n": "sun-3-3",
+"to": "ellis"
+},
+{
+"t": 227.94,
+"d": 5.472,
+"who": "ellis",
+"n": "sun-3-4",
+"to": "sebastian"
+},
+{
+"t": 234.11,
+"d": 1.32,
+"who": "sebastian",
+"n": "sun-3-5",
+"to": "ellis"
+},
+{
+"t": 236.13,
+"d": 3.72,
+"who": "ellis",
+"n": "sun-3-6",
+"to": "sebastian"
+},
+{
+"t": 243.55,
+"d": 3.192,
+"who": "verity",
+"n": "sun-3-8",
+"to": "june"
+},
+{
+"t": 247.44,
+"d": 5.856,
+"who": "june",
+"n": "sun-3-9",
+"to": "verity"
+},
+{
+"t": 254.0,
+"d": 4.68,
+"who": "verity",
+"n": "sun-3-10",
+"to": "june"
+},
+{
+"t": 259.38,
+"d": 6.648,
+"who": "june",
+"n": "sun-3-11",
+"to": "verity"
+},
+{
+"t": 269.73,
+"d": 4.872,
+"who": "jarvis",
+"n": "sun-3-13",
+"to": "june"
+},
+{
+"t": 275.3,
+"d": 6.264,
+"who": "june",
+"n": "sun-3-14",
+"to": "jarvis"
+},
+{
+"t": 285.26,
+"d": 7.272,
+"who": "sebastian",
+"n": "sun-3-16",
+"to": "verity"
+},
+{
+"t": 293.24,
+"d": 5.712,
+"who": "verity",
+"n": "sun-3-17",
+"to": "sebastian"
+},
+{
+"t": 299.65,
+"d": 10.152,
+"who": "sebastian",
+"n": "sun-3-18",
+"ev": "clue:will",
+"to": "verity"
+},
+{
+"t": 310.5,
+"d": 3.096,
+"who": "poppy",
+"n": "sun-3-19",
+"to": "sebastian"
+},
+{
+"t": 314.3,
+"d": 7.632,
+"who": "sebastian",
+"n": "sun-3-20",
+"to": "poppy"
+},
+{
+"t": 322.63,
+"d": 1.08,
+"who": "verity",
+"n": "sun-3-21"
+},
+{
+"t": 327.41,
+"d": 7.248,
+"who": "june",
+"n": "sun-3-23",
+"to": "all"
+},
+{
+"t": 338.36,
+"d": 4.344,
+"who": "ellis",
+"n": "sun-3-25",
+"to": "june"
+},
+{
+"t": 343.4,
+"d": 4.968,
+"who": "june",
+"n": "sun-3-26",
+"to": "ellis"
+},
+{
+"t": 349.07,
+"d": 4.2,
+"who": "sebastian",
+"n": "sun-3-27"
+},
+{
+"t": 356.0,
+"d": 6.816,
+"who": "jarvis",
+"n": "sun-4-0",
+"to": "june"
+},
+{
+"t": 363.52,
+"d": 5.28,
+"who": "june",
+"n": "sun-4-1",
+"to": "jarvis"
+},
+{
+"t": 369.5,
+"d": 3.576,
+"who": "jarvis",
+"n": "sun-4-2",
+"to": "june"
+},
+{
+"t": 373.77,
+"d": 5.904,
+"who": "verity",
+"n": "sun-4-3",
+"to": "jarvis"
+},
+{
+"t": 383.38,
+"d": 3.528,
+"who": "ellis",
+"n": "sun-4-5",
+"to": "verity"
+},
+{
+"t": 387.6,
+"d": 3.888,
+"who": "verity",
+"n": "sun-4-6",
+"to": "ellis"
+},
+{
+"t": 392.19,
+"d": 1.488,
+"who": "ellis",
+"n": "sun-4-7",
+"to": "verity"
+},
+{
+"t": 394.38,
+"d": 6.456,
+"who": "verity",
+"n": "sun-4-8",
+"to": "ellis"
+},
+{
+"t": 404.54,
+"d": 4.608,
+"who": "sebastian",
+"n": "sun-4-10",
+"to": "ellis"
+},
+{
+"t": 409.84,
+"d": 4.56,
+"who": "ellis",
+"n": "sun-4-11",
+"to": "sebastian"
+},
+{
+"t": 415.1,
+"d": 2.208,
+"who": "sebastian",
+"n": "sun-4-12",
+"to": "ellis"
+},
+{
+"t": 418.01,
+"d": 3.984,
+"who": "ellis",
+"n": "sun-4-13",
+"to": "sebastian"
+},
+{
+"t": 425.7,
+"d": 5.76,
+"who": "verity",
+"n": "sun-4-15",
+"to": "june"
+},
+{
+"t": 432.16,
+"d": 6.12,
+"who": "june",
+"n": "sun-4-16",
+"to": "verity"
+},
+{
+"t": 438.98,
+"d": 5.328,
+"who": "poppy",
+"n": "sun-4-17",
+"to": "june"
+},
+{
+"t": 445.0,
+"d": 5.856,
+"who": "june",
+"n": "sun-4-18",
+"to": "poppy"
+},
+{
+"t": 451.56,
+"d": 1.152,
+"who": "sebastian",
+"n": "sun-4-19",
+"to": "june"
+},
+{
+"t": 453.41,
+"d": 5.736,
+"who": "june",
+"n": "sun-4-20",
+"to": "sebastian"
+},
+{
+"t": 459.85,
+"d": 4.2,
+"who": "ellis",
+"n": "sun-4-21",
+"to": "june"
+},
+{
+"t": 464.75,
+"d": 5.64,
+"who": "june",
+"n": "sun-4-22",
+"to": "ellis"
+},
+{
+"t": 482.0,
+"d": 3.168,
+"who": "jarvis",
+"n": "sun-5-0",
+"to": "june"
+},
+{
+"t": 485.87,
+"d": 7.8,
+"who": "june",
+"n": "sun-5-1",
+"to": "jarvis"
+},
+{
+"t": 494.37,
+"d": 1.488,
+"who": "jarvis",
+"n": "sun-5-2",
+"do": "up:jarvis",
+"to": "june"
+},
+{
+"t": 499.56,
+"d": 9.264,
+"who": "poppy",
+"n": "sun-5-4",
+"to": "all"
+},
+{
+"t": 509.52,
+"d": 6.816,
+"who": "june",
+"n": "sun-5-5",
+"to": "poppy"
+},
+{
+"t": 520.04,
+"d": 7.728,
+"who": "sebastian",
+"n": "sun-5-7",
+"to": "verity"
+},
+{
+"t": 528.46,
+"d": 1.92,
+"who": "verity",
+"n": "sun-5-8",
+"to": "sebastian"
+},
+{
+"t": 531.08,
+"d": 1.56,
+"who": "sebastian",
+"n": "sun-5-9",
+"to": "verity"
+},
+{
+"t": 533.34,
+"d": 2.28,
+"who": "verity",
+"n": "sun-5-10",
+"to": "sebastian"
+},
+{
+"t": 536.32,
+"d": 1.32,
+"who": "sebastian",
+"n": "sun-5-11",
+"to": "verity"
+},
+{
+"t": 538.34,
+"d": 8.352,
+"who": "verity",
+"n": "sun-5-12",
+"ev": "clue:ghost",
+"to": "sebastian"
+},
+{
+"t": 547.4,
+"d": 1.968,
+"who": "poppy",
+"n": "sun-5-13",
+"to": "verity"
+},
+{
+"t": 550.06,
+"d": 3.888,
+"who": "verity",
+"n": "sun-5-14",
+"to": "poppy"
+},
+{
+"t": 554.65,
+"d": 7.944,
+"who": "june",
+"n": "sun-5-15",
+"to": "verity"
+},
+{
+"t": 566.3,
+"d": 3.0,
+"who": "ellis",
+"n": "sun-5-17",
+"to": "verity"
+},
+{
+"t": 570.0,
+"d": 7.368,
+"who": "verity",
+"n": "sun-5-18",
+"to": "ellis"
+},
+{
+"t": 578.06,
+"d": 2.856,
+"who": "ellis",
+"n": "sun-5-19",
+"to": "verity"
+},
+{
+"t": 581.62,
+"d": 2.112,
+"who": "verity",
+"n": "sun-5-20",
+"to": "ellis"
+},
+{
+"t": 587.43,
+"d": 6.12,
+"who": "sebastian",
+"n": "sun-5-22",
+"to": "june"
+},
+{
+"t": 594.25,
+"d": 7.776,
+"who": "june",
+"n": "sun-5-23",
+"to": "sebastian"
+},
+{
+"t": 602.73,
+"d": 1.872,
+"who": "sebastian",
+"n": "sun-5-24",
+"to": "june"
+},
+{
+"t": 605.3,
+"d": 6.216,
+"who": "june",
+"n": "sun-5-25",
+"to": "sebastian"
+},
+{
+"t": 615.22,
+"d": 5.808,
+"who": "jarvis",
+"n": "sun-5-27",
+"do": "back:jarvis",
+"to": "june"
+},
+{
+"t": 621.72,
+"d": 4.44,
+"who": "june",
+"n": "sun-5-28",
+"to": "jarvis"
+},
+{
+"t": 626.86,
+"d": 8.784,
+"who": "jarvis",
+"n": "sun-5-29",
+"to": "june"
+},
+{
+"t": 636.35,
+"d": 6.048,
+"who": "sebastian",
+"n": "sun-5-30",
+"to": "jarvis"
+},
+{
+"t": 643.1,
+"d": 2.016,
+"who": "ellis",
+"n": "sun-5-31",
+"to": "sebastian"
+},
+{
+"t": 645.81,
+"d": 6.6,
+"who": "jarvis",
+"n": "sun-5-32",
+"to": "all"
+},
+{
+"t": 656.11,
+"d": 8.232,
+"who": "june",
+"n": "sun-5-34",
+"to": "all"
+},
+{
+"t": 665.04,
+"d": 3.552,
+"who": "verity",
+"n": "sun-5-35",
+"to": "june"
+},
+{
+"t": 669.3,
+"d": 4.368,
+"who": "june",
+"n": "sun-5-36",
+"to": "verity"
+},
+{
+"t": 674.36,
+"d": 1.632,
+"who": "poppy",
+"n": "sun-5-37",
+"to": "june"
+},
+{
+"t": 676.7,
+"d": 8.592,
+"who": "june",
+"n": "sun-5-38",
+"to": "poppy"
+},
+{
+"t": 685.99,
+"d": 5.472,
+"who": "sebastian",
+"n": "sun-5-39"
+},
+{
+"t": 700.0,
+"d": 5.904,
+"who": "poppy",
+"n": "sun-6-0",
+"to": "june"
+},
+{
+"t": 706.6,
+"d": 3.624,
+"who": "june",
+"n": "sun-6-1",
+"to": "poppy"
+},
+{
+"t": 713.93,
+"d": 2.976,
+"who": "ellis",
+"n": "sun-6-3",
+"to": "jarvis"
+},
+{
+"t": 717.6,
+"d": 5.016,
+"who": "jarvis",
+"n": "sun-6-4",
+"to": "ellis"
+},
+{
+"t": 723.32,
+"d": 1.56,
+"who": "ellis",
+"n": "sun-6-5",
+"to": "jarvis"
+},
+{
+"t": 725.58,
+"d": 10.92,
+"who": "jarvis",
+"n": "sun-6-6",
+"to": "ellis"
+},
+{
+"t": 740.2,
+"d": 9.072,
+"who": "sebastian",
+"n": "sun-6-8",
+"to": "all"
+},
+{
+"t": 749.97,
+"d": 7.56,
+"who": "verity",
+"n": "sun-6-9",
+"to": "sebastian"
+},
+{
+"t": 758.23,
+"d": 1.224,
+"who": "sebastian",
+"n": "sun-6-10",
+"to": "verity"
+},
+{
+"t": 760.16,
+"d": 2.208,
+"who": "verity",
+"n": "sun-6-11",
+"to": "sebastian"
+},
+{
+"t": 766.06,
+"d": 10.416,
+"who": "jarvis",
+"n": "sun-6-13",
+"to": "june"
+},
+{
+"t": 777.18,
+"d": 4.608,
+"who": "june",
+"n": "sun-6-14",
+"to": "jarvis"
+},
+{
+"t": 782.49,
+"d": 9.0,
+"who": "jarvis",
+"n": "sun-6-15",
+"to": "june"
+},
+{
+"t": 792.19,
+"d": 2.4,
+"who": "june",
+"n": "sun-6-16",
+"to": "jarvis"
+},
+{
+"t": 795.29,
+"d": 1.512,
+"who": "jarvis",
+"n": "sun-6-17",
+"to": "june"
+},
+{
+"t": 800.5,
+"d": 1.848,
+"who": "poppy",
+"n": "sun-6-19",
+"to": "all"
+},
+{
+"t": 803.05,
+"d": 3.696,
+"who": "ellis",
+"n": "sun-6-20",
+"to": "poppy"
+},
+{
+"t": 807.44,
+"d": 2.928,
+"who": "jarvis",
+"n": "sun-6-21",
+"to": "ellis"
+},
+{
+"t": 811.07,
+"d": 2.256,
+"who": "poppy",
+"n": "sun-6-22",
+"to": "jarvis"
+},
+{
+"t": 814.03,
+"d": 6.192,
+"who": "jarvis",
+"n": "sun-6-23",
+"to": "poppy"
+},
+{
+"t": 829.0,
+"d": 3.96,
+"who": "jarvis",
+"n": "sun-7-0",
+"to": "june"
+},
+{
+"t": 833.66,
+"d": 1.488,
+"who": "june",
+"n": "sun-7-1",
+"to": "jarvis"
+},
+{
+"t": 838.85,
+"d": 6.312,
+"who": "verity",
+"n": "sun-7-3",
+"to": "june"
+},
+{
+"t": 845.86,
+"d": 9.312,
+"who": "june",
+"n": "sun-7-4",
+"to": "verity"
+},
+{
+"t": 858.87,
+"d": 2.52,
+"who": "sebastian",
+"n": "sun-7-6",
+"to": "all"
+},
+{
+"t": 862.09,
+"d": 3.816,
+"who": "poppy",
+"n": "sun-7-7",
+"to": "sebastian"
+},
+{
+"t": 866.61,
+"d": 1.56,
+"who": "sebastian",
+"n": "sun-7-8",
+"to": "poppy"
+},
+{
+"t": 871.87,
+"d": 6.768,
+"who": "ellis",
+"n": "sun-7-10",
+"to": "jarvis"
+},
+{
+"t": 879.34,
+"d": 9.48,
+"who": "jarvis",
+"n": "sun-7-11",
+"to": "ellis"
+},
+{
+"t": 889.52,
+"d": 2.664,
+"who": "ellis",
+"n": "sun-7-12",
+"to": "jarvis"
+},
+{
+"t": 892.88,
+"d": 4.944,
+"who": "jarvis",
+"n": "sun-7-13",
+"to": "ellis"
+},
+{
+"t": 898.52,
+"d": 7.848,
+"who": "poppy",
+"n": "sun-7-14",
+"to": "jarvis"
+},
+{
+"t": 907.07,
+"d": 5.904,
+"who": "jarvis",
+"n": "sun-7-15",
+"to": "poppy"
+},
+{
+"t": 916.68,
+"d": 3.504,
+"who": "jarvis",
+"n": "sun-7-17",
+"do": "up:jarvis",
+"to": "all"
+},
+{
+"t": 920.88,
+"d": 1.632,
+"who": "sebastian",
+"n": "sun-7-18",
+"do": "up:sebastian",
+"to": "jarvis"
+},
+{
+"t": 923.21,
+"d": 4.368,
+"who": "ellis",
+"n": "sun-7-19",
+"do": "up:ellis",
+"to": "all"
+},
+{
+"t": 931.28,
+"d": 2.592,
+"who": "poppy",
+"n": "sun-7-21",
+"to": "june"
+},
+{
+"t": 934.57,
+"d": 5.064,
+"who": "june",
+"n": "sun-7-22",
+"to": "poppy"
+},
+{
+"t": 940.34,
+"d": 3.888,
+"who": "poppy",
+"n": "sun-7-23",
+"to": "june"
+},
+{
+"t": 944.92,
+"d": 3.096,
+"who": "june",
+"n": "sun-7-24",
+"to": "poppy"
+},
+{
+"t": 951.72,
+"d": 4.152,
+"who": "verity",
+"n": "sun-7-26",
+"to": "poppy"
+},
+{
+"t": 956.57,
+"d": 7.152,
+"who": "poppy",
+"n": "sun-7-27",
+"to": "verity"
+},
+{
+"t": 964.42,
+"d": 4.872,
+"who": "verity",
+"n": "sun-7-28",
+"to": "poppy"
+},
+{
+"t": 970.0,
+"d": 2.16,
+"who": "poppy",
+"n": "sun-7-29",
+"to": "verity"
+},
+{
+"t": 972.86,
+"d": 4.224,
+"who": "verity",
+"n": "sun-7-30",
+"to": "poppy"
+},
+{
+"t": 980.78,
+"d": 3.888,
+"who": "june",
+"n": "sun-7-32",
+"to": "verity"
+},
+{
+"t": 985.37,
+"d": 2.448,
+"who": "verity",
+"n": "sun-7-33",
+"to": "june"
+},
+{
+"t": 988.52,
+"d": 6.336,
+"who": "june",
+"n": "sun-7-34",
+"to": "verity"
+},
+{
+"t": 995.55,
+"d": 4.656,
+"who": "verity",
+"n": "sun-7-35",
+"ev": "clue:chapter",
+"to": "june"
+},
+{
+"t": 1000.91,
+"d": 3.48,
+"who": "june",
+"n": "sun-7-36",
+"to": "verity"
+},
+{
+"t": 1008.09,
+"d": 4.032,
+"who": "sebastian",
+"n": "sun-7-38",
+"do": "back:sebastian",
+"to": "all"
+},
+{
+"t": 1012.82,
+"d": 2.016,
+"who": "june",
+"n": "sun-7-39",
+"to": "sebastian"
+},
+{
+"t": 1015.54,
+"d": 6.528,
+"who": "sebastian",
+"n": "sun-7-40",
+"to": "june"
+},
+{
+"t": 1022.76,
+"d": 4.344,
+"who": "poppy",
+"n": "sun-7-41",
+"ev": "gasp",
+"to": "all"
+},
+{
+"t": 1027.81,
+"d": 5.136,
+"who": "ellis",
+"n": "sun-7-42",
+"do": "back:ellis",
+"to": "june"
+},
+{
+"t": 1033.64,
+"d": 10.056,
+"who": "jarvis",
+"n": "sun-7-43",
+"do": "back:jarvis",
+"to": "all"
+},
+{
+"t": 1044.7,
+"d": 5.328,
+"who": "june",
+"n": "sun-8-0",
+"to": "jarvis"
+},
+{
+"t": 1050.73,
+"d": 1.2,
+"who": "jarvis",
+"n": "sun-8-1",
+"to": "june"
+},
+{
+"t": 1052.63,
+"d": 7.632,
+"who": "june",
+"n": "sun-8-2",
+"to": "jarvis"
+},
+{
+"t": 1063.96,
+"d": 3.528,
+"who": "ellis",
+"n": "sun-8-4",
+"to": "jarvis"
+},
+{
+"t": 1068.19,
+"d": 9.552,
+"who": "jarvis",
+"n": "sun-8-5",
+"to": "ellis"
+},
+{
+"t": 1081.44,
+"d": 12.792,
+"who": "jarvis",
+"n": "sun-8-7",
+"to": "mid"
+},
+{
+"t": 1094.93,
+"d": 9.72,
+"who": "jarvis",
+"n": "sun-8-8",
+"to": "mid"
+},
+{
+"t": 1105.35,
+"d": 3.408,
+"who": "sebastian",
+"n": "sun-8-9",
+"to": "jarvis"
+},
+{
+"t": 1109.46,
+"d": 10.56,
+"who": "jarvis",
+"n": "sun-8-10",
+"to": "sebastian"
+},
+{
+"t": 1123.72,
+"d": 3.408,
+"who": "verity",
+"n": "sun-8-12",
+"to": "jarvis"
+},
+{
+"t": 1127.83,
+"d": 8.304,
+"who": "jarvis",
+"n": "sun-8-13",
+"to": "verity"
+},
+{
+"t": 1139.83,
+"d": 4.272,
+"who": "poppy",
+"n": "sun-8-15",
+"to": "jarvis"
+},
+{
+"t": 1144.8,
+"d": 9.072,
+"who": "jarvis",
+"n": "sun-8-16",
+"to": "poppy"
+},
+{
+"t": 1154.58,
+"d": 4.68,
+"who": "june",
+"n": "sun-8-17",
+"to": "jarvis"
+},
+{
+"t": 1159.96,
+"d": 6.84,
+"who": "jarvis",
+"n": "sun-8-18",
+"to": "june"
+},
+{
+"t": 1170.5,
+"d": 6.432,
+"who": "ellis",
+"n": "sun-8-20",
+"to": "all"
+},
+{
+"t": 1177.63,
+"d": 4.704,
+"who": "verity",
+"n": "sun-8-21",
+"to": "ellis"
+},
+{
+"t": 1183.03,
+"d": 4.392,
+"who": "poppy",
+"n": "sun-8-22",
+"to": "jarvis"
+},
+{
+"t": 1188.12,
+"d": 6.24,
+"who": "jarvis",
+"n": "sun-8-23",
+"to": "poppy"
+},
+{
+"t": 1203.0,
+"d": 3.624,
+"who": "jarvis",
+"n": "sun-9-0",
+"to": "june"
+},
+{
+"t": 1207.32,
+"d": 4.368,
+"who": "june",
+"n": "sun-9-1",
+"to": "jarvis"
+},
+{
+"t": 1215.39,
+"d": 5.448,
+"who": "jarvis",
+"n": "sun-9-3",
+"to": "june"
+},
+{
+"t": 1221.54,
+"d": 4.68,
+"who": "june",
+"n": "sun-9-4",
+"to": "jarvis"
+},
+{
+"t": 1226.92,
+"d": 10.608,
+"who": "jarvis",
+"n": "sun-9-5",
+"ev": "clue:tea",
+"to": "june"
+},
+{
+"t": 1238.23,
+"d": 4.272,
+"who": "june",
+"n": "sun-9-6",
+"to": "jarvis"
+},
+{
+"t": 1243.2,
+"d": 11.52,
+"who": "jarvis",
+"n": "sun-9-7",
+"to": "june"
+},
+{
+"t": 1255.42,
+"d": 10.152,
+"who": "poppy",
+"n": "sun-9-8",
+"to": "jarvis"
+},
+{
+"t": 1269.27,
+"d": 12.48,
+"who": "june",
+"n": "sun-9-10",
+"to": "jarvis"
+},
+{
+"t": 1282.45,
+"d": 3.936,
+"who": "jarvis",
+"n": "sun-9-11",
+"to": "june"
+},
+{
+"t": 1287.09,
+"d": 3.768,
+"who": "june",
+"n": "sun-9-12",
+"to": "jarvis"
+},
+{
+"t": 1294.56,
+"d": 7.08,
+"who": "ellis",
+"n": "sun-9-14",
+"to": "jarvis"
+},
+{
+"t": 1302.34,
+"d": 4.392,
+"who": "jarvis",
+"n": "sun-9-15",
+"to": "ellis"
+},
+{
+"t": 1307.43,
+"d": 0.888,
+"who": "ellis",
+"n": "sun-9-16",
+"to": "jarvis"
+},
+{
+"t": 1312.02,
+"d": 7.632,
+"who": "sebastian",
+"n": "sun-9-18",
+"to": "jarvis"
+},
+{
+"t": 1320.35,
+"d": 3.816,
+"who": "jarvis",
+"n": "sun-9-19",
+"to": "sebastian"
+},
+{
+"t": 1324.86,
+"d": 7.44,
+"who": "sebastian",
+"n": "sun-9-20",
+"to": "jarvis"
+},
+{
+"t": 1333.0,
+"d": 3.216,
+"who": "jarvis",
+"n": "sun-9-21",
+"to": "sebastian"
+},
+{
+"t": 1336.92,
+"d": 11.616,
+"who": "poppy",
+"n": "sun-9-22",
+"to": "jarvis"
+},
+{
+"t": 1349.24,
+"d": 1.032,
+"who": "jarvis",
+"n": "sun-9-23",
+"to": "poppy"
+},
+{
+"t": 1350.97,
+"d": 7.392,
+"who": "verity",
+"n": "sun-9-24",
+"to": "jarvis"
+},
+{
+"t": 1359.06,
+"d": 1.08,
+"who": "jarvis",
+"n": "sun-9-25",
+"to": "verity"
+},
+{
+"t": 1360.84,
+"d": 5.688,
+"who": "ellis",
+"n": "sun-9-26",
+"to": "jarvis"
+},
+{
+"t": 1367.23,
+"d": 3.144,
+"who": "jarvis",
+"n": "sun-9-27",
+"to": "ellis"
+},
+{
+"t": 1371.07,
+"d": 6.768,
+"who": "june",
+"n": "sun-9-28",
+"to": "jarvis"
+},
+{
+"t": 1378.54,
+"d": 10.536,
+"who": "jarvis",
+"n": "sun-9-29",
+"to": "june"
+},
+{
+"t": 1392.78,
+"d": 5.808,
+"who": "poppy",
+"n": "sun-9-31",
+"to": "all"
+},
+{
+"t": 1399.28,
+"d": 3.072,
+"who": "june",
+"n": "sun-9-32",
+"to": "poppy"
+},
+{
+"t": 1403.06,
+"d": 6.096,
+"who": "poppy",
+"n": "sun-9-33",
+"to": "june"
+},
+{
+"t": 1412.85,
+"d": 9.432,
+"who": "ellis",
+"n": "sun-9-35",
+"to": "jarvis"
+},
+{
+"t": 1422.98,
+"d": 0.984,
+"who": "jarvis",
+"n": "sun-9-36",
+"to": "ellis"
+},
+{
+"t": 1424.67,
+"d": 5.976,
+"who": "ellis",
+"n": "sun-9-37",
+"to": "jarvis"
+},
+{
+"t": 1431.34,
+"d": 4.296,
+"who": "jarvis",
+"n": "sun-9-38",
+"to": "ellis"
+},
+{
+"t": 1436.34,
+"d": 1.344,
+"who": "ellis",
+"n": "sun-9-39",
+"to": "jarvis"
+},
+{
+"t": 1438.38,
+"d": 2.856,
+"who": "jarvis",
+"n": "sun-9-40",
+"to": "ellis"
+},
+{
+"t": 1444.94,
+"d": 7.584,
+"who": "verity",
+"n": "sun-9-42",
+"to": "jarvis"
+},
+{
+"t": 1453.22,
+"d": 7.872,
+"who": "jarvis",
+"n": "sun-9-43",
+"to": "verity"
+},
+{
+"t": 1474.0,
+"d": 1.56,
+"who": "jarvis",
+"n": "sun-10-0",
+"to": "june"
+},
+{
+"t": 1476.26,
+"d": 3.024,
+"who": "june",
+"n": "sun-10-1",
+"to": "jarvis"
+},
+{
+"t": 1479.98,
+"d": 5.784,
+"who": "ellis",
+"n": "sun-10-2",
+"to": "jarvis"
+},
+{
+"t": 1489.47,
+"d": 12.504,
+"who": "jarvis",
+"n": "sun-10-4",
+"do": "show:jarvis=page",
+"to": "june"
+},
+{
+"t": 1502.67,
+"d": 3.648,
+"who": "verity",
+"n": "sun-10-5",
+"to": "jarvis"
+},
+{
+"t": 1507.02,
+"d": 13.584,
+"who": "jarvis",
+"n": "sun-10-6",
+"ev": "clue:page",
+"to": "all"
+},
+{
+"t": 1521.3,
+"d": 1.128,
+"who": "verity",
+"n": "sun-10-7",
+"to": "jarvis"
+},
+{
+"t": 1523.13,
+"d": 4.368,
+"who": "jarvis",
+"n": "sun-10-8",
+"to": "verity"
+},
+{
+"t": 1528.2,
+"d": 8.664,
+"who": "sebastian",
+"n": "sun-10-9",
+"to": "all"
+},
+{
+"t": 1537.56,
+"d": 8.04,
+"who": "jarvis",
+"n": "sun-10-10",
+"do": "pocket:jarvis",
+"to": "sebastian"
+},
+{
+"t": 1546.3,
+"d": 8.496,
+"who": "verity",
+"n": "sun-10-11",
+"to": "all"
+},
+{
+"t": 1558.5,
+"d": 5.784,
+"who": "june",
+"n": "sun-10-13",
+"to": "jarvis"
+},
+{
+"t": 1564.98,
+"d": 5.856,
+"who": "jarvis",
+"n": "sun-10-14",
+"to": "june"
+},
+{
+"t": 1571.54,
+"d": 2.352,
+"who": "june",
+"n": "sun-10-15",
+"to": "jarvis"
+},
+{
+"t": 1574.59,
+"d": 10.32,
+"who": "jarvis",
+"n": "sun-10-16",
+"to": "june"
+},
+{
+"t": 1588.61,
+"d": 3.864,
+"who": "poppy",
+"n": "sun-10-18",
+"to": "june"
+},
+{
+"t": 1593.18,
+"d": 2.112,
+"who": "june",
+"n": "sun-10-19",
+"to": "poppy"
+},
+{
+"t": 1595.99,
+"d": 10.032,
+"who": "poppy",
+"n": "sun-10-20",
+"to": "june"
+},
+{
+"t": 1606.72,
+"d": 5.472,
+"who": "june",
+"n": "sun-10-21",
+"to": "poppy"
+},
+{
+"t": 1615.89,
+"d": 4.56,
+"who": "ellis",
+"n": "sun-10-23",
+"to": "jarvis"
+},
+{
+"t": 1621.15,
+"d": 9.528,
+"who": "jarvis",
+"n": "sun-10-24",
+"to": "ellis"
+},
+{
+"t": 1631.38,
+"d": 1.272,
+"who": "ellis",
+"n": "sun-10-25",
+"to": "jarvis"
+},
+{
+"t": 1633.35,
+"d": 5.424,
+"who": "jarvis",
+"n": "sun-10-26",
+"ev": "clue:knife",
+"to": "ellis"
+},
+{
+"t": 1639.48,
+"d": 3.24,
+"who": "sebastian",
+"n": "sun-10-27",
+"to": "jarvis"
+},
+{
+"t": 1643.42,
+"d": 4.656,
+"who": "jarvis",
+"n": "sun-10-28",
+"to": "sebastian"
+},
+{
+"t": 1651.77,
+"d": 11.712,
+"who": "june",
+"n": "sun-10-30",
+"to": "all"
+},
+{
+"t": 1664.18,
+"d": 3.312,
+"who": "jarvis",
+"n": "sun-10-31",
+"to": "june"
+},
+{
+"t": 1700.0,
+"d": 10.728,
+"who": "sebastian",
+"n": "sun-11-0",
+"to": "jarvis"
+},
+{
+"t": 1711.43,
+"d": 6.048,
+"who": "jarvis",
+"n": "sun-11-1",
+"to": "sebastian"
+},
+{
+"t": 1718.18,
+"d": 2.904,
+"who": "sebastian",
+"n": "sun-11-2",
+"to": "verity"
+},
+{
+"t": 1721.78,
+"d": 6.696,
+"who": "verity",
+"n": "sun-11-3",
+"to": "sebastian"
+},
+{
+"t": 1732.18,
+"d": 5.736,
+"who": "poppy",
+"n": "sun-11-5",
+"to": "jarvis"
+},
+{
+"t": 1738.61,
+"d": 12.48,
+"who": "jarvis",
+"n": "sun-11-6",
+"to": "poppy"
+},
+{
+"t": 1751.79,
+"d": 3.168,
+"who": "poppy",
+"n": "sun-11-7",
+"to": "jarvis"
+},
+{
+"t": 1758.66,
+"d": 5.304,
+"who": "ellis",
+"n": "sun-11-9",
+"to": "jarvis"
+},
+{
+"t": 1764.66,
+"d": 9.48,
+"who": "jarvis",
+"n": "sun-11-10",
+"to": "ellis"
+},
+{
+"t": 1774.84,
+"d": 1.056,
+"who": "ellis",
+"n": "sun-11-11",
+"to": "jarvis"
+},
+{
+"t": 1776.6,
+"d": 4.704,
+"who": "jarvis",
+"n": "sun-11-12",
+"to": "ellis"
+},
+{
+"t": 1785.0,
+"d": 6.648,
+"who": "verity",
+"n": "sun-11-14",
+"to": "jarvis"
+},
+{
+"t": 1792.35,
+"d": 4.608,
+"who": "jarvis",
+"n": "sun-11-15",
+"to": "verity"
+},
+{
+"t": 1797.66,
+"d": 14.304,
+"who": "verity",
+"n": "sun-11-16",
+"to": "all"
+},
+{
+"t": 1812.66,
+"d": 2.424,
+"who": "june",
+"n": "sun-11-17",
+"to": "verity"
+},
+{
+"t": 1815.79,
+"d": 7.32,
+"who": "verity",
+"n": "sun-11-18",
+"to": "june"
+},
+{
+"t": 1823.81,
+"d": 1.8,
+"who": "june",
+"n": "sun-11-19",
+"to": "verity"
+},
+{
+"t": 1826.31,
+"d": 10.152,
+"who": "poppy",
+"n": "sun-11-20",
+"to": "june"
+},
+{
+"t": 1837.16,
+"d": 9.312,
+"who": "june",
+"n": "sun-11-21",
+"to": "poppy"
+},
+{
+"t": 1847.17,
+"d": 7.128,
+"who": "poppy",
+"n": "sun-11-22",
+"to": "june"
+},
+{
+"t": 1855.0,
+"d": 7.416,
+"who": "june",
+"n": "sun-11-23",
+"to": "poppy"
+},
+{
+"t": 1905.0,
+"d": 7.08,
+"who": "jarvis",
+"n": "sun-12-0",
+"to": "june"
+},
+{
+"t": 1912.78,
+"d": 1.488,
+"who": "june",
+"n": "sun-12-1",
+"to": "jarvis"
+},
+{
+"t": 1914.97,
+"d": 2.52,
+"who": "sebastian",
+"n": "sun-12-2",
+"to": "all"
+},
+{
+"t": 1918.19,
+"d": 5.976,
+"who": "ellis",
+"n": "sun-12-3",
+"to": "sebastian"
+},
+{
+"t": 1927.86,
+"d": 15.072,
+"who": "jarvis",
+"n": "sun-12-5",
+"to": "june"
+},
+{
+"t": 1943.64,
+"d": 1.944,
+"who": "june",
+"n": "sun-12-6",
+"to": "jarvis"
+},
+{
+"t": 1946.28,
+"d": 6.216,
+"who": "jarvis",
+"n": "sun-12-7",
+"to": "june"
+},
+{
+"t": 1956.2,
+"d": 1.896,
+"who": "ellis",
+"n": "sun-12-9",
+"to": "june"
+},
+{
+"t": 1958.79,
+"d": 4.2,
+"who": "june",
+"n": "sun-12-10",
+"to": "ellis"
+},
+{
+"t": 1963.69,
+"d": 5.208,
+"who": "ellis",
+"n": "sun-12-11",
+"to": "june"
+},
+{
+"t": 1969.6,
+"d": 2.928,
+"who": "june",
+"n": "sun-12-12",
+"to": "ellis"
+},
+{
+"t": 1973.23,
+"d": 3.936,
+"who": "ellis",
+"n": "sun-12-13",
+"to": "june"
+},
+{
+"t": 1980.86,
+"d": 7.728,
+"who": "sebastian",
+"n": "sun-12-15",
+"to": "june"
+},
+{
+"t": 1989.29,
+"d": 6.48,
+"who": "june",
+"n": "sun-12-16",
+"to": "sebastian"
+},
+{
+"t": 1996.47,
+"d": 8.208,
+"who": "poppy",
+"n": "sun-12-17",
+"to": "june"
+},
+{
+"t": 2005.38,
+"d": 4.032,
+"who": "june",
+"n": "sun-12-18",
+"to": "poppy"
+},
+{
+"t": 2013.11,
+"d": 2.832,
+"who": "ellis",
+"n": "sun-12-20",
+"to": "jarvis"
+},
+{
+"t": 2016.64,
+"d": 10.296,
+"who": "jarvis",
+"n": "sun-12-21",
+"to": "ellis"
+},
+{
+"t": 2027.64,
+"d": 1.2,
+"who": "ellis",
+"n": "sun-12-22",
+"to": "jarvis"
+},
+{
+"t": 2029.54,
+"d": 3.624,
+"who": "jarvis",
+"n": "sun-12-23",
+"to": "ellis"
+},
+{
+"t": 2036.86,
+"d": 8.28,
+"who": "verity",
+"n": "sun-12-25",
+"to": "jarvis"
+},
+{
+"t": 2045.84,
+"d": 3.432,
+"who": "jarvis",
+"n": "sun-12-26",
+"to": "verity"
+},
+{
+"t": 2049.98,
+"d": 8.496,
+"who": "verity",
+"n": "sun-12-27",
+"to": "all"
+},
+{
+"t": 2059.17,
+"d": 1.704,
+"who": "poppy",
+"n": "sun-12-28",
+"to": "all"
+},
+{
+"t": 2061.58,
+"d": 10.944,
+"who": "verity",
+"n": "sun-12-29",
+"to": "poppy"
+},
+{
+"t": 2076.22,
+"d": 7.968,
+"who": "june",
+"n": "sun-12-31",
+"to": "all"
+},
+{
+"t": 2084.89,
+"d": 9.12,
+"who": "jarvis",
+"n": "sun-12-32",
+"to": "june"
+},
+{
+"t": 2094.71,
+"d": 2.928,
+"who": "june",
+"n": "sun-12-33",
+"to": "jarvis"
+},
+{
+"t": 2101.34,
+"d": 3.216,
+"who": "sebastian",
+"n": "sun-12-35",
+"to": "june"
+},
+{
+"t": 2105.25,
+"d": 2.448,
+"who": "june",
+"n": "sun-12-36",
+"to": "sebastian"
+},
+{
+"t": 2108.4,
+"d": 1.56,
+"who": "sebastian",
+"n": "sun-12-37",
+"to": "june"
+},
+{
+"t": 2110.66,
+"d": 2.208,
+"who": "june",
+"n": "sun-12-38",
+"to": "sebastian"
+},
+{
+"t": 2116.87,
+"d": 7.992,
+"who": "jarvis",
+"n": "sun-13-0",
+"to": "all"
+},
+{
+"t": 2125.56,
+"d": 15.84,
+"who": "jarvis",
+"n": "sun-13-1",
+"to": "all"
+},
+{
+"t": 2142.1,
+"d": 4.872,
+"who": "jarvis",
+"n": "sun-13-2",
+"to": "mid"
+},
+{
+"t": 2150.67,
+"d": 8.304,
+"who": "poppy",
+"n": "sun-13-4",
+"to": "jarvis"
+},
+{
+"t": 2159.68,
+"d": 5.256,
+"who": "jarvis",
+"n": "sun-13-5",
+"to": "poppy"
+},
+{
+"t": 2168.63,
+"d": 8.088,
+"who": "verity",
+"n": "sun-13-7",
+"to": "all"
+},
+{
+"t": 2177.42,
+"d": 1.392,
+"who": "sebastian",
+"n": "sun-13-8",
+"to": "verity"
+},
+{
+"t": 2179.51,
+"d": 5.352,
+"who": "verity",
+"n": "sun-13-9",
+"to": "sebastian"
+},
+{
+"t": 2188.56,
+"d": 9.936,
+"who": "poppy",
+"n": "sun-13-11",
+"to": "all"
+},
+{
+"t": 2199.2,
+"d": 5.928,
+"who": "ellis",
+"n": "sun-13-12",
+"to": "poppy"
+},
+{
+"t": 2205.83,
+"d": 7.608,
+"who": "poppy",
+"n": "sun-13-13",
+"to": "ellis"
+},
+{
+"t": 2217.14,
+"d": 7.056,
+"who": "sebastian",
+"n": "sun-13-15",
+"to": "jarvis"
+},
+{
+"t": 2224.89,
+"d": 6.144,
+"who": "jarvis",
+"n": "sun-13-16",
+"to": "sebastian"
+},
+{
+"t": 2231.74,
+"d": 5.088,
+"who": "poppy",
+"n": "sun-13-17",
+"to": "all"
+},
+{
+"t": 2237.52,
+"d": 5.088,
+"who": "jarvis",
+"n": "sun-13-18",
+"to": "poppy"
+},
+{
+"t": 2246.31,
+"d": 7.944,
+"who": "jarvis",
+"n": "sun-13-20",
+"to": "all"
+},
+{
+"t": 2254.96,
+"d": 1.488,
+"who": "june",
+"n": "sun-13-21",
+"to": "jarvis"
+},
+{
+"t": 2257.44,
+"d": 1.368,
+"who": "jarvis",
+"n": "sun-14-0",
+"to": "june"
+},
+{
+"t": 2259.51,
+"d": 5.184,
+"who": "jarvis",
+"n": "sun-14-1",
+"ev": "lock",
+"to": "mid"
+},
+{
+"t": 2268.4,
+"d": 10.704,
+"who": "jarvis",
+"n": "sun-14-3",
+"to": "all"
+},
+{
+"t": 2279.8,
+"d": 7.752,
+"who": "jarvis",
+"n": "sun-14-4",
+"to": "all"
+},
+{
+"t": 2288.25,
+"d": 8.16,
+"who": "jarvis",
+"n": "sun-14-5",
+"to": "all"
+},
+{
+"t": 2297.11,
+"d": 11.76,
+"who": "jarvis",
+"n": "sun-14-6",
+"to": "all"
+},
+{
+"t": 2309.57,
+"d": 9.552,
+"who": "jarvis",
+"n": "sun-14-7",
+"to": "june"
+},
+{
+"t": 2321.82,
+"d": 1.512,
+"who": "jarvis",
+"n": "sun-14-9",
+"ev": "reveal",
+"to": "june"
+},
+{
+"t": 2327.04,
+"d": 4.296,
+"who": "june",
+"n": "sun-14-11",
+"to": "jarvis"
+},
+{
+"t": 2332.03,
+"d": 11.952,
+"who": "june",
+"n": "sun-14-12",
+"to": "all"
+},
+{
+"t": 2344.68,
+"d": 7.632,
+"who": "june",
+"n": "sun-14-13",
+"to": "all"
+},
+{
+"t": 2353.02,
+"d": 1.008,
+"who": "poppy",
+"n": "sun-14-14",
+"to": "june"
+},
+{
+"t": 2354.72,
+"d": 12.84,
+"who": "june",
+"n": "sun-14-15",
+"to": "poppy"
+},
+{
+"t": 2371.26,
+"d": 4.992,
+"who": "sebastian",
+"n": "sun-14-17",
+"to": "june"
+},
+{
+"t": 2376.96,
+"d": 5.88,
+"who": "june",
+"n": "sun-14-18",
+"to": "sebastian"
+},
+{
+"t": 2386.54,
+"d": 6.6,
+"who": "jarvis",
+"n": "sun-14-20",
+"do": "up:jarvis",
+"to": "june"
+},
+{
+"t": 2393.84,
+"d": 9.096,
+"who": "june",
+"n": "sun-14-21",
+"do": "out:june",
+"to": "jarvis"
+},
+{
+"t": 2403.63,
+"d": 1.008,
+"who": "poppy",
+"n": "sun-14-22",
+"to": "june"
+},
+{
+"t": 2405.34,
+"d": 5.184,
+"who": "june",
+"n": "sun-14-23",
+"to": "poppy"
+},
+{
+"t": 2415.22,
+"d": 1.224,
+"who": "verity",
+"n": "sun-14-25",
+"to": "all"
+},
+{
+"t": 2417.15,
+"d": 5.472,
+"who": "sebastian",
+"n": "sun-14-26",
+"to": "all"
+},
+{
+"t": 2426.32,
+"d": 3.384,
+"who": "ellis",
+"n": "sun-14-28",
+"to": "sebastian"
+},
+{
+"t": 2430.4,
+"d": 1.056,
+"who": "sebastian",
+"n": "sun-14-29",
+"to": "poppy"
+},
+{
+"t": 2432.16,
+"d": 13.752,
+"who": "poppy",
+"n": "sun-14-30",
+"to": "sebastian"
+},
+{
+"t": 2446.61,
+"d": 5.088,
+"who": "sebastian",
+"n": "sun-14-31",
+"to": "poppy"
+},
+{
+"t": 2455.4,
+"d": 4.008,
+"who": "verity",
+"n": "sun-14-33",
+"to": "all"
+},
+{
+"t": 2460.11,
+"d": 6.624,
+"who": "jarvis",
+"n": "sun-14-34",
+"to": "verity"
+},
+{
+"t": 2467.43,
+"d": 4.584,
+"who": "verity",
+"n": "sun-14-35",
+"to": "jarvis"
+},
+{
+"t": 2472.72,
+"d": 6.864,
+"who": "jarvis",
+"n": "sun-14-36",
+"to": "verity"
+},
+{
+"t": 2483.28,
+"d": 9.48,
+"who": "jarvis",
+"n": "sun-14-38",
+"do": "back:jarvis",
+"to": "all"
+},
+{
+"t": 2493.46,
+"d": 3.624,
+"who": "ellis",
+"n": "sun-14-39",
+"to": "jarvis"
+},
+{
+"t": 2497.78,
+"d": 4.488,
+"who": "jarvis",
+"n": "sun-14-40",
+"to": "ellis"
+},
+{
+"t": 2505.97,
+"d": 7.512,
+"who": "poppy",
+"n": "sun-14-42",
+"to": "jarvis"
+},
+{
+"t": 2514.18,
+"d": 7.92,
+"who": "jarvis",
+"n": "sun-14-43",
+"to": "poppy"
+},
+{
+"t": 2522.8,
+"d": 1.704,
+"who": "poppy",
+"n": "sun-14-44",
+"to": "jarvis"
+},
+{
+"t": 2525.21,
+"d": 3.312,
+"who": "jarvis",
+"n": "sun-14-45",
+"to": "poppy"
+},
+{
+"t": 2532.22,
+"d": 6.432,
+"who": "sebastian",
+"n": "sun-14-47",
+"to": "verity"
+},
+{
+"t": 2539.35,
+"d": 5.232,
+"who": "verity",
+"n": "sun-14-48",
+"to": "sebastian"
+},
+{
+"t": 2548.28,
+"d": 13.2,
+"who": "jarvis",
+"n": "sun-14-50",
+"to": "all"
+},
+{
+"t": 2562.18,
+"d": 1.92,
+"who": "sebastian",
+"n": "sun-14-51",
+"to": "jarvis"
+},
+{
+"t": 2564.8,
+"d": 9.168,
+"who": "jarvis",
+"n": "sun-14-52",
+"to": "sebastian"
+},
+{
+"t": 2574.67,
+"d": 1.752,
+"who": "poppy",
+"n": "sun-14-53",
+"to": "jarvis"
+},
+{
+"t": 2577.12,
+"d": 16.104,
+"who": "jarvis",
+"n": "sun-14-54",
+"to": "all"
+},
+{
+"t": 2593.93,
+"d": 1.968,
+"who": "verity",
+"n": "sun-14-55",
+"to": "all"
+},
+{
+"t": 2596.6,
+"d": 8.616,
+"who": "jarvis",
+"n": "sun-14-56",
+"to": "verity"
+},
+{
+"t": 2605.91,
+"d": 2.976,
+"who": "ellis",
+"n": "sun-14-57",
+"to": "all"
+},
+{
+"t": 2609.59,
+"d": 4.92,
+"who": "jarvis",
+"n": "sun-14-58",
+"to": "ellis"
+},
+{
+"t": 2618.21,
+"d": 5.784,
+"who": "poppy",
+"n": "sun-14-60",
+"to": "jarvis"
+},
+{
+"t": 2624.69,
+"d": 7.32,
+"who": "jarvis",
+"n": "sun-14-61",
+"to": "poppy"
+},
+{
+"t": 2632.71,
+"d": 2.904,
+"who": "poppy",
+"n": "sun-14-62",
+"to": "jarvis"
+},
+{
+"t": 2636.32,
+"d": 6.048,
+"who": "jarvis",
+"n": "sun-14-63",
+"to": "poppy"
+},
+{
+"t": 2646.06,
+"d": 7.488,
+"who": "sebastian",
+"n": "sun-14-65",
+"to": "verity"
+},
+{
+"t": 2654.25,
+"d": 5.736,
+"who": "verity",
+"n": "sun-14-66",
+"to": "sebastian"
+},
+{
+"t": 2660.69,
+"d": 3.552,
+"who": "sebastian",
+"n": "sun-14-67",
+"to": "verity"
+},
+{
+"t": 2664.94,
+"d": 5.328,
+"who": "verity",
+"n": "sun-14-68",
+"to": "sebastian"
+},
+{
+"t": 2673.97,
+"d": 5.28,
+"who": "ellis",
+"n": "sun-14-70",
+"to": "jarvis"
+},
+{
+"t": 2679.95,
+"d": 7.776,
+"who": "jarvis",
+"n": "sun-14-71",
+"to": "ellis"
+},
+{
+"t": 2688.42,
+"d": 2.616,
+"who": "ellis",
+"n": "sun-14-72",
+"to": "jarvis"
+},
+{
+"t": 2691.74,
+"d": 4.248,
+"who": "jarvis",
+"n": "sun-14-73",
+"to": "ellis"
+},
+{
+"t": 2696.69,
+"d": 1.56,
+"who": "ellis",
+"n": "sun-14-74"
+},
+{
+"t": 2701.95,
+"d": 11.808,
+"who": "poppy",
+"n": "sun-14-76",
+"to": "all"
+},
+{
+"t": 2714.46,
+"d": 4.752,
+"who": "sebastian",
+"n": "sun-14-77",
+"to": "poppy"
+},
+{
+"t": 2719.91,
+"d": 12.432,
+"who": "poppy",
+"n": "sun-14-78",
+"to": "sebastian"
+},
+{
+"t": 2736.04,
+"d": 5.592,
+"who": "jarvis",
+"n": "sun-14-80",
+"to": "all"
+},
+{
+"t": 2742.33,
+"d": 13.416,
+"who": "poppy",
+"n": "sun-14-81",
+"to": "jarvis"
+},
+{
+"t": 2756.45,
+"d": 6.048,
+"who": "jarvis",
+"n": "sun-14-82",
+"to": "poppy"
+},
+{
+"t": 2766.2,
+"d": 9.048,
+"who": "verity",
+"n": "sun-14-84",
+"to": "mid"
+},
+{
+"t": 2775.94,
+"d": 12.264,
+"who": "sebastian",
+"n": "sun-14-85",
+"to": "mid"
+},
+{
+"t": 2791.91,
+"d": 2.208,
+"who": "ellis",
+"n": "sun-14-87",
+"to": "jarvis"
+},
+{
+"t": 2794.82,
+"d": 7.776,
+"who": "jarvis",
+"n": "sun-14-88",
+"to": "ellis"
+},
+{
+"t": 2803.29,
+"d": 6.288,
+"who": "poppy",
+"n": "sun-14-89",
+"to": "jarvis"
+},
+{
+"t": 2810.28,
+"d": 3.888,
+"who": "jarvis",
+"n": "sun-14-90",
+"to": "poppy"
+},
+{
+"t": 2814.87,
+"d": 1.776,
+"who": "poppy",
+"n": "sun-14-91",
+"to": "jarvis"
+},
+{
+"t": 2817.34,
+"d": 2.664,
+"who": "jarvis",
+"n": "sun-14-92",
+"to": "poppy"
+},
+{
+"t": 2823.71,
+"d": 10.032,
+"who": "poppy",
+"n": "sun-14-94",
+"to": "jarvis"
+},
+{
+"t": 2834.44,
+"d": 5.784,
+"who": "jarvis",
+"n": "sun-14-95",
+"to": "poppy"
+},
+{
+"t": 2840.92,
+"d": 5.856,
+"who": "verity",
+"n": "sun-14-96",
+"to": "jarvis"
+},
+{
+"t": 2847.48,
+"d": 2.808,
+"who": "jarvis",
+"n": "sun-14-97",
+"to": "verity"
+},
+{
+"t": 2853.99,
+"d": 6.96,
+"who": "sebastian",
+"n": "sun-14-99",
+"to": "poppy"
+},
+{
+"t": 2861.65,
+"d": 4.368,
+"who": "poppy",
+"n": "sun-14-100",
+"to": "sebastian"
+},
+{
+"t": 2866.72,
+"d": 7.44,
+"who": "jarvis",
+"n": "sun-14-101",
+"to": "sebastian"
+},
+{
+"t": 2874.86,
+"d": 5.976,
+"who": "jarvis",
+"n": "sun-14-102",
+"to": "sebastian"
+},
+{
+"t": 2884.53,
+"d": 3.48,
+"who": "ellis",
+"n": "sun-14-104",
+"to": "all"
+},
+{
+"t": 2888.71,
+"d": 8.688,
+"who": "jarvis",
+"n": "sun-14-105",
+"do": "out:jarvis",
+"to": "all"
+},
+{
+"t": 2898.1,
+"d": 8.568,
+"who": "poppy",
+"n": "sun-14-106",
+"to": "mid"
+},
+{
+"t": 2907.37,
+"d": 6.816,
+"who": "verity",
+"n": "sun-14-107",
+"to": "mid"
+}
+]
+}

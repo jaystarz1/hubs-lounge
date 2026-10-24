@@ -1,0 +1,3103 @@
+{
+"_": "Written by lounge-assets/mystery-talk.py build from tue.json: each line's start (t) and length (d) in seconds on the dinner clock.",
+"cues": [
+{
+"t": 4.0,
+"d": 7.2,
+"who": "margot",
+"n": "tue-0-0",
+"to": "all"
+},
+{
+"t": 11.9,
+"d": 4.776,
+"who": "major",
+"n": "tue-0-1",
+"to": "margot"
+},
+{
+"t": 17.38,
+"d": 6.048,
+"who": "margot",
+"n": "tue-0-2",
+"to": "major"
+},
+{
+"t": 24.12,
+"d": 3.648,
+"who": "claudia",
+"n": "tue-0-3",
+"to": "margot"
+},
+{
+"t": 28.47,
+"d": 3.96,
+"who": "margot",
+"n": "tue-0-4",
+"to": "claudia"
+},
+{
+"t": 33.13,
+"d": 4.032,
+"who": "claudia",
+"n": "tue-0-5",
+"to": "margot"
+},
+{
+"t": 37.86,
+"d": 5.328,
+"who": "toby",
+"n": "tue-0-6",
+"to": "margot"
+},
+{
+"t": 43.89,
+"d": 5.112,
+"who": "major",
+"n": "tue-0-7",
+"to": "toby"
+},
+{
+"t": 49.7,
+"d": 4.368,
+"who": "margot",
+"n": "tue-0-8",
+"to": "major"
+},
+{
+"t": 54.77,
+"d": 4.68,
+"who": "okafor",
+"n": "tue-0-9",
+"to": "margot"
+},
+{
+"t": 60.15,
+"d": 4.608,
+"who": "margot",
+"n": "tue-0-10",
+"to": "okafor"
+},
+{
+"t": 65.46,
+"d": 2.52,
+"who": "albert",
+"n": "tue-0-11",
+"to": "margot"
+},
+{
+"t": 78.0,
+"d": 9.72,
+"who": "margot",
+"n": "tue-1-0",
+"to": "all"
+},
+{
+"t": 88.42,
+"d": 4.416,
+"who": "toby",
+"n": "tue-1-1",
+"to": "claudia"
+},
+{
+"t": 93.54,
+"d": 2.928,
+"who": "claudia",
+"n": "tue-1-2",
+"to": "toby"
+},
+{
+"t": 97.16,
+"d": 2.448,
+"who": "okafor",
+"n": "tue-1-3",
+"to": "lucy"
+},
+{
+"t": 100.31,
+"d": 9.048,
+"who": "lucy",
+"n": "tue-1-4",
+"to": "okafor"
+},
+{
+"t": 110.06,
+"d": 5.64,
+"who": "margot",
+"n": "tue-1-5",
+"to": "all"
+},
+{
+"t": 117.0,
+"d": 7.968,
+"who": "margot",
+"n": "tue-2-0",
+"to": "all"
+},
+{
+"t": 125.67,
+"d": 0.864,
+"who": "major",
+"n": "tue-2-1",
+"to": "margot"
+},
+{
+"t": 129.23,
+"d": 7.152,
+"who": "margot",
+"n": "tue-2-3",
+"to": "mid"
+},
+{
+"t": 137.08,
+"d": 9.816,
+"who": "margot",
+"n": "tue-2-4",
+"to": "mid"
+},
+{
+"t": 147.6,
+"d": 5.712,
+"who": "margot",
+"n": "tue-2-5",
+"to": "mid"
+},
+{
+"t": 154.01,
+"d": 3.72,
+"who": "toby",
+"n": "tue-2-6",
+"to": "mid"
+},
+{
+"t": 158.43,
+"d": 9.552,
+"who": "margot",
+"n": "tue-2-7",
+"to": "mid"
+},
+{
+"t": 168.68,
+"d": 4.128,
+"who": "claudia",
+"n": "tue-2-8",
+"to": "mid"
+},
+{
+"t": 173.51,
+"d": 7.488,
+"who": "margot",
+"n": "tue-2-9",
+"to": "mid"
+},
+{
+"t": 181.7,
+"d": 6.672,
+"who": "margot",
+"n": "tue-2-10",
+"to": "mid"
+},
+{
+"t": 189.07,
+"d": 8.928,
+"who": "margot",
+"n": "tue-2-11",
+"to": "mid"
+},
+{
+"t": 198.7,
+"d": 2.04,
+"who": "albert",
+"n": "tue-2-12"
+},
+{
+"t": 201.74,
+"d": 5.184,
+"who": "claudia",
+"n": "tue-3-0",
+"to": "toby"
+},
+{
+"t": 207.62,
+"d": 1.944,
+"who": "toby",
+"n": "tue-3-1",
+"to": "claudia"
+},
+{
+"t": 210.27,
+"d": 4.44,
+"who": "claudia",
+"n": "tue-3-2",
+"to": "toby"
+},
+{
+"t": 215.41,
+"d": 1.56,
+"who": "toby",
+"n": "tue-3-3",
+"to": "margot"
+},
+{
+"t": 217.67,
+"d": 4.92,
+"who": "margot",
+"n": "tue-3-4",
+"to": "toby"
+},
+{
+"t": 226.29,
+"d": 6.312,
+"who": "major",
+"n": "tue-3-6",
+"to": "margot"
+},
+{
+"t": 233.3,
+"d": 9.312,
+"who": "margot",
+"n": "tue-3-7",
+"to": "major"
+},
+{
+"t": 243.31,
+"d": 1.488,
+"who": "claudia",
+"n": "tue-3-8",
+"to": "margot"
+},
+{
+"t": 245.5,
+"d": 2.28,
+"who": "margot",
+"n": "tue-3-9",
+"to": "claudia"
+},
+{
+"t": 248.48,
+"d": 2.664,
+"who": "claudia",
+"n": "tue-3-10",
+"to": "margot"
+},
+{
+"t": 254.84,
+"d": 5.856,
+"who": "lucy",
+"n": "tue-3-12",
+"to": "claudia"
+},
+{
+"t": 261.4,
+"d": 4.848,
+"who": "claudia",
+"n": "tue-3-13",
+"to": "lucy"
+},
+{
+"t": 266.95,
+"d": 3.456,
+"who": "lucy",
+"n": "tue-3-14",
+"to": "claudia"
+},
+{
+"t": 271.1,
+"d": 4.272,
+"who": "claudia",
+"n": "tue-3-15",
+"to": "lucy"
+},
+{
+"t": 276.08,
+"d": 4.296,
+"who": "lucy",
+"n": "tue-3-16",
+"to": "claudia"
+},
+{
+"t": 281.07,
+"d": 6.192,
+"who": "margot",
+"n": "tue-3-17",
+"to": "claudia"
+},
+{
+"t": 290.96,
+"d": 5.208,
+"who": "toby",
+"n": "tue-3-19",
+"to": "okafor"
+},
+{
+"t": 296.87,
+"d": 6.768,
+"who": "okafor",
+"n": "tue-3-20",
+"to": "toby"
+},
+{
+"t": 304.34,
+"d": 3.984,
+"who": "margot",
+"n": "tue-3-21",
+"to": "toby"
+},
+{
+"t": 309.02,
+"d": 7.632,
+"who": "claudia",
+"n": "tue-3-22",
+"to": "all"
+},
+{
+"t": 317.36,
+"d": 3.312,
+"who": "albert",
+"n": "tue-3-23",
+"to": "claudia"
+},
+{
+"t": 321.37,
+"d": 7.152,
+"who": "okafor",
+"n": "tue-3-24",
+"ev": "clue:insulin",
+"to": "all"
+},
+{
+"t": 329.22,
+"d": 8.208,
+"who": "margot",
+"n": "tue-3-25",
+"to": "okafor"
+},
+{
+"t": 338.13,
+"d": 3.912,
+"who": "toby",
+"n": "tue-3-26",
+"to": "albert"
+},
+{
+"t": 342.74,
+"d": 6.192,
+"who": "albert",
+"n": "tue-3-27",
+"to": "toby"
+},
+{
+"t": 356.0,
+"d": 3.456,
+"who": "claudia",
+"n": "tue-4-0",
+"to": "margot"
+},
+{
+"t": 360.16,
+"d": 4.368,
+"who": "margot",
+"n": "tue-4-1",
+"to": "claudia"
+},
+{
+"t": 365.22,
+"d": 4.368,
+"who": "claudia",
+"n": "tue-4-2",
+"to": "all"
+},
+{
+"t": 370.29,
+"d": 5.4,
+"who": "margot",
+"n": "tue-4-3",
+"to": "claudia"
+},
+{
+"t": 376.39,
+"d": 5.448,
+"who": "claudia",
+"n": "tue-4-4",
+"to": "margot"
+},
+{
+"t": 382.54,
+"d": 3.24,
+"who": "margot",
+"n": "tue-4-5",
+"to": "claudia"
+},
+{
+"t": 389.48,
+"d": 5.832,
+"who": "toby",
+"n": "tue-4-7",
+"to": "claudia"
+},
+{
+"t": 396.01,
+"d": 2.928,
+"who": "claudia",
+"n": "tue-4-8",
+"to": "toby"
+},
+{
+"t": 399.64,
+"d": 3.456,
+"who": "major",
+"n": "tue-4-9",
+"to": "claudia"
+},
+{
+"t": 403.8,
+"d": 2.52,
+"who": "claudia",
+"n": "tue-4-10",
+"to": "major"
+},
+{
+"t": 410.02,
+"d": 3.6,
+"who": "okafor",
+"n": "tue-4-12",
+"to": "margot"
+},
+{
+"t": 414.32,
+"d": 5.16,
+"who": "margot",
+"n": "tue-4-13",
+"to": "okafor"
+},
+{
+"t": 423.18,
+"d": 5.616,
+"who": "lucy",
+"n": "tue-4-15",
+"to": "toby"
+},
+{
+"t": 429.49,
+"d": 4.608,
+"who": "toby",
+"n": "tue-4-16",
+"to": "lucy"
+},
+{
+"t": 434.8,
+"d": 3.072,
+"who": "claudia",
+"n": "tue-4-17",
+"to": "toby"
+},
+{
+"t": 438.57,
+"d": 2.448,
+"who": "toby",
+"n": "tue-4-18",
+"to": "claudia"
+},
+{
+"t": 441.72,
+"d": 2.832,
+"who": "claudia",
+"n": "tue-4-19",
+"to": "toby"
+},
+{
+"t": 448.25,
+"d": 4.8,
+"who": "major",
+"n": "tue-4-21",
+"to": "albert"
+},
+{
+"t": 453.75,
+"d": 3.984,
+"who": "albert",
+"n": "tue-4-22",
+"to": "major"
+},
+{
+"t": 482.0,
+"d": 3.312,
+"who": "albert",
+"n": "tue-5-0",
+"to": "margot"
+},
+{
+"t": 486.01,
+"d": 6.048,
+"who": "margot",
+"n": "tue-5-1",
+"to": "albert"
+},
+{
+"t": 492.76,
+"d": 4.56,
+"who": "lucy",
+"n": "tue-5-2",
+"to": "margot"
+},
+{
+"t": 498.02,
+"d": 4.752,
+"who": "margot",
+"n": "tue-5-3",
+"to": "lucy"
+},
+{
+"t": 506.47,
+"d": 7.392,
+"who": "okafor",
+"n": "tue-5-5",
+"to": "margot"
+},
+{
+"t": 514.56,
+"d": 4.512,
+"who": "margot",
+"n": "tue-5-6",
+"to": "okafor"
+},
+{
+"t": 519.78,
+"d": 3.384,
+"who": "claudia",
+"n": "tue-5-7",
+"to": "margot"
+},
+{
+"t": 523.86,
+"d": 5.64,
+"who": "margot",
+"n": "tue-5-8",
+"to": "claudia"
+},
+{
+"t": 530.2,
+"d": 1.68,
+"who": "claudia",
+"n": "tue-5-9",
+"to": "margot"
+},
+{
+"t": 532.58,
+"d": 4.2,
+"who": "margot",
+"n": "tue-5-10",
+"to": "claudia"
+},
+{
+"t": 540.48,
+"d": 3.936,
+"who": "claudia",
+"n": "tue-5-12",
+"to": "margot"
+},
+{
+"t": 545.12,
+"d": 4.512,
+"who": "margot",
+"n": "tue-5-13",
+"to": "claudia"
+},
+{
+"t": 553.33,
+"d": 4.2,
+"who": "toby",
+"n": "tue-5-15",
+"to": "major"
+},
+{
+"t": 558.23,
+"d": 8.664,
+"who": "major",
+"n": "tue-5-16",
+"to": "toby"
+},
+{
+"t": 567.59,
+"d": 1.632,
+"who": "toby",
+"n": "tue-5-17",
+"to": "major"
+},
+{
+"t": 569.92,
+"d": 5.784,
+"who": "major",
+"n": "tue-5-18",
+"to": "toby"
+},
+{
+"t": 576.41,
+"d": 3.72,
+"who": "claudia",
+"n": "tue-5-19",
+"to": "major"
+},
+{
+"t": 580.83,
+"d": 3.552,
+"who": "major",
+"n": "tue-5-20",
+"to": "claudia"
+},
+{
+"t": 588.08,
+"d": 7.368,
+"who": "lucy",
+"n": "tue-5-22",
+"to": "albert"
+},
+{
+"t": 596.15,
+"d": 7.728,
+"who": "albert",
+"n": "tue-5-23",
+"to": "lucy"
+},
+{
+"t": 607.58,
+"d": 2.28,
+"who": "margot",
+"n": "tue-5-25",
+"ev": "flicker:1.6",
+"to": "all"
+},
+{
+"t": 610.56,
+"d": 1.68,
+"who": "toby",
+"n": "tue-5-26",
+"to": "margot"
+},
+{
+"t": 612.94,
+"d": 4.512,
+"who": "margot",
+"n": "tue-5-27",
+"to": "albert"
+},
+{
+"t": 618.15,
+"d": 5.712,
+"who": "albert",
+"n": "tue-5-28",
+"to": "margot"
+},
+{
+"t": 624.56,
+"d": 5.4,
+"who": "claudia",
+"n": "tue-5-29",
+"to": "all"
+},
+{
+"t": 630.66,
+"d": 3.0,
+"who": "albert",
+"n": "tue-5-30",
+"to": "claudia"
+},
+{
+"t": 637.36,
+"d": 9.384,
+"who": "okafor",
+"n": "tue-5-32",
+"to": "margot"
+},
+{
+"t": 647.44,
+"d": 6.048,
+"who": "margot",
+"n": "tue-5-33",
+"to": "okafor"
+},
+{
+"t": 657.19,
+"d": 4.68,
+"who": "major",
+"n": "tue-5-35",
+"to": "toby"
+},
+{
+"t": 662.57,
+"d": 9.96,
+"who": "toby",
+"n": "tue-5-36",
+"to": "major"
+},
+{
+"t": 673.23,
+"d": 7.32,
+"who": "margot",
+"n": "tue-5-37",
+"to": "major"
+},
+{
+"t": 681.25,
+"d": 2.448,
+"who": "claudia",
+"n": "tue-5-38",
+"to": "all"
+},
+{
+"t": 684.4,
+"d": 2.208,
+"who": "margot",
+"n": "tue-5-39",
+"to": "claudia"
+},
+{
+"t": 687.31,
+"d": 2.424,
+"who": "claudia",
+"n": "tue-5-40",
+"to": "margot"
+},
+{
+"t": 700.0,
+"d": 3.12,
+"who": "claudia",
+"n": "tue-6-0",
+"to": "margot"
+},
+{
+"t": 703.82,
+"d": 5.568,
+"who": "margot",
+"n": "tue-6-1",
+"to": "claudia"
+},
+{
+"t": 710.09,
+"d": 5.04,
+"who": "claudia",
+"n": "tue-6-2",
+"to": "margot"
+},
+{
+"t": 715.83,
+"d": 2.76,
+"who": "margot",
+"n": "tue-6-3",
+"to": "claudia"
+},
+{
+"t": 719.29,
+"d": 4.272,
+"who": "claudia",
+"n": "tue-6-4",
+"to": "margot"
+},
+{
+"t": 727.26,
+"d": 4.584,
+"who": "toby",
+"n": "tue-6-6",
+"to": "claudia"
+},
+{
+"t": 732.54,
+"d": 7.488,
+"who": "claudia",
+"n": "tue-6-7",
+"to": "toby"
+},
+{
+"t": 740.73,
+"d": 2.832,
+"who": "toby",
+"n": "tue-6-8",
+"to": "claudia"
+},
+{
+"t": 744.26,
+"d": 3.0,
+"who": "claudia",
+"n": "tue-6-9",
+"to": "toby"
+},
+{
+"t": 750.96,
+"d": 6.936,
+"who": "lucy",
+"n": "tue-6-11",
+"to": "margot"
+},
+{
+"t": 758.6,
+"d": 9.24,
+"who": "margot",
+"n": "tue-6-12",
+"to": "lucy"
+},
+{
+"t": 768.54,
+"d": 3.888,
+"who": "claudia",
+"n": "tue-6-13",
+"to": "lucy"
+},
+{
+"t": 773.13,
+"d": 5.712,
+"who": "margot",
+"n": "tue-6-14",
+"to": "claudia"
+},
+{
+"t": 782.54,
+"d": 8.688,
+"who": "major",
+"n": "tue-6-16",
+"to": "mid"
+},
+{
+"t": 791.93,
+"d": 2.352,
+"who": "toby",
+"n": "tue-6-17",
+"to": "major"
+},
+{
+"t": 794.98,
+"d": 7.248,
+"who": "claudia",
+"n": "tue-6-18",
+"to": "toby"
+},
+{
+"t": 802.93,
+"d": 1.824,
+"who": "toby",
+"n": "tue-6-19",
+"to": "claudia"
+},
+{
+"t": 805.45,
+"d": 2.616,
+"who": "claudia",
+"n": "tue-6-20",
+"to": "toby"
+},
+{
+"t": 808.77,
+"d": 1.56,
+"who": "toby",
+"n": "tue-6-21",
+"to": "claudia"
+},
+{
+"t": 811.03,
+"d": 5.664,
+"who": "claudia",
+"n": "tue-6-22",
+"to": "toby"
+},
+{
+"t": 829.0,
+"d": 3.96,
+"who": "albert",
+"n": "tue-7-0",
+"to": "margot"
+},
+{
+"t": 833.66,
+"d": 3.888,
+"who": "margot",
+"n": "tue-7-1",
+"to": "albert"
+},
+{
+"t": 841.25,
+"d": 4.248,
+"who": "okafor",
+"n": "tue-7-3",
+"to": "claudia"
+},
+{
+"t": 846.2,
+"d": 4.608,
+"who": "claudia",
+"n": "tue-7-4",
+"to": "okafor"
+},
+{
+"t": 851.5,
+"d": 4.2,
+"who": "okafor",
+"n": "tue-7-5",
+"to": "claudia"
+},
+{
+"t": 859.4,
+"d": 3.816,
+"who": "major",
+"n": "tue-7-7",
+"to": "claudia"
+},
+{
+"t": 863.92,
+"d": 8.592,
+"who": "claudia",
+"n": "tue-7-8",
+"to": "major"
+},
+{
+"t": 873.21,
+"d": 4.848,
+"who": "major",
+"n": "tue-7-9",
+"to": "claudia"
+},
+{
+"t": 878.76,
+"d": 3.552,
+"who": "claudia",
+"n": "tue-7-10",
+"to": "major"
+},
+{
+"t": 886.01,
+"d": 5.952,
+"who": "toby",
+"n": "tue-7-12",
+"to": "margot"
+},
+{
+"t": 892.66,
+"d": 7.08,
+"who": "margot",
+"n": "tue-7-13",
+"to": "toby"
+},
+{
+"t": 900.44,
+"d": 6.672,
+"who": "toby",
+"n": "tue-7-14",
+"to": "margot"
+},
+{
+"t": 907.82,
+"d": 4.848,
+"who": "margot",
+"n": "tue-7-15",
+"to": "toby"
+},
+{
+"t": 913.36,
+"d": 6.048,
+"who": "claudia",
+"n": "tue-7-16",
+"to": "toby"
+},
+{
+"t": 920.11,
+"d": 3.48,
+"who": "albert",
+"n": "tue-7-17",
+"to": "claudia"
+},
+{
+"t": 924.29,
+"d": 5.952,
+"who": "claudia",
+"n": "tue-7-18",
+"ev": "clue:secret",
+"to": "albert"
+},
+{
+"t": 930.94,
+"d": 2.592,
+"who": "margot",
+"n": "tue-7-19",
+"to": "claudia"
+},
+{
+"t": 937.24,
+"d": 3.12,
+"who": "major",
+"n": "tue-7-21",
+"to": "margot"
+},
+{
+"t": 941.06,
+"d": 6.744,
+"who": "margot",
+"n": "tue-7-22",
+"to": "major"
+},
+{
+"t": 948.5,
+"d": 3.312,
+"who": "claudia",
+"n": "tue-7-23",
+"to": "all"
+},
+{
+"t": 955.51,
+"d": 9.72,
+"who": "okafor",
+"n": "tue-7-25",
+"to": "all"
+},
+{
+"t": 965.93,
+"d": 4.824,
+"who": "margot",
+"n": "tue-7-26",
+"to": "okafor"
+},
+{
+"t": 971.46,
+"d": 5.088,
+"who": "albert",
+"n": "tue-7-27",
+"to": "okafor"
+},
+{
+"t": 977.24,
+"d": 1.08,
+"who": "okafor",
+"n": "tue-7-28",
+"to": "albert"
+},
+{
+"t": 979.02,
+"d": 5.112,
+"who": "albert",
+"n": "tue-7-29",
+"to": "okafor"
+},
+{
+"t": 1003.0,
+"d": 4.368,
+"who": "claudia",
+"n": "tue-8-0",
+"to": "toby"
+},
+{
+"t": 1008.07,
+"d": 3.96,
+"who": "toby",
+"n": "tue-8-1",
+"to": "claudia"
+},
+{
+"t": 1012.73,
+"d": 3.576,
+"who": "claudia",
+"n": "tue-8-2",
+"to": "toby"
+},
+{
+"t": 1017.0,
+"d": 6.84,
+"who": "toby",
+"n": "tue-8-3",
+"ev": "clue:play",
+"to": "claudia"
+},
+{
+"t": 1024.54,
+"d": 2.832,
+"who": "claudia",
+"n": "tue-8-4",
+"to": "toby"
+},
+{
+"t": 1031.08,
+"d": 5.088,
+"who": "margot",
+"n": "tue-8-6",
+"to": "claudia"
+},
+{
+"t": 1036.86,
+"d": 7.608,
+"who": "claudia",
+"n": "tue-8-7",
+"to": "margot"
+},
+{
+"t": 1045.17,
+"d": 3.312,
+"who": "margot",
+"n": "tue-8-8",
+"to": "claudia"
+},
+{
+"t": 1049.18,
+"d": 3.312,
+"who": "claudia",
+"n": "tue-8-9",
+"to": "margot"
+},
+{
+"t": 1056.2,
+"d": 5.16,
+"who": "major",
+"n": "tue-8-11",
+"to": "okafor"
+},
+{
+"t": 1062.06,
+"d": 15.528,
+"who": "okafor",
+"n": "tue-8-12",
+"to": "major"
+},
+{
+"t": 1078.28,
+"d": 1.08,
+"who": "major",
+"n": "tue-8-13",
+"to": "okafor"
+},
+{
+"t": 1080.06,
+"d": 6.0,
+"who": "okafor",
+"n": "tue-8-14",
+"to": "major"
+},
+{
+"t": 1086.76,
+"d": 3.408,
+"who": "major",
+"n": "tue-8-15",
+"to": "okafor"
+},
+{
+"t": 1093.87,
+"d": 5.424,
+"who": "lucy",
+"n": "tue-8-17",
+"to": "margot"
+},
+{
+"t": 1100.0,
+"d": 5.232,
+"who": "margot",
+"n": "tue-8-18",
+"to": "lucy"
+},
+{
+"t": 1105.93,
+"d": 1.152,
+"who": "albert",
+"n": "tue-8-19",
+"to": "margot"
+},
+{
+"t": 1110.78,
+"d": 9.192,
+"who": "claudia",
+"n": "tue-8-21",
+"to": "all"
+},
+{
+"t": 1120.67,
+"d": 5.424,
+"who": "claudia",
+"n": "tue-8-22",
+"to": "albert"
+},
+{
+"t": 1126.8,
+"d": 1.632,
+"who": "albert",
+"n": "tue-8-23",
+"to": "claudia"
+},
+{
+"t": 1129.13,
+"d": 3.624,
+"who": "claudia",
+"n": "tue-8-24",
+"to": "albert"
+},
+{
+"t": 1136.45,
+"d": 5.064,
+"who": "okafor",
+"n": "tue-8-26",
+"to": "margot"
+},
+{
+"t": 1142.22,
+"d": 5.952,
+"who": "margot",
+"n": "tue-8-27",
+"to": "okafor"
+},
+{
+"t": 1151.87,
+"d": 3.84,
+"who": "toby",
+"n": "tue-8-29",
+"to": "major"
+},
+{
+"t": 1156.41,
+"d": 5.952,
+"who": "major",
+"n": "tue-8-30",
+"to": "toby"
+},
+{
+"t": 1163.06,
+"d": 1.8,
+"who": "toby",
+"n": "tue-8-31",
+"to": "major"
+},
+{
+"t": 1165.56,
+"d": 1.32,
+"who": "major",
+"n": "tue-8-32",
+"to": "toby"
+},
+{
+"t": 1170.58,
+"d": 6.048,
+"who": "claudia",
+"n": "tue-8-34",
+"to": "margot"
+},
+{
+"t": 1177.33,
+"d": 2.448,
+"who": "margot",
+"n": "tue-8-35",
+"to": "claudia"
+},
+{
+"t": 1180.48,
+"d": 4.2,
+"who": "claudia",
+"n": "tue-8-36",
+"to": "margot"
+},
+{
+"t": 1203.0,
+"d": 3.24,
+"who": "albert",
+"n": "tue-9-0",
+"to": "margot"
+},
+{
+"t": 1206.94,
+"d": 4.68,
+"who": "margot",
+"n": "tue-9-1",
+"to": "albert"
+},
+{
+"t": 1215.32,
+"d": 8.28,
+"who": "lucy",
+"n": "tue-9-3",
+"to": "claudia"
+},
+{
+"t": 1224.3,
+"d": 5.664,
+"who": "claudia",
+"n": "tue-9-4",
+"to": "lucy"
+},
+{
+"t": 1230.66,
+"d": 7.584,
+"who": "lucy",
+"n": "tue-9-5",
+"to": "claudia"
+},
+{
+"t": 1238.95,
+"d": 2.544,
+"who": "claudia",
+"n": "tue-9-6",
+"to": "lucy"
+},
+{
+"t": 1245.19,
+"d": 5.088,
+"who": "major",
+"n": "tue-9-8",
+"to": "claudia"
+},
+{
+"t": 1250.98,
+"d": 7.848,
+"who": "claudia",
+"n": "tue-9-9",
+"to": "major"
+},
+{
+"t": 1259.53,
+"d": 3.6,
+"who": "major",
+"n": "tue-9-10",
+"to": "claudia"
+},
+{
+"t": 1266.83,
+"d": 5.904,
+"who": "okafor",
+"n": "tue-9-12",
+"to": "all"
+},
+{
+"t": 1273.43,
+"d": 7.56,
+"who": "margot",
+"n": "tue-9-13",
+"to": "okafor"
+},
+{
+"t": 1281.69,
+"d": 2.112,
+"who": "albert",
+"n": "tue-9-14",
+"to": "okafor"
+},
+{
+"t": 1284.5,
+"d": 1.248,
+"who": "okafor",
+"n": "tue-9-15"
+},
+{
+"t": 1289.45,
+"d": 7.152,
+"who": "toby",
+"n": "tue-9-17",
+"to": "claudia"
+},
+{
+"t": 1297.3,
+"d": 7.272,
+"who": "claudia",
+"n": "tue-9-18",
+"to": "toby"
+},
+{
+"t": 1305.28,
+"d": 2.496,
+"who": "toby",
+"n": "tue-9-19",
+"to": "claudia"
+},
+{
+"t": 1308.47,
+"d": 2.52,
+"who": "claudia",
+"n": "tue-9-20",
+"to": "toby"
+},
+{
+"t": 1314.69,
+"d": 5.328,
+"who": "margot",
+"n": "tue-9-22",
+"to": "claudia"
+},
+{
+"t": 1320.72,
+"d": 4.272,
+"who": "claudia",
+"n": "tue-9-23",
+"to": "margot"
+},
+{
+"t": 1325.69,
+"d": 1.32,
+"who": "margot",
+"n": "tue-9-24",
+"to": "claudia"
+},
+{
+"t": 1327.71,
+"d": 5.088,
+"who": "claudia",
+"n": "tue-9-25",
+"to": "margot"
+},
+{
+"t": 1336.5,
+"d": 5.544,
+"who": "major",
+"n": "tue-9-27",
+"to": "margot"
+},
+{
+"t": 1342.74,
+"d": 6.672,
+"who": "margot",
+"n": "tue-9-28",
+"to": "major"
+},
+{
+"t": 1353.12,
+"d": 7.992,
+"who": "lucy",
+"n": "tue-9-30",
+"to": "albert"
+},
+{
+"t": 1361.81,
+"d": 1.152,
+"who": "albert",
+"n": "tue-9-31",
+"do": "show:albert=syringe",
+"to": "margot"
+},
+{
+"t": 1363.66,
+"d": 4.368,
+"who": "albert",
+"n": "tue-9-32"
+},
+{
+"t": 1368.73,
+"d": 4.512,
+"who": "margot",
+"n": "tue-9-33",
+"do": "pocket:albert",
+"to": "albert"
+},
+{
+"t": 1373.94,
+"d": 5.808,
+"who": "albert",
+"n": "tue-9-34",
+"to": "margot"
+},
+{
+"t": 1380.45,
+"d": 2.304,
+"who": "okafor",
+"n": "tue-9-35",
+"to": "albert"
+},
+{
+"t": 1383.45,
+"d": 5.952,
+"who": "albert",
+"n": "tue-9-36",
+"to": "okafor"
+},
+{
+"t": 1390.1,
+"d": 2.832,
+"who": "okafor",
+"n": "tue-9-37",
+"to": "albert"
+},
+{
+"t": 1396.64,
+"d": 2.928,
+"who": "toby",
+"n": "tue-9-39",
+"to": "major"
+},
+{
+"t": 1400.26,
+"d": 7.776,
+"who": "major",
+"n": "tue-9-40",
+"to": "toby"
+},
+{
+"t": 1411.74,
+"d": 7.008,
+"who": "claudia",
+"n": "tue-9-42",
+"to": "all"
+},
+{
+"t": 1419.45,
+"d": 2.208,
+"who": "margot",
+"n": "tue-9-43",
+"to": "claudia"
+},
+{
+"t": 1422.36,
+"d": 3.96,
+"who": "claudia",
+"n": "tue-9-44",
+"to": "margot"
+},
+{
+"t": 1427.02,
+"d": 3.72,
+"who": "margot",
+"n": "tue-9-45",
+"to": "claudia"
+},
+{
+"t": 1431.44,
+"d": 4.44,
+"who": "claudia",
+"n": "tue-9-46",
+"to": "margot"
+},
+{
+"t": 1436.58,
+"d": 5.568,
+"who": "major",
+"n": "tue-9-47",
+"to": "margot"
+},
+{
+"t": 1442.84,
+"d": 3.408,
+"who": "margot",
+"n": "tue-9-48",
+"to": "major"
+},
+{
+"t": 1446.95,
+"d": 4.152,
+"who": "major",
+"n": "tue-9-49",
+"to": "margot"
+},
+{
+"t": 1451.8,
+"d": 6.048,
+"who": "lucy",
+"n": "tue-9-50",
+"to": "okafor"
+},
+{
+"t": 1458.55,
+"d": 5.352,
+"who": "okafor",
+"n": "tue-9-51",
+"to": "lucy"
+},
+{
+"t": 1464.6,
+"d": 4.44,
+"who": "okafor",
+"n": "tue-9-52",
+"to": "margot"
+},
+{
+"t": 1469.74,
+"d": 4.368,
+"who": "margot",
+"n": "tue-9-53",
+"to": "okafor"
+},
+{
+"t": 1475.11,
+"d": 3.312,
+"who": "albert",
+"n": "tue-10-0",
+"to": "margot"
+},
+{
+"t": 1479.12,
+"d": 1.632,
+"who": "margot",
+"n": "tue-10-1",
+"to": "albert"
+},
+{
+"t": 1481.46,
+"d": 3.72,
+"who": "claudia",
+"n": "tue-10-2",
+"to": "all"
+},
+{
+"t": 1485.88,
+"d": 3.96,
+"who": "margot",
+"n": "tue-10-3",
+"to": "claudia"
+},
+{
+"t": 1490.54,
+"d": 8.688,
+"who": "claudia",
+"n": "tue-10-4",
+"to": "all"
+},
+{
+"t": 1499.92,
+"d": 1.536,
+"who": "major",
+"n": "tue-10-5",
+"to": "claudia"
+},
+{
+"t": 1502.16,
+"d": 7.656,
+"who": "claudia",
+"n": "tue-10-6",
+"to": "all"
+},
+{
+"t": 1510.52,
+"d": 2.76,
+"who": "toby",
+"n": "tue-10-7",
+"to": "claudia"
+},
+{
+"t": 1513.98,
+"d": 4.776,
+"who": "claudia",
+"n": "tue-10-8",
+"to": "all"
+},
+{
+"t": 1519.45,
+"d": 4.584,
+"who": "major",
+"n": "tue-10-9",
+"to": "claudia"
+},
+{
+"t": 1524.74,
+"d": 3.888,
+"who": "claudia",
+"n": "tue-10-10",
+"to": "major"
+},
+{
+"t": 1529.32,
+"d": 7.776,
+"who": "claudia",
+"n": "tue-10-11",
+"to": "all"
+},
+{
+"t": 1537.8,
+"d": 2.76,
+"who": "margot",
+"n": "tue-10-12",
+"to": "claudia"
+},
+{
+"t": 1541.26,
+"d": 6.24,
+"who": "claudia",
+"n": "tue-10-13",
+"to": "margot"
+},
+{
+"t": 1548.2,
+"d": 1.848,
+"who": "okafor",
+"n": "tue-10-14",
+"to": "claudia"
+},
+{
+"t": 1550.75,
+"d": 2.424,
+"who": "lucy",
+"n": "tue-10-15",
+"to": "claudia"
+},
+{
+"t": 1553.87,
+"d": 7.08,
+"who": "claudia",
+"n": "tue-10-16",
+"to": "all"
+},
+{
+"t": 1561.65,
+"d": 1.392,
+"who": "margot",
+"n": "tue-10-17",
+"to": "albert"
+},
+{
+"t": 1565.74,
+"d": 3.552,
+"who": "margot",
+"n": "tue-10-19",
+"ev": "dark:18",
+"do": "creep:albert=claudia",
+"to": "all"
+},
+{
+"t": 1570.0,
+"d": 2.76,
+"who": "toby",
+"n": "tue-10-20",
+"to": "all"
+},
+{
+"t": 1573.46,
+"d": 4.368,
+"who": "okafor",
+"n": "tue-10-21",
+"to": "all"
+},
+{
+"t": 1578.52,
+"d": 4.632,
+"who": "lucy",
+"n": "tue-10-22",
+"to": "all"
+},
+{
+"t": 1583.86,
+"d": 5.28,
+"who": "major",
+"n": "tue-10-23",
+"to": "all"
+},
+{
+"t": 1589.84,
+"d": 4.104,
+"who": "toby",
+"n": "tue-10-24",
+"to": "all"
+},
+{
+"t": 1594.64,
+"d": 3.552,
+"who": "margot",
+"n": "tue-10-25",
+"to": "all"
+},
+{
+"t": 1598.89,
+"d": 5.832,
+"who": "lucy",
+"n": "tue-10-26",
+"to": "all"
+},
+{
+"t": 1605.42,
+"d": 4.128,
+"who": "major",
+"n": "tue-10-27",
+"to": "all"
+},
+{
+"t": 1613.25,
+"d": 3.36,
+"who": "lucy",
+"n": "tue-10-29",
+"to": "all"
+},
+{
+"t": 1617.31,
+"d": 1.992,
+"who": "toby",
+"n": "tue-10-30",
+"to": "margot"
+},
+{
+"t": 1620.0,
+"d": 5.4,
+"who": "margot",
+"n": "tue-10-31",
+"to": "toby"
+},
+{
+"t": 1626.1,
+"d": 9.432,
+"who": "okafor",
+"n": "tue-10-32",
+"to": "all"
+},
+{
+"t": 1636.24,
+"d": 4.056,
+"who": "lucy",
+"n": "tue-10-33",
+"ev": "gasp",
+"to": "claudia"
+},
+{
+"t": 1640.99,
+"d": 1.368,
+"who": "major",
+"n": "tue-10-34",
+"do": "go:major",
+"to": "claudia"
+},
+{
+"t": 1646.06,
+"d": 3.336,
+"who": "okafor",
+"n": "tue-10-36",
+"to": "major"
+},
+{
+"t": 1650.1,
+"d": 3.36,
+"who": "major",
+"n": "tue-10-37",
+"do": "home:major",
+"to": "okafor"
+},
+{
+"t": 1654.16,
+"d": 4.296,
+"who": "lucy",
+"n": "tue-10-38",
+"to": "all"
+},
+{
+"t": 1659.15,
+"d": 6.168,
+"who": "major",
+"n": "tue-10-39",
+"to": "all"
+},
+{
+"t": 1666.32,
+"d": 3.072,
+"who": "margot",
+"n": "tue-11-0",
+"to": "major"
+},
+{
+"t": 1670.09,
+"d": 5.784,
+"who": "major",
+"n": "tue-11-1",
+"to": "margot"
+},
+{
+"t": 1676.58,
+"d": 5.568,
+"who": "toby",
+"n": "tue-11-2",
+"to": "major"
+},
+{
+"t": 1682.84,
+"d": 6.12,
+"who": "major",
+"n": "tue-11-3",
+"to": "toby"
+},
+{
+"t": 1689.66,
+"d": 4.368,
+"who": "okafor",
+"n": "tue-11-4",
+"to": "major"
+},
+{
+"t": 1694.73,
+"d": 6.384,
+"who": "major",
+"n": "tue-11-5",
+"to": "okafor"
+},
+{
+"t": 1701.82,
+"d": 4.512,
+"who": "okafor",
+"n": "tue-11-6",
+"to": "major"
+},
+{
+"t": 1707.03,
+"d": 4.248,
+"who": "major",
+"n": "tue-11-7",
+"to": "okafor"
+},
+{
+"t": 1714.98,
+"d": 7.056,
+"who": "major",
+"n": "tue-11-9",
+"do": "up:albert",
+"to": "albert"
+},
+{
+"t": 1722.73,
+"d": 1.488,
+"who": "albert",
+"n": "tue-11-10",
+"to": "major"
+},
+{
+"t": 1727.92,
+"d": 10.848,
+"who": "lucy",
+"n": "tue-11-12",
+"to": "major"
+},
+{
+"t": 1739.47,
+"d": 2.52,
+"who": "major",
+"n": "tue-11-13",
+"to": "lucy"
+},
+{
+"t": 1742.69,
+"d": 9.288,
+"who": "lucy",
+"n": "tue-11-14",
+"ev": "clue:gloves",
+"to": "major"
+},
+{
+"t": 1755.68,
+"d": 9.168,
+"who": "major",
+"n": "tue-11-16",
+"to": "mid"
+},
+{
+"t": 1765.54,
+"d": 9.792,
+"who": "major",
+"n": "tue-11-17",
+"to": "mid"
+},
+{
+"t": 1779.04,
+"d": 12.264,
+"who": "albert",
+"n": "tue-11-19",
+"do": "back:albert",
+"to": "major"
+},
+{
+"t": 1792.0,
+"d": 1.392,
+"who": "albert",
+"n": "tue-11-20",
+"do": "show:albert=syringe",
+"to": "major"
+},
+{
+"t": 1794.09,
+"d": 4.272,
+"who": "okafor",
+"n": "tue-11-21",
+"to": "albert"
+},
+{
+"t": 1799.06,
+"d": 7.248,
+"who": "major",
+"n": "tue-11-22",
+"ev": "clue:syringe",
+"to": "albert"
+},
+{
+"t": 1807.01,
+"d": 3.24,
+"who": "albert",
+"n": "tue-11-23",
+"to": "major"
+},
+{
+"t": 1810.95,
+"d": 7.536,
+"who": "major",
+"n": "tue-11-24",
+"do": "pocket:albert",
+"to": "albert"
+},
+{
+"t": 1822.19,
+"d": 5.592,
+"who": "major",
+"n": "tue-11-26",
+"to": "okafor"
+},
+{
+"t": 1828.48,
+"d": 8.832,
+"who": "okafor",
+"n": "tue-11-27",
+"to": "major"
+},
+{
+"t": 1838.01,
+"d": 4.944,
+"who": "major",
+"n": "tue-11-28",
+"to": "okafor"
+},
+{
+"t": 1843.66,
+"d": 11.856,
+"who": "okafor",
+"n": "tue-11-29",
+"to": "major"
+},
+{
+"t": 1856.21,
+"d": 1.152,
+"who": "major",
+"n": "tue-11-30",
+"to": "okafor"
+},
+{
+"t": 1858.06,
+"d": 6.528,
+"who": "okafor",
+"n": "tue-11-31",
+"to": "major"
+},
+{
+"t": 1868.29,
+"d": 10.8,
+"who": "okafor",
+"n": "tue-11-33",
+"to": "major"
+},
+{
+"t": 1879.79,
+"d": 1.032,
+"who": "major",
+"n": "tue-11-34",
+"to": "okafor"
+},
+{
+"t": 1881.52,
+"d": 9.936,
+"who": "okafor",
+"n": "tue-11-35",
+"to": "major"
+},
+{
+"t": 1905.0,
+"d": 4.68,
+"who": "albert",
+"n": "tue-12-0",
+"to": "margot"
+},
+{
+"t": 1910.38,
+"d": 4.104,
+"who": "margot",
+"n": "tue-12-1",
+"to": "albert"
+},
+{
+"t": 1915.18,
+"d": 5.976,
+"who": "major",
+"n": "tue-12-2",
+"to": "albert"
+},
+{
+"t": 1924.86,
+"d": 5.832,
+"who": "major",
+"n": "tue-12-4",
+"do": "up:major",
+"to": "all"
+},
+{
+"t": 1931.39,
+"d": 2.4,
+"who": "toby",
+"n": "tue-12-5",
+"to": "major"
+},
+{
+"t": 1934.49,
+"d": 4.656,
+"who": "major",
+"n": "tue-12-6",
+"to": "toby"
+},
+{
+"t": 1942.85,
+"d": 3.168,
+"who": "margot",
+"n": "tue-12-8",
+"to": "all"
+},
+{
+"t": 1946.72,
+"d": 4.368,
+"who": "okafor",
+"n": "tue-12-9",
+"to": "margot"
+},
+{
+"t": 1951.78,
+"d": 3.552,
+"who": "margot",
+"n": "tue-12-10",
+"to": "okafor"
+},
+{
+"t": 1956.04,
+"d": 1.728,
+"who": "okafor",
+"n": "tue-12-11",
+"to": "margot"
+},
+{
+"t": 1958.46,
+"d": 3.792,
+"who": "margot",
+"n": "tue-12-12",
+"to": "okafor"
+},
+{
+"t": 1965.96,
+"d": 3.768,
+"who": "major",
+"n": "tue-12-14",
+"do": "back:major",
+"to": "all"
+},
+{
+"t": 1970.42,
+"d": 5.088,
+"who": "major",
+"n": "tue-12-15",
+"to": "all"
+},
+{
+"t": 1976.21,
+"d": 3.0,
+"who": "albert",
+"n": "tue-12-16",
+"to": "major"
+},
+{
+"t": 1979.91,
+"d": 8.712,
+"who": "major",
+"n": "tue-12-17",
+"ev": "clue:switch",
+"to": "all"
+},
+{
+"t": 1989.32,
+"d": 1.632,
+"who": "margot",
+"n": "tue-12-18",
+"to": "major"
+},
+{
+"t": 1991.66,
+"d": 8.112,
+"who": "major",
+"n": "tue-12-19",
+"to": "margot"
+},
+{
+"t": 2000.47,
+"d": 7.08,
+"who": "toby",
+"n": "tue-12-20",
+"to": "major"
+},
+{
+"t": 2008.25,
+"d": 5.112,
+"who": "major",
+"n": "tue-12-21",
+"to": "toby"
+},
+{
+"t": 2017.06,
+"d": 7.488,
+"who": "albert",
+"n": "tue-12-23",
+"to": "major"
+},
+{
+"t": 2025.25,
+"d": 2.688,
+"who": "major",
+"n": "tue-12-24",
+"to": "albert"
+},
+{
+"t": 2028.64,
+"d": 6.36,
+"who": "albert",
+"n": "tue-12-25",
+"to": "major"
+},
+{
+"t": 2035.7,
+"d": 1.752,
+"who": "major",
+"n": "tue-12-26",
+"to": "albert"
+},
+{
+"t": 2038.15,
+"d": 1.632,
+"who": "albert",
+"n": "tue-12-27",
+"to": "major"
+},
+{
+"t": 2046.48,
+"d": 5.856,
+"who": "toby",
+"n": "tue-12-30",
+"to": "major"
+},
+{
+"t": 2053.04,
+"d": 1.92,
+"who": "major",
+"n": "tue-12-31",
+"to": "toby"
+},
+{
+"t": 2055.66,
+"d": 4.248,
+"who": "margot",
+"n": "tue-12-32",
+"to": "toby"
+},
+{
+"t": 2063.6,
+"d": 6.288,
+"who": "lucy",
+"n": "tue-12-34",
+"to": "margot"
+},
+{
+"t": 2070.59,
+"d": 1.632,
+"who": "albert",
+"n": "tue-12-35",
+"to": "margot"
+},
+{
+"t": 2072.92,
+"d": 4.68,
+"who": "margot",
+"n": "tue-12-36",
+"to": "albert"
+},
+{
+"t": 2078.3,
+"d": 1.248,
+"who": "albert",
+"n": "tue-12-37",
+"to": "margot"
+},
+{
+"t": 2083.25,
+"d": 6.432,
+"who": "okafor",
+"n": "tue-12-39",
+"to": "major"
+},
+{
+"t": 2090.38,
+"d": 3.72,
+"who": "major",
+"n": "tue-12-40",
+"to": "okafor"
+},
+{
+"t": 2094.8,
+"d": 15.12,
+"who": "okafor",
+"n": "tue-12-41",
+"to": "major"
+},
+{
+"t": 2110.62,
+"d": 1.992,
+"who": "major",
+"n": "tue-12-42",
+"to": "okafor"
+},
+{
+"t": 2113.32,
+"d": 3.312,
+"who": "okafor",
+"n": "tue-12-43",
+"to": "major"
+},
+{
+"t": 2120.33,
+"d": 4.536,
+"who": "major",
+"n": "tue-12-45",
+"to": "albert"
+},
+{
+"t": 2125.56,
+"d": 3.792,
+"who": "albert",
+"n": "tue-12-46",
+"to": "major"
+},
+{
+"t": 2130.06,
+"d": 9.6,
+"who": "major",
+"n": "tue-12-47",
+"to": "albert"
+},
+{
+"t": 2140.36,
+"d": 5.4,
+"who": "albert",
+"n": "tue-12-48",
+"to": "major"
+},
+{
+"t": 2146.46,
+"d": 14.208,
+"who": "lucy",
+"n": "tue-12-49",
+"to": "major"
+},
+{
+"t": 2164.66,
+"d": 2.496,
+"who": "major",
+"n": "tue-13-0",
+"to": "all"
+},
+{
+"t": 2167.86,
+"d": 14.352,
+"who": "major",
+"n": "tue-13-1",
+"to": "all"
+},
+{
+"t": 2182.91,
+"d": 2.208,
+"who": "albert",
+"n": "tue-13-2",
+"to": "major"
+},
+{
+"t": 2185.82,
+"d": 1.488,
+"who": "major",
+"n": "tue-13-3",
+"to": "albert"
+},
+{
+"t": 2191.01,
+"d": 5.52,
+"who": "major",
+"n": "tue-13-5",
+"to": "mid"
+},
+{
+"t": 2200.23,
+"d": 4.44,
+"who": "margot",
+"n": "tue-13-7",
+"to": "albert"
+},
+{
+"t": 2205.37,
+"d": 2.568,
+"who": "albert",
+"n": "tue-13-8",
+"to": "margot"
+},
+{
+"t": 2208.64,
+"d": 4.512,
+"who": "margot",
+"n": "tue-13-9",
+"to": "albert"
+},
+{
+"t": 2213.85,
+"d": 3.0,
+"who": "albert",
+"n": "tue-13-10",
+"to": "margot"
+},
+{
+"t": 2217.55,
+"d": 4.128,
+"who": "toby",
+"n": "tue-13-11",
+"to": "lucy"
+},
+{
+"t": 2222.38,
+"d": 13.536,
+"who": "lucy",
+"n": "tue-13-12",
+"to": "toby"
+},
+{
+"t": 2236.61,
+"d": 5.232,
+"who": "margot",
+"n": "tue-13-13",
+"to": "lucy"
+},
+{
+"t": 2245.54,
+"d": 2.832,
+"who": "albert",
+"n": "tue-13-15",
+"to": "major"
+},
+{
+"t": 2249.08,
+"d": 1.392,
+"who": "major",
+"n": "tue-13-16",
+"to": "albert"
+},
+{
+"t": 2257.0,
+"d": 3.0,
+"who": "albert",
+"n": "tue-14-0",
+"to": "margot"
+},
+{
+"t": 2260.7,
+"d": 5.136,
+"who": "major",
+"n": "tue-14-1",
+"ev": "lock",
+"to": "mid"
+},
+{
+"t": 2269.54,
+"d": 11.472,
+"who": "major",
+"n": "tue-14-3",
+"to": "all"
+},
+{
+"t": 2281.71,
+"d": 9.24,
+"who": "major",
+"n": "tue-14-4",
+"to": "all"
+},
+{
+"t": 2291.65,
+"d": 7.512,
+"who": "major",
+"n": "tue-14-5",
+"to": "all"
+},
+{
+"t": 2299.86,
+"d": 5.76,
+"who": "major",
+"n": "tue-14-6",
+"to": "all"
+},
+{
+"t": 2306.32,
+"d": 8.184,
+"who": "major",
+"n": "tue-14-7",
+"to": "all"
+},
+{
+"t": 2315.2,
+"d": 7.176,
+"who": "major",
+"n": "tue-14-8",
+"to": "albert"
+},
+{
+"t": 2325.08,
+"d": 0.912,
+"who": "major",
+"n": "tue-14-10",
+"ev": "reveal",
+"to": "albert"
+},
+{
+"t": 2329.69,
+"d": 1.32,
+"who": "albert",
+"n": "tue-14-12",
+"to": "major"
+},
+{
+"t": 2331.71,
+"d": 2.76,
+"who": "margot",
+"n": "tue-14-13",
+"to": "albert"
+},
+{
+"t": 2335.17,
+"d": 6.048,
+"who": "albert",
+"n": "tue-14-14",
+"to": "margot"
+},
+{
+"t": 2341.92,
+"d": 2.112,
+"who": "toby",
+"n": "tue-14-15",
+"to": "albert"
+},
+{
+"t": 2344.73,
+"d": 10.2,
+"who": "albert",
+"n": "tue-14-16",
+"to": "toby"
+},
+{
+"t": 2355.63,
+"d": 1.56,
+"who": "toby",
+"n": "tue-14-17",
+"to": "albert"
+},
+{
+"t": 2357.89,
+"d": 6.6,
+"who": "albert",
+"n": "tue-14-18",
+"to": "toby"
+},
+{
+"t": 2368.19,
+"d": 13.56,
+"who": "margot",
+"n": "tue-14-20",
+"to": "toby"
+},
+{
+"t": 2382.45,
+"d": 0.96,
+"who": "toby",
+"n": "tue-14-21",
+"to": "margot"
+},
+{
+"t": 2384.11,
+"d": 4.92,
+"who": "margot",
+"n": "tue-14-22",
+"to": "toby"
+},
+{
+"t": 2392.73,
+"d": 2.592,
+"who": "major",
+"n": "tue-14-24",
+"to": "albert"
+},
+{
+"t": 2396.02,
+"d": 10.344,
+"who": "albert",
+"n": "tue-14-25",
+"to": "major"
+},
+{
+"t": 2407.07,
+"d": 1.392,
+"who": "margot",
+"n": "tue-14-26",
+"to": "albert"
+},
+{
+"t": 2409.16,
+"d": 8.04,
+"who": "albert",
+"n": "tue-14-27",
+"do": "out:albert",
+"to": "margot"
+},
+{
+"t": 2417.9,
+"d": 1.248,
+"who": "toby",
+"n": "tue-14-28",
+"to": "albert"
+},
+{
+"t": 2423.85,
+"d": 4.92,
+"who": "lucy",
+"n": "tue-14-30",
+"to": "margot"
+},
+{
+"t": 2429.47,
+"d": 6.912,
+"who": "margot",
+"n": "tue-14-31",
+"to": "lucy"
+},
+{
+"t": 2440.08,
+"d": 5.328,
+"who": "okafor",
+"n": "tue-14-33",
+"to": "major"
+},
+{
+"t": 2446.11,
+"d": 8.52,
+"who": "major",
+"n": "tue-14-34",
+"to": "okafor"
+},
+{
+"t": 2455.33,
+"d": 4.416,
+"who": "okafor",
+"n": "tue-14-35",
+"to": "major"
+},
+{
+"t": 2463.44,
+"d": 3.792,
+"who": "toby",
+"n": "tue-14-37",
+"to": "major"
+},
+{
+"t": 2467.94,
+"d": 6.936,
+"who": "major",
+"n": "tue-14-38",
+"to": "toby"
+},
+{
+"t": 2475.57,
+"d": 1.944,
+"who": "toby",
+"n": "tue-14-39",
+"to": "major"
+},
+{
+"t": 2478.22,
+"d": 7.008,
+"who": "major",
+"n": "tue-14-40",
+"to": "toby"
+},
+{
+"t": 2488.92,
+"d": 9.024,
+"who": "lucy",
+"n": "tue-14-42",
+"to": "toby"
+},
+{
+"t": 2498.65,
+"d": 4.416,
+"who": "toby",
+"n": "tue-14-43",
+"to": "lucy"
+},
+{
+"t": 2503.76,
+"d": 5.16,
+"who": "margot",
+"n": "tue-14-44",
+"to": "toby"
+},
+{
+"t": 2512.62,
+"d": 7.248,
+"who": "okafor",
+"n": "tue-14-46",
+"to": "margot"
+},
+{
+"t": 2520.57,
+"d": 8.928,
+"who": "margot",
+"n": "tue-14-47",
+"to": "okafor"
+},
+{
+"t": 2530.2,
+"d": 4.464,
+"who": "major",
+"n": "tue-14-48",
+"to": "margot"
+},
+{
+"t": 2535.36,
+"d": 7.008,
+"who": "margot",
+"n": "tue-14-49",
+"to": "major"
+},
+{
+"t": 2546.07,
+"d": 5.976,
+"who": "toby",
+"n": "tue-14-51",
+"to": "mid"
+},
+{
+"t": 2552.75,
+"d": 7.752,
+"who": "major",
+"n": "tue-14-52",
+"to": "toby"
+},
+{
+"t": 2561.2,
+"d": 3.936,
+"who": "toby",
+"n": "tue-14-53",
+"to": "mid"
+},
+{
+"t": 2568.84,
+"d": 7.344,
+"who": "lucy",
+"n": "tue-14-55",
+"to": "margot"
+},
+{
+"t": 2576.88,
+"d": 5.712,
+"who": "margot",
+"n": "tue-14-56",
+"to": "lucy"
+},
+{
+"t": 2586.29,
+"d": 8.136,
+"who": "toby",
+"n": "tue-14-58",
+"to": "margot"
+},
+{
+"t": 2595.13,
+"d": 8.04,
+"who": "margot",
+"n": "tue-14-59",
+"to": "toby"
+},
+{
+"t": 2603.87,
+"d": 6.432,
+"who": "toby",
+"n": "tue-14-60",
+"to": "margot"
+},
+{
+"t": 2611.0,
+"d": 7.32,
+"who": "margot",
+"n": "tue-14-61",
+"to": "toby"
+},
+{
+"t": 2619.02,
+"d": 2.16,
+"who": "toby",
+"n": "tue-14-62"
+},
+{
+"t": 2624.88,
+"d": 4.008,
+"who": "major",
+"n": "tue-14-64",
+"to": "margot"
+},
+{
+"t": 2629.59,
+"d": 1.872,
+"who": "margot",
+"n": "tue-14-65",
+"to": "major"
+},
+{
+"t": 2632.16,
+"d": 9.816,
+"who": "major",
+"n": "tue-14-66",
+"to": "mid"
+},
+{
+"t": 2642.68,
+"d": 2.928,
+"who": "margot",
+"n": "tue-14-67",
+"to": "major"
+},
+{
+"t": 2646.3,
+"d": 3.744,
+"who": "major",
+"n": "tue-14-68",
+"to": "margot"
+},
+{
+"t": 2650.75,
+"d": 4.752,
+"who": "margot",
+"n": "tue-14-69",
+"to": "major"
+},
+{
+"t": 2659.2,
+"d": 9.192,
+"who": "lucy",
+"n": "tue-14-71",
+"to": "margot"
+},
+{
+"t": 2669.09,
+"d": 5.088,
+"who": "margot",
+"n": "tue-14-72",
+"to": "lucy"
+},
+{
+"t": 2674.88,
+"d": 5.64,
+"who": "lucy",
+"n": "tue-14-73",
+"to": "margot"
+},
+{
+"t": 2684.22,
+"d": 8.088,
+"who": "okafor",
+"n": "tue-14-75",
+"to": "major"
+},
+{
+"t": 2693.01,
+"d": 6.24,
+"who": "major",
+"n": "tue-14-76",
+"to": "okafor"
+},
+{
+"t": 2699.95,
+"d": 4.704,
+"who": "okafor",
+"n": "tue-14-77",
+"to": "major"
+},
+{
+"t": 2705.35,
+"d": 4.896,
+"who": "major",
+"n": "tue-14-78",
+"to": "okafor"
+},
+{
+"t": 2713.95,
+"d": 5.328,
+"who": "toby",
+"n": "tue-14-80",
+"to": "major"
+},
+{
+"t": 2719.98,
+"d": 8.472,
+"who": "major",
+"n": "tue-14-81",
+"to": "toby"
+},
+{
+"t": 2729.15,
+"d": 4.368,
+"who": "margot",
+"n": "tue-14-82",
+"to": "major"
+},
+{
+"t": 2734.22,
+"d": 6.288,
+"who": "major",
+"n": "tue-14-83",
+"to": "margot"
+},
+{
+"t": 2741.2,
+"d": 1.8,
+"who": "margot",
+"n": "tue-14-84"
+},
+{
+"t": 2746.7,
+"d": 5.4,
+"who": "toby",
+"n": "tue-14-86",
+"to": "mid"
+},
+{
+"t": 2752.8,
+"d": 7.968,
+"who": "margot",
+"n": "tue-14-87",
+"to": "toby"
+},
+{
+"t": 2761.47,
+"d": 3.84,
+"who": "toby",
+"n": "tue-14-88",
+"to": "margot"
+},
+{
+"t": 2769.01,
+"d": 11.208,
+"who": "lucy",
+"n": "tue-14-90",
+"to": "mid"
+},
+{
+"t": 2780.92,
+"d": 6.672,
+"who": "margot",
+"n": "tue-14-91",
+"to": "mid"
+},
+{
+"t": 2791.29,
+"d": 3.96,
+"who": "okafor",
+"n": "tue-14-93",
+"to": "margot"
+},
+{
+"t": 2795.95,
+"d": 3.888,
+"who": "margot",
+"n": "tue-14-94",
+"to": "okafor"
+},
+{
+"t": 2800.54,
+"d": 9.84,
+"who": "lucy",
+"n": "tue-14-95",
+"to": "margot"
+},
+{
+"t": 2811.08,
+"d": 4.992,
+"who": "margot",
+"n": "tue-14-96",
+"to": "lucy"
+},
+{
+"t": 2816.77,
+"d": 2.376,
+"who": "major",
+"n": "tue-14-97",
+"to": "margot"
+},
+{
+"t": 2819.85,
+"d": 5.4,
+"who": "margot",
+"n": "tue-14-98",
+"to": "major"
+},
+{
+"t": 2825.95,
+"d": 3.024,
+"who": "major",
+"n": "tue-14-99",
+"to": "margot"
+},
+{
+"t": 2832.67,
+"d": 4.608,
+"who": "toby",
+"n": "tue-14-101",
+"to": "major"
+},
+{
+"t": 2837.98,
+"d": 7.056,
+"who": "major",
+"n": "tue-14-102",
+"to": "toby"
+},
+{
+"t": 2845.74,
+"d": 5.712,
+"who": "margot",
+"n": "tue-14-103",
+"to": "major"
+},
+{
+"t": 2852.15,
+"d": 3.912,
+"who": "major",
+"n": "tue-14-104",
+"to": "margot"
+},
+{
+"t": 2859.76,
+"d": 3.936,
+"who": "okafor",
+"n": "tue-14-106",
+"to": "major"
+},
+{
+"t": 2864.4,
+"d": 7.488,
+"who": "major",
+"n": "tue-14-107",
+"to": "okafor"
+},
+{
+"t": 2872.58,
+"d": 6.36,
+"who": "margot",
+"n": "tue-14-108",
+"to": "all"
+},
+{
+"t": 2879.64,
+"d": 4.272,
+"who": "toby",
+"n": "tue-14-109",
+"to": "margot"
+},
+{
+"t": 2884.62,
+"d": 6.024,
+"who": "margot",
+"n": "tue-14-110",
+"to": "toby"
+},
+{
+"t": 2891.34,
+"d": 7.8,
+"who": "lucy",
+"n": "tue-14-111",
+"to": "mid"
+}
+]
+}

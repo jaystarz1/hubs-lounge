@@ -1,0 +1,61 @@
+{
+  "_": "What the couples in bed say (ambience.js). Each set is a list of exchanges; each exchange a list of [speaker, line], f = her, m = him. '...' in a line is a pause (the fragments are rendered apart and joined with a breath of silence). Clip for a line: talk-<couple>-<set>-<exchange>-<line>.mp3, rendered by lounge-assets/bed-talk.py in that couple's two voices. enter, smoke and leave are the SW tryst only.",
+  "voices": { "sw": { "f": "alba", "m": "marius" }, "ne": { "f": "fantine", "m": "jean" } },
+  "sets": {
+    "enter": [
+      [["m", "There you are."], ["f", "Did you think I wouldn't come?"], ["m", "I was hoping."], ["f", "Come here."]],
+      [["f", "I didn't know you could talk."], ["m", "Only up here."], ["f", "What else don't I know?"], ["m", "Come here... I'll show you."]],
+      [["m", "Did anyone see you?"], ["f", "He was ordering another pint."], ["m", "Then we've got a while."], ["f", "Not that long... kiss me."]],
+      [["f", "You're trouble, you know that?"], ["m", "You followed me up the stairs."], ["f", "I did... didn't I."]]
+    ],
+    "warm": [
+      [["f", "Oh... that's nice."], ["m", "Yeah?"], ["f", "Yeah."]],
+      [["f", "Slow down... there's no rush."]],
+      [["m", "You feel so good."]],
+      [["f", "Kiss me."]],
+      [["m", "Is this okay?"], ["f", "Yes... more than okay."]],
+      [["f", "Oh... right there."]],
+      [["m", "God, you're beautiful."]],
+      [["f", "Your hands are cold."], ["m", "Sorry."], ["f", "Don't be."]],
+      [["m", "Look at me."]],
+      [["f", "Don't stop."]],
+      [["m", "Tell me what you want."], ["f", "Just... this. Keep doing this."]],
+      [["f", "Closer... come closer."]]
+    ],
+    "hot": [
+      [["f", "Don't stop... please don't stop."]],
+      [["m", "Oh god."]],
+      [["f", "Harder."], ["m", "Like this?"], ["f", "Yes... just like that."]],
+      [["f", "Oh... oh god... yes."]],
+      [["m", "I'm close."], ["f", "Not yet... not yet."]],
+      [["f", "Right there... right there."]],
+      [["m", "Fuck... you feel amazing."]],
+      [["f", "Yes... yes... yes."]],
+      [["f", "Faster."]],
+      [["m", "Oh, baby."]],
+      [["f", "I'm gonna come."], ["m", "Come for me."]]
+    ],
+    "finish": [
+      [["f", "Oh god... oh god... yes!"], ["m", "Oh... fuck... yes."]],
+      [["f", "Yes... yes... oh!"], ["m", "Oh god."]],
+      [["m", "I'm coming."], ["f", "Yes... oh, yes."]]
+    ],
+    "after": [
+      [["f", "Wow."], ["m", "Yeah... wow."]],
+      [["f", "That was..."], ["m", "I know."]],
+      [["m", "Come here."], ["f", "Okay."]],
+      [["f", "Again?"], ["m", "Give me a minute."], ["f", "One minute."]],
+      [["m", "You're amazing."], ["f", "You're not so bad yourself."]]
+    ],
+    "smoke": [
+      [["f", "Where did that come from?"], ["m", "A magician never tells."]],
+      [["m", "Want some?"], ["f", "Just one."]],
+      [["f", "He'll be wondering where I am."], ["m", "Tell him you got lost."], ["f", "Upstairs?"]],
+      [["f", "We can't keep doing this."], ["m", "You said that last time."]],
+      [["m", "Five more minutes."], ["f", "Five."]]
+    ],
+    "leave": [
+      [["f", "I'll go down first."], ["m", "Give it a few minutes."], ["f", "Don't be long."]]
+    ]
+  }
+}

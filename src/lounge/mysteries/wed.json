@@ -1,0 +1,3727 @@
+{
+ "_": "Wednesday's case (Jay, 2026-10-24). A year to the night after George Ashdown's heart gave out, his widow lets a medium hold a seance at the duck; the dead man speaks, and his partner doesn't see the cheese. Source of services/hubs/src/lounge/mysteries/wed.json (mystery-script.py).",
+ "title": "THE SEANCE: WHO KILLED HENRY CROFT?",
+ "voices": {
+  "henry": "us-male-p087",
+  "eleanor": "us-female-p092",
+  "freddie": "us-male-ex01",
+  "daisy": "us-female-p045",
+  "pryce": "us-male-p022",
+  "zara": "house-uk",
+  "george": "jay",
+  "parfitt": "us-male-ex03"
+ },
+ "who": {
+  "henry": "DinGa",
+  "eleanor": "DinGb",
+  "freddie": "DinGd",
+  "daisy": "DinGe",
+  "pryce": "DinGf",
+  "zara": "DinGh",
+  "george": "DinGh",
+  "parfitt": "DinButler"
+ },
+ "suspects": [
+  {
+   "id": "eleanor",
+   "name": "ELEANOR ASHDOWN",
+   "role": "the widow"
+  },
+  {
+   "id": "freddie",
+   "name": "FREDDIE ASHDOWN",
+   "role": "the son"
+  },
+  {
+   "id": "pryce",
+   "name": "DOCTOR AMOS PRYCE",
+   "role": "the family doctor"
+  },
+  {
+   "id": "zara",
+   "name": "MADAME ZARA",
+   "role": "the medium"
+  },
+  {
+   "id": "parfitt",
+   "name": "PARFITT",
+   "role": "the butler"
+  }
+ ],
+ "cast": [
+  {
+   "id": "henry",
+   "name": "HENRY CROFT",
+   "role": "George's partner"
+  },
+  {
+   "id": "daisy",
+   "name": "DAISY MERRICK",
+   "role": "The Unseen World magazine"
+  }
+ ],
+ "killer": "eleanor",
+ "gone": [
+  "henry",
+  "eleanor"
+ ],
+ "clues": {
+  "spirit": {
+   "text": "The spirit: I didn't fall. I was helped",
+   "on": [
+    "eleanor",
+    "pryce"
+   ]
+  },
+  "police": {
+   "text": "Henry was going to the police on Thursday",
+   "on": [
+    "eleanor",
+    "freddie"
+   ]
+  },
+  "certificate": {
+   "text": "Pryce signed George's death certificate unseen",
+   "on": [
+    "pryce"
+   ]
+  },
+  "informant": {
+   "text": "Everything Zara knew came from Parfitt",
+   "on": [
+    "zara",
+    "parfitt"
+   ]
+  },
+  "circle": {
+   "text": "A hand left the circle on the far side",
+   "on": [
+    "eleanor",
+    "freddie"
+   ]
+  },
+  "pills": {
+   "text": "George's digitalis bottle is half empty",
+   "on": [
+    "eleanor"
+   ]
+  }
+ },
+ "blocks": [
+  {
+   "at": 4.0,
+   "lines": [
+    [
+     "eleanor",
+     "A year tonight. I'd hoped we'd just have a quiet dinner. Freddie had other ideas.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "freddie",
+     "Father would have wanted it, Eleanor. He always said if he died first he'd come back and complain about the wine.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "henry",
+     "That sounds like George. He complained about the wine at his own wedding.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "eleanor",
+     "Both of his weddings, Henry.",
+     {
+      "to": "henry"
+     }
+    ],
+    [
+     "zara",
+     "Good evening. I am Madame Zara. Don't be frightened. The dead are only people who've stopped interrupting.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "daisy",
+     "Daisy Merrick, Madame. From The Unseen World. My editor sent me to write you up.",
+     {
+      "to": "zara"
+     }
+    ],
+    [
+     "zara",
+     "I know who you are, Miss Merrick. The spirits told me.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "My editor told you, Madame. On Monday. I was listening on the extension.",
+     {
+      "to": "zara"
+     }
+    ],
+    [
+     "pryce",
+     "Eleanor, my dear. How are you bearing up?",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "eleanor",
+     "Better than George, Doctor. He's not bearing up at all.",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "parfitt",
+     "Dinner is served, madam.",
+     {
+      "to": "eleanor"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 78.0,
+   "lines": [
+    [
+     "eleanor",
+     "In, everyone. Henry, you're on my right, where George would have put you.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "henry",
+     "George always put me on his right so he could ignore me with his good ear.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "freddie",
+     "Madame Zara, do you need anything? A crystal ball? A darkened room?",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "zara",
+     "A full plate and an empty chair, young man. The spirits like to see they're expected.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "eleanor",
+     "Sit, please. Parfitt hates a crowd in a doorway.",
+     {
+      "to": "all"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 117.0,
+   "lines": [
+    [
+     "eleanor",
+     "To George. A year tonight.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "henry",
+     "To George.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "freddie",
+     "To Father. Wherever he's got to.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "zara",
+     "He's closer than you think, young man.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "pause",
+     2.0
+    ],
+    [
+     "eleanor",
+     "Our two friends in the middle, you'll want to know who's who. Henry Croft. My husband's partner at Croft and Ashdown, for thirty years.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "henry",
+     "Twenty eight. George always rounded up. It's why we never made money.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "eleanor",
+     "My stepson, Freddie. George's boy from his first marriage. He's twenty four and he believes in ghosts.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "freddie",
+     "I believe in asking questions, Eleanor. It's not the same thing.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "eleanor",
+     "Doctor Amos Pryce. Our doctor, and George's, for twenty years.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "pryce",
+     "And the man who signed the certificate, God help me. Heart failure. On the stairs.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "eleanor",
+     "Madame Zara, who Freddie found in Kensington. She talks to the dead for ten guineas a visit.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "zara",
+     "Fifteen, madam. The dead have put their prices up.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "eleanor",
+     "Miss Merrick, who has come to prove that Madame Zara is a fraud.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "daisy",
+     "I've come to see, that's all. I've been to forty seances. I've met a lot of dead people. All of them had excellent hearing.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "eleanor",
+     "And Parfitt, who has been with this family since before Freddie was born.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "parfitt",
+     "Madam."
+    ]
+   ]
+  },
+  {
+   "at": 190.0,
+   "lines": [
+    [
+     "henry",
+     "Goat's cheese and beetroot. George's favourite. You remembered.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "eleanor",
+     "I remember everything George liked, Henry. It's the things he didn't like I'm trying to forget.",
+     {
+      "to": "henry"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "freddie",
+     "Doctor, the stairs. Father fell down the stairs. Then why did you put heart failure?",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "pryce",
+     "Because his heart failed, Freddie. That's why he fell. Not the other way round.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "freddie",
+     "Did you look? Properly? Did you open him up?",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "pryce",
+     "Freddie, I'd known your father thirty years. One doesn't cut up one's friends.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "freddie",
+     "One does if one's a doctor, Doctor.",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "eleanor",
+     "Freddie, please. Not over the beetroot.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "daisy",
+     "Madame, how does it work? The trance. Do you feel them come in?",
+     {
+      "to": "zara"
+     }
+    ],
+    [
+     "zara",
+     "Like a draught, Miss Merrick. A cold place at the back of the neck. And then I'm not there any more, and somebody else is using my mouth.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "Do they ever use it to say anything useful? A name? A bank? Where they left the will?",
+     {
+      "to": "zara"
+     }
+    ],
+    [
+     "zara",
+     "The dead are not interested in banks, my dear.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "henry",
+     "Then George won't come. George was only interested in banks.",
+     {
+      "to": "zara"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "pryce",
+     "Henry, your heart. Are you taking the drops?",
+     {
+      "to": "henry"
+     }
+    ],
+    [
+     "henry",
+     "Every morning, Pryce. Digitalis. The same as George had. One drop, and I can climb stairs again.",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "pryce",
+     "Not more than one. Not ever.",
+     {
+      "to": "henry"
+     }
+    ],
+    [
+     "henry",
+     "I'm not a fool, Pryce. One. I measure it in a spoon.",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "eleanor",
+     "George measured his too. In a spoon. Every night with his cocoa. I used to make it for him.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "freddie",
+     "Uncle Henry, you were with Father the day before. At the office. Was he ill?",
+     {
+      "to": "henry"
+     }
+    ],
+    [
+     "henry",
+     "He was angry, Freddie. Not ill. Angry. He'd found something out.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "freddie",
+     "What?",
+     {
+      "to": "henry"
+     }
+    ],
+    [
+     "henry",
+     "Later, Freddie. Not at the table.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "daisy",
+     "Parfitt, you must have seen a lot in this house.",
+     {
+      "to": "parfitt"
+     }
+    ],
+    [
+     "parfitt",
+     "I see the silver, miss. And the doors.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "And who goes through them?",
+     {
+      "to": "parfitt"
+     }
+    ],
+    [
+     "parfitt",
+     "That too, miss. It's the job.",
+     {
+      "to": "daisy"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 356.0,
+   "lines": [
+    [
+     "zara",
+     "Mrs Ashdown, your husband. He wore a ring. Gold, with a blue stone. He turned it when he was thinking.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "eleanor",
+     "How did you know that?",
+     {
+      "to": "zara"
+     }
+    ],
+    [
+     "zara",
+     "He's turning it now, madam. Beside you. In the empty chair.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "freddie",
+     "There. You see? You see?",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "daisy",
+     "There's a portrait of Mister Ashdown in the hall, Madame, wearing that ring. I passed it on the way in. So did you.",
+     {
+      "to": "zara"
+     }
+    ],
+    [
+     "zara",
+     "I keep my eyes closed in halls, Miss Merrick. The dead hang about in them.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "henry",
+     "Eleanor, I must say something. Tonight. After the seance, if there's going to be one.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "eleanor",
+     "Must you, Henry?",
+     {
+      "to": "henry"
+     }
+    ],
+    [
+     "henry",
+     "George would want it said. And I'm going to the police on Thursday whether it's said or not.",
+     {
+      "to": "eleanor",
+      "ev": "clue:police"
+     }
+    ],
+    [
+     "pryce",
+     "The police? Henry, what on earth for?",
+     {
+      "to": "henry"
+     }
+    ],
+    [
+     "henry",
+     "For George, Pryce. For George.",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "eleanor",
+     "Henry is tired. Henry has been tired since the funeral.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "henry",
+     "I've been awake since the funeral, Eleanor. It's different.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "freddie",
+     "Miss Merrick, do you really not believe? In anything?",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "I believe in footnotes, Mister Ashdown. And in looking under tables.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "freddie",
+     "What's under tables?",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "Usually a man with a bell, and a very sore knee.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "pryce",
+     "Eleanor, my dear, you're not eating.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "eleanor",
+     "I'm saving myself, Doctor. For the duck. And the dead.",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "zara",
+     "The dead don't eat, madam. But they do like to watch.",
+     {
+      "to": "eleanor"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 482.0,
+   "lines": [
+    [
+     "parfitt",
+     "The soup, madam. Mushroom.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "eleanor",
+     "Thank you, Parfitt.",
+     {
+      "to": "parfitt"
+     }
+    ],
+    [
+     "henry",
+     "Mushroom. George used to say you could tell a good cook by her mushrooms, and a bad wife by her soup.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "eleanor",
+     "George said a great many things, Henry, and you wrote all of them down.",
+     {
+      "to": "henry"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "daisy",
+     "Madame, the empty chair. Who sat there?",
+     {
+      "to": "zara"
+     }
+    ],
+    [
+     "zara",
+     "Nobody tonight. It's laid for him. A plate, a glass, a spoon. He'll come if he's hungry.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "freddie",
+     "He was always hungry.",
+     {
+      "to": "zara"
+     }
+    ],
+    [
+     "zara",
+     "He still is, young man. He's very hungry for something. Not soup.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "pryce",
+     "Freddie, you must stop this. This woman is feeding you nonsense at fifteen guineas a time.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "freddie",
+     "She's the only one who'll talk about him, Doctor. Eleanor won't. You won't. Uncle Henry whispers.",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "henry",
+     "I don't whisper, Freddie. I'm being careful. There's a difference, and it's about to matter.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "daisy",
+     "Parfitt, did Madame Zara visit the house before tonight?",
+     {
+      "to": "parfitt"
+     }
+    ],
+    [
+     "parfitt",
+     "I couldn't say, miss.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "You couldn't, or you won't?",
+     {
+      "to": "parfitt"
+     }
+    ],
+    [
+     "parfitt",
+     "I couldn't say, miss. It's the same thing, in service.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "eleanor",
+     "Madame, how long does it take? The seance. I'd like it over before the cheese.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "zara",
+     "As long as he needs, madam. The dead don't eat cheese, but they're not in a hurry.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "eleanor",
+     "Then we'll do it at the duck. Get it over with.",
+     {
+      "to": "zara"
+     }
+    ],
+    [
+     "zara",
+     "At the duck, madam. With the lights on. I don't hold with darkness. Darkness is for cheats.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "daisy",
+     "Then you'll be the first medium I've ever met who isn't one.",
+     {
+      "to": "zara"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "henry",
+     "Pryce, a word. After dinner. About the certificate.",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "pryce",
+     "Henry, I've told you. Heart failure. I've no doubt of it.",
+     {
+      "to": "henry"
+     }
+    ],
+    [
+     "henry",
+     "I've every doubt of it, Pryce. And so would you, if you'd looked.",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "freddie",
+     "Eleanor, what was Father angry about? That last day. Uncle Henry says he'd found something out.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "eleanor",
+     "Your father was angry every day, Freddie. It was his hobby. Like golf.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "freddie",
+     "He was going to see Uncle Henry's lawyer. On the Monday. He told me on the telephone.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "eleanor",
+     "He died on the Sunday, Freddie. So we'll never know what he wanted, will we.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "zara",
+     "He knows, madam. He knows what he wanted. He's been waiting a year to say so.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "eleanor",
+     "Then he can wait till the duck.",
+     {
+      "to": "zara"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "pryce",
+     "Miss Merrick, you're writing all this down?",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "Shorthand, Doctor. It's how I listen.",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "pryce",
+     "I'd rather you didn't.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "Everybody would rather I didn't, Doctor. It's how I know I'm in the right room.",
+     {
+      "to": "pryce"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 700.0,
+   "lines": [
+    [
+     "parfitt",
+     "Shall I hold the fish, madam? For the seance?",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "eleanor",
+     "No, Parfitt. The fish first. The dead can wait for the trout.",
+     {
+      "to": "parfitt"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "henry",
+     "Eleanor, George's things. Did you keep them? His study. His desk. His pills.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "eleanor",
+     "I kept everything, Henry. I couldn't bear to throw anything away. It's all in his study, exactly as he left it.",
+     {
+      "to": "henry"
+     }
+    ],
+    [
+     "henry",
+     "His digitalis?",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "eleanor",
+     "On his desk, Henry. Where he kept it. Why on earth do you ask?",
+     {
+      "to": "henry"
+     }
+    ],
+    [
+     "henry",
+     "Because I'd like to count it.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "freddie",
+     "Count it? Uncle Henry, what are you saying?",
+     {
+      "to": "henry"
+     }
+    ],
+    [
+     "henry",
+     "I'm saying nothing yet, Freddie. I'm a businessman. I count things before I say them.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "daisy",
+     "Madame, may I ask, how much did Freddie pay you for tonight?",
+     {
+      "to": "zara"
+     }
+    ],
+    [
+     "zara",
+     "My usual, Miss Merrick.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "And on top of your usual?",
+     {
+      "to": "zara"
+     }
+    ],
+    [
+     "zara",
+     "Nothing on top. I'm not a waiter.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "freddie",
+     "I paid her fifteen guineas, Miss Merrick. And an extra five to come on the anniversary.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "And to say what?",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "freddie",
+     "To say what Father says. Whatever that is.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "pryce",
+     "Eleanor, I'd like to go home. This is morbid.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "eleanor",
+     "Sit down, Amos. You signed his certificate. The least you can do is stay for his seance.",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "pryce",
+     "That's unkind, Eleanor.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "eleanor",
+     "It's been a long year, Doctor.",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "parfitt",
+     "Madam, the cook asks if the second chair is to be served.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "eleanor",
+     "Serve it, Parfitt. Serve George. Everything he liked.",
+     {
+      "to": "parfitt"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 829.0,
+   "lines": [
+    [
+     "parfitt",
+     "The trout, madam.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "eleanor",
+     "Thank you, Parfitt.",
+     {
+      "to": "parfitt"
+     }
+    ],
+    [
+     "henry",
+     "Trout. George caught one this big at Hungerford. Then he lied about it for twenty years.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "eleanor",
+     "George lied about everything for twenty years, Henry. The trout was the least of it.",
+     {
+      "to": "henry"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "daisy",
+     "Parfitt, Madame Zara knew about the ring. How?",
+     {
+      "to": "parfitt"
+     }
+    ],
+    [
+     "parfitt",
+     "The portrait in the hall, miss.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "And the cocoa? Mrs Ashdown making his cocoa every night. Madame mentioned cocoa on the terrace. Nobody had told her.",
+     {
+      "to": "parfitt"
+     }
+    ],
+    [
+     "parfitt",
+     "I couldn't say, miss.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "You keep saying that, Parfitt. People who couldn't say usually have.",
+     {
+      "to": "parfitt"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "freddie",
+     "You think she's a fraud. Madame Zara.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "I think every medium is a fraud, Mister Ashdown. The interesting question is who's telling them what to say.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "freddie",
+     "Nobody's telling her anything.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "Then who told her about the cocoa?",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "zara",
+     "The dead told me about the cocoa, Miss Merrick.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "The dead have lovely manners, Madame. They always know the household arrangements.",
+     {
+      "to": "zara"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "henry",
+     "Pryce. Do you remember what George said to you, the week before?",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "pryce",
+     "He said he couldn't sleep. I gave him a draught.",
+     {
+      "to": "henry"
+     }
+    ],
+    [
+     "henry",
+     "He said somebody was putting something in his cocoa.",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "pryce",
+     "He was overtired, Henry. Men his age imagine things.",
+     {
+      "to": "henry"
+     }
+    ],
+    [
+     "henry",
+     "He didn't imagine the taste, Pryce. He told me it tasted bitter. Every night that last week.",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "eleanor",
+     "The cocoa was bitter because George would have it without sugar. Doctor's orders.",
+     {
+      "to": "henry"
+     }
+    ],
+    [
+     "pryce",
+     "That's true. I told him no sugar. For his heart.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "freddie",
+     "Eleanor, did you put anything in Father's cocoa?",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "eleanor",
+     "His drops, Freddie. One drop. Every night. As Doctor Pryce told me to.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "pryce",
+     "As I told her to, Freddie. That's quite correct.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "freddie",
+     "One drop.",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "eleanor",
+     "One drop, Freddie. I measured it in a spoon.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "daisy",
+     "Madame, when the seance starts, may I hold your hand? I like to know where a medium's hands are.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "zara",
+     "You're not next to me, my dear. You'll hold the hand of whoever is. We join all the way round. Even our friends in the middle.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "Then I'll keep my eyes open.",
+     {
+      "to": "zara"
+     }
+    ],
+    [
+     "zara",
+     "Everybody does, Miss Merrick. Nobody admits it.",
+     {
+      "to": "daisy"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 1003.0,
+   "lines": [
+    [
+     "eleanor",
+     "Henry. You said you were going to the police on Thursday. What about?",
+     {
+      "to": "henry"
+     }
+    ],
+    [
+     "henry",
+     "About George, Eleanor. You know what about.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "eleanor",
+     "I'm afraid I don't.",
+     {
+      "to": "henry"
+     }
+    ],
+    [
+     "henry",
+     "Then you'll find out on Thursday. With everybody else.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "pryce",
+     "Henry, if this is about the certificate, I'll speak to the coroner myself. I won't be dragged in by the police.",
+     {
+      "to": "henry"
+     }
+    ],
+    [
+     "henry",
+     "You signed it without looking at him, Pryce. Eleanor telephoned you, and you came round, and he was at the bottom of the stairs, and you signed it in the hall. I was there.",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "pryce",
+     "He was dead, Henry. He'd been dead an hour. What was there to look at?",
+     {
+      "to": "henry"
+     }
+    ],
+    [
+     "henry",
+     "His face, Pryce. His face.",
+     {
+      "to": "pryce",
+      "ev": "clue:certificate"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "freddie",
+     "You didn't look at him?",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "pryce",
+     "Freddie, I'd examined your father every month for twenty years. I knew his heart better than he did.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "freddie",
+     "Then you should have known it hadn't failed on its own.",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "pryce",
+     "I'm a doctor, Freddie. Not a fortune teller. That's Madame's department.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "zara",
+     "Doctor. He's not angry with you. He wants you to know that. He's angry with someone else.",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "pryce",
+     "Madame, please.",
+     {
+      "to": "zara"
+     }
+    ],
+    [
+     "zara",
+     "He says you were tired. He says you'd had a long day, and a glass of sherry, and you only looked at the stairs.",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "pryce",
+     "How could you possibly know about the sherry?",
+     {
+      "to": "zara"
+     }
+    ],
+    [
+     "daisy",
+     "Because Parfitt poured it, Doctor. In the hall. Didn't you, Parfitt?",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "parfitt",
+     "I couldn't say, miss.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "eleanor",
+     "This is grotesque. All of you. Raking over my husband at my own table.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "henry",
+     "It's his table, Eleanor. It's always been his table. You only laid it.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "daisy",
+     "Mister Ashdown, why do you think your father was murdered?",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "freddie",
+     "Because he telephoned me on the Saturday, Miss Merrick, and said, Freddie, if anything happens to me, it wasn't the stairs. And on Sunday it was the stairs.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "Did you tell anyone?",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "freddie",
+     "I told the police. They told me grief makes boys imaginative. So I went to Madame Zara.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "henry",
+     "Eleanor, do you remember the night before? George's last Saturday? He came to my flat at midnight. In his slippers.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "eleanor",
+     "George often went out at midnight, Henry. He said it was for the air.",
+     {
+      "to": "henry"
+     }
+    ],
+    [
+     "henry",
+     "He came for a drink, and to post a letter. He said he couldn't post it from here.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "eleanor",
+     "Why ever not?",
+     {
+      "to": "henry"
+     }
+    ],
+    [
+     "henry",
+     "He didn't say, Eleanor. He just looked at the stairs.",
+     {
+      "to": "eleanor"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 1203.0,
+   "lines": [
+    [
+     "parfitt",
+     "The sorbet, madam. Lime.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "eleanor",
+     "Thank you, Parfitt. Lime. To clean the palate. Before the dead.",
+     {
+      "to": "parfitt"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "zara",
+     "After the duck is served, we begin. Hands on the table. Everybody joins. Nobody lets go. If the circle breaks, he goes.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "henry",
+     "And if he comes?",
+     {
+      "to": "zara"
+     }
+    ],
+    [
+     "zara",
+     "Then you'll hear him, Mister Croft. In my mouth. I'm told it's very disagreeable to watch.",
+     {
+      "to": "henry"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "daisy",
+     "Parfitt, you've been very quiet about Madame Zara. Did she come to the house last week? On Thursday? When Mrs Ashdown was at the dressmaker's?",
+     {
+      "to": "parfitt"
+     }
+    ],
+    [
+     "parfitt",
+     "She came for tea, miss. In the kitchen. She asked about the master.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "And you told her.",
+     {
+      "to": "parfitt"
+     }
+    ],
+    [
+     "parfitt",
+     "She paid me two pounds, miss. And she said the master would want me to. I'm not a clever man. I'm a sad one.",
+     {
+      "to": "daisy",
+      "ev": "clue:informant"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "zara",
+     "Every medium talks to the servants, Miss Merrick. Servants are the only ones who notice anything in a house.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "So everything you know about George Ashdown came from Parfitt's kitchen.",
+     {
+      "to": "zara"
+     }
+    ],
+    [
+     "zara",
+     "Not everything, my dear. Some of it came from George.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "freddie",
+     "You lied to me. I paid you twenty guineas and you lied to me.",
+     {
+      "to": "zara"
+     }
+    ],
+    [
+     "zara",
+     "I told you what was true, young man. I just didn't tell you where I'd heard it.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "pryce",
+     "Eleanor, call it off. The seance. It's a fraud, Miss Merrick has proved it. Let's eat our duck in peace.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "eleanor",
+     "No, Doctor. Let her do it. Let George say his piece, from the kitchen or wherever he's got it. Then we'll all go home.",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "henry",
+     "You're very brave tonight, Eleanor.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "eleanor",
+     "I've had a year to be brave, Henry. I've practised.",
+     {
+      "to": "henry"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "henry",
+     "Freddie, whatever happens tonight. On Thursday I'm going to the police with a letter. Your father's. He wrote it on the Saturday and posted it to me. I got it on the Monday. After.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "freddie",
+     "A letter? What does it say?",
+     {
+      "to": "henry"
+     }
+    ],
+    [
+     "henry",
+     "It says what he told you on the telephone. And it says why.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "eleanor",
+     "Where is this letter, Henry?",
+     {
+      "to": "henry"
+     }
+    ],
+    [
+     "henry",
+     "Safe, Eleanor. Safer than George was.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "daisy",
+     "Mister Croft, why not take it to the police the day you got it? A year ago?",
+     {
+      "to": "henry"
+     }
+    ],
+    [
+     "henry",
+     "Because I wasn't sure, Miss Merrick. A frightened man's letter. And the doctor had signed. And I'm a coward. I'm less of one tonight.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "zara",
+     "The duck is coming. Finish your wine, if you need it. The dead don't like a dry table.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "eleanor",
+     "Parfitt, fill Henry's glass. He'll want it after.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "parfitt",
+     "The waiters have it in hand, madam.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "freddie",
+     "Miss Merrick. If he speaks, will you believe?",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "If he speaks, Mister Ashdown, I'll believe somebody's speaking. I'll want to know who.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "zara",
+     "You're very hard, Miss Merrick. For a girl.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "I'm very hard for a journalist, Madame. For a girl I'm practically granite.",
+     {
+      "to": "zara"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "pryce",
+     "Eleanor, if Henry's heart goes during this nonsense, I'll hold you responsible.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "eleanor",
+     "Henry's heart has been going for ten years, Doctor. You said so. You said he was living on drops and stubbornness.",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "henry",
+     "And claret, Pryce. Don't forget the claret.",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "pryce",
+     "I never forget the claret, Henry. It's in your notes.",
+     {
+      "to": "henry"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 1474.0,
+   "lines": [
+    [
+     "parfitt",
+     "The duck, madam. With cherries.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "eleanor",
+     "Thank you, Parfitt.",
+     {
+      "to": "parfitt"
+     }
+    ],
+    [
+     "zara",
+     "Eat a little. Then hands. The spirits come best to a table that's been fed.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "henry",
+     "George would have come for the duck alone.",
+     {
+      "to": "zara"
+     }
+    ],
+    [
+     "zara",
+     "That's what I'm counting on, Mister Croft.",
+     {
+      "to": "henry"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "pryce",
+     "Henry, your colour's poor. Did you take your drops this morning?",
+     {
+      "to": "henry"
+     }
+    ],
+    [
+     "henry",
+     "One drop, Pryce. In a spoon. I've told you. I'm not George.",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "eleanor",
+     "No, Henry. Nobody's George.",
+     {
+      "to": "henry"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "daisy",
+     "Mister Ashdown, the empty chair. Your father's. Who's on either side of it?",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "freddie",
+     "Nobody. It's at the end. Madame said it had to be at the end so he could see everybody.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "Very convenient. A chair with a view.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "freddie",
+     "Madame, what do I do? If he comes? What do I say to him?",
+     {
+      "to": "zara"
+     }
+    ],
+    [
+     "zara",
+     "Whatever you didn't say at the funeral, young man. Everybody has something.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "freddie",
+     "I didn't say anything at the funeral. I was too angry.",
+     {
+      "to": "zara"
+     }
+    ],
+    [
+     "zara",
+     "Then say that. The dead understand angry. They invented it.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "eleanor",
+     "Madame, if this is a trick, I'll have you prosecuted. Fraudulent mediums are a crime.",
+     {
+      "to": "zara"
+     }
+    ],
+    [
+     "zara",
+     "So is a great deal else, madam. I'll take my chances with the spirits.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "zara",
+     "Now. Hands on the table. Take your neighbours' hands. All the way round. Our friends in the middle too. Nobody lets go until I say.",
+     {
+      "to": "all",
+      "do": "join"
+     }
+    ],
+    [
+     "eleanor",
+     "Henry. Your hand.",
+     {
+      "to": "henry"
+     }
+    ],
+    [
+     "henry",
+     "Your hands are cold, Eleanor.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "eleanor",
+     "Everybody's hands are cold at a seance, Henry.",
+     {
+      "to": "henry"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "zara",
+     "George. George Ashdown. It's a year tonight. Your table is laid. Your family is here. Come in.",
+     {
+      "to": "all",
+      "do": "trance:zara"
+     }
+    ],
+    [
+     "pause",
+     4.0
+    ],
+    [
+     "zara",
+     "There's a draught. Do you feel it? At the back of my neck. He's here.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "freddie",
+     "Father?",
+     {
+      "to": "zara"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "george",
+     "Freddie. My boy.",
+     {
+      "to": "all",
+      "q": 1
+     }
+    ],
+    [
+     "freddie",
+     "That's him. That's his voice. Eleanor, that's his voice.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "george",
+     "I didn't fall. I didn't fall, Freddie. I was helped.",
+     {
+      "to": "all",
+      "ev": "clue:spirit",
+      "do": "slip:eleanor=henry"
+     }
+    ],
+    [
+     "eleanor",
+     "This is wicked. This is a wicked trick.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "george",
+     "Every night. In the cocoa. Bitter. Every night that last week. Henry knows. Henry has my letter.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "henry",
+     "George. George, I'm sorry. I should have gone the day it came.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "george",
+     "Thursday, Henry. Go on Thursday. Don't drink anything you didn't pour.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "zara",
+     "He's going. He's going. Hold on. Don't let go.",
+     {
+      "to": "all",
+      "q": 1
+     }
+    ],
+    [
+     "pause",
+     4.0
+    ],
+    [
+     "zara",
+     "He's gone. You can let go now. He's gone.",
+     {
+      "to": "all",
+      "do": "part"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "freddie",
+     "You all heard it. You all heard him.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "daisy",
+     "I heard a voice, Mister Ashdown. Madame does a very good baritone.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "zara",
+     "I have no memory of it, Miss Merrick. I never do.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "henry",
+     "I need a drink. After that. God help me, I need a drink.",
+     {
+      "to": "all",
+      "do": "sip:henry"
+     }
+    ],
+    [
+     "pryce",
+     "Steady, Henry. Slowly.",
+     {
+      "to": "henry"
+     }
+    ],
+    [
+     "henry",
+     "It's only the claret, Pryce.",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "henry",
+     "Eleanor. That was George. Whatever she is, that was George. And on Thursday...",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "henry",
+     "Pryce. My heart. It's racing. It's never... Pryce, it's George's...",
+     {
+      "to": "pryce",
+      "do": "slump:henry"
+     }
+    ],
+    [
+     "eleanor",
+     "Henry?",
+     {
+      "to": "henry",
+      "ev": "gasp"
+     }
+    ],
+    [
+     "pryce",
+     "Let me through. Let me see him.",
+     {
+      "to": "all",
+      "do": "go:pryce"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "pryce",
+     "Henry. Henry, can you hear me?",
+     {
+      "to": "henry"
+     }
+    ],
+    [
+     "pause",
+     2.0
+    ],
+    [
+     "pryce",
+     "He's dead. His heart. Just like George.",
+     {
+      "to": "all",
+      "do": "home:pryce"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 1700.0,
+   "lines": [
+    [
+     "freddie",
+     "Just like Father. Just exactly like Father.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "eleanor",
+     "It was the shock. He had a weak heart, Doctor, you said so yourself. Madame frightened him to death.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "zara",
+     "I frightened nobody, madam. I'm a medium. Not a murderer.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "daisy",
+     "Nobody touch his glass. Doctor, don't touch his glass.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "pryce",
+     "Miss Merrick, I'm a doctor. I know what I'm doing.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "You signed a certificate in a hall a year ago, Doctor. This time somebody's going to look at him properly. Parfitt, telephone the police.",
+     {
+      "to": "pryce",
+      "do": "up:parfitt"
+     }
+    ],
+    [
+     "parfitt",
+     "Yes, miss.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "freddie",
+     "You think he was poisoned. Like Father.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "I think he drank his wine, Mister Ashdown, and his heart raced and stopped, exactly as your father's was said to. And a voice at this table told him not to drink anything he didn't pour.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "daisy",
+     "You two in the middle. You were part of the circle. You held hands with these people.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "daisy",
+     "There's a board at the end of the table. Put your pin on whoever you think did this. Move it as often as you like. It closes when the pudding comes.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "zara",
+     "The circle broke. Did you feel it? Just before he went. Somebody let go.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "daisy",
+     "I felt it too, Madame. On the far side. The circle went slack for a moment and then it tightened again.",
+     {
+      "to": "zara",
+      "ev": "clue:circle"
+     }
+    ],
+    [
+     "freddie",
+     "Who let go?",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "I had my eyes open, Mister Ashdown. But everybody's hands were in the middle of the table, and the voice was very loud, and I was looking at Madame.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "parfitt",
+     "The police are on their way, miss. And Doctor Pryce's colleague from the hospital.",
+     {
+      "to": "daisy",
+      "do": "back:parfitt"
+     }
+    ],
+    [
+     "daisy",
+     "Thank you, Parfitt.",
+     {
+      "to": "parfitt"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "daisy",
+     "Doctor. Henry took digitalis. One drop. If somebody gave him a great deal more, in his wine, what would it look like?",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "pryce",
+     "Exactly what we saw, Miss Merrick. A racing heart. Then nothing. In an old man with a bad heart, nobody would think twice.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "And a year ago? George took digitalis too. In his cocoa.",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "pryce",
+     "Good God.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "freddie",
+     "Eleanor. Father's digitalis. You kept it. On his desk. You said so.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "eleanor",
+     "I keep everything, Freddie.",
+     {
+      "to": "freddie"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 1905.0,
+   "lines": [
+    [
+     "parfitt",
+     "The cheese, madam. Camembert, and Red Leicester.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "eleanor",
+     "Nobody wants cheese, Parfitt.",
+     {
+      "to": "parfitt"
+     }
+    ],
+    [
+     "daisy",
+     "I want cheese, Parfitt. Thank you. Detectives must eat.",
+     {
+      "to": "parfitt"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "daisy",
+     "Parfitt, will you go up to Mister Ashdown's study, and bring me his bottle of drops? Don't open it.",
+     {
+      "to": "parfitt",
+      "do": "up:parfitt"
+     }
+    ],
+    [
+     "parfitt",
+     "Yes, miss.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "pryce",
+     "Miss Merrick, I prescribed George one bottle a month. He'd had the new bottle three days when he died. It should be nearly full.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "Then let's see how full it is, Doctor.",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "zara",
+     "Miss Merrick, I'll say it now, before the police do. I'm a fraud. Not entirely, but mostly. Parfitt told me about the ring and the cocoa and the stairs. But I never said that the cocoa was bitter. He never told me that.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "Then who did?",
+     {
+      "to": "zara"
+     }
+    ],
+    [
+     "zara",
+     "Nobody, my dear. That's what frightened me.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "parfitt",
+     "The bottle, miss. From the master's desk.",
+     {
+      "to": "daisy",
+      "do": "back:parfitt"
+     }
+    ],
+    [
+     "daisy",
+     "Thank you, Parfitt. Hold it up, would you? Let everyone see.",
+     {
+      "to": "parfitt",
+      "do": "show:parfitt=vial"
+     }
+    ],
+    [
+     "parfitt",
+     "It's half empty, miss. A new bottle, and half of it gone.",
+     {
+      "to": "all",
+      "ev": "clue:pills"
+     }
+    ],
+    [
+     "pryce",
+     "Half a bottle. That's enough to kill a horse. Or two old men.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "daisy",
+     "Put it in your pocket, Parfitt, and keep your hand on it until the police come.",
+     {
+      "to": "parfitt",
+      "do": "pocket:parfitt"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "freddie",
+     "Eleanor. Who goes into Father's study?",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "eleanor",
+     "Nobody, Freddie. It's locked. I have the key. I couldn't bear anybody in there.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "freddie",
+     "Then nobody could have touched that bottle but you.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "eleanor",
+     "Or Parfitt. Parfitt dusts. Or the doctor, he called on Tuesday. Or Madame, who went into every room in this house with her eyes shut.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "daisy",
+     "Mrs Ashdown. At the seance. Who was on your left?",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "eleanor",
+     "Our friend in the middle. I had their hand the whole time.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "And on your right?",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "eleanor",
+     "Henry. Of course. Henry, on my right, where George put him.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "And Henry's glass was on his right. Between you and him.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "eleanor",
+     "I didn't look at Henry's glass, Miss Merrick. I was looking at the medium. Like everybody.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "pryce",
+     "Miss Merrick. I want to say something. I signed George's certificate without looking at him. Eleanor telephoned me, she was very distressed, and I'd had a sherry, and I signed it in the hall. I've thought about it every night since.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "freddie",
+     "Doctor, did Father ever say anything to you? About the cocoa? About Eleanor?",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "pryce",
+     "He said she made it too strong, Freddie. I told him to stop complaining. I've been a fool for a year.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "zara",
+     "Young man, your father's ring. The blue stone. Was he buried with it?",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "freddie",
+     "Eleanor kept it. In the study. With the pills.",
+     {
+      "to": "zara"
+     }
+    ],
+    [
+     "daisy",
+     "Then the police will find that too, Mister Ashdown. Everything she kept, she kept for a reason.",
+     {
+      "to": "freddie"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 2100.0,
+   "lines": [
+    [
+     "daisy",
+     "Mrs Ashdown. Mister Ashdown. Doctor. Madame. Parfitt.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "daisy",
+     "A son who paid a medium to raise his father. A doctor who signed without looking. A medium who bought her ghosts from the kitchen. A butler who sold them. And a widow who made the cocoa.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "parfitt",
+     "I sold nothing to hurt anybody, miss.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "I know, Parfitt.",
+     {
+      "to": "parfitt"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "daisy",
+     "You two in the middle. You held hands with all of them. The board. You have until the pudding.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "freddie",
+     "Doctor, if it was poison. Father. Will they dig him up?",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "pryce",
+     "I'd think so, Freddie. And this time somebody will look at him properly. I'll make sure of it. I'll be there.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "freddie",
+     "Thank you.",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "pryce",
+     "Don't thank me, Freddie. It's a year late.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "eleanor",
+     "Miss Merrick, you think it was me.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "I think you made his cocoa every night, Mrs Ashdown, and kept his pills in a locked room, and held Henry's hand while a voice told him not to drink.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "eleanor",
+     "So did everyone at the table. Hold hands.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "Not on Henry's right.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "eleanor",
+     "I'd like everyone to know that I loved George. Whatever Miss Merrick says.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "daisy",
+     "I'm sure you did, Mrs Ashdown. In your way.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "eleanor",
+     "And what way is that?",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "The way that makes cocoa every night for eleven years. It's a very particular kind.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "zara",
+     "The dead are quiet now. I can feel it. The room is empty of him.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "freddie",
+     "Can you bring him back? After the pudding? I didn't say what I wanted to say.",
+     {
+      "to": "zara"
+     }
+    ],
+    [
+     "zara",
+     "No, young man. They only come once. That's why it matters what you say when they do.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "freddie",
+     "I said I was sorry. I should have said I was angry.",
+     {
+      "to": "zara"
+     }
+    ],
+    [
+     "zara",
+     "He knew, young man. Sons are always angry. Fathers are always surprised.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "parfitt",
+     "The pudding is coming up now, miss.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "Thank you, Parfitt.",
+     {
+      "to": "parfitt"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 2257.0,
+   "lines": [
+    [
+     "parfitt",
+     "Sticky toffee pudding, madam. The master's favourite.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "daisy",
+     "Pudding. Pins down, please. The board is closed.",
+     {
+      "to": "mid",
+      "ev": "lock"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "daisy",
+     "A year ago George Ashdown was poisoned with his own heart drops, a spoonful at a time, in the cocoa his wife made him every night. That's why it tasted bitter. That's why he told Freddie it wasn't the stairs.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "daisy",
+     "Doctor Pryce signed the certificate in the hall, without looking. Nobody looked. And the bottle on George's desk, in a room only one person has a key to, is half empty a year later.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "daisy",
+     "Tonight Henry Croft said he was going to the police on Thursday with George's letter. He said it at the goat's cheese, so that everybody heard.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "daisy",
+     "And at the seance, while we all looked at Madame and listened to a dead man, the circle went slack on the far side. A hand let go of Henry's, and went to his glass, and came back. Henry's glass stood on his right. On Henry's right sat only one person.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "daisy",
+     "You held his hand, and you poured his heart drops into his claret with the other one, and you went back to holding his hand.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "pause",
+     2.0
+    ],
+    [
+     "daisy",
+     "Eleanor Ashdown.",
+     {
+      "to": "eleanor",
+      "ev": "reveal"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "eleanor",
+     "He was going to leave me. George. On the Monday. For a woman in Hungerford with a trout farm. He was going to change his will and leave me with this flat and a pension and a great deal of pity.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "eleanor",
+     "I made his cocoa every night for eleven years. Every night. He never once said thank you. He said it was bitter.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "freddie",
+     "It was bitter.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "eleanor",
+     "It was the last week, Freddie. I'd never have done it if he'd said thank you, just once.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "pryce",
+     "And Henry? Henry never did anything to you.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "eleanor",
+     "Henry was going to the police on Thursday, Doctor. With a letter. I didn't know what it said. I couldn't take the risk. Henry was always so careful.",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "daisy",
+     "Mrs Ashdown, the police are on the stairs. Parfitt will take you down to meet them.",
+     {
+      "to": "eleanor",
+      "do": "up:parfitt"
+     }
+    ],
+    [
+     "eleanor",
+     "I'll go on my own, Miss Merrick. I know where the stairs are. George found them first.",
+     {
+      "to": "daisy",
+      "do": "out:eleanor"
+     }
+    ],
+    [
+     "freddie",
+     "Eleanor.",
+     {
+      "to": "eleanor"
+     }
+    ],
+    [
+     "eleanor",
+     "Goodnight, Freddie. You were right. You were always right. It's very tiresome.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "pause",
+     4.0
+    ],
+    [
+     "zara",
+     "Young man. I'm sorry. I didn't know. I swear to you, I didn't know. I thought I was selling you a little comfort.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "freddie",
+     "You sold me my father's voice, Madame. Whoever did it. I'll take it. I'm keeping the receipt.",
+     {
+      "to": "zara"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "daisy",
+     "Mister Ashdown, the voice. At the seance. Do you still believe it was him?",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "freddie",
+     "Do you?",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "I've been to forty seances, and that's the first one where the dead man told the truth. I'm going to have to write that down and I don't know which column to put it in.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "pryce",
+     "Miss Merrick, I'll resign. Tomorrow. I'll write to the board.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "Don't resign, Doctor. Look. From now on, look at everybody. Properly. That's the only penance worth anything.",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "pryce",
+     "You're very young to be so hard.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "I'm very young to have been to forty seances, Doctor. It hardens you.",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "parfitt",
+     "Mrs Ashdown is with the police, miss. In the hall. She asked for her coat. The blue one. The master bought it.",
+     {
+      "to": "daisy",
+      "do": "back:parfitt"
+     }
+    ],
+    [
+     "daisy",
+     "Thank you, Parfitt. You were a great help tonight, in the end.",
+     {
+      "to": "parfitt"
+     }
+    ],
+    [
+     "parfitt",
+     "I sold the master's secrets for two pounds, miss. I'll give it back. To the hospital. In his name.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "Give it to Freddie, Parfitt. He paid twenty guineas for the same information.",
+     {
+      "to": "parfitt"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "freddie",
+     "Doctor, I'd like you to look at Uncle Henry. Properly. Before they take him. Please.",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "pryce",
+     "I will, Freddie. Every inch. I'll sign nothing until I have.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "zara",
+     "May I say something? Before I go back to Kensington and my fifteen guineas? The cold place at the back of my neck. During the seance. It was real. I've never felt it before.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "daisy",
+     "Madame, I'm a sceptic.",
+     {
+      "to": "zara"
+     }
+    ],
+    [
+     "zara",
+     "So am I, my dear. That's why it frightened me.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "freddie",
+     "Miss Merrick, will you write it all? The magazine? Father, and Uncle Henry, and the circle?",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "All of it, Mister Ashdown. And the trout.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "freddie",
+     "The trout?",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "A woman in Hungerford with a trout farm, who's been waiting a year for a man who didn't come. Somebody should tell her. I think I'll go myself.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "freddie",
+     "Miss Merrick, Uncle Henry's letter. Father's letter. He said it was safe. He didn't say where.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "Where did your uncle keep things he didn't want lost, Mister Ashdown?",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "freddie",
+     "In his hat. Always. Tickets, cheques, his reading glasses. Father used to say Henry's hat was the only bank in London that never failed.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "Parfitt. Mister Croft's hat. In the hall. Bring it, please.",
+     {
+      "to": "parfitt",
+      "do": "up:parfitt"
+     }
+    ],
+    [
+     "parfitt",
+     "At once, miss.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "zara",
+     "Young man, I'll give you back your twenty guineas. All of it.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "freddie",
+     "Keep it, Madame. Buy a bigger crystal ball. You'll need it after Miss Merrick's magazine comes out.",
+     {
+      "to": "zara"
+     }
+    ],
+    [
+     "zara",
+     "I'll need a new name after Miss Merrick's magazine comes out.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "daisy",
+     "I'll spell the old one correctly, Madame. It's the least I can do.",
+     {
+      "to": "zara"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "pryce",
+     "Miss Merrick, may I ask. Why journalism? Why seances?",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "My father died when I was twelve, Doctor. My mother went to a medium every week for three years. She spent everything we had on him. He did very good voices.",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "pryce",
+     "I'm sorry.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "Don't be. It made me what I am. Very rude, and very hard to fool.",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "parfitt",
+     "Mister Croft's hat, sir. There was a letter in the lining. Addressed to Mister Croft, in the master's hand.",
+     {
+      "to": "freddie",
+      "do": "back:parfitt"
+     }
+    ],
+    [
+     "freddie",
+     "Hold it up for me, Parfitt. Please. My hands are shaking.",
+     {
+      "to": "parfitt",
+      "do": "show:parfitt=letters"
+     }
+    ],
+    [
+     "daisy",
+     "Read it, Mister Ashdown. Aloud, if you can. It's evidence, and it's yours.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "freddie",
+     "Henry. If anything happens to me, it wasn't the stairs, and it wasn't my heart. It's the cocoa. It's been bitter for a week. I'm going to see your lawyer on Monday. Look after my boy. Look after Parfitt. George.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "freddie",
+     "Look after Parfitt.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "parfitt",
+     "Sir.",
+     {
+      "to": "freddie",
+      "do": "pocket:parfitt"
+     }
+    ],
+    [
+     "freddie",
+     "You're staying, Parfitt. With me. If you'll have me. I can't make cocoa.",
+     {
+      "to": "parfitt"
+     }
+    ],
+    [
+     "parfitt",
+     "I'll make it, sir. I'll make it myself. Every night.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "daisy",
+     "Your father was right about everything, Mister Ashdown. Every word. A year early.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "freddie",
+     "And nobody listened. Except a medium in Kensington who heard it from the kitchen.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "And you. You listened. You paid twenty guineas to listen. That's more than the police did.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "freddie",
+     "Miss Merrick. Hungerford. The trout farm. Will you really go?",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "On Saturday. Somebody owes her the truth, and the police won't think of it. They never think of the other woman.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "freddie",
+     "May I come? I'd like to meet her. She was going to be my stepmother. Again.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "You may carry my notebook, Mister Ashdown. That's a great honour. Nobody's ever carried it.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "freddie",
+     "Freddie. Please. Everybody who's been to a seance with me calls me Freddie.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "Daisy, then. But I'm still writing you up.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "pryce",
+     "Freddie, your father. When they look at him. I'll be there, in the room. I'll tell you everything. Whatever it is.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "freddie",
+     "Thank you, Doctor. I'd rather know. I've had a year of not knowing. It's worse.",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "parfitt",
+     "Sir. The master's study. Shall I unlock it, tomorrow? Air it?",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "freddie",
+     "Open the windows, Parfitt. All of them. And throw away the cocoa.",
+     {
+      "to": "parfitt"
+     }
+    ],
+    [
+     "parfitt",
+     "All of it, sir?",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "freddie",
+     "Every tin in the house, Parfitt. We're a coffee family now.",
+     {
+      "to": "parfitt"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "zara",
+     "Miss Merrick, the cold place at the back of my neck. It's gone now. Since she went down the stairs.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "daisy",
+     "I expect it was the draught from the stairs, Madame.",
+     {
+      "to": "zara"
+     }
+    ],
+    [
+     "zara",
+     "I expect it was, my dear. Write it down that way. It's kinder.",
+     {
+      "to": "daisy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "pryce",
+     "Freddie, your father's funeral. I said a few words. I said he died peacefully.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "freddie",
+     "You said he died at home, surrounded by the people who loved him.",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "pryce",
+     "I said that. God forgive me, I said that.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "freddie",
+     "It was half true, Doctor. He was at home.",
+     {
+      "to": "pryce"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "parfitt",
+     "Sir, the master's cocoa tins. Shall I really throw them all away? There's one he never opened.",
+     {
+      "to": "freddie"
+     }
+    ],
+    [
+     "freddie",
+     "Give that one to the police, Parfitt. Unopened. Let somebody else taste it for once.",
+     {
+      "to": "parfitt"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "pryce",
+     "I need a drink. One I've watched being poured.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "daisy",
+     "Downstairs. The Rovers. All of you. The police will want this room, and I want a pint, and I want to watch the barman's hands the entire time.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "freddie",
+     "Will you come down? Both of you? I don't want to sit with these people and pretend nothing happened. I'd rather sit with people who saw it.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "zara",
+     "And bring your coats, my dears. There's a draught on the stairs tonight. I'd swear there is.",
+     {
+      "to": "mid"
+     }
+    ]
+   ]
+  }
+ ]
+}

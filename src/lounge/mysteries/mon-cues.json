@@ -1,0 +1,3210 @@
+{
+"_": "Written by lounge-assets/mystery-talk.py build from mon.json: each line's start (t) and length (d) in seconds on the dinner clock.",
+"cues": [
+{
+"t": 4.0,
+"d": 5.88,
+"who": "augusta",
+"n": "mon-0-0",
+"to": "all"
+},
+{
+"t": 10.58,
+"d": 4.32,
+"who": "bertie",
+"n": "mon-0-1",
+"to": "augusta"
+},
+{
+"t": 15.6,
+"d": 7.536,
+"who": "augusta",
+"n": "mon-0-2",
+"to": "bertie"
+},
+{
+"t": 23.84,
+"d": 4.704,
+"who": "vivienne",
+"n": "mon-0-3",
+"to": "augusta"
+},
+{
+"t": 29.24,
+"d": 3.696,
+"who": "augusta",
+"n": "mon-0-4",
+"to": "vivienne"
+},
+{
+"t": 33.64,
+"d": 8.16,
+"who": "julian",
+"n": "mon-0-5",
+"to": "augusta"
+},
+{
+"t": 42.5,
+"d": 5.424,
+"who": "augusta",
+"n": "mon-0-6",
+"to": "julian"
+},
+{
+"t": 48.62,
+"d": 3.96,
+"who": "pell",
+"n": "mon-0-7",
+"to": "augusta"
+},
+{
+"t": 53.28,
+"d": 7.176,
+"who": "augusta",
+"n": "mon-0-8",
+"to": "all"
+},
+{
+"t": 61.16,
+"d": 4.584,
+"who": "pell",
+"n": "mon-0-9",
+"to": "augusta"
+},
+{
+"t": 66.44,
+"d": 6.048,
+"who": "augusta",
+"n": "mon-0-10",
+"to": "pell"
+},
+{
+"t": 73.19,
+"d": 1.776,
+"who": "morton",
+"n": "mon-0-11",
+"to": "augusta"
+},
+{
+"t": 78.0,
+"d": 6.648,
+"who": "augusta",
+"n": "mon-1-0",
+"to": "all"
+},
+{
+"t": 85.35,
+"d": 2.52,
+"who": "julian",
+"n": "mon-1-1",
+"to": "augusta"
+},
+{
+"t": 88.57,
+"d": 4.776,
+"who": "bertie",
+"n": "mon-1-2",
+"to": "pell"
+},
+{
+"t": 94.04,
+"d": 3.96,
+"who": "pell",
+"n": "mon-1-3",
+"to": "bertie"
+},
+{
+"t": 98.7,
+"d": 4.416,
+"who": "vivienne",
+"n": "mon-1-4",
+"to": "all"
+},
+{
+"t": 103.82,
+"d": 3.528,
+"who": "pell",
+"n": "mon-1-5",
+"to": "vivienne"
+},
+{
+"t": 108.05,
+"d": 6.84,
+"who": "augusta",
+"n": "mon-1-6",
+"to": "all"
+},
+{
+"t": 117.0,
+"d": 8.016,
+"who": "augusta",
+"n": "mon-2-0",
+"to": "all"
+},
+{
+"t": 125.72,
+"d": 5.808,
+"who": "julian",
+"n": "mon-2-1",
+"to": "augusta"
+},
+{
+"t": 134.22,
+"d": 6.864,
+"who": "augusta",
+"n": "mon-2-3",
+"to": "mid"
+},
+{
+"t": 141.79,
+"d": 10.008,
+"who": "augusta",
+"n": "mon-2-4",
+"to": "mid"
+},
+{
+"t": 152.5,
+"d": 2.712,
+"who": "bertie",
+"n": "mon-2-5",
+"to": "mid"
+},
+{
+"t": 155.91,
+"d": 10.416,
+"who": "augusta",
+"n": "mon-2-6",
+"to": "mid"
+},
+{
+"t": 167.02,
+"d": 2.184,
+"who": "vivienne",
+"n": "mon-2-7",
+"to": "mid"
+},
+{
+"t": 169.91,
+"d": 7.008,
+"who": "augusta",
+"n": "mon-2-8",
+"to": "mid"
+},
+{
+"t": 177.62,
+"d": 8.52,
+"who": "augusta",
+"n": "mon-2-9",
+"to": "mid"
+},
+{
+"t": 186.84,
+"d": 5.136,
+"who": "pippa",
+"n": "mon-2-10",
+"to": "mid"
+},
+{
+"t": 192.67,
+"d": 7.44,
+"who": "augusta",
+"n": "mon-2-11",
+"to": "mid"
+},
+{
+"t": 200.81,
+"d": 1.272,
+"who": "morton",
+"n": "mon-2-12"
+},
+{
+"t": 203.08,
+"d": 7.584,
+"who": "bertie",
+"n": "mon-3-0",
+"to": "pell"
+},
+{
+"t": 211.37,
+"d": 5.856,
+"who": "augusta",
+"n": "mon-3-1",
+"to": "bertie"
+},
+{
+"t": 217.92,
+"d": 2.64,
+"who": "bertie",
+"n": "mon-3-2"
+},
+{
+"t": 223.26,
+"d": 3.264,
+"who": "vivienne",
+"n": "mon-3-4",
+"to": "pell"
+},
+{
+"t": 227.23,
+"d": 4.488,
+"who": "pell",
+"n": "mon-3-5",
+"to": "vivienne"
+},
+{
+"t": 232.42,
+"d": 2.496,
+"who": "vivienne",
+"n": "mon-3-6",
+"to": "augusta"
+},
+{
+"t": 235.61,
+"d": 5.832,
+"who": "augusta",
+"n": "mon-3-7",
+"to": "vivienne"
+},
+{
+"t": 242.14,
+"d": 1.632,
+"who": "julian",
+"n": "mon-3-8",
+"to": "augusta"
+},
+{
+"t": 244.48,
+"d": 4.152,
+"who": "augusta",
+"n": "mon-3-9",
+"to": "julian"
+},
+{
+"t": 252.33,
+"d": 8.952,
+"who": "bertie",
+"n": "mon-3-11",
+"to": "mid"
+},
+{
+"t": 261.98,
+"d": 2.832,
+"who": "pippa",
+"n": "mon-3-12",
+"to": "bertie"
+},
+{
+"t": 265.51,
+"d": 8.616,
+"who": "bertie",
+"n": "mon-3-13",
+"to": "pippa"
+},
+{
+"t": 274.83,
+"d": 4.848,
+"who": "augusta",
+"n": "mon-3-14",
+"to": "bertie"
+},
+{
+"t": 280.38,
+"d": 5.112,
+"who": "bertie",
+"n": "mon-3-15"
+},
+{
+"t": 289.19,
+"d": 4.824,
+"who": "julian",
+"n": "mon-3-17",
+"to": "pippa"
+},
+{
+"t": 294.71,
+"d": 5.952,
+"who": "pippa",
+"n": "mon-3-18",
+"to": "julian"
+},
+{
+"t": 301.36,
+"d": 3.48,
+"who": "bertie",
+"n": "mon-3-19",
+"to": "pippa"
+},
+{
+"t": 308.54,
+"d": 3.552,
+"who": "vivienne",
+"n": "mon-3-21",
+"to": "pell"
+},
+{
+"t": 312.8,
+"d": 8.016,
+"who": "augusta",
+"n": "mon-3-22",
+"to": "vivienne"
+},
+{
+"t": 321.51,
+"d": 2.808,
+"who": "pell",
+"n": "mon-3-23",
+"to": "augusta"
+},
+{
+"t": 328.02,
+"d": 5.184,
+"who": "julian",
+"n": "mon-3-25",
+"to": "bertie"
+},
+{
+"t": 333.9,
+"d": 1.92,
+"who": "bertie",
+"n": "mon-3-26",
+"to": "julian"
+},
+{
+"t": 336.52,
+"d": 3.936,
+"who": "julian",
+"n": "mon-3-27",
+"to": "bertie"
+},
+{
+"t": 341.16,
+"d": 3.744,
+"who": "augusta",
+"n": "mon-3-28",
+"to": "julian"
+},
+{
+"t": 345.6,
+"d": 5.088,
+"who": "pippa",
+"n": "mon-3-29",
+"to": "julian"
+},
+{
+"t": 351.39,
+"d": 7.152,
+"who": "augusta",
+"n": "mon-3-30",
+"to": "pippa"
+},
+{
+"t": 359.54,
+"d": 5.328,
+"who": "pell",
+"n": "mon-4-0",
+"to": "augusta"
+},
+{
+"t": 365.57,
+"d": 3.288,
+"who": "augusta",
+"n": "mon-4-1",
+"to": "pell"
+},
+{
+"t": 369.56,
+"d": 3.384,
+"who": "pell",
+"n": "mon-4-2",
+"to": "augusta"
+},
+{
+"t": 373.64,
+"d": 3.72,
+"who": "morton",
+"n": "mon-4-3",
+"to": "pell"
+},
+{
+"t": 378.06,
+"d": 2.664,
+"who": "pell",
+"n": "mon-4-4",
+"to": "morton"
+},
+{
+"t": 384.43,
+"d": 3.936,
+"who": "vivienne",
+"n": "mon-4-6",
+"to": "julian"
+},
+{
+"t": 389.06,
+"d": 4.152,
+"who": "julian",
+"n": "mon-4-7",
+"to": "vivienne"
+},
+{
+"t": 396.92,
+"d": 2.424,
+"who": "augusta",
+"n": "mon-4-9",
+"to": "bertie"
+},
+{
+"t": 400.04,
+"d": 4.488,
+"who": "bertie",
+"n": "mon-4-10",
+"to": "augusta"
+},
+{
+"t": 405.23,
+"d": 3.0,
+"who": "morton",
+"n": "mon-4-11",
+"to": "bertie"
+},
+{
+"t": 408.93,
+"d": 3.96,
+"who": "bertie",
+"n": "mon-4-12"
+},
+{
+"t": 416.59,
+"d": 7.656,
+"who": "augusta",
+"n": "mon-4-14",
+"to": "mid"
+},
+{
+"t": 424.94,
+"d": 4.488,
+"who": "vivienne",
+"n": "mon-4-15",
+"to": "mid"
+},
+{
+"t": 430.13,
+"d": 3.312,
+"who": "augusta",
+"n": "mon-4-16",
+"to": "vivienne"
+},
+{
+"t": 437.14,
+"d": 6.744,
+"who": "julian",
+"n": "mon-4-18",
+"to": "pell"
+},
+{
+"t": 444.59,
+"d": 2.808,
+"who": "pell",
+"n": "mon-4-19",
+"to": "julian"
+},
+{
+"t": 448.1,
+"d": 7.008,
+"who": "julian",
+"n": "mon-4-20",
+"to": "pell"
+},
+{
+"t": 455.8,
+"d": 2.064,
+"who": "pell",
+"n": "mon-4-21",
+"to": "julian"
+},
+{
+"t": 461.57,
+"d": 4.992,
+"who": "pippa",
+"n": "mon-4-23",
+"to": "augusta"
+},
+{
+"t": 467.26,
+"d": 4.632,
+"who": "augusta",
+"n": "mon-4-24",
+"to": "pippa"
+},
+{
+"t": 482.0,
+"d": 3.072,
+"who": "morton",
+"n": "mon-5-0",
+"to": "augusta"
+},
+{
+"t": 485.77,
+"d": 6.024,
+"who": "augusta",
+"n": "mon-5-1",
+"to": "morton"
+},
+{
+"t": 492.5,
+"d": 2.76,
+"who": "pell",
+"n": "mon-5-2",
+"to": "augusta"
+},
+{
+"t": 495.96,
+"d": 6.6,
+"who": "augusta",
+"n": "mon-5-3",
+"to": "pell"
+},
+{
+"t": 503.26,
+"d": 4.104,
+"who": "pell",
+"n": "mon-5-4",
+"do": "show:pell=will",
+"to": "all"
+},
+{
+"t": 508.06,
+"d": 2.904,
+"who": "pell",
+"n": "mon-5-5",
+"do": "pages:pell"
+},
+{
+"t": 511.66,
+"d": 1.992,
+"who": "augusta",
+"n": "mon-5-6",
+"to": "pell"
+},
+{
+"t": 514.36,
+"d": 3.936,
+"who": "pell",
+"n": "mon-5-7",
+"to": "all"
+},
+{
+"t": 518.99,
+"d": 2.496,
+"who": "vivienne",
+"n": "mon-5-8"
+},
+{
+"t": 522.19,
+"d": 5.496,
+"who": "pell",
+"n": "mon-5-9",
+"to": "all"
+},
+{
+"t": 528.38,
+"d": 1.008,
+"who": "vivienne",
+"n": "mon-5-10",
+"to": "augusta"
+},
+{
+"t": 530.09,
+"d": 5.568,
+"who": "pell",
+"n": "mon-5-11",
+"to": "all"
+},
+{
+"t": 536.36,
+"d": 3.0,
+"who": "julian",
+"n": "mon-5-12",
+"to": "augusta"
+},
+{
+"t": 540.06,
+"d": 4.824,
+"who": "pell",
+"n": "mon-5-13",
+"to": "all"
+},
+{
+"t": 545.58,
+"d": 4.56,
+"who": "bertie",
+"n": "mon-5-14",
+"to": "augusta"
+},
+{
+"t": 550.84,
+"d": 4.368,
+"who": "pell",
+"n": "mon-5-15",
+"to": "all"
+},
+{
+"t": 555.91,
+"d": 1.776,
+"who": "morton",
+"n": "mon-5-16",
+"to": "augusta"
+},
+{
+"t": 558.39,
+"d": 5.088,
+"who": "pell",
+"n": "mon-5-17",
+"to": "pippa"
+},
+{
+"t": 564.18,
+"d": 7.224,
+"who": "pippa",
+"n": "mon-5-18",
+"to": "pell"
+},
+{
+"t": 572.1,
+"d": 5.976,
+"who": "pell",
+"n": "mon-5-19",
+"to": "all"
+},
+{
+"t": 578.78,
+"d": 3.408,
+"who": "julian",
+"n": "mon-5-20",
+"to": "augusta"
+},
+{
+"t": 582.88,
+"d": 3.384,
+"who": "augusta",
+"n": "mon-5-21",
+"to": "julian"
+},
+{
+"t": 586.97,
+"d": 3.96,
+"who": "vivienne",
+"n": "mon-5-22",
+"to": "augusta"
+},
+{
+"t": 591.63,
+"d": 5.424,
+"who": "augusta",
+"n": "mon-5-23",
+"to": "vivienne"
+},
+{
+"t": 597.75,
+"d": 4.392,
+"who": "pell",
+"n": "mon-5-24",
+"to": "all"
+},
+{
+"t": 602.84,
+"d": 3.984,
+"who": "pell",
+"n": "mon-5-25",
+"to": "augusta"
+},
+{
+"t": 607.53,
+"d": 2.712,
+"who": "augusta",
+"n": "mon-5-26",
+"to": "pell"
+},
+{
+"t": 610.94,
+"d": 6.528,
+"who": "pell",
+"n": "mon-5-27",
+"do": "slump:pell",
+"to": "augusta"
+},
+{
+"t": 618.17,
+"d": 1.488,
+"who": "vivienne",
+"n": "mon-5-28",
+"ev": "gasp",
+"to": "pell"
+},
+{
+"t": 620.36,
+"d": 3.264,
+"who": "augusta",
+"n": "mon-5-29",
+"do": "go:pippa",
+"to": "pippa"
+},
+{
+"t": 627.32,
+"d": 4.056,
+"who": "pippa",
+"n": "mon-5-31",
+"to": "augusta"
+},
+{
+"t": 632.08,
+"d": 2.904,
+"who": "julian",
+"n": "mon-5-32",
+"to": "pell"
+},
+{
+"t": 635.68,
+"d": 1.8,
+"who": "augusta",
+"n": "mon-5-33",
+"do": "home:pippa",
+"to": "all"
+},
+{
+"t": 640.18,
+"d": 3.12,
+"who": "vivienne",
+"n": "mon-5-35",
+"to": "augusta"
+},
+{
+"t": 644.0,
+"d": 9.384,
+"who": "augusta",
+"n": "mon-5-36",
+"do": "up:morton",
+"to": "all"
+},
+{
+"t": 654.08,
+"d": 1.392,
+"who": "morton",
+"n": "mon-5-37"
+},
+{
+"t": 659.18,
+"d": 5.568,
+"who": "bertie",
+"n": "mon-5-39",
+"to": "augusta"
+},
+{
+"t": 665.44,
+"d": 7.704,
+"who": "augusta",
+"n": "mon-5-40",
+"to": "bertie"
+},
+{
+"t": 673.85,
+"d": 1.392,
+"who": "julian",
+"n": "mon-5-41",
+"to": "augusta"
+},
+{
+"t": 675.94,
+"d": 6.216,
+"who": "augusta",
+"n": "mon-5-42",
+"to": "all"
+},
+{
+"t": 682.86,
+"d": 4.68,
+"who": "vivienne",
+"n": "mon-5-43",
+"to": "augusta"
+},
+{
+"t": 688.24,
+"d": 7.224,
+"who": "augusta",
+"n": "mon-5-44",
+"to": "vivienne"
+},
+{
+"t": 700.0,
+"d": 3.6,
+"who": "vivienne",
+"n": "mon-6-0",
+"to": "augusta"
+},
+{
+"t": 704.3,
+"d": 4.272,
+"who": "augusta",
+"n": "mon-6-1",
+"to": "vivienne"
+},
+{
+"t": 711.27,
+"d": 4.128,
+"who": "julian",
+"n": "mon-6-3",
+"to": "augusta"
+},
+{
+"t": 716.1,
+"d": 6.96,
+"who": "augusta",
+"n": "mon-6-4",
+"to": "julian"
+},
+{
+"t": 723.76,
+"d": 3.648,
+"who": "bertie",
+"n": "mon-6-5",
+"to": "augusta"
+},
+{
+"t": 728.11,
+"d": 5.376,
+"who": "augusta",
+"n": "mon-6-6",
+"to": "bertie"
+},
+{
+"t": 737.18,
+"d": 5.088,
+"who": "augusta",
+"n": "mon-6-8",
+"to": "mid"
+},
+{
+"t": 742.97,
+"d": 7.992,
+"who": "augusta",
+"n": "mon-6-9",
+"to": "mid"
+},
+{
+"t": 751.66,
+"d": 4.92,
+"who": "augusta",
+"n": "mon-6-10",
+"to": "mid"
+},
+{
+"t": 757.28,
+"d": 3.48,
+"who": "vivienne",
+"n": "mon-6-11",
+"to": "augusta"
+},
+{
+"t": 761.46,
+"d": 4.8,
+"who": "augusta",
+"n": "mon-6-12",
+"to": "vivienne"
+},
+{
+"t": 769.96,
+"d": 5.04,
+"who": "bertie",
+"n": "mon-6-14",
+"to": "augusta"
+},
+{
+"t": 775.7,
+"d": 4.56,
+"who": "augusta",
+"n": "mon-6-15",
+"to": "bertie"
+},
+{
+"t": 780.96,
+"d": 1.488,
+"who": "julian",
+"n": "mon-6-16",
+"to": "all"
+},
+{
+"t": 783.15,
+"d": 6.408,
+"who": "augusta",
+"n": "mon-6-17",
+"to": "julian"
+},
+{
+"t": 793.26,
+"d": 5.736,
+"who": "morton",
+"n": "mon-6-19",
+"do": "back:morton",
+"to": "augusta"
+},
+{
+"t": 799.7,
+"d": 4.608,
+"who": "augusta",
+"n": "mon-6-20",
+"to": "morton"
+},
+{
+"t": 805.0,
+"d": 2.232,
+"who": "morton",
+"n": "mon-6-21",
+"to": "augusta"
+},
+{
+"t": 807.94,
+"d": 6.024,
+"who": "augusta",
+"n": "mon-6-22",
+"to": "morton"
+},
+{
+"t": 814.66,
+"d": 3.24,
+"who": "bertie",
+"n": "mon-6-23",
+"to": "augusta"
+},
+{
+"t": 818.6,
+"d": 6.672,
+"who": "augusta",
+"n": "mon-6-24",
+"to": "bertie"
+},
+{
+"t": 829.0,
+"d": 1.56,
+"who": "morton",
+"n": "mon-7-0",
+"to": "augusta"
+},
+{
+"t": 831.26,
+"d": 2.328,
+"who": "augusta",
+"n": "mon-7-1",
+"to": "bertie"
+},
+{
+"t": 834.29,
+"d": 1.248,
+"who": "bertie",
+"n": "mon-7-2",
+"to": "augusta"
+},
+{
+"t": 836.24,
+"d": 4.704,
+"who": "augusta",
+"n": "mon-7-3",
+"to": "bertie"
+},
+{
+"t": 841.64,
+"d": 11.904,
+"who": "bertie",
+"n": "mon-7-4",
+"to": "augusta"
+},
+{
+"t": 854.24,
+"d": 3.144,
+"who": "augusta",
+"n": "mon-7-5",
+"to": "bertie"
+},
+{
+"t": 858.09,
+"d": 4.656,
+"who": "bertie",
+"n": "mon-7-6",
+"to": "augusta"
+},
+{
+"t": 866.44,
+"d": 9.936,
+"who": "augusta",
+"n": "mon-7-8",
+"to": "all"
+},
+{
+"t": 877.08,
+"d": 4.104,
+"who": "julian",
+"n": "mon-7-9",
+"to": "augusta"
+},
+{
+"t": 881.88,
+"d": 7.92,
+"who": "augusta",
+"n": "mon-7-10",
+"to": "julian"
+},
+{
+"t": 893.5,
+"d": 5.688,
+"who": "vivienne",
+"n": "mon-7-12",
+"to": "augusta"
+},
+{
+"t": 899.89,
+"d": 4.872,
+"who": "augusta",
+"n": "mon-7-13",
+"to": "vivienne"
+},
+{
+"t": 905.46,
+"d": 1.632,
+"who": "julian",
+"n": "mon-7-14",
+"to": "augusta"
+},
+{
+"t": 907.8,
+"d": 8.328,
+"who": "augusta",
+"n": "mon-7-15",
+"ev": "clue:thumb",
+"to": "all"
+},
+{
+"t": 918.82,
+"d": 2.28,
+"who": "bertie",
+"n": "mon-7-17",
+"to": "augusta"
+},
+{
+"t": 921.8,
+"d": 6.048,
+"who": "augusta",
+"n": "mon-7-18",
+"ev": "clue:nicotine",
+"to": "all"
+},
+{
+"t": 928.55,
+"d": 4.2,
+"who": "pippa",
+"n": "mon-7-19",
+"to": "augusta"
+},
+{
+"t": 936.45,
+"d": 3.744,
+"who": "augusta",
+"n": "mon-7-21",
+"to": "all"
+},
+{
+"t": 940.9,
+"d": 2.76,
+"who": "vivienne",
+"n": "mon-7-22",
+"to": "augusta"
+},
+{
+"t": 944.36,
+"d": 3.984,
+"who": "augusta",
+"n": "mon-7-23",
+"to": "vivienne"
+},
+{
+"t": 949.04,
+"d": 8.136,
+"who": "pippa",
+"n": "mon-7-24",
+"to": "augusta"
+},
+{
+"t": 957.88,
+"d": 2.112,
+"who": "augusta",
+"n": "mon-7-25",
+"to": "pippa"
+},
+{
+"t": 960.69,
+"d": 6.768,
+"who": "pippa",
+"n": "mon-7-26",
+"to": "augusta"
+},
+{
+"t": 968.16,
+"d": 7.032,
+"who": "augusta",
+"n": "mon-7-27",
+"ev": "clue:typed",
+"to": "all"
+},
+{
+"t": 978.89,
+"d": 8.304,
+"who": "julian",
+"n": "mon-7-29",
+"to": "augusta"
+},
+{
+"t": 987.89,
+"d": 2.352,
+"who": "augusta",
+"n": "mon-7-30",
+"to": "julian"
+},
+{
+"t": 990.94,
+"d": 5.568,
+"who": "julian",
+"n": "mon-7-31",
+"to": "augusta"
+},
+{
+"t": 1003.0,
+"d": 2.952,
+"who": "augusta",
+"n": "mon-8-0",
+"to": "vivienne"
+},
+{
+"t": 1006.65,
+"d": 4.68,
+"who": "vivienne",
+"n": "mon-8-1",
+"to": "augusta"
+},
+{
+"t": 1012.03,
+"d": 2.208,
+"who": "augusta",
+"n": "mon-8-2",
+"to": "vivienne"
+},
+{
+"t": 1014.94,
+"d": 4.752,
+"who": "vivienne",
+"n": "mon-8-3",
+"to": "augusta"
+},
+{
+"t": 1020.39,
+"d": 4.248,
+"who": "augusta",
+"n": "mon-8-4",
+"to": "all"
+},
+{
+"t": 1028.34,
+"d": 6.456,
+"who": "bertie",
+"n": "mon-8-6",
+"to": "augusta"
+},
+{
+"t": 1035.5,
+"d": 5.376,
+"who": "augusta",
+"n": "mon-8-7",
+"to": "bertie"
+},
+{
+"t": 1041.57,
+"d": 4.056,
+"who": "julian",
+"n": "mon-8-8",
+"to": "all"
+},
+{
+"t": 1046.33,
+"d": 8.304,
+"who": "augusta",
+"n": "mon-8-9",
+"ev": "clue:cutout",
+"to": "julian"
+},
+{
+"t": 1058.33,
+"d": 5.328,
+"who": "pippa",
+"n": "mon-8-11",
+"to": "augusta"
+},
+{
+"t": 1064.36,
+"d": 4.008,
+"who": "augusta",
+"n": "mon-8-12",
+"to": "pippa"
+},
+{
+"t": 1069.07,
+"d": 5.832,
+"who": "morton",
+"n": "mon-8-13",
+"to": "augusta"
+},
+{
+"t": 1075.6,
+"d": 5.28,
+"who": "augusta",
+"n": "mon-8-14",
+"to": "morton"
+},
+{
+"t": 1081.58,
+"d": 4.656,
+"who": "morton",
+"n": "mon-8-15",
+"to": "augusta"
+},
+{
+"t": 1086.94,
+"d": 5.4,
+"who": "pippa",
+"n": "mon-8-16",
+"to": "augusta"
+},
+{
+"t": 1093.04,
+"d": 2.784,
+"who": "augusta",
+"n": "mon-8-17",
+"ev": "clue:accounts",
+"to": "pippa"
+},
+{
+"t": 1099.52,
+"d": 5.136,
+"who": "vivienne",
+"n": "mon-8-19",
+"to": "morton"
+},
+{
+"t": 1105.36,
+"d": 5.28,
+"who": "morton",
+"n": "mon-8-20",
+"to": "vivienne"
+},
+{
+"t": 1111.34,
+"d": 3.552,
+"who": "pippa",
+"n": "mon-8-21"
+},
+{
+"t": 1118.59,
+"d": 5.64,
+"who": "bertie",
+"n": "mon-8-23",
+"to": "augusta"
+},
+{
+"t": 1124.93,
+"d": 2.424,
+"who": "augusta",
+"n": "mon-8-24",
+"to": "bertie"
+},
+{
+"t": 1131.05,
+"d": 8.4,
+"who": "julian",
+"n": "mon-8-26",
+"to": "augusta"
+},
+{
+"t": 1140.15,
+"d": 4.872,
+"who": "augusta",
+"n": "mon-8-27",
+"to": "julian"
+},
+{
+"t": 1145.72,
+"d": 4.872,
+"who": "julian",
+"n": "mon-8-28",
+"to": "augusta"
+},
+{
+"t": 1154.3,
+"d": 5.352,
+"who": "vivienne",
+"n": "mon-8-30",
+"to": "mid"
+},
+{
+"t": 1160.35,
+"d": 4.08,
+"who": "augusta",
+"n": "mon-8-31",
+"to": "vivienne"
+},
+{
+"t": 1165.13,
+"d": 8.928,
+"who": "julian",
+"n": "mon-8-32",
+"to": "augusta"
+},
+{
+"t": 1174.76,
+"d": 3.696,
+"who": "augusta",
+"n": "mon-8-33",
+"to": "julian"
+},
+{
+"t": 1179.15,
+"d": 4.128,
+"who": "bertie",
+"n": "mon-8-34",
+"to": "augusta"
+},
+{
+"t": 1183.98,
+"d": 7.584,
+"who": "augusta",
+"n": "mon-8-35",
+"to": "bertie"
+},
+{
+"t": 1192.26,
+"d": 3.648,
+"who": "morton",
+"n": "mon-8-36",
+"to": "augusta"
+},
+{
+"t": 1203.0,
+"d": 3.24,
+"who": "morton",
+"n": "mon-9-0",
+"to": "augusta"
+},
+{
+"t": 1206.94,
+"d": 1.368,
+"who": "augusta",
+"n": "mon-9-1",
+"to": "morton"
+},
+{
+"t": 1209.01,
+"d": 3.792,
+"who": "pippa",
+"n": "mon-9-2",
+"to": "augusta"
+},
+{
+"t": 1213.5,
+"d": 5.592,
+"who": "augusta",
+"n": "mon-9-3",
+"to": "pippa"
+},
+{
+"t": 1222.79,
+"d": 7.512,
+"who": "bertie",
+"n": "mon-9-5",
+"to": "augusta"
+},
+{
+"t": 1231.0,
+"d": 2.232,
+"who": "augusta",
+"n": "mon-9-6",
+"to": "bertie"
+},
+{
+"t": 1233.94,
+"d": 7.32,
+"who": "bertie",
+"n": "mon-9-7",
+"to": "augusta"
+},
+{
+"t": 1241.96,
+"d": 4.08,
+"who": "pippa",
+"n": "mon-9-8",
+"to": "bertie"
+},
+{
+"t": 1246.74,
+"d": 3.216,
+"who": "bertie",
+"n": "mon-9-9",
+"to": "pippa"
+},
+{
+"t": 1253.65,
+"d": 2.784,
+"who": "augusta",
+"n": "mon-9-11",
+"to": "bertie"
+},
+{
+"t": 1257.14,
+"d": 8.424,
+"who": "bertie",
+"n": "mon-9-12",
+"to": "augusta"
+},
+{
+"t": 1269.26,
+"d": 5.88,
+"who": "vivienne",
+"n": "mon-9-14",
+"to": "augusta"
+},
+{
+"t": 1275.84,
+"d": 8.496,
+"who": "augusta",
+"n": "mon-9-15",
+"to": "vivienne"
+},
+{
+"t": 1288.04,
+"d": 9.912,
+"who": "julian",
+"n": "mon-9-17",
+"to": "augusta"
+},
+{
+"t": 1298.65,
+"d": 6.6,
+"who": "augusta",
+"n": "mon-9-18",
+"to": "julian"
+},
+{
+"t": 1305.95,
+"d": 4.272,
+"who": "julian",
+"n": "mon-9-19",
+"to": "augusta"
+},
+{
+"t": 1310.92,
+"d": 1.92,
+"who": "augusta",
+"n": "mon-9-20",
+"to": "julian"
+},
+{
+"t": 1316.54,
+"d": 7.344,
+"who": "pippa",
+"n": "mon-9-22",
+"to": "augusta"
+},
+{
+"t": 1324.58,
+"d": 2.544,
+"who": "augusta",
+"n": "mon-9-23",
+"to": "pippa"
+},
+{
+"t": 1330.83,
+"d": 4.128,
+"who": "morton",
+"n": "mon-9-25",
+"to": "augusta"
+},
+{
+"t": 1335.66,
+"d": 3.096,
+"who": "augusta",
+"n": "mon-9-26",
+"to": "morton"
+},
+{
+"t": 1339.45,
+"d": 1.392,
+"who": "bertie",
+"n": "mon-9-27"
+},
+{
+"t": 1344.54,
+"d": 3.144,
+"who": "vivienne",
+"n": "mon-9-29",
+"to": "augusta"
+},
+{
+"t": 1348.39,
+"d": 10.8,
+"who": "augusta",
+"n": "mon-9-30",
+"to": "vivienne"
+},
+{
+"t": 1362.89,
+"d": 6.0,
+"who": "julian",
+"n": "mon-9-32",
+"to": "bertie"
+},
+{
+"t": 1369.59,
+"d": 7.8,
+"who": "bertie",
+"n": "mon-9-33",
+"to": "julian"
+},
+{
+"t": 1378.09,
+"d": 2.352,
+"who": "augusta",
+"n": "mon-9-34",
+"to": "bertie"
+},
+{
+"t": 1381.14,
+"d": 9.84,
+"who": "bertie",
+"n": "mon-9-35",
+"to": "augusta"
+},
+{
+"t": 1394.68,
+"d": 6.768,
+"who": "pippa",
+"n": "mon-9-37",
+"to": "augusta"
+},
+{
+"t": 1402.15,
+"d": 1.32,
+"who": "augusta",
+"n": "mon-9-38",
+"to": "pippa"
+},
+{
+"t": 1404.17,
+"d": 6.288,
+"who": "pippa",
+"n": "mon-9-39",
+"to": "augusta"
+},
+{
+"t": 1414.16,
+"d": 9.0,
+"who": "augusta",
+"n": "mon-9-41",
+"to": "all"
+},
+{
+"t": 1423.86,
+"d": 2.112,
+"who": "pippa",
+"n": "mon-9-42",
+"to": "augusta"
+},
+{
+"t": 1426.67,
+"d": 3.936,
+"who": "augusta",
+"n": "mon-9-43",
+"to": "pippa"
+},
+{
+"t": 1431.3,
+"d": 1.32,
+"who": "vivienne",
+"n": "mon-9-44",
+"to": "augusta"
+},
+{
+"t": 1433.32,
+"d": 7.296,
+"who": "augusta",
+"n": "mon-9-45",
+"to": "vivienne"
+},
+{
+"t": 1441.32,
+"d": 4.128,
+"who": "bertie",
+"n": "mon-9-46",
+"to": "augusta"
+},
+{
+"t": 1446.15,
+"d": 6.144,
+"who": "augusta",
+"n": "mon-9-47",
+"to": "bertie"
+},
+{
+"t": 1452.99,
+"d": 1.68,
+"who": "julian",
+"n": "mon-9-48",
+"to": "pippa"
+},
+{
+"t": 1455.37,
+"d": 3.072,
+"who": "pippa",
+"n": "mon-9-49",
+"to": "julian"
+},
+{
+"t": 1459.14,
+"d": 4.848,
+"who": "julian",
+"n": "mon-9-50",
+"to": "pippa"
+},
+{
+"t": 1464.69,
+"d": 2.424,
+"who": "augusta",
+"n": "mon-9-51",
+"to": "julian"
+},
+{
+"t": 1467.82,
+"d": 3.408,
+"who": "julian",
+"n": "mon-9-52",
+"to": "augusta"
+},
+{
+"t": 1474.0,
+"d": 2.904,
+"who": "morton",
+"n": "mon-10-0",
+"to": "augusta"
+},
+{
+"t": 1477.6,
+"d": 1.32,
+"who": "bertie",
+"n": "mon-10-1"
+},
+{
+"t": 1479.62,
+"d": 1.848,
+"who": "augusta",
+"n": "mon-10-2",
+"to": "bertie"
+},
+{
+"t": 1485.17,
+"d": 6.168,
+"who": "augusta",
+"n": "mon-10-4",
+"to": "vivienne"
+},
+{
+"t": 1492.04,
+"d": 6.096,
+"who": "vivienne",
+"n": "mon-10-5",
+"to": "augusta"
+},
+{
+"t": 1498.84,
+"d": 2.472,
+"who": "augusta",
+"n": "mon-10-6",
+"to": "vivienne"
+},
+{
+"t": 1502.01,
+"d": 4.176,
+"who": "vivienne",
+"n": "mon-10-7",
+"to": "augusta"
+},
+{
+"t": 1506.88,
+"d": 3.408,
+"who": "morton",
+"n": "mon-10-8"
+},
+{
+"t": 1513.99,
+"d": 2.28,
+"who": "julian",
+"n": "mon-10-10",
+"to": "augusta"
+},
+{
+"t": 1516.97,
+"d": 1.056,
+"who": "augusta",
+"n": "mon-10-11",
+"to": "julian"
+},
+{
+"t": 1518.73,
+"d": 9.72,
+"who": "julian",
+"n": "mon-10-12",
+"to": "augusta"
+},
+{
+"t": 1529.15,
+"d": 4.464,
+"who": "augusta",
+"n": "mon-10-13",
+"to": "julian"
+},
+{
+"t": 1534.31,
+"d": 5.064,
+"who": "bertie",
+"n": "mon-10-14",
+"to": "augusta"
+},
+{
+"t": 1540.08,
+"d": 6.864,
+"who": "augusta",
+"n": "mon-10-15"
+},
+{
+"t": 1550.64,
+"d": 10.68,
+"who": "augusta",
+"n": "mon-10-17",
+"to": "all"
+},
+{
+"t": 1562.02,
+"d": 4.92,
+"who": "pippa",
+"n": "mon-10-18",
+"to": "augusta"
+},
+{
+"t": 1567.64,
+"d": 4.536,
+"who": "bertie",
+"n": "mon-10-19",
+"to": "pippa"
+},
+{
+"t": 1575.88,
+"d": 5.232,
+"who": "augusta",
+"n": "mon-10-21",
+"to": "pippa"
+},
+{
+"t": 1581.81,
+"d": 5.016,
+"who": "pippa",
+"n": "mon-10-22",
+"to": "augusta"
+},
+{
+"t": 1587.52,
+"d": 5.928,
+"who": "augusta",
+"n": "mon-10-23",
+"to": "pippa"
+},
+{
+"t": 1594.15,
+"d": 2.208,
+"who": "morton",
+"n": "mon-10-24",
+"to": "augusta"
+},
+{
+"t": 1597.06,
+"d": 5.016,
+"who": "pippa",
+"n": "mon-10-25",
+"ev": "clue:touch",
+"to": "augusta"
+},
+{
+"t": 1605.78,
+"d": 3.12,
+"who": "bertie",
+"n": "mon-10-27",
+"to": "augusta"
+},
+{
+"t": 1609.6,
+"d": 7.416,
+"who": "augusta",
+"n": "mon-10-28",
+"to": "bertie"
+},
+{
+"t": 1618.01,
+"d": 6.24,
+"who": "augusta",
+"n": "mon-11-0",
+"to": "morton"
+},
+{
+"t": 1624.95,
+"d": 5.064,
+"who": "morton",
+"n": "mon-11-1",
+"to": "augusta"
+},
+{
+"t": 1630.72,
+"d": 3.192,
+"who": "augusta",
+"n": "mon-11-2",
+"to": "morton"
+},
+{
+"t": 1634.61,
+"d": 6.816,
+"who": "morton",
+"n": "mon-11-3",
+"to": "augusta"
+},
+{
+"t": 1642.12,
+"d": 5.592,
+"who": "pippa",
+"n": "mon-11-4",
+"to": "augusta"
+},
+{
+"t": 1648.42,
+"d": 9.504,
+"who": "augusta",
+"n": "mon-11-5",
+"to": "pippa"
+},
+{
+"t": 1661.62,
+"d": 4.488,
+"who": "vivienne",
+"n": "mon-11-7",
+"to": "pippa"
+},
+{
+"t": 1666.81,
+"d": 11.328,
+"who": "pippa",
+"n": "mon-11-8",
+"to": "vivienne"
+},
+{
+"t": 1678.84,
+"d": 4.248,
+"who": "augusta",
+"n": "mon-11-9",
+"to": "pippa"
+},
+{
+"t": 1686.78,
+"d": 9.552,
+"who": "pippa",
+"n": "mon-11-11",
+"to": "augusta"
+},
+{
+"t": 1697.04,
+"d": 4.44,
+"who": "augusta",
+"n": "mon-11-12",
+"to": "pippa"
+},
+{
+"t": 1702.18,
+"d": 2.52,
+"who": "pippa",
+"n": "mon-11-13",
+"to": "augusta"
+},
+{
+"t": 1705.4,
+"d": 4.944,
+"who": "augusta",
+"n": "mon-11-14",
+"to": "pippa"
+},
+{
+"t": 1714.04,
+"d": 7.872,
+"who": "morton",
+"n": "mon-11-16",
+"to": "augusta"
+},
+{
+"t": 1722.61,
+"d": 6.336,
+"who": "augusta",
+"n": "mon-11-17",
+"to": "morton"
+},
+{
+"t": 1729.95,
+"d": 1.944,
+"who": "vivienne",
+"n": "mon-12-0",
+"to": "augusta"
+},
+{
+"t": 1732.59,
+"d": 4.224,
+"who": "augusta",
+"n": "mon-12-1",
+"to": "vivienne"
+},
+{
+"t": 1737.52,
+"d": 7.68,
+"who": "vivienne",
+"n": "mon-12-2",
+"to": "augusta"
+},
+{
+"t": 1745.9,
+"d": 0.984,
+"who": "augusta",
+"n": "mon-12-3",
+"to": "vivienne"
+},
+{
+"t": 1747.58,
+"d": 6.672,
+"who": "vivienne",
+"n": "mon-12-4",
+"to": "augusta"
+},
+{
+"t": 1754.95,
+"d": 1.944,
+"who": "augusta",
+"n": "mon-12-5",
+"to": "vivienne"
+},
+{
+"t": 1757.6,
+"d": 3.312,
+"who": "vivienne",
+"n": "mon-12-6",
+"to": "augusta"
+},
+{
+"t": 1764.61,
+"d": 8.808,
+"who": "julian",
+"n": "mon-12-8",
+"to": "augusta"
+},
+{
+"t": 1774.12,
+"d": 1.776,
+"who": "augusta",
+"n": "mon-12-9",
+"to": "julian"
+},
+{
+"t": 1776.59,
+"d": 5.472,
+"who": "julian",
+"n": "mon-12-10",
+"to": "augusta"
+},
+{
+"t": 1785.76,
+"d": 3.384,
+"who": "pippa",
+"n": "mon-12-12",
+"to": "augusta"
+},
+{
+"t": 1789.85,
+"d": 4.344,
+"who": "augusta",
+"n": "mon-12-13",
+"to": "pippa"
+},
+{
+"t": 1797.89,
+"d": 1.896,
+"who": "morton",
+"n": "mon-12-15",
+"to": "augusta"
+},
+{
+"t": 1800.49,
+"d": 4.68,
+"who": "augusta",
+"n": "mon-12-16",
+"to": "morton"
+},
+{
+"t": 1805.87,
+"d": 8.76,
+"who": "morton",
+"n": "mon-12-17",
+"to": "augusta"
+},
+{
+"t": 1815.33,
+"d": 5.808,
+"who": "pippa",
+"n": "mon-12-18",
+"to": "morton"
+},
+{
+"t": 1821.84,
+"d": 4.608,
+"who": "augusta",
+"n": "mon-12-19",
+"to": "morton"
+},
+{
+"t": 1827.44,
+"d": 3.792,
+"who": "augusta",
+"n": "mon-13-0",
+"to": "all"
+},
+{
+"t": 1831.94,
+"d": 5.28,
+"who": "augusta",
+"n": "mon-13-1",
+"to": "all"
+},
+{
+"t": 1837.92,
+"d": 11.064,
+"who": "augusta",
+"n": "mon-13-2",
+"to": "all"
+},
+{
+"t": 1849.68,
+"d": 1.968,
+"who": "bertie",
+"n": "mon-13-3",
+"to": "augusta"
+},
+{
+"t": 1852.35,
+"d": 4.992,
+"who": "augusta",
+"n": "mon-13-4",
+"to": "bertie"
+},
+{
+"t": 1861.04,
+"d": 11.088,
+"who": "pippa",
+"n": "mon-13-6",
+"to": "augusta"
+},
+{
+"t": 1872.83,
+"d": 4.44,
+"who": "bertie",
+"n": "mon-13-7",
+"to": "pippa"
+},
+{
+"t": 1877.97,
+"d": 5.256,
+"who": "augusta",
+"n": "mon-13-8",
+"to": "pippa"
+},
+{
+"t": 1883.92,
+"d": 3.96,
+"who": "pippa",
+"n": "mon-13-9",
+"to": "augusta"
+},
+{
+"t": 1888.58,
+"d": 4.152,
+"who": "augusta",
+"n": "mon-13-10",
+"to": "pippa"
+},
+{
+"t": 1893.44,
+"d": 2.352,
+"who": "bertie",
+"n": "mon-13-11",
+"to": "augusta"
+},
+{
+"t": 1896.49,
+"d": 5.832,
+"who": "augusta",
+"n": "mon-13-12",
+"to": "bertie"
+},
+{
+"t": 1905.0,
+"d": 4.992,
+"who": "morton",
+"n": "mon-14-0",
+"to": "augusta"
+},
+{
+"t": 1910.69,
+"d": 1.368,
+"who": "augusta",
+"n": "mon-14-1",
+"to": "morton"
+},
+{
+"t": 1912.76,
+"d": 6.072,
+"who": "bertie",
+"n": "mon-14-2",
+"to": "augusta"
+},
+{
+"t": 1919.53,
+"d": 4.584,
+"who": "augusta",
+"n": "mon-14-3",
+"to": "bertie"
+},
+{
+"t": 1927.82,
+"d": 10.392,
+"who": "augusta",
+"n": "mon-14-5",
+"do": "up:morton",
+"to": "pippa"
+},
+{
+"t": 1938.91,
+"d": 5.304,
+"who": "pippa",
+"n": "mon-14-6",
+"to": "augusta"
+},
+{
+"t": 1944.91,
+"d": 3.432,
+"who": "augusta",
+"n": "mon-14-7",
+"to": "pippa"
+},
+{
+"t": 1952.04,
+"d": 2.4,
+"who": "vivienne",
+"n": "mon-14-9",
+"to": "augusta"
+},
+{
+"t": 1955.14,
+"d": 6.24,
+"who": "augusta",
+"n": "mon-14-10",
+"to": "vivienne"
+},
+{
+"t": 1965.08,
+"d": 8.256,
+"who": "julian",
+"n": "mon-14-12",
+"to": "bertie"
+},
+{
+"t": 1974.04,
+"d": 0.864,
+"who": "bertie",
+"n": "mon-14-13",
+"to": "julian"
+},
+{
+"t": 1975.6,
+"d": 6.648,
+"who": "julian",
+"n": "mon-14-14",
+"to": "bertie"
+},
+{
+"t": 1982.95,
+"d": 3.576,
+"who": "augusta",
+"n": "mon-14-15",
+"to": "julian"
+},
+{
+"t": 1990.23,
+"d": 1.776,
+"who": "morton",
+"n": "mon-14-17",
+"do": "back:morton",
+"to": "augusta"
+},
+{
+"t": 1992.7,
+"d": 4.152,
+"who": "augusta",
+"n": "mon-14-18",
+"to": "morton"
+},
+{
+"t": 1997.56,
+"d": 3.96,
+"who": "morton",
+"n": "mon-14-19",
+"to": "augusta"
+},
+{
+"t": 2002.22,
+"d": 5.328,
+"who": "augusta",
+"n": "mon-14-20",
+"do": "show:augusta=notebook",
+"to": "morton"
+},
+{
+"t": 2008.24,
+"d": 14.688,
+"who": "augusta",
+"n": "mon-14-21",
+"ev": "clue:accounts",
+"to": "all"
+},
+{
+"t": 2023.63,
+"d": 10.176,
+"who": "augusta",
+"n": "mon-14-22",
+"do": "pocket:augusta",
+"to": "pippa"
+},
+{
+"t": 2037.51,
+"d": 5.448,
+"who": "pippa",
+"n": "mon-14-24",
+"to": "augusta"
+},
+{
+"t": 2043.66,
+"d": 5.256,
+"who": "augusta",
+"n": "mon-14-25",
+"to": "pippa"
+},
+{
+"t": 2052.61,
+"d": 3.384,
+"who": "bertie",
+"n": "mon-14-27",
+"to": "augusta"
+},
+{
+"t": 2056.7,
+"d": 3.96,
+"who": "vivienne",
+"n": "mon-14-28",
+"to": "pippa"
+},
+{
+"t": 2061.36,
+"d": 6.672,
+"who": "pippa",
+"n": "mon-14-29",
+"to": "vivienne"
+},
+{
+"t": 2071.73,
+"d": 3.96,
+"who": "julian",
+"n": "mon-14-31",
+"to": "pippa"
+},
+{
+"t": 2076.39,
+"d": 5.976,
+"who": "pippa",
+"n": "mon-14-32",
+"to": "julian"
+},
+{
+"t": 2083.06,
+"d": 4.704,
+"who": "julian",
+"n": "mon-14-33",
+"to": "pippa"
+},
+{
+"t": 2091.47,
+"d": 4.824,
+"who": "bertie",
+"n": "mon-14-35",
+"to": "augusta"
+},
+{
+"t": 2096.99,
+"d": 8.568,
+"who": "augusta",
+"n": "mon-14-36",
+"to": "bertie"
+},
+{
+"t": 2106.26,
+"d": 2.352,
+"who": "vivienne",
+"n": "mon-14-37",
+"to": "augusta"
+},
+{
+"t": 2109.31,
+"d": 5.376,
+"who": "augusta",
+"n": "mon-14-38",
+"to": "vivienne"
+},
+{
+"t": 2115.69,
+"d": 3.168,
+"who": "augusta",
+"n": "mon-15-0",
+"to": "all"
+},
+{
+"t": 2119.56,
+"d": 14.448,
+"who": "augusta",
+"n": "mon-15-1",
+"to": "all"
+},
+{
+"t": 2134.7,
+"d": 2.472,
+"who": "morton",
+"n": "mon-15-2",
+"to": "augusta"
+},
+{
+"t": 2137.88,
+"d": 3.768,
+"who": "augusta",
+"n": "mon-15-3",
+"to": "morton"
+},
+{
+"t": 2145.34,
+"d": 4.704,
+"who": "augusta",
+"n": "mon-15-5",
+"to": "mid"
+},
+{
+"t": 2153.75,
+"d": 4.056,
+"who": "bertie",
+"n": "mon-15-7",
+"to": "augusta"
+},
+{
+"t": 2158.5,
+"d": 6.84,
+"who": "augusta",
+"n": "mon-15-8",
+"to": "bertie"
+},
+{
+"t": 2166.04,
+"d": 1.872,
+"who": "bertie",
+"n": "mon-15-9"
+},
+{
+"t": 2168.62,
+"d": 1.824,
+"who": "augusta",
+"n": "mon-15-10",
+"to": "bertie"
+},
+{
+"t": 2174.14,
+"d": 4.032,
+"who": "vivienne",
+"n": "mon-15-12",
+"to": "augusta"
+},
+{
+"t": 2178.87,
+"d": 5.4,
+"who": "augusta",
+"n": "mon-15-13",
+"to": "vivienne"
+},
+{
+"t": 2184.97,
+"d": 1.608,
+"who": "vivienne",
+"n": "mon-15-14"
+},
+{
+"t": 2190.28,
+"d": 7.32,
+"who": "julian",
+"n": "mon-15-16",
+"to": "augusta"
+},
+{
+"t": 2198.3,
+"d": 6.624,
+"who": "augusta",
+"n": "mon-15-17",
+"to": "julian"
+},
+{
+"t": 2208.62,
+"d": 3.528,
+"who": "pippa",
+"n": "mon-15-19",
+"to": "augusta"
+},
+{
+"t": 2212.85,
+"d": 5.088,
+"who": "augusta",
+"n": "mon-15-20",
+"to": "pippa"
+},
+{
+"t": 2218.64,
+"d": 1.728,
+"who": "pippa",
+"n": "mon-15-21",
+"to": "augusta"
+},
+{
+"t": 2221.07,
+"d": 5.64,
+"who": "augusta",
+"n": "mon-15-22",
+"to": "pippa"
+},
+{
+"t": 2227.41,
+"d": 2.928,
+"who": "pippa",
+"n": "mon-15-23"
+},
+{
+"t": 2234.04,
+"d": 7.128,
+"who": "morton",
+"n": "mon-15-25",
+"to": "augusta"
+},
+{
+"t": 2241.86,
+"d": 5.544,
+"who": "augusta",
+"n": "mon-15-26",
+"to": "morton"
+},
+{
+"t": 2248.11,
+"d": 1.632,
+"who": "morton",
+"n": "mon-15-27",
+"to": "augusta"
+},
+{
+"t": 2250.44,
+"d": 2.136,
+"who": "augusta",
+"n": "mon-15-28",
+"to": "morton"
+},
+{
+"t": 2256.28,
+"d": 4.8,
+"who": "bertie",
+"n": "mon-15-30",
+"to": "augusta"
+},
+{
+"t": 2261.78,
+"d": 4.44,
+"who": "augusta",
+"n": "mon-15-31",
+"to": "bertie"
+},
+{
+"t": 2266.92,
+"d": 2.136,
+"who": "morton",
+"n": "mon-15-32",
+"to": "augusta"
+},
+{
+"t": 2269.75,
+"d": 1.368,
+"who": "augusta",
+"n": "mon-15-33",
+"to": "morton"
+},
+{
+"t": 2272.12,
+"d": 1.464,
+"who": "morton",
+"n": "mon-16-0",
+"to": "augusta"
+},
+{
+"t": 2274.28,
+"d": 4.776,
+"who": "augusta",
+"n": "mon-16-1",
+"ev": "lock",
+"to": "mid"
+},
+{
+"t": 2282.76,
+"d": 11.304,
+"who": "augusta",
+"n": "mon-16-3",
+"to": "all"
+},
+{
+"t": 2294.76,
+"d": 11.208,
+"who": "augusta",
+"n": "mon-16-4",
+"to": "all"
+},
+{
+"t": 2306.67,
+"d": 12.072,
+"who": "augusta",
+"n": "mon-16-5",
+"to": "all"
+},
+{
+"t": 2319.44,
+"d": 17.232,
+"who": "augusta",
+"n": "mon-16-6",
+"to": "all"
+},
+{
+"t": 2337.38,
+"d": 10.464,
+"who": "augusta",
+"n": "mon-16-7",
+"to": "pippa"
+},
+{
+"t": 2350.54,
+"d": 1.368,
+"who": "augusta",
+"n": "mon-16-9",
+"ev": "reveal",
+"to": "pippa"
+},
+{
+"t": 2355.61,
+"d": 9.456,
+"who": "pippa",
+"n": "mon-16-11",
+"to": "augusta"
+},
+{
+"t": 2365.76,
+"d": 5.4,
+"who": "augusta",
+"n": "mon-16-12",
+"to": "pippa"
+},
+{
+"t": 2371.86,
+"d": 10.728,
+"who": "pippa",
+"n": "mon-16-13",
+"to": "augusta"
+},
+{
+"t": 2383.29,
+"d": 2.736,
+"who": "augusta",
+"n": "mon-16-14",
+"to": "pippa"
+},
+{
+"t": 2386.73,
+"d": 12.24,
+"who": "pippa",
+"n": "mon-16-15",
+"to": "augusta"
+},
+{
+"t": 2402.67,
+"d": 3.168,
+"who": "bertie",
+"n": "mon-16-17",
+"to": "pippa"
+},
+{
+"t": 2406.54,
+"d": 2.736,
+"who": "pippa",
+"n": "mon-16-18",
+"to": "bertie"
+},
+{
+"t": 2411.97,
+"d": 6.432,
+"who": "augusta",
+"n": "mon-16-20",
+"do": "up:morton",
+"to": "pippa"
+},
+{
+"t": 2419.1,
+"d": 1.632,
+"who": "morton",
+"n": "mon-16-21"
+},
+{
+"t": 2421.44,
+"d": 7.392,
+"who": "pippa",
+"n": "mon-16-22",
+"do": "out:pippa",
+"to": "augusta"
+},
+{
+"t": 2429.53,
+"d": 3.768,
+"who": "augusta",
+"n": "mon-16-23",
+"to": "pippa"
+},
+{
+"t": 2438.0,
+"d": 1.968,
+"who": "vivienne",
+"n": "mon-16-25",
+"to": "augusta"
+},
+{
+"t": 2440.66,
+"d": 9.864,
+"who": "augusta",
+"n": "mon-16-26",
+"to": "vivienne"
+},
+{
+"t": 2451.23,
+"d": 1.224,
+"who": "vivienne",
+"n": "mon-16-27",
+"to": "augusta"
+},
+{
+"t": 2453.15,
+"d": 4.632,
+"who": "augusta",
+"n": "mon-16-28",
+"to": "vivienne"
+},
+{
+"t": 2461.48,
+"d": 8.28,
+"who": "julian",
+"n": "mon-16-30",
+"to": "augusta"
+},
+{
+"t": 2470.46,
+"d": 5.304,
+"who": "augusta",
+"n": "mon-16-31",
+"to": "julian"
+},
+{
+"t": 2476.47,
+"d": 3.792,
+"who": "julian",
+"n": "mon-16-32",
+"to": "augusta"
+},
+{
+"t": 2483.96,
+"d": 8.04,
+"who": "bertie",
+"n": "mon-16-34",
+"to": "augusta"
+},
+{
+"t": 2492.7,
+"d": 4.224,
+"who": "augusta",
+"n": "mon-16-35",
+"to": "bertie"
+},
+{
+"t": 2500.62,
+"d": 7.992,
+"who": "augusta",
+"n": "mon-16-37",
+"to": "mid"
+},
+{
+"t": 2509.32,
+"d": 7.632,
+"who": "augusta",
+"n": "mon-16-38",
+"to": "mid"
+},
+{
+"t": 2520.65,
+"d": 4.44,
+"who": "vivienne",
+"n": "mon-16-40",
+"to": "augusta"
+},
+{
+"t": 2525.79,
+"d": 10.104,
+"who": "augusta",
+"n": "mon-16-41",
+"to": "vivienne"
+},
+{
+"t": 2536.59,
+"d": 1.392,
+"who": "julian",
+"n": "mon-16-42",
+"to": "augusta"
+},
+{
+"t": 2538.68,
+"d": 5.976,
+"who": "augusta",
+"n": "mon-16-43",
+"to": "julian"
+},
+{
+"t": 2548.36,
+"d": 3.456,
+"who": "vivienne",
+"n": "mon-16-45",
+"to": "augusta"
+},
+{
+"t": 2552.52,
+"d": 8.496,
+"who": "augusta",
+"n": "mon-16-46",
+"to": "vivienne"
+},
+{
+"t": 2561.71,
+"d": 3.48,
+"who": "vivienne",
+"n": "mon-16-47",
+"to": "augusta"
+},
+{
+"t": 2565.89,
+"d": 7.752,
+"who": "augusta",
+"n": "mon-16-48",
+"to": "vivienne"
+},
+{
+"t": 2577.34,
+"d": 4.536,
+"who": "bertie",
+"n": "mon-16-50",
+"to": "augusta"
+},
+{
+"t": 2582.58,
+"d": 7.968,
+"who": "augusta",
+"n": "mon-16-51",
+"to": "bertie"
+},
+{
+"t": 2591.25,
+"d": 2.616,
+"who": "bertie",
+"n": "mon-16-52",
+"to": "augusta"
+},
+{
+"t": 2594.56,
+"d": 6.024,
+"who": "augusta",
+"n": "mon-16-53",
+"to": "bertie"
+},
+{
+"t": 2604.29,
+"d": 7.44,
+"who": "julian",
+"n": "mon-16-55",
+"to": "augusta"
+},
+{
+"t": 2612.43,
+"d": 7.152,
+"who": "augusta",
+"n": "mon-16-56",
+"to": "julian"
+},
+{
+"t": 2620.28,
+"d": 1.392,
+"who": "julian",
+"n": "mon-16-57",
+"to": "augusta"
+},
+{
+"t": 2622.37,
+"d": 4.272,
+"who": "augusta",
+"n": "mon-16-58",
+"to": "julian"
+},
+{
+"t": 2630.34,
+"d": 3.96,
+"who": "vivienne",
+"n": "mon-16-60",
+"to": "augusta"
+},
+{
+"t": 2635.0,
+"d": 10.512,
+"who": "augusta",
+"n": "mon-16-61",
+"to": "vivienne"
+},
+{
+"t": 2646.22,
+"d": 2.928,
+"who": "julian",
+"n": "mon-16-62"
+},
+{
+"t": 2649.84,
+"d": 2.568,
+"who": "augusta",
+"n": "mon-16-63",
+"to": "julian"
+},
+{
+"t": 2656.11,
+"d": 6.888,
+"who": "bertie",
+"n": "mon-16-65",
+"to": "augusta"
+},
+{
+"t": 2663.7,
+"d": 10.488,
+"who": "augusta",
+"n": "mon-16-66",
+"to": "bertie"
+},
+{
+"t": 2674.89,
+"d": 3.504,
+"who": "vivienne",
+"n": "mon-16-67",
+"to": "augusta"
+},
+{
+"t": 2679.09,
+"d": 13.464,
+"who": "augusta",
+"n": "mon-16-68",
+"to": "vivienne"
+},
+{
+"t": 2693.26,
+"d": 2.52,
+"who": "julian",
+"n": "mon-16-69",
+"to": "augusta"
+},
+{
+"t": 2696.48,
+"d": 8.184,
+"who": "augusta",
+"n": "mon-16-70",
+"to": "julian"
+},
+{
+"t": 2705.36,
+"d": 2.304,
+"who": "bertie",
+"n": "mon-16-71",
+"to": "augusta"
+},
+{
+"t": 2708.36,
+"d": 10.368,
+"who": "augusta",
+"n": "mon-16-72",
+"to": "bertie"
+},
+{
+"t": 2719.43,
+"d": 2.04,
+"who": "vivienne",
+"n": "mon-16-73",
+"to": "augusta"
+},
+{
+"t": 2722.17,
+"d": 7.896,
+"who": "augusta",
+"n": "mon-16-74",
+"to": "vivienne"
+},
+{
+"t": 2733.77,
+"d": 1.488,
+"who": "julian",
+"n": "mon-16-76",
+"to": "augusta"
+},
+{
+"t": 2735.96,
+"d": 7.776,
+"who": "augusta",
+"n": "mon-16-77",
+"to": "julian"
+},
+{
+"t": 2744.43,
+"d": 1.32,
+"who": "vivienne",
+"n": "mon-16-78",
+"to": "augusta"
+},
+{
+"t": 2746.45,
+"d": 4.728,
+"who": "augusta",
+"n": "mon-16-79",
+"to": "vivienne"
+},
+{
+"t": 2751.88,
+"d": 1.368,
+"who": "bertie",
+"n": "mon-16-80",
+"to": "augusta"
+},
+{
+"t": 2753.95,
+"d": 3.792,
+"who": "augusta",
+"n": "mon-16-81",
+"to": "bertie"
+},
+{
+"t": 2761.44,
+"d": 8.448,
+"who": "augusta",
+"n": "mon-16-83",
+"to": "mid"
+},
+{
+"t": 2770.59,
+"d": 3.192,
+"who": "bertie",
+"n": "mon-16-84",
+"to": "mid"
+},
+{
+"t": 2774.48,
+"d": 5.664,
+"who": "augusta",
+"n": "mon-16-85",
+"to": "mid"
+},
+{
+"t": 2780.84,
+"d": 1.92,
+"who": "julian",
+"n": "mon-16-86",
+"to": "augusta"
+},
+{
+"t": 2783.46,
+"d": 3.168,
+"who": "augusta",
+"n": "mon-16-87",
+"to": "julian"
+},
+{
+"t": 2790.33,
+"d": 3.216,
+"who": "vivienne",
+"n": "mon-16-89",
+"to": "augusta"
+},
+{
+"t": 2794.25,
+"d": 1.872,
+"who": "augusta",
+"n": "mon-16-90",
+"to": "vivienne"
+},
+{
+"t": 2796.82,
+"d": 7.32,
+"who": "vivienne",
+"n": "mon-16-91",
+"to": "augusta"
+},
+{
+"t": 2804.84,
+"d": 4.368,
+"who": "augusta",
+"n": "mon-16-92",
+"to": "vivienne"
+},
+{
+"t": 2812.91,
+"d": 4.344,
+"who": "morton",
+"n": "mon-16-94",
+"do": "back:morton",
+"to": "augusta"
+},
+{
+"t": 2817.95,
+"d": 3.192,
+"who": "augusta",
+"n": "mon-16-95",
+"to": "morton"
+},
+{
+"t": 2821.84,
+"d": 4.92,
+"who": "morton",
+"n": "mon-16-96",
+"to": "augusta"
+},
+{
+"t": 2827.46,
+"d": 3.6,
+"who": "augusta",
+"n": "mon-16-97"
+},
+{
+"t": 2834.76,
+"d": 4.632,
+"who": "julian",
+"n": "mon-16-99",
+"to": "augusta"
+},
+{
+"t": 2840.1,
+"d": 9.864,
+"who": "augusta",
+"n": "mon-16-100",
+"to": "julian"
+},
+{
+"t": 2850.66,
+"d": 2.136,
+"who": "julian",
+"n": "mon-16-101"
+},
+{
+"t": 2853.5,
+"d": 3.288,
+"who": "vivienne",
+"n": "mon-16-102",
+"to": "augusta"
+},
+{
+"t": 2857.48,
+"d": 6.6,
+"who": "augusta",
+"n": "mon-16-103",
+"to": "vivienne"
+},
+{
+"t": 2867.78,
+"d": 5.904,
+"who": "bertie",
+"n": "mon-16-105",
+"to": "all"
+},
+{
+"t": 2874.39,
+"d": 9.096,
+"who": "augusta",
+"n": "mon-16-106",
+"to": "all"
+},
+{
+"t": 2884.18,
+"d": 3.552,
+"who": "morton",
+"n": "mon-16-107",
+"do": "out:morton",
+"to": "augusta"
+},
+{
+"t": 2888.44,
+"d": 4.584,
+"who": "augusta",
+"n": "mon-16-108",
+"to": "morton"
+},
+{
+"t": 2893.72,
+"d": 5.328,
+"who": "vivienne",
+"n": "mon-16-109",
+"to": "mid"
+},
+{
+"t": 2899.75,
+"d": 4.272,
+"who": "julian",
+"n": "mon-16-110",
+"to": "mid"
+}
+]
+}

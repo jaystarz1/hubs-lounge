@@ -1,0 +1,3712 @@
+{
+ "_": "Monday's case (Jay, 2026-10-24: a plain murder mystery, a different one each night, no lulls). Lady Augusta's eightieth birthday; her solicitor reads her new will at the soup and dies of it. Source of services/hubs/src/lounge/mysteries/mon.json (mystery-script.py).",
+ "title": "A WILL TO DIE FOR: WHO KILLED AMBROSE PELL?",
+ "voices": {
+  "augusta": "house-uk",
+  "bertie": "jay",
+  "vivienne": "us-female-ex02",
+  "julian": "us-male-p046",
+  "pippa": "us-female-p045",
+  "pell": "us-male-p022",
+  "morton": "us-male-p087"
+ },
+ "who": {
+  "bertie": "DinGa",
+  "vivienne": "DinGb",
+  "julian": "DinGd",
+  "pippa": "DinGe",
+  "pell": "DinGf",
+  "augusta": "DinGh",
+  "morton": "DinButler"
+ },
+ "suspects": [
+  {
+   "id": "bertie",
+   "name": "COLONEL BERTIE CRANE",
+   "role": "the brother-in-law"
+  },
+  {
+   "id": "vivienne",
+   "name": "VIVIENNE CRANE",
+   "role": "the stepdaughter"
+  },
+  {
+   "id": "julian",
+   "name": "JULIAN CRANE",
+   "role": "the nephew"
+  },
+  {
+   "id": "pippa",
+   "name": "PIPPA LARK",
+   "role": "the companion"
+  },
+  {
+   "id": "morton",
+   "name": "MORTON",
+   "role": "the butler"
+  }
+ ],
+ "cast": [
+  {
+   "id": "pell",
+   "name": "AMBROSE PELL",
+   "role": "the family solicitor"
+  },
+  {
+   "id": "augusta",
+   "name": "LADY AUGUSTA CRANE",
+   "role": "eighty today"
+  }
+ ],
+ "killer": "pippa",
+ "gone": [
+  "pell",
+  "pippa"
+ ],
+ "clues": {
+  "thumb": {
+   "text": "Pell licked his thumb at every page",
+   "on": [
+    "pippa"
+   ]
+  },
+  "nicotine": {
+   "text": "Nicotine: Bertie's orchid spray",
+   "on": [
+    "bertie",
+    "pippa"
+   ]
+  },
+  "cutout": {
+   "text": "The new will leaves the family nothing",
+   "on": [
+    "vivienne",
+    "julian",
+    "bertie"
+   ]
+  },
+  "typed": {
+   "text": "Pippa typed the will alone in the library",
+   "on": [
+    "pippa"
+   ]
+  },
+  "accounts": {
+   "text": "Pell found something in the household books",
+   "on": [
+    "morton",
+    "pippa"
+   ]
+  },
+  "touch": {
+   "text": "Pippa would not touch the will",
+   "on": [
+    "pippa"
+   ]
+  }
+ },
+ "blocks": [
+  {
+   "at": 4.0,
+   "lines": [
+    [
+     "augusta",
+     "Eighty. Eighty years old, and not one of you has brought me a present I can drink.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "bertie",
+     "I brought you an orchid, Augusta. It took me three years to grow.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "It's beautiful, Bertie. It smells of your greenhouse. Everything you bring me smells of your greenhouse.",
+     {
+      "to": "bertie"
+     }
+    ],
+    [
+     "vivienne",
+     "Happy birthday, Mother. You look wonderful. You look seventy nine.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Flattery, Vivienne. You must want money.",
+     {
+      "to": "vivienne"
+     }
+    ],
+    [
+     "julian",
+     "Aunt Augusta. Many happy returns. I've brought you nothing, but I've brought it with tremendous charm.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "You always do, Julian. It's the only thing you've ever paid for in cash.",
+     {
+      "to": "julian"
+     }
+    ],
+    [
+     "pell",
+     "Augusta. Happy birthday. I have the papers with me, as you asked.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Ambrose has brought my new will. We shall read it at dinner. I want to watch your faces.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "pell",
+     "Most irregular, Augusta. Wills are read after funerals. Not over the soup.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "I'm eighty, Ambrose. I may not make the funeral. I want to see it now.",
+     {
+      "to": "pell"
+     }
+    ],
+    [
+     "morton",
+     "Dinner is served, my lady.",
+     {
+      "to": "augusta"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 78.0,
+   "lines": [
+    [
+     "augusta",
+     "In we go. Bertie, your arm. Julian, try not to steal the spoons.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "julian",
+     "I only steal the good ones, Aunt Augusta.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "bertie",
+     "Pell, you old crow. Still licking your thumb at every page?",
+     {
+      "to": "pell"
+     }
+    ],
+    [
+     "pell",
+     "It is a professional habit, Colonel. Forty years of conveyancing.",
+     {
+      "to": "bertie"
+     }
+    ],
+    [
+     "vivienne",
+     "He licked his way through Father's will. Every single page. I thought I'd be sick.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "pell",
+     "The pages stick, Miss Crane. Good paper sticks.",
+     {
+      "to": "vivienne"
+     }
+    ],
+    [
+     "augusta",
+     "Sit, everybody. Sit. I can't bear people standing over me on my birthday.",
+     {
+      "to": "all"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 117.0,
+   "lines": [
+    [
+     "augusta",
+     "Glasses up. To me. Eighty years, two husbands, and not a single regret I'd admit to at dinner.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "julian",
+     "To Aunt Augusta. And to the will. May it be kind.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "pause",
+     2.0
+    ],
+    [
+     "augusta",
+     "Now. For our two friends in the middle. You don't know these people, so I'll tell you the worst.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "augusta",
+     "Colonel Bertie Crane. My late husband's brother. Grows orchids in a greenhouse in Surrey and talks to them more than he talks to me.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "bertie",
+     "They listen, madam. That's the difference.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "augusta",
+     "My stepdaughter, Vivienne. An actress. Her last play closed after three nights. The critics were very kind. They didn't come.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "vivienne",
+     "It was ahead of its time.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "augusta",
+     "My nephew Julian. Charming, penniless, and banned from two casinos in Monte Carlo.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "augusta",
+     "And Miss Pippa Lark. My companion. She reads to me, she types my letters, and she keeps my books.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "pippa",
+     "Lady Augusta exaggerates. I mostly find her spectacles.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "augusta",
+     "And Morton. Forty years in this house. He has seen everything and he says nothing.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "morton",
+     "Thank you, my lady."
+    ]
+   ]
+  },
+  {
+   "at": 190.0,
+   "lines": [
+    [
+     "bertie",
+     "Prawn cocktail, Pell. Very nineteen sixty three. Augusta has never trusted a fashion she didn't start.",
+     {
+      "to": "pell"
+     }
+    ],
+    [
+     "augusta",
+     "I started this one, Bertie. In Brighton. You were there. You were sick.",
+     {
+      "to": "bertie"
+     }
+    ],
+    [
+     "bertie",
+     "That was the gin, not the prawns."
+    ],
+    [
+     "pause",
+     2.0
+    ],
+    [
+     "vivienne",
+     "Mister Pell, is it true? She's changed it?",
+     {
+      "to": "pell"
+     }
+    ],
+    [
+     "pell",
+     "I couldn't possibly say, Miss Crane. Until Lady Augusta tells me I may.",
+     {
+      "to": "vivienne"
+     }
+    ],
+    [
+     "vivienne",
+     "Mother, you can't cut me out. I'm your daughter.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Stepdaughter, darling. You've reminded me of it every birthday since you were nine.",
+     {
+      "to": "vivienne"
+     }
+    ],
+    [
+     "julian",
+     "And I'm your favourite nephew.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "You're my only nephew, Julian. It's not the same thing.",
+     {
+      "to": "julian"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "bertie",
+     "My orchids have a terrible enemy, you know. Greenfly. Little devils. I spray them with nicotine.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "pippa",
+     "Nicotine? From cigarettes?",
+     {
+      "to": "bertie"
+     }
+    ],
+    [
+     "bertie",
+     "The pure stuff, my dear. Nicotine wash, from the chemist. A teaspoon would kill a horse. I keep it locked in the greenhouse.",
+     {
+      "to": "pippa"
+     }
+    ],
+    [
+     "augusta",
+     "Not at my table, Bertie. We are eating prawns.",
+     {
+      "to": "bertie"
+     }
+    ],
+    [
+     "bertie",
+     "The prawns are quite safe, Augusta. It's the greenfly that ought to worry."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "julian",
+     "Pippa, you water Uncle Bertie's orchids when he's in Scotland, don't you?",
+     {
+      "to": "pippa"
+     }
+    ],
+    [
+     "pippa",
+     "Every Tuesday. I wear gloves. The Colonel made me promise.",
+     {
+      "to": "julian"
+     }
+    ],
+    [
+     "bertie",
+     "Good girl. That stuff goes straight through the skin.",
+     {
+      "to": "pippa"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "vivienne",
+     "Mister Pell, you'll be reading it yourself? Not Mother?",
+     {
+      "to": "pell"
+     }
+    ],
+    [
+     "augusta",
+     "My eyes aren't what they were, Vivienne. Ambrose has the voice for it. He makes a will sound like a sermon.",
+     {
+      "to": "vivienne"
+     }
+    ],
+    [
+     "pell",
+     "I'll do my best to make it sound like a will, madam.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "julian",
+     "Uncle Bertie, did you see the Derby? I had ten pounds on the favourite.",
+     {
+      "to": "bertie"
+     }
+    ],
+    [
+     "bertie",
+     "The favourite lost, Julian.",
+     {
+      "to": "julian"
+     }
+    ],
+    [
+     "julian",
+     "I know. I'm explaining why I need ten pounds.",
+     {
+      "to": "bertie"
+     }
+    ],
+    [
+     "augusta",
+     "Ask Pippa. Pippa keeps the cheque book.",
+     {
+      "to": "julian"
+     }
+    ],
+    [
+     "pippa",
+     "I'm afraid I can't, Mister Crane. Lady Augusta has to sign everything.",
+     {
+      "to": "julian"
+     }
+    ],
+    [
+     "augusta",
+     "Quite right, Pippa. Never lend Julian money. It goes to Monte Carlo and never writes.",
+     {
+      "to": "pippa"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 356.0,
+   "lines": [
+    [
+     "pell",
+     "Augusta. After dinner. I need a private word. About the household books.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "My books? What's wrong with my books?",
+     {
+      "to": "pell"
+     }
+    ],
+    [
+     "pell",
+     "After dinner, Augusta. It will keep until the coffee.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "morton",
+     "The books are in order, sir. I keep the cellar book myself.",
+     {
+      "to": "pell"
+     }
+    ],
+    [
+     "pell",
+     "I don't doubt it, Morton. It isn't the cellar.",
+     {
+      "to": "morton"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "vivienne",
+     "Did you hear that? The books. Somebody's been at the money.",
+     {
+      "to": "julian"
+     }
+    ],
+    [
+     "julian",
+     "Don't look at me. I've never been near money long enough to be at it.",
+     {
+      "to": "vivienne"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "augusta",
+     "Bertie, you're not eating.",
+     {
+      "to": "bertie"
+     }
+    ],
+    [
+     "bertie",
+     "I'm saving myself for the lamb. Morton tells me there's lamb.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "morton",
+     "There is lamb, Colonel. With rosemary.",
+     {
+      "to": "bertie"
+     }
+    ],
+    [
+     "bertie",
+     "Splendid. Rosemary, for remembrance."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "augusta",
+     "I read detective stories, you know. All of them. I have solved every Agatha Christie by chapter three.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "vivienne",
+     "She has. It's unbearable. She tells you on the train.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "augusta",
+     "It's the only fun I get on trains, Vivienne.",
+     {
+      "to": "vivienne"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "julian",
+     "Mister Pell, as my trustee, may I just say that the trust is a cruel and unusual thing.",
+     {
+      "to": "pell"
+     }
+    ],
+    [
+     "pell",
+     "You may say it, Mister Crane. The trust remains.",
+     {
+      "to": "julian"
+     }
+    ],
+    [
+     "julian",
+     "Fifty pounds a month. Fifty pounds. A man can't lose with dignity on fifty pounds a month.",
+     {
+      "to": "pell"
+     }
+    ],
+    [
+     "pell",
+     "That is rather the idea.",
+     {
+      "to": "julian"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "pippa",
+     "Lady Augusta, shall I fetch your drops? It's nearly nine.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "After the soup, Pippa. I want to be awake for the will.",
+     {
+      "to": "pippa"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 482.0,
+   "lines": [
+    [
+     "morton",
+     "The soup, my lady. Tomato, with basil.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Thank you, Morton. Now. Ambrose. The will. Read it.",
+     {
+      "to": "morton"
+     }
+    ],
+    [
+     "pell",
+     "Here, Augusta? Now?",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Now. Before the soup goes cold, and before Julian finds a way to borrow against it.",
+     {
+      "to": "pell"
+     }
+    ],
+    [
+     "pell",
+     "Very well. The last will and testament of Augusta Mary Crane.",
+     {
+      "to": "all",
+      "do": "show:pell=will"
+     }
+    ],
+    [
+     "pell",
+     "I, Augusta Mary Crane, being of sound mind",
+     {
+      "do": "pages:pell"
+     }
+    ],
+    [
+     "augusta",
+     "Debatable. Go on.",
+     {
+      "to": "pell"
+     }
+    ],
+    [
+     "pell",
+     "Being of sound mind, hereby revoke all former wills and codicils.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "vivienne",
+     "All of them. She's revoking all of them."
+    ],
+    [
+     "pell",
+     "To my stepdaughter Vivienne, I leave my opinion of her acting, which she has had already, free of charge.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "vivienne",
+     "Mother!",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "pell",
+     "To my nephew Julian, I leave my good wishes, and the bill from the Ritz, which he will find enclosed.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "julian",
+     "That's very cruel. And very accurate.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "pell",
+     "To my brother-in-law Bertie, I leave my late husband's medals and his opinions about orchids.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "bertie",
+     "I've already got his opinions about orchids, Augusta. They were wrong.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "pell",
+     "To Morton, five hundred pounds, and my thanks, for forty years of saying nothing.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "morton",
+     "My lady is very kind.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "pell",
+     "Miss Lark, would you pass this page to Lady Augusta? She'll want to see her signature.",
+     {
+      "to": "pippa"
+     }
+    ],
+    [
+     "pippa",
+     "Oh. No. I'm sorry, Mister Pell. My hands are all prawn. You keep it.",
+     {
+      "to": "pell"
+     }
+    ],
+    [
+     "pell",
+     "As you like. The residue of my estate, the house, the flat and the shares, I leave to the Battersea Dogs' Home.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "julian",
+     "The dogs? The dogs get everything?",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "The dogs have never once asked me for money, Julian.",
+     {
+      "to": "julian"
+     }
+    ],
+    [
+     "vivienne",
+     "You can't do this. You can't leave everything to a kennel.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "I can do whatever I like. I'm eighty. Go on, Ambrose.",
+     {
+      "to": "vivienne"
+     }
+    ],
+    [
+     "pell",
+     "Signed this day, in the presence of... in the presence of...",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "pell",
+     "Forgive me. It's very warm. I seem to have lost my place.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Ambrose? You've gone grey.",
+     {
+      "to": "pell"
+     }
+    ],
+    [
+     "pell",
+     "The page... the words are moving, Augusta. I can't... my heart is...",
+     {
+      "to": "augusta",
+      "do": "slump:pell"
+     }
+    ],
+    [
+     "vivienne",
+     "Mister Pell!",
+     {
+      "to": "pell",
+      "ev": "gasp"
+     }
+    ],
+    [
+     "augusta",
+     "Pippa. His pulse. Quickly.",
+     {
+      "to": "pippa",
+      "do": "go:pippa"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "pippa",
+     "There's nothing. Lady Augusta, there's nothing at all.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "julian",
+     "Pell? Pell, old man?",
+     {
+      "to": "pell"
+     }
+    ],
+    [
+     "augusta",
+     "Ambrose is dead.",
+     {
+      "to": "all",
+      "do": "home:pippa"
+     }
+    ],
+    [
+     "pause",
+     2.0
+    ],
+    [
+     "vivienne",
+     "Dead? He was reading. He was just reading.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Nobody touch those pages. Nobody touch him. Morton, the telephone. A doctor, and the police.",
+     {
+      "to": "all",
+      "do": "up:morton"
+     }
+    ],
+    [
+     "morton",
+     "At once, my lady."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "bertie",
+     "Heart, Augusta. It'll be his heart. He was seventy if he was a day.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "He was sweating, Bertie. His eyes. He said the words were moving. That's not a heart.",
+     {
+      "to": "bertie"
+     }
+    ],
+    [
+     "julian",
+     "What else could it be?",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "I've read every Agatha Christie, Julian. Twice. That was poison.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "vivienne",
+     "Poison. At your birthday. Mother, you'll never live it down.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "I'm eighty, Vivienne. I don't intend to live anything down. I intend to find out who did it.",
+     {
+      "to": "vivienne"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 700.0,
+   "lines": [
+    [
+     "vivienne",
+     "Poison? At your birthday? Who would do such a thing?",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Somebody at this table, Vivienne. There's nobody else here.",
+     {
+      "to": "vivienne"
+     }
+    ],
+    [
+     "pause",
+     2.0
+    ],
+    [
+     "julian",
+     "Aunt Augusta, I'm not sitting here with a dead solicitor.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "You'll sit exactly where you are, Julian. You've sat with worse. You've sat with your bookmaker.",
+     {
+      "to": "julian"
+     }
+    ],
+    [
+     "bertie",
+     "Augusta, be reasonable. Let the police deal with it.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "The police will take an hour in the lift, Bertie. I shall have it solved by the lamb.",
+     {
+      "to": "bertie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "augusta",
+     "You two. In the middle. You've been listening all evening. Good.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "augusta",
+     "There's a board at the end of the table. Put a pin on whoever you think did this. Move it as often as these people lie.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "augusta",
+     "When the pudding comes, the board closes. And then I'll tell you.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "vivienne",
+     "Mother, this is grotesque. It's a parlour game.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "It's a murder, Vivienne. A parlour game is what you do after one.",
+     {
+      "to": "vivienne"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "bertie",
+     "If it's poison, Augusta, it was in the soup. We've all had the soup.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Ambrose hadn't touched his soup, Bertie. He was reading.",
+     {
+      "to": "bertie"
+     }
+    ],
+    [
+     "julian",
+     "Then what did he touch?",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "augusta",
+     "That, Julian, is the right question. You should ask more of those and fewer of the other kind.",
+     {
+      "to": "julian"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "morton",
+     "The doctor is on his way, my lady. And Scotland Yard. The lift is out of order again, so they'll be walking up.",
+     {
+      "to": "augusta",
+      "do": "back:morton"
+     }
+    ],
+    [
+     "augusta",
+     "Twenty two floors. Good. That gives us an hour.",
+     {
+      "to": "morton"
+     }
+    ],
+    [
+     "morton",
+     "Shall I hold the fish, my lady?",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Certainly not, Morton. Serve the fish. People talk more when they're eating.",
+     {
+      "to": "morton"
+     }
+    ],
+    [
+     "bertie",
+     "Augusta, you've said that before. About people eating.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "It's from a book, Bertie. The vicar's wife says it. I've always wanted to say it at a real murder.",
+     {
+      "to": "bertie"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 829.0,
+   "lines": [
+    [
+     "morton",
+     "The scallops, my lady.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Bertie. Your nicotine.",
+     {
+      "to": "bertie"
+     }
+    ],
+    [
+     "bertie",
+     "What about it?",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "You said a teaspoon would kill a horse. What does it do to a man?",
+     {
+      "to": "bertie"
+     }
+    ],
+    [
+     "bertie",
+     "Well. Sweating. Confusion. The heart races and then it stops. Ten minutes, perhaps less. Why are you looking at me like that?",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Because that's exactly what we've just watched, Bertie.",
+     {
+      "to": "bertie"
+     }
+    ],
+    [
+     "bertie",
+     "Augusta! I've been on the terrace all evening. You saw me. I was with the orchid.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "augusta",
+     "Nicotine doesn't smell of much. But there's tobacco on his lips. I noticed it when he spoke. And Ambrose never smoked in his life.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "julian",
+     "Then somebody fed him nicotine. In his wine?",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "He drank nothing but water tonight. Ambrose never drank before a will. He said it made his signatures wobble.",
+     {
+      "to": "julian"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "vivienne",
+     "Then how? He didn't eat, he didn't drink. He just sat there reading your horrible will.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "He sat there reading, Vivienne. And every time he turned a page...",
+     {
+      "to": "vivienne"
+     }
+    ],
+    [
+     "julian",
+     "He licked his thumb.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "He licked his thumb. Forty years. Everybody who has ever sat across a desk from Ambrose Pell knows that thumb.",
+     {
+      "to": "all",
+      "ev": "clue:thumb"
+     }
+    ],
+    [
+     "pause",
+     2.0
+    ],
+    [
+     "bertie",
+     "Good Lord. The pages.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "The pages, Bertie. Somebody painted the corners of my will with your greenhouse.",
+     {
+      "to": "all",
+      "ev": "clue:nicotine"
+     }
+    ],
+    [
+     "pippa",
+     "That's horrible. That's the most horrible thing I've ever heard.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "augusta",
+     "So. Who had my will before Ambrose did?",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "vivienne",
+     "Mother, he can't answer you. He's dead.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "I'm aware of that, Vivienne. I was asking the room.",
+     {
+      "to": "vivienne"
+     }
+    ],
+    [
+     "pippa",
+     "I typed it, Lady Augusta. This afternoon. In the library. You asked me to.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "I did. And then?",
+     {
+      "to": "pippa"
+     }
+    ],
+    [
+     "pippa",
+     "I put it in an envelope and gave it to Mister Pell when he arrived. At six. In the hall.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "And Ambrose kept it in his breast pocket until he read it. He never let a document out of his sight.",
+     {
+      "to": "all",
+      "ev": "clue:typed"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "julian",
+     "Then anyone could have got at it in the hall. Coats, hats, envelopes. It's a public highway, that hall.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Were you in the hall, Julian?",
+     {
+      "to": "julian"
+     }
+    ],
+    [
+     "julian",
+     "I'm always in the hall, Aunt Augusta. It's where the coats with wallets in them are.",
+     {
+      "to": "augusta"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 1003.0,
+   "lines": [
+    [
+     "augusta",
+     "Vivienne. Where were you at six?",
+     {
+      "to": "vivienne"
+     }
+    ],
+    [
+     "vivienne",
+     "Getting dressed. It takes time to look this tragic, Mother.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "You knew I was changing the will.",
+     {
+      "to": "vivienne"
+     }
+    ],
+    [
+     "vivienne",
+     "Everybody knew. You've been telling people since Easter. You told the vicar.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "The vicar was very interested. He thought it was the church.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "bertie",
+     "Augusta, about the will itself. The dogs' home. Was that a joke?",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "I never joke about money, Bertie. It's the only serious thing in this family.",
+     {
+      "to": "bertie"
+     }
+    ],
+    [
+     "julian",
+     "So we all had a reason. Every one of us is cut out.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "augusta",
+     "Every one of you, Julian. That's what worries me. A will that makes everybody angry is a will that protects nobody.",
+     {
+      "to": "julian",
+      "ev": "clue:cutout"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "pippa",
+     "Lady Augusta, what did Mister Pell want to tell you? About the books?",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "I don't know, Pippa. He died before the coffee.",
+     {
+      "to": "pippa"
+     }
+    ],
+    [
+     "morton",
+     "If I may, my lady. Mister Pell asked to see the household books on Thursday. I showed him the cellar book.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "And the other books, Morton? The bank books? The cheque stubs?",
+     {
+      "to": "morton"
+     }
+    ],
+    [
+     "morton",
+     "Those are not mine to show, my lady. Miss Lark has kept them since March.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "pippa",
+     "You asked me to, Lady Augusta. When Morton's eyes got bad.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "I did, Pippa. I remember.",
+     {
+      "to": "pippa",
+      "ev": "clue:accounts"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "vivienne",
+     "Morton's eyes? Morton, you've had perfect eyes for forty years.",
+     {
+      "to": "morton"
+     }
+    ],
+    [
+     "morton",
+     "Not for figures, Miss Vivienne. For figures I've always worn spectacles. I mislaid them in March.",
+     {
+      "to": "vivienne"
+     }
+    ],
+    [
+     "pippa",
+     "I found them for him. In the pantry."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "bertie",
+     "Augusta, I think we should all stop looking at each other like this. It's not healthy.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Neither is nicotine, Bertie.",
+     {
+      "to": "bertie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "julian",
+     "Aunt Augusta, purely for the record. I didn't kill him. He was the only man in London who still lent me money.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "He lent you your own money, Julian. Fifty pounds a month of it.",
+     {
+      "to": "julian"
+     }
+    ],
+    [
+     "julian",
+     "All the same. You don't kill the hand that pays you fifty pounds.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "vivienne",
+     "Those two in the middle haven't said a word. Look at them. They're the only ones not frightened.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "augusta",
+     "They haven't been left anything, Vivienne. It's very relaxing.",
+     {
+      "to": "vivienne"
+     }
+    ],
+    [
+     "julian",
+     "Aunt Augusta, the doctor. Is it the one with the moustache? He'll faint. He fainted at my christening.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "He fainted at your christening because you bit him, Julian.",
+     {
+      "to": "julian"
+     }
+    ],
+    [
+     "bertie",
+     "Augusta, how long have we got before the police come up?",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Long enough, Bertie. Twenty two floors. Policemen don't take stairs at a run. They pace themselves.",
+     {
+      "to": "bertie"
+     }
+    ],
+    [
+     "morton",
+     "They are on the ninth floor, my lady. I can hear them resting.",
+     {
+      "to": "augusta"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 1203.0,
+   "lines": [
+    [
+     "morton",
+     "The sorbet, my lady. Raspberry.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Thank you, Morton.",
+     {
+      "to": "morton"
+     }
+    ],
+    [
+     "pippa",
+     "I can't eat anything. Not with him there.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Eat your sorbet, Pippa. It's raspberry. It won't hurt you.",
+     {
+      "to": "pippa"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "bertie",
+     "Augusta, my nicotine is under lock and key. In the greenhouse. In Surrey.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "And who has a key, Bertie?",
+     {
+      "to": "bertie"
+     }
+    ],
+    [
+     "bertie",
+     "Me. And the gardener. And... well, Pippa, of course. For the watering.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "pippa",
+     "I water them, Colonel. I don't touch your bottles.",
+     {
+      "to": "bertie"
+     }
+    ],
+    [
+     "bertie",
+     "No. No, of course not. Good girl.",
+     {
+      "to": "pippa"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "augusta",
+     "When did you last look at that bottle, Bertie?",
+     {
+      "to": "bertie"
+     }
+    ],
+    [
+     "bertie",
+     "Saturday. It was low. I thought the gardener was being generous with it. He's a generous man with other people's poison.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "vivienne",
+     "Mother, the gardener isn't here. Can we suspect him? It would be so much nicer.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "The gardener was in Surrey, Vivienne, with his mother. The gardener is the only man in this family with an alibi.",
+     {
+      "to": "vivienne"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "julian",
+     "I don't see why it has to be one of us at all. Pell had clients. Hundreds of them. He must have ruined somebody.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Somebody who knew he'd be reading my will tonight, Julian. At my table. Over the soup.",
+     {
+      "to": "julian"
+     }
+    ],
+    [
+     "julian",
+     "Everybody knew. You told the vicar.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "The vicar didn't type it.",
+     {
+      "to": "julian"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "pippa",
+     "Lady Augusta, I want you to know. I'd never hurt anyone. Not Mister Pell. Not anybody.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "I know you wouldn't want to, Pippa.",
+     {
+      "to": "pippa"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "morton",
+     "Will there be red wine with the lamb, my lady, under the circumstances?",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Especially under the circumstances, Morton.",
+     {
+      "to": "morton"
+     }
+    ],
+    [
+     "bertie",
+     "Hear hear."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "vivienne",
+     "You're enjoying this. You are. You're enjoying it.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "I'm eighty, Vivienne, and a man has died at my table. I'm not enjoying it. I'm paying attention. They feel the same at my age.",
+     {
+      "to": "vivienne"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "julian",
+     "Uncle Bertie, you were in the hall at six. I saw you. You were taking your coat off.",
+     {
+      "to": "bertie"
+     }
+    ],
+    [
+     "bertie",
+     "I was taking my orchid out of my coat, Julian. You can't carry an orchid in a taxi. It sulks.",
+     {
+      "to": "julian"
+     }
+    ],
+    [
+     "augusta",
+     "Did you see the envelope, Bertie?",
+     {
+      "to": "bertie"
+     }
+    ],
+    [
+     "bertie",
+     "On the hall table. With Pell's hat. I didn't touch it. I don't touch other people's envelopes. I'm a Colonel.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "pippa",
+     "Mister Pell picked it up himself. I watched him. He put it straight in his pocket.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Did he open it?",
+     {
+      "to": "pippa"
+     }
+    ],
+    [
+     "pippa",
+     "No. He patted it. He always pats them. Like a little dog.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "augusta",
+     "So the poison went on in the library, or in the hall. And the only people in the library this afternoon were Pippa and my typewriter.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "pippa",
+     "Lady Augusta!",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "I'm only counting, Pippa. I always count.",
+     {
+      "to": "pippa"
+     }
+    ],
+    [
+     "vivienne",
+     "Counting what?",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "People in rooms, Vivienne. It's the first thing a detective does. The second is lunch.",
+     {
+      "to": "vivienne"
+     }
+    ],
+    [
+     "bertie",
+     "Augusta, you're not a detective. You're a widow with a library card.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Every detective I've ever read was a widow with a library card, Bertie. Or a Belgian.",
+     {
+      "to": "bertie"
+     }
+    ],
+    [
+     "julian",
+     "Pippa, you're very pale.",
+     {
+      "to": "pippa"
+     }
+    ],
+    [
+     "pippa",
+     "I've never seen anyone die, Mister Crane.",
+     {
+      "to": "julian"
+     }
+    ],
+    [
+     "julian",
+     "Nor had I, until tonight. I don't recommend it. It ruins the scallops.",
+     {
+      "to": "pippa"
+     }
+    ],
+    [
+     "augusta",
+     "You ate every one of them, Julian.",
+     {
+      "to": "julian"
+     }
+    ],
+    [
+     "julian",
+     "Grief makes me hungry, Aunt Augusta.",
+     {
+      "to": "augusta"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 1474.0,
+   "lines": [
+    [
+     "morton",
+     "The lamb, my lady. With rosemary.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "bertie",
+     "For remembrance."
+    ],
+    [
+     "augusta",
+     "Not tonight, Bertie.",
+     {
+      "to": "bertie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "augusta",
+     "Vivienne. In the hall at six. You were on the telephone. I heard you.",
+     {
+      "to": "vivienne"
+     }
+    ],
+    [
+     "vivienne",
+     "To my agent. Telling him I'd be rich by Christmas. He laughed. He's always laughing at me.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "And then you heard about the dogs.",
+     {
+      "to": "vivienne"
+     }
+    ],
+    [
+     "vivienne",
+     "Everybody heard about the dogs. Morton heard about the dogs.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "morton",
+     "I was very moved, Miss Vivienne. I'm fond of dogs."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "julian",
+     "Aunt Augusta, what if it was meant for you?",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "For me?",
+     {
+      "to": "julian"
+     }
+    ],
+    [
+     "julian",
+     "You read everything. You read every letter in this house. Every bill. What if somebody thought you'd read the will yourself?",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "I don't lick my thumb, Julian. I was brought up properly.",
+     {
+      "to": "julian"
+     }
+    ],
+    [
+     "bertie",
+     "She uses a rubber thimble. On her finger. Like a bank clerk.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "I was a bank clerk, Bertie. In nineteen fourteen. It's how I met your brother."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "augusta",
+     "No. Whoever did this knew Ambrose would be the one turning those pages. Knew he'd read it aloud. Knew he'd lick his thumb at every page.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "pippa",
+     "Everybody knew that. The Colonel teased him about it on the terrace.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "bertie",
+     "I've teased him about it for forty years, my dear. It's the only joke I've got.",
+     {
+      "to": "pippa"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "augusta",
+     "Pippa. When Ambrose asked you to pass me the page. You wouldn't.",
+     {
+      "to": "pippa"
+     }
+    ],
+    [
+     "pippa",
+     "My hands were all prawn, Lady Augusta. I told him.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "You'd finished your prawns an hour before, Pippa. Morton took your plate before the soup.",
+     {
+      "to": "pippa"
+     }
+    ],
+    [
+     "morton",
+     "I did, my lady. Clean.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "pippa",
+     "I'd been eating the bread. It was buttery. I didn't want to mark your will.",
+     {
+      "to": "augusta",
+      "ev": "clue:touch"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "bertie",
+     "Augusta, steady on. She's a child.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "She's twenty six, Bertie. At twenty six I'd been married twice and I'd shot a man in Kenya.",
+     {
+      "to": "bertie"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 1600.0,
+   "lines": [
+    [
+     "augusta",
+     "Morton. The books. When you gave them to Pippa in March, how were they?",
+     {
+      "to": "morton"
+     }
+    ],
+    [
+     "morton",
+     "In order, my lady. To the penny. I am not a clever man, but I am a careful one.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "And Ambrose asked for them on Thursday.",
+     {
+      "to": "morton"
+     }
+    ],
+    [
+     "morton",
+     "He asked Miss Lark for them, my lady. I heard him in the library. He said he'd need them for the new will. For the estate.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "pippa",
+     "And I gave them to him. Everything. I've nothing to hide.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "No, Pippa. You gave them to him on Friday. And on Saturday he telephoned me, and asked for a private word after my birthday dinner.",
+     {
+      "to": "pippa"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "vivienne",
+     "Pippa, darling. Is this true? Have you been at Mother's money?",
+     {
+      "to": "pippa"
+     }
+    ],
+    [
+     "pippa",
+     "No! I'm hopeless with figures. Lady Augusta knows. I told her so in March. I told her I'd make a muddle.",
+     {
+      "to": "vivienne"
+     }
+    ],
+    [
+     "augusta",
+     "You did tell me. I remember thinking how modest you were.",
+     {
+      "to": "pippa"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "pippa",
+     "Lady Augusta, please. You know me. I read you Trollope every night. I find your spectacles. I do your drops.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "You do, Pippa. Every night. You've been very good to me.",
+     {
+      "to": "pippa"
+     }
+    ],
+    [
+     "pippa",
+     "Then how can you think...",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "I don't think anything yet, Pippa. I'm eighty. I take my time.",
+     {
+      "to": "pippa"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "morton",
+     "My lady, the doctor is on the stairs. He sends a message. He asks that nobody touch the papers, and nobody eat anything of Mister Pell's.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Nobody was going to eat anything of Mister Pell's, Morton. Even Julian has limits.",
+     {
+      "to": "morton"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 1700.0,
+   "lines": [
+    [
+     "vivienne",
+     "Mother, I want to say something.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Say it, Vivienne. You've been rehearsing it since the scallops.",
+     {
+      "to": "vivienne"
+     }
+    ],
+    [
+     "vivienne",
+     "I quarrelled with Pell. Last week. At his office. I asked him for an advance on my inheritance.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "And?",
+     {
+      "to": "vivienne"
+     }
+    ],
+    [
+     "vivienne",
+     "He told me there wouldn't be one. He said you'd changed your mind about me years ago and only just got round to writing it down.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "That was unkind of him.",
+     {
+      "to": "vivienne"
+     }
+    ],
+    [
+     "vivienne",
+     "It was true. That's what made it unkind.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "julian",
+     "My turn, I suppose. I borrowed two hundred pounds from Pell last month. Privately. Against the will.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Against my will?",
+     {
+      "to": "julian"
+     }
+    ],
+    [
+     "julian",
+     "Against both of them, Aunt Augusta. I'm very ecumenical.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "pippa",
+     "Lady Augusta, I haven't anything to confess either.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "No, Pippa. You haven't, have you. Not yet.",
+     {
+      "to": "pippa"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "morton",
+     "My lady. I have something.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "You, Morton? In forty years you've never had something.",
+     {
+      "to": "morton"
+     }
+    ],
+    [
+     "morton",
+     "When I took the will from the library to the hall, my lady. At half past five. The envelope was damp at the corner. I thought Miss Lark had spilt her tea.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "pippa",
+     "I did spill my tea! I told you. I'm always spilling my tea.",
+     {
+      "to": "morton"
+     }
+    ],
+    [
+     "augusta",
+     "Thank you, Morton. That's the most you've said since the coronation.",
+     {
+      "to": "morton"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 1790.0,
+   "lines": [
+    [
+     "augusta",
+     "Let me tell you what I know, and you can tell me what I don't.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "augusta",
+     "Ambrose died of nicotine, through his thumb, from the corners of my will.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "augusta",
+     "The will was typed this afternoon, in the library, by Pippa, alone, and handed to Ambrose at six, and it never left his pocket until he read it.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "bertie",
+     "So it was poisoned in the library.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Or before it left the library, Bertie. Which is the same thing.",
+     {
+      "to": "bertie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "pippa",
+     "Lady Augusta, I watered the orchids on Tuesday. Last Tuesday. I wore my gloves. The Colonel can ask the gardener.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "bertie",
+     "Nobody's asking the gardener anything, my dear. The gardener is in Surrey.",
+     {
+      "to": "pippa"
+     }
+    ],
+    [
+     "augusta",
+     "Nobody mentioned Tuesday, Pippa. I only asked about Saturday.",
+     {
+      "to": "pippa"
+     }
+    ],
+    [
+     "pippa",
+     "I was only saying. I was only trying to help.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "You've helped a great deal tonight, Pippa. More than you know.",
+     {
+      "to": "pippa"
+     }
+    ],
+    [
+     "bertie",
+     "Augusta, you're frightening the girl.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Somebody at this table should be frightened, Bertie. I'm making sure it's the right one.",
+     {
+      "to": "bertie"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 1905.0,
+   "lines": [
+    [
+     "morton",
+     "The cheese, my lady. Stilton and cheddar. With celery.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Thank you, Morton.",
+     {
+      "to": "morton"
+     }
+    ],
+    [
+     "bertie",
+     "Augusta, I can't eat Stilton next to a corpse. It's not done. Not even in the regiment.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Then eat the cheddar, Bertie. Cheddar is very respectful.",
+     {
+      "to": "bertie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "augusta",
+     "Pippa, bring me the household book. The black one. It's in the bureau. No. Stay where you are. Morton knows where it is.",
+     {
+      "to": "pippa",
+      "do": "up:morton"
+     }
+    ],
+    [
+     "pippa",
+     "I can fetch it, Lady Augusta. I know exactly where it is.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "I'm sure you do, Pippa. Sit down.",
+     {
+      "to": "pippa"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "vivienne",
+     "What are you looking for, Mother?",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Ambrose's private word, Vivienne. He can't give it to me, so I'll have to go and find it.",
+     {
+      "to": "vivienne"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "julian",
+     "Uncle Bertie, if it's Pippa, I shall never forgive myself. I asked her to lend me ten pounds at Easter.",
+     {
+      "to": "bertie"
+     }
+    ],
+    [
+     "bertie",
+     "Did she?",
+     {
+      "to": "julian"
+     }
+    ],
+    [
+     "julian",
+     "She lent me twenty. From her own purse. She said she had plenty.",
+     {
+      "to": "bertie"
+     }
+    ],
+    [
+     "augusta",
+     "Did she, Julian. Did she indeed.",
+     {
+      "to": "julian"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "morton",
+     "The household book, my lady.",
+     {
+      "to": "augusta",
+      "do": "back:morton"
+     }
+    ],
+    [
+     "augusta",
+     "Thank you, Morton. Read me the cheques from March, would you?",
+     {
+      "to": "morton"
+     }
+    ],
+    [
+     "morton",
+     "I can't read, my lady. My spectacles.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Of course. Then I'll read them myself. Without licking anything.",
+     {
+      "to": "morton",
+      "do": "show:augusta=notebook"
+     }
+    ],
+    [
+     "augusta",
+     "March. Fifty pounds, cash. April. Two hundred pounds, cash. May. Five hundred pounds, to a Miss P. Lark, for services. My signature. Beautifully done.",
+     {
+      "to": "all",
+      "ev": "clue:accounts"
+     }
+    ],
+    [
+     "augusta",
+     "I never wrote a cheque to you in my life, Pippa. I pay you every Friday in an envelope. With a little extra at Christmas, for being so good.",
+     {
+      "to": "pippa",
+      "do": "pocket:augusta"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "pippa",
+     "That's a mistake. It's the bank. Banks make mistakes all the time.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Banks make mistakes in their own favour, Pippa. Never in yours.",
+     {
+      "to": "pippa"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "bertie",
+     "Augusta. My God.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "vivienne",
+     "Pippa? Little Pippa, with the gloves and the Trollope?",
+     {
+      "to": "pippa"
+     }
+    ],
+    [
+     "pippa",
+     "You don't know anything about me. None of you do. You never asked.",
+     {
+      "to": "vivienne"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "julian",
+     "Pippa, the twenty pounds. At Easter.",
+     {
+      "to": "pippa"
+     }
+    ],
+    [
+     "pippa",
+     "Lady Augusta's. I'm sorry, Mister Crane. You seemed so unhappy.",
+     {
+      "to": "julian"
+     }
+    ],
+    [
+     "julian",
+     "I was. It was very kind. It was stolen, but it was very kind.",
+     {
+      "to": "pippa"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "bertie",
+     "Augusta, if it's true, I've been a fool. I gave her the greenhouse key myself.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "You've been kind, Bertie. Kindness and foolishness look the same from outside. Only the bank can tell them apart.",
+     {
+      "to": "bertie"
+     }
+    ],
+    [
+     "vivienne",
+     "Mother, shouldn't you wait for the police?",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "The police are on the fourteenth floor, Vivienne, and I am at the cheese.",
+     {
+      "to": "vivienne"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 2100.0,
+   "lines": [
+    [
+     "augusta",
+     "Ladies and gentlemen. Morton.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "augusta",
+     "A stepdaughter who's been cut out. A nephew who owed the dead man money. A brother-in-law whose poison it was. A butler who carried the envelope. And a companion who kept my books.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "morton",
+     "And forty years of saying nothing, my lady.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Which you've broken tonight, Morton, and I'm grateful.",
+     {
+      "to": "morton"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "augusta",
+     "You two in the middle. The board. You have until the pudding.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "bertie",
+     "Augusta, you haven't said it. You keep not saying it.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "I'm waiting for the pudding, Bertie. In every book I've ever read, the detective waits for the pudding.",
+     {
+      "to": "bertie"
+     }
+    ],
+    [
+     "bertie",
+     "That's a terrible reason."
+    ],
+    [
+     "augusta",
+     "It's a literary one.",
+     {
+      "to": "bertie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "vivienne",
+     "Mother, I'm sorry about the will. I'm sorry I said I could feel it in my teeth.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "You could feel it in your teeth, Vivienne. You've good teeth. I paid for them.",
+     {
+      "to": "vivienne"
+     }
+    ],
+    [
+     "vivienne",
+     "Yes. You did."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "julian",
+     "Aunt Augusta, after this. The dogs. Are you still leaving everything to the dogs?",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "I don't know, Julian. A dog has never poisoned anybody. It's a very strong argument.",
+     {
+      "to": "julian"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "pippa",
+     "Lady Augusta, I'd like to go to my room.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "After the pudding, Pippa. Everybody waits for the pudding.",
+     {
+      "to": "pippa"
+     }
+    ],
+    [
+     "pippa",
+     "I'm not hungry.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "It's lemon tart, Pippa. You made Morton order it. It's your favourite.",
+     {
+      "to": "pippa"
+     }
+    ],
+    [
+     "pippa",
+     "Yes. It is."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "morton",
+     "The doctor is on the eighteenth floor, my lady. He sends his compliments and asks for a glass of water when he arrives.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Give him brandy, Morton. Twenty two floors. He's earned it.",
+     {
+      "to": "morton"
+     }
+    ],
+    [
+     "morton",
+     "And the police, my lady?",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "The police can have water.",
+     {
+      "to": "morton"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "bertie",
+     "Pell would have hated all this, you know. The fuss. He hated fuss.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "He'd have charged me for it, Bertie. By the quarter hour.",
+     {
+      "to": "bertie"
+     }
+    ],
+    [
+     "morton",
+     "The pudding is coming up now, my lady.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Thank you, Morton.",
+     {
+      "to": "morton"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 2257.0,
+   "lines": [
+    [
+     "morton",
+     "Lemon tart, my lady.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Pudding. Pins down, if you please. The board is closed.",
+     {
+      "to": "mid",
+      "ev": "lock"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "augusta",
+     "Ambrose Pell died because he licked his thumb. Everybody knew that thumb. So the will wasn't a will at all. It was a weapon, with my name on the front.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "augusta",
+     "And everybody here had a reason to hate that will. Which is precisely why the will was chosen. A will that cuts out the whole family points at the whole family.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "augusta",
+     "But Ambrose wasn't killed for my will. He was killed for my books. He found five hundred pounds of my money in somebody else's purse, and he was going to tell me after dinner.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "augusta",
+     "My will was typed alone in the library this afternoon. Painted at the corners with nicotine from a greenhouse that only three people can open. One of them was in Surrey, one of them was buying orchids at Kew, and one of them waters on Tuesdays in gloves.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "augusta",
+     "And at the soup, when Ambrose offered you the page, you wouldn't touch it. You'd touched it once already today. You weren't going to touch it again without your gloves.",
+     {
+      "to": "pippa"
+     }
+    ],
+    [
+     "pause",
+     2.0
+    ],
+    [
+     "augusta",
+     "Pippa Lark.",
+     {
+      "to": "pippa",
+      "ev": "reveal"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "pippa",
+     "You weren't supposed to find out. Not ever. You never look at the stubs. You never look at anything. You make me read it all to you.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "I look at everything, Pippa. I just let you read it to me. It's company.",
+     {
+      "to": "pippa"
+     }
+    ],
+    [
+     "pippa",
+     "He was going to tell you. He told me so on Thursday. He said, Miss Lark, you have until Lady Augusta's birthday to put it back. I couldn't put it back. I'd spent it.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "On what, Pippa? On what?",
+     {
+      "to": "pippa"
+     }
+    ],
+    [
+     "pippa",
+     "On my mother. In Margate. She's ill. She's been ill for two years. I didn't ask you because you'd have said yes, and then I'd have owed you, like all of them.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "bertie",
+     "Good God, girl. You could have asked me.",
+     {
+      "to": "pippa"
+     }
+    ],
+    [
+     "pippa",
+     "You'd have given me an orchid, Colonel.",
+     {
+      "to": "bertie"
+     }
+    ],
+    [
+     "pause",
+     2.0
+    ],
+    [
+     "augusta",
+     "Pippa, you'll go to the morning room now. Morton will sit with you until the police come up.",
+     {
+      "to": "pippa",
+      "do": "up:morton"
+     }
+    ],
+    [
+     "morton",
+     "This way, Miss Lark."
+    ],
+    [
+     "pippa",
+     "Happy birthday, Lady Augusta. I did love reading to you. That part was true.",
+     {
+      "to": "augusta",
+      "do": "out:pippa"
+     }
+    ],
+    [
+     "augusta",
+     "I know, Pippa. That's the part I'll miss.",
+     {
+      "to": "pippa"
+     }
+    ],
+    [
+     "pause",
+     4.0
+    ],
+    [
+     "vivienne",
+     "Mother. Are you all right?",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "No, Vivienne. I'm eighty, and I've lost my solicitor and my companion in one evening. I shall need a great deal of lemon tart.",
+     {
+      "to": "vivienne"
+     }
+    ],
+    [
+     "vivienne",
+     "Have mine.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Thank you, darling. That's the nicest thing you've done since you were nine.",
+     {
+      "to": "vivienne"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "julian",
+     "I'll read to you, Aunt Augusta. If you like. Trollope. I'm told I have a lovely voice.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "You have a voice for asking for money, Julian. I'll try it on Trollope and see.",
+     {
+      "to": "julian"
+     }
+    ],
+    [
+     "julian",
+     "Fifty pounds a month, Aunt Augusta. I'll do the voices.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "bertie",
+     "Augusta, my nicotine. I'll pour every drop of it away. Tonight. The greenfly can have the lot.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Pour it into the river, Bertie. Not into the gardener.",
+     {
+      "to": "bertie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "augusta",
+     "You two in the middle. You've been very patient. Some of you had your pins on her before the lamb. I saw.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "augusta",
+     "Ambrose would have liked you. You listened. He liked people who listened. He charged them less.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "vivienne",
+     "Mother, the will. What will you do with it now? Nobody can touch it.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "The police will take it away in a box, Vivienne. With tongs. And I'll write a new one in the morning, in my own hand, and I'll lick every page of it.",
+     {
+      "to": "vivienne"
+     }
+    ],
+    [
+     "julian",
+     "And the dogs?",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "The dogs keep the house, Julian. You can have the bill from the Ritz. It's a start.",
+     {
+      "to": "julian"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "vivienne",
+     "Mother, what will you tell people? About Pippa?",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "The truth, Vivienne. That she read beautifully, and stole beautifully, and that I didn't notice either until tonight.",
+     {
+      "to": "vivienne"
+     }
+    ],
+    [
+     "vivienne",
+     "You noticed. You said you look at everything.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "I looked, darling. I didn't want to see. It's a different muscle. You'll find it in your fifties.",
+     {
+      "to": "vivienne"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "bertie",
+     "Her mother. In Margate. Should somebody go down?",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "I'll go myself, Bertie. On Thursday. Somebody should pay the doctor in Margate with money that's honestly theirs.",
+     {
+      "to": "bertie"
+     }
+    ],
+    [
+     "bertie",
+     "I'll drive you. I've never been to Margate.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Nobody has, Bertie. It's the only place in England with no relatives in it.",
+     {
+      "to": "bertie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "julian",
+     "Aunt Augusta, the two hundred pounds. Pell's. I'll pay it back. To his clerk. I promise.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "You'll pay it back to me, Julian. I'll take it out of your fifty pounds a month. At two pounds a month.",
+     {
+      "to": "julian"
+     }
+    ],
+    [
+     "julian",
+     "That's eight years.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Then you'd better visit me for eight years, Julian. I'll make sure of it.",
+     {
+      "to": "julian"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "vivienne",
+     "Mother, his family. Mister Pell's. Did he have anybody?",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "A sister in Hove, and a cat called Probate. He told me once. It was the only joke he ever made that wasn't about stamp duty.",
+     {
+      "to": "vivienne"
+     }
+    ],
+    [
+     "julian",
+     "Probate. That's rather good."
+    ],
+    [
+     "augusta",
+     "It was his best work, Julian.",
+     {
+      "to": "julian"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "bertie",
+     "Augusta, the will. The dogs' home. You weren't serious. Were you?",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "About the dogs, Bertie? No. About the will, yes. Ambrose and I wrote it together. On Thursday. In his office.",
+     {
+      "to": "bertie"
+     }
+    ],
+    [
+     "vivienne",
+     "Together? A will that cuts us all out?",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "A will that cuts everybody out, Vivienne. Ambrose's idea. He'd found the books. He said, Augusta, let's make a will that frightens everybody, and see who frightens first.",
+     {
+      "to": "vivienne"
+     }
+    ],
+    [
+     "julian",
+     "So the will was a trap.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "The will was bait, Julian. Ambrose was going to read it, and watch, and tell me after dinner who had flinched.",
+     {
+      "to": "julian"
+     }
+    ],
+    [
+     "bertie",
+     "And somebody flinched before the soup.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Somebody flinched with a paintbrush, Bertie. In the library. While I was reading Trollope next door. That's the part I shan't forgive myself.",
+     {
+      "to": "bertie"
+     }
+    ],
+    [
+     "vivienne",
+     "Mother, it wasn't your fault.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "It was my will, Vivienne. Everything written in a will is the fault of the one who wrote it. That's what a will is.",
+     {
+      "to": "vivienne"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "julian",
+     "So what's in the real one?",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "There isn't a real one, Julian. Not yet. I'll write it in the morning. You may all come and watch my face.",
+     {
+      "to": "julian"
+     }
+    ],
+    [
+     "vivienne",
+     "And will we be in it?",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "You'll be in it, darling. All of you. Bertie gets the orchid back.",
+     {
+      "to": "vivienne"
+     }
+    ],
+    [
+     "bertie",
+     "The one from Kew?",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "The one from Kew, Bertie. Label and all.",
+     {
+      "to": "bertie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "augusta",
+     "And you two in the middle. You didn't flinch once. Not at the will, not at the poison, not at Bertie's orchids.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "bertie",
+     "That's the best review anybody's had at this table in years.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "augusta",
+     "Come again on my next birthday. I'll be eighty one. I may leave you something.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "julian",
+     "Aunt Augusta, they're not family.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Exactly, Julian. That's why they'd get it.",
+     {
+      "to": "julian"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "vivienne",
+     "Mother, may I say something? As an actress?",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "You've never asked before.",
+     {
+      "to": "vivienne"
+     }
+    ],
+    [
+     "vivienne",
+     "Your face. When she said it was for her mother. It was the best performance I've ever seen. You didn't move a muscle.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "I'm eighty, Vivienne. I can't move half of them.",
+     {
+      "to": "vivienne"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "morton",
+     "The police are in the hall, my lady. And the doctor. He'd like his brandy.",
+     {
+      "to": "augusta",
+      "do": "back:morton"
+     }
+    ],
+    [
+     "augusta",
+     "Give him two, Morton. And Miss Lark?",
+     {
+      "to": "morton"
+     }
+    ],
+    [
+     "morton",
+     "Sitting very quietly, my lady. She asked for her book. I gave her the Trollope.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Good. Good. Somebody should finish it."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "julian",
+     "Aunt Augusta, why the dogs' home? Of all the things to pretend.",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "Because Ambrose said nobody in this family would ever believe I'd leave money to people. Only to animals. He knew us very well, Julian.",
+     {
+      "to": "julian"
+     }
+    ],
+    [
+     "julian",
+     "He did. Poor old Pell."
+    ],
+    [
+     "vivienne",
+     "Mother, may I stay tonight? In my old room?",
+     {
+      "to": "augusta"
+     }
+    ],
+    [
+     "augusta",
+     "You may, darling. Pippa made up the bed this morning. She always made it up beautifully.",
+     {
+      "to": "vivienne"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "bertie",
+     "I need a drink. A real one. Somewhere that hasn't got a will in it.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "augusta",
+     "The Rovers, Bertie. Downstairs. Everybody. The police can have the dining room. They'll want to measure it.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "morton",
+     "I'll go down and bring the inspector up to Mister Pell, my lady.",
+     {
+      "to": "augusta",
+      "do": "out:morton"
+     }
+    ],
+    [
+     "augusta",
+     "Thank you, Morton. For forty years. For tonight.",
+     {
+      "to": "morton"
+     }
+    ],
+    [
+     "vivienne",
+     "Come with us. Please. I don't think I can face a bar full of strangers on my own tonight.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "julian",
+     "And bring money. I have a feeling I'll be buying.",
+     {
+      "to": "mid"
+     }
+    ]
+   ]
+  }
+ ]
+}

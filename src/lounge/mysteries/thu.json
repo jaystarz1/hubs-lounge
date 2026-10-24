@@ -1,0 +1,3491 @@
+{
+ "_": "Thursday's case (Jay, 2026-10-24). Constance Vale's dinner for her new Turner; a telephone call takes her to the library at the fish, and she never comes back to the table. Source of services/hubs/src/lounge/mysteries/thu.json (mystery-script.py).",
+ "title": "THE LOCKED LIBRARY: WHO KILLED CONSTANCE VALE?",
+ "voices": {
+  "desmond": "us-male-p097",
+  "isobel": "us-female-ex02",
+  "jamie": "jay",
+  "kitty": "us-female-p059",
+  "achebe": "us-male-p087",
+  "constance": "us-female-p015",
+  "graves": "us-male-p046"
+ },
+ "who": {
+  "desmond": "DinGa",
+  "isobel": "DinGb",
+  "jamie": "DinGd",
+  "kitty": "DinGe",
+  "achebe": "DinGf",
+  "constance": "DinGh",
+  "graves": "DinButler"
+ },
+ "suspects": [
+  {
+   "id": "desmond",
+   "name": "SIR DESMOND VALE",
+   "role": "the brother-in-law"
+  },
+  {
+   "id": "isobel",
+   "name": "ISOBEL VALE",
+   "role": "the niece, an art student"
+  },
+  {
+   "id": "kitty",
+   "name": "KITTY FAIRLIE",
+   "role": "the goddaughter"
+  },
+  {
+   "id": "achebe",
+   "name": "PROFESSOR LIONEL ACHEBE",
+   "role": "the art historian"
+  },
+  {
+   "id": "graves",
+   "name": "GRAVES",
+   "role": "the butler"
+  }
+ ],
+ "cast": [
+  {
+   "id": "constance",
+   "name": "CONSTANCE VALE",
+   "role": "the collector"
+  },
+  {
+   "id": "jamie",
+   "name": "JAMIE STRAND",
+   "role": "the insurance man"
+  }
+ ],
+ "killer": "achebe",
+ "gone": [
+  "constance",
+  "achebe"
+ ],
+ "clues": {
+  "call": {
+   "text": "The telephone call came from the insurers",
+   "on": [
+    "achebe",
+    "isobel"
+   ]
+  },
+  "left": {
+   "text": "The Professor left the table during the fish",
+   "on": [
+    "achebe"
+   ]
+  },
+  "copies": {
+   "text": "Isobel copies paintings at the Tate",
+   "on": [
+    "isobel"
+   ]
+  },
+  "key": {
+   "text": "The library key was found inside after the door came down",
+   "on": [
+    "achebe",
+    "graves"
+   ]
+  },
+  "turner": {
+   "text": "The new Turner was insured last week for a fortune",
+   "on": [
+    "desmond",
+    "kitty"
+   ]
+  },
+  "authenticated": {
+   "text": "The Professor authenticated every picture in the flat",
+   "on": [
+    "achebe"
+   ]
+  }
+ },
+ "blocks": [
+  {
+   "at": 4.0,
+   "lines": [
+    [
+     "constance",
+     "Welcome, all of you. Tonight the Turner is in the library, and after dinner you may all go and stand in front of it and say something intelligent.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "jamie",
+     "Which is why I'm here, Mrs Vale. I'm the insurance. Jamie Strand, of Pemberton Mutual.",
+     {
+      "to": "constance"
+     }
+    ],
+    [
+     "constance",
+     "Mister Strand came to look at my pictures this week, and stayed for dinner. He's very thorough.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "achebe",
+     "Constance, my dear. It's a magnificent picture. I'd stake my reputation on it.",
+     {
+      "to": "constance"
+     }
+    ],
+    [
+     "constance",
+     "You did, Lionel. You signed the certificate. Every picture in this flat has your name on the back.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "isobel",
+     "Professor, I copied a Turner at the Tate last spring. For practice. It took me four months.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "achebe",
+     "And was it any good, Isobel?",
+     {
+      "to": "isobel"
+     }
+    ],
+    [
+     "isobel",
+     "It was very good, Professor. The guard thought it was the real one. He wouldn't let me take it home.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "graves",
+     "Dinner is served, madam.",
+     {
+      "to": "constance"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 78.0,
+   "lines": [
+    [
+     "constance",
+     "In we go. Desmond, take Kitty, she'll trip on the step. She always trips on the step.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "kitty",
+     "I trip on every step, Aunt Constance. It's my charm.",
+     {
+      "to": "constance"
+     }
+    ],
+    [
+     "jamie",
+     "Miss Vale, after you.",
+     {
+      "to": "isobel"
+     }
+    ],
+    [
+     "isobel",
+     "Isobel, please. Miss Vale is my aunt.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "constance",
+     "Sit, all of you. Graves hates a party standing about in the door. It's bad for the carpet.",
+     {
+      "to": "all"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 117.0,
+   "lines": [
+    [
+     "constance",
+     "To the Turner. And to the people who'll inherit it, eventually, if they're very good.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "desmond",
+     "To the Turner.",
+     {
+      "to": "constance"
+     }
+    ],
+    [
+     "kitty",
+     "To Aunt Constance. Who will live forever.",
+     {
+      "to": "constance"
+     }
+    ],
+    [
+     "constance",
+     "I fully intend to, Kitty. It's the only way to keep the family honest.",
+     {
+      "to": "kitty"
+     }
+    ],
+    [
+     "pause",
+     2.0
+    ],
+    [
+     "constance",
+     "Now, for our two friends in the middle. Sir Desmond Vale. My late husband's brother. He was in the Navy, and he has never forgiven the sea.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "desmond",
+     "The sea was very unreasonable, madam. I said so to the Admiralty.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "constance",
+     "My niece, Isobel. An art student. She paints, she copies, and she borrows my pictures to practise on.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "isobel",
+     "Only when Aunt Constance is in Biarritz.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "constance",
+     "Kitty Fairlie. My goddaughter. She owes money to every dressmaker in Knightsbridge.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "kitty",
+     "Only the good ones.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "constance",
+     "Professor Lionel Achebe of the Courtauld. The greatest eye in England. He's looked at every picture in this flat and told me what each one is worth.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "achebe",
+     "And what each one is, madam. That's the harder question.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "constance",
+     "Mister Jamie Strand, my insurance. He's been crawling over my walls all week with a magnifying glass.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "jamie",
+     "It's a very good magnifying glass, Mrs Vale. The company bought it.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "constance",
+     "And Graves. Twenty years. He dusts the Turner himself. Nobody else is allowed.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "graves",
+     "Madam."
+    ]
+   ]
+  },
+  {
+   "at": 190.0,
+   "lines": [
+    [
+     "desmond",
+     "Melon, Constance. In October. You've been to Fortnum's.",
+     {
+      "to": "constance"
+     }
+    ],
+    [
+     "constance",
+     "I've been everywhere this week, Desmond. Fortnum's, Christie's, my bank. I'm a very busy widow.",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "achebe",
+     "Constance, the Turner. You've hung it in the library? Not the drawing room?",
+     {
+      "to": "constance"
+     }
+    ],
+    [
+     "constance",
+     "The library, Lionel. With the door that locks. Mister Strand insisted.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "jamie",
+     "The library has the only door in the flat with a proper lock, Professor. And one key. Mrs Vale keeps it on a chain.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "constance",
+     "Round my neck. Like a mother superior. It's very uncomfortable at dinner.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "isobel",
+     "Professor, how do you tell? A real Turner from a very good copy?",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "achebe",
+     "Forty years, Isobel. One looks, and one knows. It's not a science. It's an instinct.",
+     {
+      "to": "isobel"
+     }
+    ],
+    [
+     "isobel",
+     "My tutor says it's a science now. X rays. Chemists. Little scrapings of paint.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "achebe",
+     "Your tutor is a very young man, Isobel. Young men believe in chemists.",
+     {
+      "to": "isobel"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "desmond",
+     "Kitty, how much do you owe this time?",
+     {
+      "to": "kitty"
+     }
+    ],
+    [
+     "kitty",
+     "Four hundred pounds. To Hartnell. It was a very beautiful frock.",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "graves",
+     "Madam, a message from the porter. A telephone call may come for madam this evening. From the City. He'll put it through to the library.",
+     {
+      "to": "constance"
+     }
+    ],
+    [
+     "constance",
+     "At dinner? Who on earth telephones at dinner?",
+     {
+      "to": "graves"
+     }
+    ],
+    [
+     "jamie",
+     "That'll be my office, Mrs Vale. I'm sorry. They work late on Thursdays. They promised me an answer by tonight.",
+     {
+      "to": "constance"
+     }
+    ],
+    [
+     "constance",
+     "An answer to what, Mister Strand?",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "Later, Mrs Vale. Better in private.",
+     {
+      "to": "constance"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "achebe",
+     "An answer about what, Mister Strand? If it concerns the collection, I've a right to know. It's my name on the certificates.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "It's Mrs Vale's collection, Professor. I'll tell her first.",
+     {
+      "to": "achebe"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 356.0,
+   "lines": [
+    [
+     "constance",
+     "Lionel, when did I buy the Turner? Remind me. The year goes so fast.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "achebe",
+     "In March, my dear. From a private collection in Geneva. I arranged it myself. A very discreet family.",
+     {
+      "to": "constance"
+     }
+    ],
+    [
+     "constance",
+     "Very discreet. They never sent me a letter. Not even a Christmas card.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "achebe",
+     "The Swiss don't send Christmas cards, Constance. They send invoices.",
+     {
+      "to": "constance"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "desmond",
+     "Constance, I must say, you've spent an awful lot on pictures this year. Four, is it? Five?",
+     {
+      "to": "constance"
+     }
+    ],
+    [
+     "constance",
+     "Six, Desmond. All through Lionel. All with his certificates. All insured.",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "desmond",
+     "And all paid for out of George's money.",
+     {
+      "to": "constance"
+     }
+    ],
+    [
+     "constance",
+     "Out of my money, Desmond. George left it to me. You were left his boat.",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "desmond",
+     "The boat sank, Constance.",
+     {
+      "to": "constance"
+     }
+    ],
+    [
+     "constance",
+     "That's the sea, Desmond. You said so yourself. It's unreasonable.",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "kitty",
+     "Professor, have you ever been wrong? About a painting?",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "achebe",
+     "Once, Miss Fairlie. In nineteen twenty nine. I was very young. It was a Rembrandt, and it was a Rembrandt. I'd said it wasn't.",
+     {
+      "to": "kitty"
+     }
+    ],
+    [
+     "kitty",
+     "So you've only ever been wrong the other way round.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "achebe",
+     "That's the kind of wrong that ruins a man, Miss Fairlie. The other kind only ruins the buyer.",
+     {
+      "to": "kitty"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "jamie",
+     "Graves, the library. Who has been in there today?",
+     {
+      "to": "graves"
+     }
+    ],
+    [
+     "graves",
+     "Madam, sir. And myself, to dust. And Miss Isobel, this afternoon, with a sketchbook. And the Professor, before dinner, to look at the Turner once more.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "achebe",
+     "I like to visit my friends, Mister Strand. Paintings are my friends.",
+     {
+      "to": "jamie"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 482.0,
+   "lines": [
+    [
+     "graves",
+     "The soup, madam. French onion, with croutons.",
+     {
+      "to": "constance"
+     }
+    ],
+    [
+     "constance",
+     "Thank you, Graves.",
+     {
+      "to": "graves"
+     }
+    ],
+    [
+     "desmond",
+     "Onion soup. Takes me back to Toulon, nineteen eighteen. The French navy lived on it.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "kitty",
+     "Professor, you must have seen every great painting in the world.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "achebe",
+     "Most of them twice, Miss Fairlie. Some of them in places they shouldn't have been.",
+     {
+      "to": "kitty"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "isobel",
+     "Mister Strand, why do you keep looking at the Professor?",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "Do I, Miss Vale?",
+     {
+      "to": "isobel"
+     }
+    ],
+    [
+     "isobel",
+     "Isobel. And yes. Every time he speaks.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "Insurance men are very nervous, Isobel. We look at everybody.",
+     {
+      "to": "isobel"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "kitty",
+     "Aunt Constance, I hate to ask. The four hundred pounds.",
+     {
+      "to": "constance"
+     }
+    ],
+    [
+     "constance",
+     "Then don't ask, Kitty. Not at the soup. I'll think about it at the pudding.",
+     {
+      "to": "kitty"
+     }
+    ],
+    [
+     "kitty",
+     "You always say the pudding, and then there's a pudding, and you've thought about it, and the answer's no.",
+     {
+      "to": "constance"
+     }
+    ],
+    [
+     "constance",
+     "That's what puddings are for, darling.",
+     {
+      "to": "kitty"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "achebe",
+     "Constance, my dear. Mister Strand's office. If there's any doubt about the Turner, any doubt at all, I'd like to hear it. From you, not from the City.",
+     {
+      "to": "constance"
+     }
+    ],
+    [
+     "constance",
+     "Is there any doubt, Lionel?",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "achebe",
+     "None whatever. I'd stake my life on it.",
+     {
+      "to": "constance"
+     }
+    ],
+    [
+     "constance",
+     "You've staked your name, Lionel. That's quite enough.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "desmond",
+     "Strand. You're an insurance man. Tell me, does your company ever pay out?",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "Very reluctantly, Sir Desmond. That's why they send me.",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "desmond",
+     "On a fire, say. Or a burglary.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "On a fire, a burglary, a flood. Not on a fake. A fake isn't a loss, Sir Desmond. It's a mistake. We don't insure mistakes.",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "achebe",
+     "Why on earth would you mention fakes, Mister Strand?",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "Sir Desmond asked, Professor. I'm only answering.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "isobel",
+     "There was a forger at the Tate last year. They caught him copying a Constable on his lunch hour. He'd sold three to a man in Chelsea.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "kitty",
+     "Was it you, Isobel?",
+     {
+      "to": "isobel"
+     }
+    ],
+    [
+     "isobel",
+     "Don't be silly, Kitty. I copy them. I don't sell them. Nobody would pay for my Constables. The clouds are wrong.",
+     {
+      "to": "kitty"
+     }
+    ],
+    [
+     "achebe",
+     "The clouds are always wrong, Isobel. That's how one knows.",
+     {
+      "to": "isobel"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "constance",
+     "Desmond, you're very quiet tonight.",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "desmond",
+     "I'm thinking, Constance. About the boat. About George. About how much money there is in this flat on the walls, and how little there is in my bank.",
+     {
+      "to": "constance"
+     }
+    ],
+    [
+     "constance",
+     "Then don't think, Desmond. Eat your soup. It's French. It's free.",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "graves",
+     "Mister Strand, the porter says your office telephoned, sir. They'll ring back for madam directly. In the library.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "Thank you, Graves.",
+     {
+      "to": "graves"
+     }
+    ],
+    [
+     "achebe",
+     "You've asked them to telephone Mrs Vale? Not you?",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "It's her picture, Professor.",
+     {
+      "to": "achebe"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 700.0,
+   "lines": [
+    [
+     "kitty",
+     "Mister Strand, is there something wrong with the Turner? You can tell me. I'm terrible at secrets. I'll tell everyone, but very nicely.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "Miss Fairlie, if I told you, you'd tell the whole of Knightsbridge by Saturday.",
+     {
+      "to": "kitty"
+     }
+    ],
+    [
+     "kitty",
+     "By Friday. I have lunch on Friday.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "constance",
+     "Lionel, the Geneva family. What were they called?",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "achebe",
+     "Their name is confidential, Constance. That was the condition.",
+     {
+      "to": "constance"
+     }
+    ],
+    [
+     "constance",
+     "I paid eleven thousand pounds to a condition?",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "achebe",
+     "You paid it to me, my dear, and I paid it to them. That's how the trade works. It's very old and very gentlemanly.",
+     {
+      "to": "constance"
+     }
+    ],
+    [
+     "desmond",
+     "It sounds very convenient, Professor.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "achebe",
+     "The best things in art usually are, Sir Desmond.",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "isobel",
+     "Aunt Constance, the Gainsborough in the hall. The lady with the dog. Was that one of the Professor's?",
+     {
+      "to": "constance"
+     }
+    ],
+    [
+     "constance",
+     "In January. From a family in Bath. Why?",
+     {
+      "to": "isobel"
+     }
+    ],
+    [
+     "isobel",
+     "No reason. I sketched the dog this afternoon. The brushwork on the ear is a bit modern. Like somebody's been to art school.",
+     {
+      "to": "constance"
+     }
+    ],
+    [
+     "achebe",
+     "Isobel, you're a student. You see art school everywhere. It's an occupational illness.",
+     {
+      "to": "isobel"
+     }
+    ],
+    [
+     "isobel",
+     "I'm sure you're right, Professor.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "graves",
+     "Madam, the cook asks if the fish should wait for madam's telephone call.",
+     {
+      "to": "constance"
+     }
+    ],
+    [
+     "constance",
+     "No, Graves. The fish waits for nobody. Not in this house.",
+     {
+      "to": "graves"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "desmond",
+     "Constance, the halibut. Is it from Grimsby? I knew a man in Grimsby.",
+     {
+      "to": "constance"
+     }
+    ],
+    [
+     "constance",
+     "Everybody knew a man in Grimsby, Desmond. It's what Grimsby is for.",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "jamie",
+     "Mrs Vale, after the call, may I have five minutes? In the library?",
+     {
+      "to": "constance"
+     }
+    ],
+    [
+     "constance",
+     "You may have ten, Mister Strand. I'll be very calm. I've been calm since nineteen forty.",
+     {
+      "to": "jamie"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 829.0,
+   "lines": [
+    [
+     "graves",
+     "The fish, madam. Halibut.",
+     {
+      "to": "constance"
+     }
+    ],
+    [
+     "constance",
+     "Thank you, Graves.",
+     {
+      "to": "graves"
+     }
+    ],
+    [
+     "desmond",
+     "Halibut. Now that's a fish. A fish you can trust.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "jamie",
+     "Mrs Vale, when my office telephones, I'd like you to take the call yourself. In the library. Alone, if you would.",
+     {
+      "to": "constance"
+     }
+    ],
+    [
+     "constance",
+     "You're being very mysterious, Mister Strand.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "It's my job, Mrs Vale. I'd rather you heard it from them than from me. I'm only the messenger.",
+     {
+      "to": "constance"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "achebe",
+     "Mister Strand, I insist. As the expert. If there's a question about any picture I've certified, I must be present.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "I'm sure Mrs Vale will tell you everything afterwards, Professor.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "achebe",
+     "Constance?",
+     {
+      "to": "constance"
+     }
+    ],
+    [
+     "constance",
+     "Afterwards, Lionel. I promise.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "graves",
+     "Madam. The telephone. In the library. From the City, madam.",
+     {
+      "to": "constance"
+     }
+    ],
+    [
+     "constance",
+     "Well. There it is. Excuse me, all of you. Eat your halibut. Don't let Desmond have mine.",
+     {
+      "to": "all",
+      "do": "out:constance"
+     }
+    ],
+    [
+     "desmond",
+     "I'll guard it with my life, Constance.",
+     {
+      "to": "constance"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "kitty",
+     "Mister Strand. Please. What is it? What's wrong with the Turner?",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "I didn't say anything was wrong, Miss Fairlie.",
+     {
+      "to": "kitty"
+     }
+    ],
+    [
+     "kitty",
+     "You've said it all evening with your eyebrows.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "achebe",
+     "Excuse me. A moment. The gentlemen's. Onion soup, I'm afraid, at my age.",
+     {
+      "to": "all",
+      "do": "up:achebe"
+     }
+    ],
+    [
+     "desmond",
+     "Second door on the left, Professor. Not the library. That's where the telephone is.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "achebe",
+     "I know the flat, Sir Desmond. I've hung every picture in it.",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "desmond",
+     "Kitty, if the Turner's a fake, Constance is ruined. Eleven thousand pounds. On the wall. Worth a tenner.",
+     {
+      "to": "kitty"
+     }
+    ],
+    [
+     "kitty",
+     "Uncle Desmond, don't. She'll hear you.",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "desmond",
+     "She's in the library on the telephone, Kitty, being told. Better she's ruined than all of us.",
+     {
+      "to": "kitty"
+     }
+    ],
+    [
+     "kitty",
+     "How are we all ruined?",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "desmond",
+     "Because, Kitty, everything we're each expecting to get one day is hanging on those walls. And somebody's been changing the walls.",
+     {
+      "to": "kitty"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "achebe",
+     "Forgive me. My apologies. I took a wrong turning. This flat has more doors than the Courtauld.",
+     {
+      "to": "all",
+      "do": "back:achebe"
+     }
+    ],
+    [
+     "desmond",
+     "Did you find it, Professor?",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "achebe",
+     "Eventually, Sir Desmond. Eventually.",
+     {
+      "to": "desmond"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 1003.0,
+   "lines": [
+    [
+     "jamie",
+     "Sir Desmond, the Turner's insured for fourteen thousand pounds. Did you know that?",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "desmond",
+     "I knew it was a great deal. Constance told everybody on the telephone. Twice.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "And in her will, the collection goes to?",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "desmond",
+     "To me, Strand. And Kitty. And Isobel. In thirds. You've done your homework.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "I'm an insurance man, Sir Desmond. I always do my homework on wills. People get very creative around wills.",
+     {
+      "to": "desmond",
+      "ev": "clue:turner"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "graves",
+     "Mister Strand, sir, shall I see to madam? She's been gone nearly twenty minutes. The halibut is quite cold.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "Please, Graves. Ask her if she'd like it kept warm.",
+     {
+      "to": "graves",
+      "do": "up:graves"
+     }
+    ],
+    [
+     "graves",
+     "Very good, sir."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "achebe",
+     "You think something's wrong with the collection, Mister Strand. Say it.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "The Turner was sold to Mrs Vale in March, Professor. From a family in Geneva. My company photographed it for the policy. We sent the photographs to the Tate. Their chemists are very young, Professor. They believe in chemists.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "achebe",
+     "Chemists.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "Little scrapings of paint, Professor. And some of the yellow is a yellow that wasn't invented until eighteen sixty. Turner died in eighteen fifty one.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "isobel",
+     "Then it's a fake. The Turner's a fake.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "desmond",
+     "Good God. Professor.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "achebe",
+     "That's absurd. One sample. A careless chemist. A restorer's touch. I'll have it looked at by somebody who knows.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "jamie",
+     "Somebody who knows, Professor. That's what she paid you for.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "graves",
+     "Sir. The library door is locked, sir. From the inside. I knocked. Madam doesn't answer.",
+     {
+      "to": "jamie",
+      "do": "back:graves"
+     }
+    ],
+    [
+     "jamie",
+     "Locked?",
+     {
+      "to": "graves"
+     }
+    ],
+    [
+     "graves",
+     "Locked, sir. And no answer. I could hear the telephone receiver off the hook. Purring.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "kitty",
+     "She's fainted. She's had the call and she's fainted.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "desmond",
+     "Constance doesn't faint. Constance has never fainted in her life. She makes other people faint.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "jamie",
+     "Graves, the window in the library. Does it open?",
+     {
+      "to": "graves"
+     }
+    ],
+    [
+     "graves",
+     "A crack, sir. For the picture. Madam says the Turner needs to breathe.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "Twenty two floors up.",
+     {
+      "to": "graves"
+     }
+    ],
+    [
+     "graves",
+     "Yes, sir. Nobody's ever come in through it. Only pigeons.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "isobel",
+     "Jamie, should we go now? Break the door?",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "Not yet, Isobel. She may simply be upset. Some people lock a door to cry.",
+     {
+      "to": "isobel"
+     }
+    ],
+    [
+     "desmond",
+     "Constance has never cried behind a door in her life, Strand. She cries in public, at the opera, where it counts.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "kitty",
+     "Graves, did you hear anything? Through the door? Anything at all?",
+     {
+      "to": "graves"
+     }
+    ],
+    [
+     "graves",
+     "Only the telephone, miss. Purring. And the clock.",
+     {
+      "to": "kitty"
+     }
+    ],
+    [
+     "achebe",
+     "She'll come out when she's ready. I've known her thirty years. She hates to be fussed.",
+     {
+      "to": "all"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 1203.0,
+   "lines": [
+    [
+     "graves",
+     "The sorbet, sir. Blackcurrant. Shall I serve it, sir? Under the circumstances?",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "Serve it, Graves. And then get your tools. We may need the door off.",
+     {
+      "to": "graves"
+     }
+    ],
+    [
+     "graves",
+     "The door is oak, sir. Madam had it from a monastery.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "achebe",
+     "Mister Strand, Constance is a very private woman. If she's locked the door, she wishes to be alone. Perhaps she's simply upset. Let her be.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "Perhaps, Professor. Have you a key to the library?",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "achebe",
+     "Why on earth would I have a key, Mister Strand? There's only one. It's on her chain.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "kitty",
+     "Isobel, I'm frightened.",
+     {
+      "to": "isobel"
+     }
+    ],
+    [
+     "isobel",
+     "So am I, Kitty. Eat your sorbet. It's blackcurrant. It's very calming.",
+     {
+      "to": "kitty"
+     }
+    ],
+    [
+     "kitty",
+     "Nothing purple has ever calmed anybody.",
+     {
+      "to": "isobel"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "desmond",
+     "Strand. If she's in there with the receiver off the hook, she's ill. A stroke. Her heart. We must go in.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "We will, Sir Desmond. In a moment. I'd like to know where everybody was first. While we all remember.",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "desmond",
+     "Where everybody was? We were all here.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "Not all of us, Sir Desmond. Not the whole time.",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "isobel",
+     "The Professor went to the gentlemen's. During the fish. After Aunt Constance went to the telephone.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "achebe",
+     "Isobel. Really.",
+     {
+      "to": "isobel"
+     }
+    ],
+    [
+     "isobel",
+     "You did, Professor. I'm only counting. You were gone four minutes. I looked at the clock on the mantelpiece.",
+     {
+      "to": "achebe",
+      "ev": "clue:left"
+     }
+    ],
+    [
+     "achebe",
+     "An old man's bladder, Mister Strand. Onion soup. I lost my way. The flat is a labyrinth.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "You said you'd hung every picture in it, Professor.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "achebe",
+     "In the light, Mister Strand. Not in the corridors after onion soup.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "kitty",
+     "And Graves went. Just now. To the library.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "graves",
+     "I went to the door, miss. I didn't go in. I couldn't. It's locked.",
+     {
+      "to": "kitty"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "desmond",
+     "Isobel was in the library this afternoon. Graves said so.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "isobel",
+     "With a sketchbook, Uncle Desmond. Drawing the Turner. Under Graves's eye.",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "graves",
+     "Miss Isobel was there an hour, sir. I stood by the door. She touched nothing.",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "isobel",
+     "I touched nothing, and I copied everything. It's the opposite of stealing.",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "jamie",
+     "Mrs Vale went to the library alone, at the fish. She locked herself in, or somebody did. The receiver is off the hook. And she's had twenty five minutes to come back to her halibut.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "achebe",
+     "You make it sound like a crime, Mister Strand.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "I'm an insurance man, Professor. Everything sounds like a claim to me.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "desmond",
+     "You two must think we're all mad. A woman locked in a library, and everybody eating sorbet.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "isobel",
+     "We're English. We eat through everything. The Blitz, the war, the Coronation.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "isobel",
+     "Professor, chrome yellow. When was it invented? You'd know.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "achebe",
+     "Eighteen twenty, Isobel. Or thereabouts. Turner used it constantly. It's one of the ways one knows.",
+     {
+      "to": "isobel"
+     }
+    ],
+    [
+     "jamie",
+     "Not the yellow in this picture, Professor. Theirs is a cadmium. Eighteen sixty.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "achebe",
+     "The chemists say.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "The chemists say.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "desmond",
+     "I don't understand a word of this, and I'm frightened anyway.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "kitty",
+     "So am I, Uncle Desmond. Isn't it awful? It's like the war.",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "desmond",
+     "The war was much better organised, Kitty.",
+     {
+      "to": "kitty"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "graves",
+     "My tools, sir. I've brought the big screwdriver, and the poker.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "The poker, Graves. Bring the poker.",
+     {
+      "to": "graves"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 1474.0,
+   "lines": [
+    [
+     "graves",
+     "The pork, sir. With apple. Shall I serve it, sir?",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "Serve it, Graves. Then come with me.",
+     {
+      "to": "graves"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "desmond",
+     "Strand, I'm coming too. It's my sister in law. I'll break the door myself.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "With respect, Sir Desmond, you've a bad hip and you're seventy two. Professor, you'll come. You know the room.",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "achebe",
+     "Me?",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "You've hung every picture in it, Professor. You'll know if anything's been moved.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "achebe",
+     "Very well. Very well. Of course.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "desmond",
+     "You two in the middle. Don't look so worried. Constance has done this before. In nineteen forty six she locked herself in a bathroom in Biarritz for an entire afternoon to avoid a Belgian.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "isobel",
+     "Did it work?",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "desmond",
+     "The Belgian married somebody else. So yes.",
+     {
+      "to": "isobel"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "desmond",
+     "Strand, if she's ill in there, every minute counts.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "I know, Sir Desmond. One more minute. Graves is finding the poker. The good one. The fire irons from the library are in the library.",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "desmond",
+     "Of course they are. Everything useful in this flat is in that library.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "graves",
+     "Ready, sir.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "Sir Desmond, keep everybody at the table. Nobody follows us. Graves, the poker. Professor.",
+     {
+      "to": "all",
+      "do": "up:graves"
+     }
+    ],
+    [
+     "graves",
+     "After you, sir.",
+     {
+      "do": "up:jamie"
+     }
+    ],
+    [
+     "achebe",
+     "Coming, Mister Strand. Coming.",
+     {
+      "to": "jamie",
+      "do": "up:achebe"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "desmond",
+     "Kitty, eat your pork.",
+     {
+      "to": "kitty"
+     }
+    ],
+    [
+     "kitty",
+     "How can you think about pork, Uncle Desmond?",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "desmond",
+     "I was in the Navy for thirty years, Kitty. You eat when there's food, and you worry when there's time.",
+     {
+      "to": "kitty"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "isobel",
+     "Uncle Desmond, the Gainsborough. In the hall. It's a fake too. I'd bet my diploma. The dog's ear was painted by someone who'd been to the Slade.",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "desmond",
+     "Then all of them, Isobel. All six. All through the Professor.",
+     {
+      "to": "isobel"
+     }
+    ],
+    [
+     "isobel",
+     "All with his certificates. All insured. And all of them coming to us one day, in thirds, worth nothing.",
+     {
+      "to": "desmond",
+      "ev": "clue:copies"
+     }
+    ],
+    [
+     "desmond",
+     "Good God. The man's been robbing her blind and selling her own walls back to her.",
+     {
+      "to": "isobel"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "kitty",
+     "I can hear them. In the corridor. The door.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "desmond",
+     "That's Graves with the poker. Oak, from a monastery. He'll need both hands and a prayer.",
+     {
+      "to": "kitty"
+     }
+    ],
+    [
+     "pause",
+     4.0
+    ],
+    [
+     "isobel",
+     "It's gone very quiet.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "desmond",
+     "Too quiet. Kitty, stay where you are.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "kitty",
+     "I wasn't going anywhere, Uncle Desmond. I can't feel my legs.",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "jamie",
+     "Sit down, everybody. Please. Sit down.",
+     {
+      "to": "all",
+      "do": "back:jamie"
+     }
+    ],
+    [
+     "desmond",
+     "Strand. Constance?",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "She's dead, Sir Desmond. In the library. By the telephone. Somebody hit her with the bronze horse from the desk. I'm sorry.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "kitty",
+     "No. No, no, no.",
+     {
+      "to": "all",
+      "ev": "gasp"
+     }
+    ],
+    [
+     "graves",
+     "I'm sorry, Miss Kitty. I'm so sorry.",
+     {
+      "to": "all",
+      "do": "back:graves"
+     }
+    ],
+    [
+     "achebe",
+     "Terrible. Terrible. Who could do such a thing to Constance?",
+     {
+      "to": "all",
+      "do": "back:achebe"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 1700.0,
+   "lines": [
+    [
+     "isobel",
+     "But the door was locked. From the inside. Graves said.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "It was, Isobel. We broke it in. Graves and I took it off its hinges. And the Professor went in first.",
+     {
+      "to": "isobel"
+     }
+    ],
+    [
+     "achebe",
+     "I went to her, Mister Strand. One does. One goes to a friend.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "And the key to the library was on the carpet, just inside the door. The Professor found it there and handed it to me.",
+     {
+      "to": "all",
+      "do": "show:jamie=key"
+     }
+    ],
+    [
+     "jamie",
+     "This key. From her chain. The only key. Inside the locked room, on the floor.",
+     {
+      "to": "all",
+      "ev": "clue:key"
+     }
+    ],
+    [
+     "desmond",
+     "So she locked herself in. And then somebody... Strand, that's impossible.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "It's impossible, Sir Desmond. Which is the first thing that makes me happy all evening. Impossible things are always lies.",
+     {
+      "to": "desmond",
+      "do": "pocket:jamie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "graves",
+     "Sir, may I say something.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "Please, Graves.",
+     {
+      "to": "graves"
+     }
+    ],
+    [
+     "graves",
+     "When the door went down, sir, the Professor stepped in first, and knelt by madam. And then he stood up and said, the key's here, on the floor. But I'd looked at the floor, sir, with the torch. Before he knelt. There was nothing on the floor.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "achebe",
+     "Graves, you're upset. It was dark. You'd been hammering a door with a poker.",
+     {
+      "to": "graves"
+     }
+    ],
+    [
+     "graves",
+     "I've dusted that carpet every day for twenty years, sir. I know what's on it.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "jamie",
+     "You two in the middle. You've seen everybody tonight. Who went where, and when. There's a board at the end of the table. Put your pin on whoever you think it was.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "jamie",
+     "Change your mind as often as you like. When the pudding comes, the board closes.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "isobel",
+     "Mister Strand, the telephone call. Your office. What did they tell her?",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "That the Turner is a fake, Isobel. That the yellow is wrong by ten years. And that the certificate on the back of it is a lie.",
+     {
+      "to": "isobel",
+      "ev": "clue:call"
+     }
+    ],
+    [
+     "isobel",
+     "So she knew. In the library. On the telephone. She knew.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "She knew for about four minutes, Isobel. Then somebody came in.",
+     {
+      "to": "isobel"
+     }
+    ],
+    [
+     "achebe",
+     "This is monstrous. You're implying I killed Constance over a painting.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "I'm implying nothing yet, Professor. I'm adding things up. It's the dullest part of my job.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "achebe",
+     "Then add this, Mister Strand. I have certified two thousand paintings in forty years. If one of them is wrong, it's a mistake. Not a motive.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "Six of them, Professor. In this flat. In one year. All through you, all from families who don't write.",
+     {
+      "to": "achebe",
+      "ev": "clue:authenticated"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "desmond",
+     "Six. Isobel says the Gainsborough's wrong too. The dog's ear.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "achebe",
+     "Isobel is a student, Sir Desmond.",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "isobel",
+     "Isobel copied a Turner well enough to fool a guard at the Tate, Professor. I know a copy. I make them.",
+     {
+      "to": "achebe"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 1905.0,
+   "lines": [
+    [
+     "graves",
+     "The cheese, sir. Gouda, and goat's cheese, with figs.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "Thank you, Graves.",
+     {
+      "to": "graves"
+     }
+    ],
+    [
+     "desmond",
+     "I couldn't eat a fig if the Admiralty ordered me to.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "jamie",
+     "Graves, when you went to the library door the first time. Did you see anybody in the corridor?",
+     {
+      "to": "graves"
+     }
+    ],
+    [
+     "graves",
+     "No, sir. Only the Professor's cigar smoke. In the corridor by the library. Fresh.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "achebe",
+     "I don't smoke at dinner.",
+     {
+      "to": "graves"
+     }
+    ],
+    [
+     "graves",
+     "No, sir. You smoke before the fish and after the halibut. Always the same cigar. Always outside the library. I've known it twenty years.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "kitty",
+     "Mister Strand, what about the telegram? You had a telegram this morning. I saw the boy bring it up.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "You've sharp eyes, Miss Fairlie.",
+     {
+      "to": "kitty"
+     }
+    ],
+    [
+     "kitty",
+     "For telegrams. They're usually from my dressmaker.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "It's from Geneva. I wired the police there on Monday about the family the Professor bought the Turner from.",
+     {
+      "to": "all",
+      "do": "show:jamie=telegram"
+     }
+    ],
+    [
+     "jamie",
+     "No family of that name in Geneva. No collection. No sale. The address is a post office box rented by a dealer in Lausanne who used to be a student at the Courtauld.",
+     {
+      "to": "all",
+      "do": "pocket:jamie"
+     }
+    ],
+    [
+     "desmond",
+     "Professor.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "achebe",
+     "Students go everywhere, Sir Desmond. I've taught thousands.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "isobel",
+     "Professor. You told me at the soup that a forger always gets the clouds wrong. How did you know about clouds?",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "achebe",
+     "Because I've seen a thousand forgeries, Isobel. One learns the mistakes.",
+     {
+      "to": "isobel"
+     }
+    ],
+    [
+     "isobel",
+     "Or one teaches them.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "graves",
+     "Sir, the police are on their way. I telephoned from the hall while the Professor was with madam.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "Thank you, Graves. That was very quick of you.",
+     {
+      "to": "graves"
+     }
+    ],
+    [
+     "graves",
+     "Madam always said, Graves, if anything happens, don't wait to be told.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "achebe",
+     "Mister Strand, I'll say this once. I loved Constance. In my way. We had a very old friendship.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "You had a very old account, Professor. Eleven thousand for the Turner. Nine for the Gainsborough. Six pictures. Forty thousand pounds.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "achebe",
+     "Money she was glad to spend.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "On paintings, Professor. Not on yellow from eighteen sixty.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "isobel",
+     "Jamie, how long have you known? About the Turner?",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "Since Tuesday, Isobel. The Tate rang me at the office. I've been eating dinner with it all week. It's very hard to keep a straight face at the melon.",
+     {
+      "to": "isobel"
+     }
+    ],
+    [
+     "desmond",
+     "You kept a very straight face, Strand. I thought you were dull.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "Thank you, Sir Desmond. It's the job. Dull men see everything. Nobody watches them.",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "kitty",
+     "I watched you. You looked at the Professor every time he said Geneva.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "You're wasted on Hartnell, Miss Fairlie.",
+     {
+      "to": "kitty"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 2100.0,
+   "lines": [
+    [
+     "jamie",
+     "Sir Desmond. Miss Vale. Miss Fairlie. Professor. Graves.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "jamie",
+     "A brother in law who was left a sunken boat. A niece who copies Turners. A goddaughter who owes Hartnell. A butler who has the run of the flat. And a professor who put his name on six pictures in one year.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "graves",
+     "And dusted every one of them, sir. Myself.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "I know, Graves.",
+     {
+      "to": "graves"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "jamie",
+     "You two in the middle. The board. You have until the pudding.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "kitty",
+     "Isobel, will you still paint? After this?",
+     {
+      "to": "isobel"
+     }
+    ],
+    [
+     "isobel",
+     "More than ever, Kitty. Somebody has to paint the real ones back.",
+     {
+      "to": "kitty"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "desmond",
+     "Strand, you'll find who did it. Before the police?",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "I already have, Sir Desmond. I'm waiting for the pudding. Mrs Vale always said the answer's no at the pudding.",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "achebe",
+     "I'd like to go to the library. To sit with her. Until the police come.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "jamie",
+     "No, Professor. Nobody goes into the library again tonight.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "achebe",
+     "Then I'll go home.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "Not before the pudding, Professor.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "isobel",
+     "Jamie, when this is over, will you still be the insurance man? Or a detective?",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "The insurance man, Isobel. Detectives don't get a pension.",
+     {
+      "to": "isobel"
+     }
+    ],
+    [
+     "kitty",
+     "I keep thinking she'll come back in. Through that door. Complaining about the halibut.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "desmond",
+     "So do I, Kitty. She always did hate cold fish.",
+     {
+      "to": "kitty"
+     }
+    ],
+    [
+     "graves",
+     "Sir, shall I keep madam's halibut warm? It seems wrong to throw it away.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "Keep it, Graves. Until the police come. It's evidence of something. I'm not sure what.",
+     {
+      "to": "graves"
+     }
+    ],
+    [
+     "desmond",
+     "I'll say this for Constance. She never once served a bad pudding. Not in forty years.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "kitty",
+     "She served one at my christening, Uncle Desmond. Mummy still talks about it.",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "desmond",
+     "That was the cook, Kitty. Constance sacked her at the font.",
+     {
+      "to": "kitty"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "graves",
+     "The pudding is coming up now, sir. Panna cotta. Madam chose it. She said it wobbles like an expert witness.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "Thank you, Graves.",
+     {
+      "to": "graves"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 2257.0,
+   "lines": [
+    [
+     "graves",
+     "Panna cotta, sir.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "Pudding. Pins down, please. The board is closed.",
+     {
+      "to": "mid",
+      "ev": "lock"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "jamie",
+     "Constance Vale bought six paintings this year from Professor Achebe, all from families who don't write, all with his certificates. My company had the Turner looked at. The yellow is from eighteen sixty. The telegram says the family in Geneva is a post office box.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "jamie",
+     "Tonight my office telephoned her in the library, at the fish, and told her so. Within four minutes somebody went in, hit her with the bronze horse from the desk, locked the door behind him, and came back to the table.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "jamie",
+     "The Professor left the table during the fish. For four minutes, Isobel says. He took a wrong turning, he says, in a flat where he's hung every picture.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "jamie",
+     "And when the door came down, the Professor went in first, and knelt, and stood up with the key that wasn't on the floor when Graves looked. Because it was in his pocket. He locked her in from the outside, and he brought the key back in with him.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "jamie",
+     "She knew what you'd done, Professor. For four minutes she knew. And she was going to tell you at the pudding. She always said the answer was no at the pudding.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "pause",
+     2.0
+    ],
+    [
+     "jamie",
+     "Professor Lionel Achebe.",
+     {
+      "to": "achebe",
+      "ev": "reveal"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "achebe",
+     "Do you know how much they pay a professor at the Courtauld, Mister Strand? Do you know?",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "Less than eleven thousand pounds, I'd imagine.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "achebe",
+     "Forty years. Forty years of looking at other people's paintings in other people's houses, being thanked at dinner. And one day a young man of mine in Lausanne showed me a Turner he'd painted on a Sunday afternoon, and it was beautiful, Mister Strand. It was the best thing I'd ever seen. And nobody would ever know.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "isobel",
+     "Except a chemist.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "achebe",
+     "Except a very young man with a test tube. Your tutor was right, Isobel. It's a science now. My instinct has had its day.",
+     {
+      "to": "isobel"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "desmond",
+     "And Constance? You hit her with a bronze horse, man. She'd known you thirty years.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "achebe",
+     "She picked up the telephone, Sir Desmond, and listened, and then she turned and looked at me in the doorway, and said, Lionel, the answer is no. And I couldn't bear it. Not from her. Not the answer.",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "graves",
+     "Sir, the police are in the lift.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "Professor, you'll go down with Graves. Now, please.",
+     {
+      "to": "achebe",
+      "do": "up:graves"
+     }
+    ],
+    [
+     "achebe",
+     "I'll go down myself, Mister Strand. I know the flat. I've hung every picture in it.",
+     {
+      "to": "jamie",
+      "do": "out:achebe"
+     }
+    ],
+    [
+     "isobel",
+     "Professor.",
+     {
+      "to": "achebe"
+     }
+    ],
+    [
+     "achebe",
+     "Isobel. Your Turner. At the Tate. I went to see it, you know. In the spring. It was very good. The clouds were right.",
+     {
+      "to": "isobel"
+     }
+    ],
+    [
+     "pause",
+     4.0
+    ],
+    [
+     "kitty",
+     "I'm going to cry. Is that allowed? Can I cry now?",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "desmond",
+     "Cry, Kitty. Cry all you like. Constance would have hated it, and she'd have handed you her handkerchief.",
+     {
+      "to": "kitty"
+     }
+    ],
+    [
+     "kitty",
+     "She had lovely handkerchiefs. Irish linen.",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "desmond",
+     "She had lovely everything. Some of it was real.",
+     {
+      "to": "kitty"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "isobel",
+     "Mister Strand. Jamie. The pictures. What happens to them now?",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "Evidence, Isobel. All six. And then my company will want its money back, and the Professor's university will want its reputation back, and a dealer in Lausanne will want a very good lawyer.",
+     {
+      "to": "isobel"
+     }
+    ],
+    [
+     "isobel",
+     "And the frames?",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "The frames are real. Eighteenth century. Your aunt never bought anything without a real frame.",
+     {
+      "to": "isobel"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "desmond",
+     "Strand. Thank you. You've been very thorough.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "I'm an insurance man, Sir Desmond. Thorough is all we've got.",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "desmond",
+     "Constance would have liked you. She liked people who read the small print.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "graves",
+     "The Professor is with the police, sir. In the hall. He asked them to mind the Gainsborough on the way past. He said the dog's ear wanted looking at.",
+     {
+      "to": "jamie",
+      "do": "back:graves"
+     }
+    ],
+    [
+     "jamie",
+     "Thank you, Graves.",
+     {
+      "to": "graves"
+     }
+    ],
+    [
+     "graves",
+     "Sir. Madam's chain. With the key. Should I put it back on her?",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "Leave it with the police, Graves. They'll want to see where it was. It was in the wrong place all evening.",
+     {
+      "to": "graves"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "kitty",
+     "Mister Strand, the four hundred pounds. To Hartnell. Aunt Constance said she'd think about it at the pudding.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "It's the pudding, Miss Fairlie.",
+     {
+      "to": "kitty"
+     }
+    ],
+    [
+     "kitty",
+     "I know. I was just thinking about it for her. I think the answer would have been no.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "desmond",
+     "The answer would have been yes, Kitty. With a lecture. She always said no at the pudding and paid on Monday.",
+     {
+      "to": "kitty"
+     }
+    ],
+    [
+     "kitty",
+     "Did she really?"
+    ],
+    [
+     "desmond",
+     "Every Monday for twenty years. She paid all of us. She just liked to say no first.",
+     {
+      "to": "kitty"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "isobel",
+     "Did you see him? The Professor? When he went out at the fish? He looked at every one of us on the way. Like he was saying goodbye to the pictures.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "jamie",
+     "There's one more thing. I didn't say it at the pudding, because I wanted the Professor to say it himself. The telephone in the library was off the hook all evening. My office stayed on the line. The clerk heard everything.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "isobel",
+     "Everything?",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "Her saying thank you, very coolly, as they told her about the yellow. A door. Her voice saying, Lionel, the answer is no. And then nothing. He wrote it all down, in shorthand, for me. He's twenty three, and he's been crying since nine o'clock.",
+     {
+      "to": "isobel"
+     }
+    ],
+    [
+     "desmond",
+     "Good God. She told him to his face.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "She told him at the telephone, Sir Desmond, with the receiver still in her hand. She didn't even put it down. She wanted it on the record.",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "kitty",
+     "That's so like her. That's exactly like her.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "isobel",
+     "Jamie. Will you come to the Tate? I'd like you to see my Turner. The copy. With the right clouds.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "I'd like that, Isobel. I'll bring the magnifying glass.",
+     {
+      "to": "isobel"
+     }
+    ],
+    [
+     "isobel",
+     "Leave it at home. Just look at it. Like a person. Not an insurance man.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "I don't know how. But I'll try.",
+     {
+      "to": "isobel"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "desmond",
+     "Kitty, the four hundred pounds. Hartnell. I'll pay it. Constance's Monday. Somebody has to keep it up.",
+     {
+      "to": "kitty"
+     }
+    ],
+    [
+     "kitty",
+     "Uncle Desmond, you haven't got four hundred pounds. You've got a boat at the bottom of the Solent.",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "desmond",
+     "I'll sell the anchor, Kitty. It's the only part that stayed where I put it.",
+     {
+      "to": "kitty"
+     }
+    ],
+    [
+     "kitty",
+     "You're a very silly old man, and I love you very much.",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "desmond",
+     "Don't tell the Navy, Kitty.",
+     {
+      "to": "kitty"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "graves",
+     "Sir, madam's Turner. The fake one. What will become of it?",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "Evidence first, Graves. Then, I suppose, nothing. Nobody wants a fake Turner.",
+     {
+      "to": "graves"
+     }
+    ],
+    [
+     "graves",
+     "I'd like it, sir. If it's to be thrown away. I've dusted it every day since March. I'm rather fond of it.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "I'll ask, Graves. I'll ask the company myself. I think it should hang somewhere it's loved for what it is.",
+     {
+      "to": "graves"
+     }
+    ],
+    [
+     "graves",
+     "In my sitting room, sir. Over the gas fire. It'll be the warmest Turner in London.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "isobel",
+     "You two. Did you guess? From the start? The Professor never once looked at the Turner tonight. Not once. Everybody else did.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "kitty",
+     "I didn't guess anything. I never do. I just liked the frocks.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "desmond",
+     "Strand, the library. Will you lock it? For the night?",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "With what, Sir Desmond? The only key's in my pocket, and it's evidence. We'll leave the door off its hinges. Let the room breathe. She'd want it seen.",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "kitty",
+     "Mister Strand, will you come to the funeral? She'd want the insurance there. To make sure nothing's fake.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "I'll come, Miss Fairlie. I'll sit at the back and check the flowers.",
+     {
+      "to": "kitty"
+     }
+    ],
+    [
+     "desmond",
+     "The flowers will be real, Strand. I'll buy them myself. From a man in Covent Garden I trust.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "Did the Professor recommend him?",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "desmond",
+     "Good God, no. The Navy did.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "isobel",
+     "I'm going to paint her. Aunt Constance. Not a copy. Her. From memory. With the key on its chain.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "kitty",
+     "Put her at the telephone, Isobel. Saying no.",
+     {
+      "to": "isobel"
+     }
+    ],
+    [
+     "isobel",
+     "Saying no to all of us. Beautifully.",
+     {
+      "to": "kitty"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "desmond",
+     "Strand, the Gainsborough in the hall. The lady with the dog. If it's a fake, who painted it?",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "A young man in Lausanne, Sir Desmond. Very good with dogs' ears, and very bad at yellow.",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "isobel",
+     "I'd like to meet him. Professionally.",
+     {
+      "to": "jamie"
+     }
+    ],
+    [
+     "jamie",
+     "You'll meet him in court, Isobel. Bring your sketchbook.",
+     {
+      "to": "isobel"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "kitty",
+     "Graves, what will you do now? Without Aunt Constance?",
+     {
+      "to": "graves"
+     }
+    ],
+    [
+     "graves",
+     "Dust, miss. Until somebody tells me to stop. Then I'll dust somewhere else.",
+     {
+      "to": "kitty"
+     }
+    ],
+    [
+     "desmond",
+     "You'll come to me, Graves. I've a flat in Chelsea with nothing on the walls. You can dust the nothing.",
+     {
+      "to": "graves"
+     }
+    ],
+    [
+     "graves",
+     "I'd be honoured, Sir Desmond. Nothing is very easy to keep clean.",
+     {
+      "to": "desmond"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "jamie",
+     "Downstairs, all of you. The Rovers. The police will want the flat, and I want something to drink that isn't from Geneva.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "desmond",
+     "I'll stand the first round. In Constance's name.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "graves",
+     "I'll stay with madam, sir. Somebody should. I've dusted her twenty years.",
+     {
+      "to": "desmond",
+      "do": "out:graves"
+     }
+    ],
+    [
+     "kitty",
+     "Come with us. Please. I don't want to go past the library on my own.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "isobel",
+     "And bring your eyes. You two have the best eyes at this table. Better than the Professor's.",
+     {
+      "to": "mid"
+     }
+    ]
+   ]
+  }
+ ]
+}

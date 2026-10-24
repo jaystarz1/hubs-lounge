@@ -1,0 +1,2962 @@
+{
+"_": "Written by lounge-assets/mystery-talk.py build from thu.json: each line's start (t) and length (d) in seconds on the dinner clock.",
+"cues": [
+{
+"t": 4.0,
+"d": 10.44,
+"who": "constance",
+"n": "thu-0-0",
+"to": "all"
+},
+{
+"t": 15.14,
+"d": 6.72,
+"who": "jamie",
+"n": "thu-0-1",
+"to": "constance"
+},
+{
+"t": 22.56,
+"d": 6.912,
+"who": "constance",
+"n": "thu-0-2",
+"to": "jamie"
+},
+{
+"t": 30.17,
+"d": 4.992,
+"who": "achebe",
+"n": "thu-0-3",
+"to": "constance"
+},
+{
+"t": 35.86,
+"d": 7.32,
+"who": "constance",
+"n": "thu-0-4",
+"to": "achebe"
+},
+{
+"t": 43.88,
+"d": 7.176,
+"who": "isobel",
+"n": "thu-0-5",
+"to": "achebe"
+},
+{
+"t": 51.76,
+"d": 2.04,
+"who": "achebe",
+"n": "thu-0-6",
+"to": "isobel"
+},
+{
+"t": 54.5,
+"d": 5.928,
+"who": "isobel",
+"n": "thu-0-7",
+"to": "achebe"
+},
+{
+"t": 61.13,
+"d": 1.632,
+"who": "graves",
+"n": "thu-0-8",
+"to": "constance"
+},
+{
+"t": 78.0,
+"d": 5.952,
+"who": "constance",
+"n": "thu-1-0",
+"to": "all"
+},
+{
+"t": 84.65,
+"d": 4.296,
+"who": "kitty",
+"n": "thu-1-1",
+"to": "constance"
+},
+{
+"t": 89.65,
+"d": 1.68,
+"who": "jamie",
+"n": "thu-1-2",
+"to": "isobel"
+},
+{
+"t": 92.03,
+"d": 3.648,
+"who": "isobel",
+"n": "thu-1-3",
+"to": "jamie"
+},
+{
+"t": 96.38,
+"d": 6.192,
+"who": "constance",
+"n": "thu-1-4",
+"to": "all"
+},
+{
+"t": 117.0,
+"d": 6.888,
+"who": "constance",
+"n": "thu-2-0",
+"to": "all"
+},
+{
+"t": 124.59,
+"d": 1.872,
+"who": "desmond",
+"n": "thu-2-1",
+"to": "constance"
+},
+{
+"t": 127.16,
+"d": 2.928,
+"who": "kitty",
+"n": "thu-2-2",
+"to": "constance"
+},
+{
+"t": 130.79,
+"d": 6.6,
+"who": "constance",
+"n": "thu-2-3",
+"to": "kitty"
+},
+{
+"t": 140.09,
+"d": 8.088,
+"who": "constance",
+"n": "thu-2-5",
+"to": "mid"
+},
+{
+"t": 148.88,
+"d": 5.088,
+"who": "desmond",
+"n": "thu-2-6",
+"to": "mid"
+},
+{
+"t": 154.66,
+"d": 9.384,
+"who": "constance",
+"n": "thu-2-7",
+"to": "mid"
+},
+{
+"t": 164.75,
+"d": 2.832,
+"who": "isobel",
+"n": "thu-2-8",
+"to": "mid"
+},
+{
+"t": 168.28,
+"d": 7.248,
+"who": "constance",
+"n": "thu-2-9",
+"to": "mid"
+},
+{
+"t": 176.23,
+"d": 1.392,
+"who": "kitty",
+"n": "thu-2-10",
+"to": "mid"
+},
+{
+"t": 178.32,
+"d": 10.512,
+"who": "constance",
+"n": "thu-2-11",
+"to": "mid"
+},
+{
+"t": 189.53,
+"d": 3.672,
+"who": "achebe",
+"n": "thu-2-12",
+"to": "mid"
+},
+{
+"t": 193.9,
+"d": 7.056,
+"who": "constance",
+"n": "thu-2-13",
+"to": "mid"
+},
+{
+"t": 201.66,
+"d": 4.536,
+"who": "jamie",
+"n": "thu-2-14",
+"to": "mid"
+},
+{
+"t": 206.9,
+"d": 6.192,
+"who": "constance",
+"n": "thu-2-15",
+"to": "mid"
+},
+{
+"t": 213.79,
+"d": 1.152,
+"who": "graves",
+"n": "thu-2-16"
+},
+{
+"t": 215.94,
+"d": 4.92,
+"who": "desmond",
+"n": "thu-3-0",
+"to": "constance"
+},
+{
+"t": 221.56,
+"d": 6.432,
+"who": "constance",
+"n": "thu-3-1",
+"to": "desmond"
+},
+{
+"t": 231.69,
+"d": 4.656,
+"who": "achebe",
+"n": "thu-3-3",
+"to": "constance"
+},
+{
+"t": 237.05,
+"d": 7.32,
+"who": "constance",
+"n": "thu-3-4",
+"to": "achebe"
+},
+{
+"t": 245.07,
+"d": 7.992,
+"who": "jamie",
+"n": "thu-3-5",
+"to": "achebe"
+},
+{
+"t": 253.76,
+"d": 6.048,
+"who": "constance",
+"n": "thu-3-6",
+"to": "all"
+},
+{
+"t": 263.51,
+"d": 4.656,
+"who": "isobel",
+"n": "thu-3-8",
+"to": "achebe"
+},
+{
+"t": 268.86,
+"d": 5.712,
+"who": "achebe",
+"n": "thu-3-9",
+"to": "isobel"
+},
+{
+"t": 275.28,
+"d": 6.6,
+"who": "isobel",
+"n": "thu-3-10",
+"to": "achebe"
+},
+{
+"t": 282.58,
+"d": 4.752,
+"who": "achebe",
+"n": "thu-3-11",
+"to": "isobel"
+},
+{
+"t": 291.03,
+"d": 2.928,
+"who": "desmond",
+"n": "thu-3-13",
+"to": "kitty"
+},
+{
+"t": 294.66,
+"d": 4.272,
+"who": "kitty",
+"n": "thu-3-14",
+"to": "desmond"
+},
+{
+"t": 302.63,
+"d": 12.432,
+"who": "graves",
+"n": "thu-3-16",
+"to": "constance"
+},
+{
+"t": 315.76,
+"d": 4.032,
+"who": "constance",
+"n": "thu-3-17",
+"to": "graves"
+},
+{
+"t": 320.49,
+"d": 8.736,
+"who": "jamie",
+"n": "thu-3-18",
+"to": "constance"
+},
+{
+"t": 329.93,
+"d": 3.48,
+"who": "constance",
+"n": "thu-3-19",
+"to": "jamie"
+},
+{
+"t": 334.11,
+"d": 3.72,
+"who": "jamie",
+"n": "thu-3-20",
+"to": "constance"
+},
+{
+"t": 341.53,
+"d": 6.48,
+"who": "achebe",
+"n": "thu-3-22",
+"to": "jamie"
+},
+{
+"t": 348.71,
+"d": 3.936,
+"who": "jamie",
+"n": "thu-3-23",
+"to": "achebe"
+},
+{
+"t": 356.0,
+"d": 6.768,
+"who": "constance",
+"n": "thu-4-0",
+"to": "achebe"
+},
+{
+"t": 363.47,
+"d": 6.6,
+"who": "achebe",
+"n": "thu-4-1",
+"to": "constance"
+},
+{
+"t": 370.77,
+"d": 5.928,
+"who": "constance",
+"n": "thu-4-2",
+"to": "achebe"
+},
+{
+"t": 377.4,
+"d": 4.608,
+"who": "achebe",
+"n": "thu-4-3",
+"to": "constance"
+},
+{
+"t": 385.7,
+"d": 7.32,
+"who": "desmond",
+"n": "thu-4-5",
+"to": "constance"
+},
+{
+"t": 393.72,
+"d": 7.2,
+"who": "constance",
+"n": "thu-4-6",
+"to": "desmond"
+},
+{
+"t": 401.62,
+"d": 3.72,
+"who": "desmond",
+"n": "thu-4-7",
+"to": "constance"
+},
+{
+"t": 406.04,
+"d": 6.12,
+"who": "constance",
+"n": "thu-4-8",
+"to": "desmond"
+},
+{
+"t": 412.86,
+"d": 3.072,
+"who": "desmond",
+"n": "thu-4-9",
+"to": "constance"
+},
+{
+"t": 416.64,
+"d": 6.288,
+"who": "constance",
+"n": "thu-4-10",
+"to": "desmond"
+},
+{
+"t": 426.62,
+"d": 3.36,
+"who": "kitty",
+"n": "thu-4-12",
+"to": "achebe"
+},
+{
+"t": 430.68,
+"d": 7.224,
+"who": "achebe",
+"n": "thu-4-13",
+"to": "kitty"
+},
+{
+"t": 438.61,
+"d": 2.472,
+"who": "kitty",
+"n": "thu-4-14",
+"to": "achebe"
+},
+{
+"t": 441.78,
+"d": 5.976,
+"who": "achebe",
+"n": "thu-4-15",
+"to": "kitty"
+},
+{
+"t": 451.46,
+"d": 3.792,
+"who": "jamie",
+"n": "thu-4-17",
+"to": "graves"
+},
+{
+"t": 455.95,
+"d": 10.536,
+"who": "graves",
+"n": "thu-4-18",
+"to": "jamie"
+},
+{
+"t": 467.18,
+"d": 4.512,
+"who": "achebe",
+"n": "thu-4-19",
+"to": "jamie"
+},
+{
+"t": 482.0,
+"d": 4.272,
+"who": "graves",
+"n": "thu-5-0",
+"to": "constance"
+},
+{
+"t": 486.97,
+"d": 1.968,
+"who": "constance",
+"n": "thu-5-1",
+"to": "graves"
+},
+{
+"t": 489.64,
+"d": 6.168,
+"who": "desmond",
+"n": "thu-5-2",
+"to": "all"
+},
+{
+"t": 499.51,
+"d": 3.288,
+"who": "kitty",
+"n": "thu-5-4",
+"to": "achebe"
+},
+{
+"t": 503.5,
+"d": 4.608,
+"who": "achebe",
+"n": "thu-5-5",
+"to": "kitty"
+},
+{
+"t": 511.8,
+"d": 3.312,
+"who": "isobel",
+"n": "thu-5-7",
+"to": "jamie"
+},
+{
+"t": 515.82,
+"d": 2.232,
+"who": "jamie",
+"n": "thu-5-8",
+"to": "isobel"
+},
+{
+"t": 518.75,
+"d": 4.08,
+"who": "isobel",
+"n": "thu-5-9",
+"to": "jamie"
+},
+{
+"t": 523.53,
+"d": 4.32,
+"who": "jamie",
+"n": "thu-5-10",
+"to": "isobel"
+},
+{
+"t": 531.55,
+"d": 3.312,
+"who": "kitty",
+"n": "thu-5-12",
+"to": "constance"
+},
+{
+"t": 535.56,
+"d": 4.68,
+"who": "constance",
+"n": "thu-5-13",
+"to": "kitty"
+},
+{
+"t": 540.94,
+"d": 5.112,
+"who": "kitty",
+"n": "thu-5-14",
+"to": "constance"
+},
+{
+"t": 546.75,
+"d": 2.832,
+"who": "constance",
+"n": "thu-5-15",
+"to": "kitty"
+},
+{
+"t": 553.28,
+"d": 8.832,
+"who": "achebe",
+"n": "thu-5-17",
+"to": "constance"
+},
+{
+"t": 562.82,
+"d": 2.352,
+"who": "constance",
+"n": "thu-5-18",
+"to": "achebe"
+},
+{
+"t": 565.87,
+"d": 3.168,
+"who": "achebe",
+"n": "thu-5-19",
+"to": "constance"
+},
+{
+"t": 569.74,
+"d": 3.552,
+"who": "constance",
+"n": "thu-5-20",
+"to": "achebe"
+},
+{
+"t": 576.99,
+"d": 4.848,
+"who": "desmond",
+"n": "thu-5-22",
+"to": "jamie"
+},
+{
+"t": 582.54,
+"d": 3.48,
+"who": "jamie",
+"n": "thu-5-23",
+"to": "desmond"
+},
+{
+"t": 586.72,
+"d": 3.24,
+"who": "desmond",
+"n": "thu-5-24",
+"to": "jamie"
+},
+{
+"t": 590.66,
+"d": 10.128,
+"who": "jamie",
+"n": "thu-5-25",
+"to": "desmond"
+},
+{
+"t": 601.48,
+"d": 3.384,
+"who": "achebe",
+"n": "thu-5-26",
+"to": "jamie"
+},
+{
+"t": 605.57,
+"d": 4.776,
+"who": "jamie",
+"n": "thu-5-27",
+"to": "achebe"
+},
+{
+"t": 614.04,
+"d": 7.008,
+"who": "isobel",
+"n": "thu-5-29",
+"to": "all"
+},
+{
+"t": 621.75,
+"d": 1.44,
+"who": "kitty",
+"n": "thu-5-30",
+"to": "isobel"
+},
+{
+"t": 623.89,
+"d": 8.112,
+"who": "isobel",
+"n": "thu-5-31",
+"to": "kitty"
+},
+{
+"t": 632.7,
+"d": 3.552,
+"who": "achebe",
+"n": "thu-5-32",
+"to": "isobel"
+},
+{
+"t": 639.96,
+"d": 3.72,
+"who": "constance",
+"n": "thu-5-34",
+"to": "desmond"
+},
+{
+"t": 644.38,
+"d": 10.896,
+"who": "desmond",
+"n": "thu-5-35",
+"to": "constance"
+},
+{
+"t": 655.97,
+"d": 5.064,
+"who": "constance",
+"n": "thu-5-36",
+"to": "desmond"
+},
+{
+"t": 664.74,
+"d": 8.16,
+"who": "graves",
+"n": "thu-5-38",
+"to": "jamie"
+},
+{
+"t": 673.6,
+"d": 1.392,
+"who": "jamie",
+"n": "thu-5-39",
+"to": "graves"
+},
+{
+"t": 675.69,
+"d": 3.36,
+"who": "achebe",
+"n": "thu-5-40",
+"to": "jamie"
+},
+{
+"t": 679.75,
+"d": 1.656,
+"who": "jamie",
+"n": "thu-5-41",
+"to": "achebe"
+},
+{
+"t": 700.0,
+"d": 7.152,
+"who": "kitty",
+"n": "thu-6-0",
+"to": "jamie"
+},
+{
+"t": 707.85,
+"d": 4.632,
+"who": "jamie",
+"n": "thu-6-1",
+"to": "kitty"
+},
+{
+"t": 713.18,
+"d": 2.592,
+"who": "kitty",
+"n": "thu-6-2",
+"to": "jamie"
+},
+{
+"t": 719.48,
+"d": 5.208,
+"who": "constance",
+"n": "thu-6-4",
+"to": "achebe"
+},
+{
+"t": 725.38,
+"d": 3.96,
+"who": "achebe",
+"n": "thu-6-5",
+"to": "constance"
+},
+{
+"t": 730.04,
+"d": 4.992,
+"who": "constance",
+"n": "thu-6-6",
+"to": "achebe"
+},
+{
+"t": 735.74,
+"d": 6.672,
+"who": "achebe",
+"n": "thu-6-7",
+"to": "constance"
+},
+{
+"t": 743.11,
+"d": 2.688,
+"who": "desmond",
+"n": "thu-6-8",
+"to": "achebe"
+},
+{
+"t": 746.5,
+"d": 3.168,
+"who": "achebe",
+"n": "thu-6-9",
+"to": "desmond"
+},
+{
+"t": 753.36,
+"d": 6.6,
+"who": "isobel",
+"n": "thu-6-11",
+"to": "constance"
+},
+{
+"t": 760.66,
+"d": 4.272,
+"who": "constance",
+"n": "thu-6-12",
+"to": "isobel"
+},
+{
+"t": 765.64,
+"d": 7.2,
+"who": "isobel",
+"n": "thu-6-13",
+"to": "constance"
+},
+{
+"t": 773.54,
+"d": 4.68,
+"who": "achebe",
+"n": "thu-6-14",
+"to": "isobel"
+},
+{
+"t": 778.92,
+"d": 1.824,
+"who": "isobel",
+"n": "thu-6-15",
+"to": "achebe"
+},
+{
+"t": 784.44,
+"d": 4.656,
+"who": "graves",
+"n": "thu-6-17",
+"to": "constance"
+},
+{
+"t": 789.8,
+"d": 5.64,
+"who": "constance",
+"n": "thu-6-18",
+"to": "graves"
+},
+{
+"t": 799.14,
+"d": 5.808,
+"who": "desmond",
+"n": "thu-6-20",
+"to": "constance"
+},
+{
+"t": 805.64,
+"d": 5.856,
+"who": "constance",
+"n": "thu-6-21",
+"to": "desmond"
+},
+{
+"t": 812.2,
+"d": 5.112,
+"who": "jamie",
+"n": "thu-6-22",
+"to": "constance"
+},
+{
+"t": 818.01,
+"d": 6.816,
+"who": "constance",
+"n": "thu-6-23",
+"to": "jamie"
+},
+{
+"t": 829.0,
+"d": 2.832,
+"who": "graves",
+"n": "thu-7-0",
+"to": "constance"
+},
+{
+"t": 832.53,
+"d": 1.968,
+"who": "constance",
+"n": "thu-7-1",
+"to": "graves"
+},
+{
+"t": 835.2,
+"d": 4.512,
+"who": "desmond",
+"n": "thu-7-2",
+"to": "all"
+},
+{
+"t": 843.41,
+"d": 8.28,
+"who": "jamie",
+"n": "thu-7-4",
+"to": "constance"
+},
+{
+"t": 852.39,
+"d": 3.408,
+"who": "constance",
+"n": "thu-7-5",
+"to": "jamie"
+},
+{
+"t": 856.5,
+"d": 5.976,
+"who": "jamie",
+"n": "thu-7-6",
+"to": "constance"
+},
+{
+"t": 866.18,
+"d": 7.032,
+"who": "achebe",
+"n": "thu-7-8",
+"to": "jamie"
+},
+{
+"t": 873.91,
+"d": 3.384,
+"who": "jamie",
+"n": "thu-7-9",
+"to": "achebe"
+},
+{
+"t": 877.99,
+"d": 1.056,
+"who": "achebe",
+"n": "thu-7-10",
+"to": "constance"
+},
+{
+"t": 879.75,
+"d": 4.08,
+"who": "constance",
+"n": "thu-7-11",
+"to": "achebe"
+},
+{
+"t": 887.53,
+"d": 8.424,
+"who": "graves",
+"n": "thu-7-13",
+"to": "constance"
+},
+{
+"t": 896.65,
+"d": 7.2,
+"who": "constance",
+"n": "thu-7-14",
+"do": "out:constance",
+"to": "all"
+},
+{
+"t": 904.55,
+"d": 2.208,
+"who": "desmond",
+"n": "thu-7-15",
+"to": "constance"
+},
+{
+"t": 910.46,
+"d": 4.44,
+"who": "kitty",
+"n": "thu-7-17",
+"to": "jamie"
+},
+{
+"t": 915.6,
+"d": 2.352,
+"who": "jamie",
+"n": "thu-7-18",
+"to": "kitty"
+},
+{
+"t": 918.65,
+"d": 2.208,
+"who": "kitty",
+"n": "thu-7-19",
+"to": "jamie"
+},
+{
+"t": 924.56,
+"d": 5.328,
+"who": "achebe",
+"n": "thu-7-21",
+"do": "up:achebe",
+"to": "all"
+},
+{
+"t": 930.59,
+"d": 5.712,
+"who": "desmond",
+"n": "thu-7-22",
+"to": "achebe"
+},
+{
+"t": 937.0,
+"d": 3.888,
+"who": "achebe",
+"n": "thu-7-23",
+"to": "desmond"
+},
+{
+"t": 944.59,
+"d": 10.128,
+"who": "desmond",
+"n": "thu-7-25",
+"to": "kitty"
+},
+{
+"t": 955.42,
+"d": 2.424,
+"who": "kitty",
+"n": "thu-7-26",
+"to": "desmond"
+},
+{
+"t": 958.54,
+"d": 6.744,
+"who": "desmond",
+"n": "thu-7-27",
+"to": "kitty"
+},
+{
+"t": 965.98,
+"d": 1.92,
+"who": "kitty",
+"n": "thu-7-28",
+"to": "desmond"
+},
+{
+"t": 968.6,
+"d": 7.32,
+"who": "desmond",
+"n": "thu-7-29",
+"to": "kitty"
+},
+{
+"t": 979.62,
+"d": 6.864,
+"who": "achebe",
+"n": "thu-7-31",
+"do": "back:achebe",
+"to": "all"
+},
+{
+"t": 987.19,
+"d": 2.28,
+"who": "desmond",
+"n": "thu-7-32",
+"to": "achebe"
+},
+{
+"t": 990.17,
+"d": 2.928,
+"who": "achebe",
+"n": "thu-7-33",
+"to": "desmond"
+},
+{
+"t": 1003.0,
+"d": 5.784,
+"who": "jamie",
+"n": "thu-8-0",
+"to": "desmond"
+},
+{
+"t": 1009.48,
+"d": 6.84,
+"who": "desmond",
+"n": "thu-8-1",
+"to": "jamie"
+},
+{
+"t": 1017.02,
+"d": 2.544,
+"who": "jamie",
+"n": "thu-8-2",
+"to": "desmond"
+},
+{
+"t": 1020.27,
+"d": 7.8,
+"who": "desmond",
+"n": "thu-8-3",
+"to": "jamie"
+},
+{
+"t": 1028.77,
+"d": 7.848,
+"who": "jamie",
+"n": "thu-8-4",
+"ev": "clue:turner",
+"to": "desmond"
+},
+{
+"t": 1040.32,
+"d": 9.024,
+"who": "graves",
+"n": "thu-8-6",
+"to": "jamie"
+},
+{
+"t": 1050.04,
+"d": 4.152,
+"who": "jamie",
+"n": "thu-8-7",
+"do": "up:graves",
+"to": "graves"
+},
+{
+"t": 1054.89,
+"d": 1.56,
+"who": "graves",
+"n": "thu-8-8"
+},
+{
+"t": 1060.15,
+"d": 3.696,
+"who": "achebe",
+"n": "thu-8-10",
+"to": "jamie"
+},
+{
+"t": 1064.55,
+"d": 14.232,
+"who": "jamie",
+"n": "thu-8-11",
+"to": "achebe"
+},
+{
+"t": 1079.48,
+"d": 1.08,
+"who": "achebe",
+"n": "thu-8-12",
+"to": "jamie"
+},
+{
+"t": 1081.26,
+"d": 8.928,
+"who": "jamie",
+"n": "thu-8-13",
+"to": "achebe"
+},
+{
+"t": 1093.89,
+"d": 3.144,
+"who": "isobel",
+"n": "thu-8-15",
+"to": "all"
+},
+{
+"t": 1097.73,
+"d": 4.128,
+"who": "desmond",
+"n": "thu-8-16",
+"to": "achebe"
+},
+{
+"t": 1102.56,
+"d": 6.768,
+"who": "achebe",
+"n": "thu-8-17",
+"to": "all"
+},
+{
+"t": 1110.03,
+"d": 3.936,
+"who": "jamie",
+"n": "thu-8-18",
+"to": "achebe"
+},
+{
+"t": 1117.66,
+"d": 11.136,
+"who": "graves",
+"n": "thu-8-20",
+"do": "back:graves",
+"to": "jamie"
+},
+{
+"t": 1129.5,
+"d": 1.008,
+"who": "jamie",
+"n": "thu-8-21",
+"to": "graves"
+},
+{
+"t": 1131.21,
+"d": 8.88,
+"who": "graves",
+"n": "thu-8-22",
+"to": "jamie"
+},
+{
+"t": 1140.79,
+"d": 3.048,
+"who": "kitty",
+"n": "thu-8-23",
+"to": "all"
+},
+{
+"t": 1144.54,
+"d": 6.912,
+"who": "desmond",
+"n": "thu-8-24",
+"to": "all"
+},
+{
+"t": 1152.15,
+"d": 4.08,
+"who": "jamie",
+"n": "thu-8-25",
+"to": "graves"
+},
+{
+"t": 1156.93,
+"d": 6.672,
+"who": "graves",
+"n": "thu-8-26",
+"to": "jamie"
+},
+{
+"t": 1164.3,
+"d": 1.416,
+"who": "jamie",
+"n": "thu-8-27",
+"to": "graves"
+},
+{
+"t": 1166.42,
+"d": 5.16,
+"who": "graves",
+"n": "thu-8-28",
+"to": "jamie"
+},
+{
+"t": 1175.28,
+"d": 3.696,
+"who": "isobel",
+"n": "thu-8-30",
+"to": "jamie"
+},
+{
+"t": 1179.67,
+"d": 5.88,
+"who": "jamie",
+"n": "thu-8-31",
+"to": "isobel"
+},
+{
+"t": 1186.25,
+"d": 7.464,
+"who": "desmond",
+"n": "thu-8-32",
+"to": "jamie"
+},
+{
+"t": 1194.42,
+"d": 3.192,
+"who": "kitty",
+"n": "thu-8-33",
+"to": "graves"
+},
+{
+"t": 1198.31,
+"d": 4.752,
+"who": "graves",
+"n": "thu-8-34",
+"to": "kitty"
+},
+{
+"t": 1203.76,
+"d": 4.824,
+"who": "achebe",
+"n": "thu-8-35",
+"to": "all"
+},
+{
+"t": 1209.58,
+"d": 7.56,
+"who": "graves",
+"n": "thu-9-0",
+"to": "jamie"
+},
+{
+"t": 1217.84,
+"d": 4.416,
+"who": "jamie",
+"n": "thu-9-1",
+"to": "graves"
+},
+{
+"t": 1222.96,
+"d": 3.816,
+"who": "graves",
+"n": "thu-9-2",
+"to": "jamie"
+},
+{
+"t": 1230.48,
+"d": 8.904,
+"who": "achebe",
+"n": "thu-9-4",
+"to": "jamie"
+},
+{
+"t": 1240.08,
+"d": 3.792,
+"who": "jamie",
+"n": "thu-9-5",
+"to": "achebe"
+},
+{
+"t": 1244.57,
+"d": 5.064,
+"who": "achebe",
+"n": "thu-9-6",
+"to": "jamie"
+},
+{
+"t": 1253.34,
+"d": 1.656,
+"who": "kitty",
+"n": "thu-9-8",
+"to": "isobel"
+},
+{
+"t": 1255.69,
+"d": 4.872,
+"who": "isobel",
+"n": "thu-9-9",
+"to": "kitty"
+},
+{
+"t": 1261.26,
+"d": 2.568,
+"who": "kitty",
+"n": "thu-9-10",
+"to": "isobel"
+},
+{
+"t": 1267.53,
+"d": 8.52,
+"who": "desmond",
+"n": "thu-9-12",
+"to": "jamie"
+},
+{
+"t": 1276.75,
+"d": 7.32,
+"who": "jamie",
+"n": "thu-9-13",
+"to": "desmond"
+},
+{
+"t": 1284.77,
+"d": 2.448,
+"who": "desmond",
+"n": "thu-9-14",
+"to": "jamie"
+},
+{
+"t": 1287.92,
+"d": 3.336,
+"who": "jamie",
+"n": "thu-9-15",
+"to": "desmond"
+},
+{
+"t": 1294.96,
+"d": 6.12,
+"who": "isobel",
+"n": "thu-9-17",
+"to": "jamie"
+},
+{
+"t": 1301.78,
+"d": 2.112,
+"who": "achebe",
+"n": "thu-9-18",
+"to": "isobel"
+},
+{
+"t": 1304.59,
+"d": 7.368,
+"who": "isobel",
+"n": "thu-9-19",
+"ev": "clue:left",
+"to": "achebe"
+},
+{
+"t": 1312.66,
+"d": 5.496,
+"who": "achebe",
+"n": "thu-9-20",
+"to": "jamie"
+},
+{
+"t": 1318.85,
+"d": 2.592,
+"who": "jamie",
+"n": "thu-9-21",
+"to": "achebe"
+},
+{
+"t": 1322.14,
+"d": 4.512,
+"who": "achebe",
+"n": "thu-9-22",
+"to": "jamie"
+},
+{
+"t": 1330.36,
+"d": 3.528,
+"who": "kitty",
+"n": "thu-9-24",
+"to": "all"
+},
+{
+"t": 1334.58,
+"d": 8.592,
+"who": "graves",
+"n": "thu-9-25",
+"to": "kitty"
+},
+{
+"t": 1346.88,
+"d": 4.752,
+"who": "desmond",
+"n": "thu-9-27",
+"to": "all"
+},
+{
+"t": 1352.33,
+"d": 5.496,
+"who": "isobel",
+"n": "thu-9-28",
+"to": "desmond"
+},
+{
+"t": 1358.52,
+"d": 6.744,
+"who": "graves",
+"n": "thu-9-29",
+"to": "desmond"
+},
+{
+"t": 1365.97,
+"d": 5.808,
+"who": "isobel",
+"n": "thu-9-30",
+"to": "desmond"
+},
+{
+"t": 1375.48,
+"d": 13.152,
+"who": "jamie",
+"n": "thu-9-32",
+"to": "all"
+},
+{
+"t": 1389.33,
+"d": 2.832,
+"who": "achebe",
+"n": "thu-9-33",
+"to": "jamie"
+},
+{
+"t": 1392.86,
+"d": 4.704,
+"who": "jamie",
+"n": "thu-9-34",
+"to": "achebe"
+},
+{
+"t": 1401.26,
+"d": 6.912,
+"who": "desmond",
+"n": "thu-9-36",
+"to": "mid"
+},
+{
+"t": 1408.88,
+"d": 5.64,
+"who": "isobel",
+"n": "thu-9-37",
+"to": "mid"
+},
+{
+"t": 1418.22,
+"d": 4.44,
+"who": "isobel",
+"n": "thu-9-39",
+"to": "achebe"
+},
+{
+"t": 1423.36,
+"d": 6.744,
+"who": "achebe",
+"n": "thu-9-40",
+"to": "isobel"
+},
+{
+"t": 1430.8,
+"d": 6.864,
+"who": "jamie",
+"n": "thu-9-41",
+"to": "achebe"
+},
+{
+"t": 1438.36,
+"d": 1.296,
+"who": "achebe",
+"n": "thu-9-42",
+"to": "jamie"
+},
+{
+"t": 1440.36,
+"d": 1.56,
+"who": "jamie",
+"n": "thu-9-43",
+"to": "achebe"
+},
+{
+"t": 1442.62,
+"d": 3.72,
+"who": "desmond",
+"n": "thu-9-44",
+"to": "all"
+},
+{
+"t": 1447.04,
+"d": 4.128,
+"who": "kitty",
+"n": "thu-9-45",
+"to": "desmond"
+},
+{
+"t": 1451.87,
+"d": 2.592,
+"who": "desmond",
+"n": "thu-9-46",
+"to": "kitty"
+},
+{
+"t": 1458.16,
+"d": 4.8,
+"who": "graves",
+"n": "thu-9-48",
+"to": "jamie"
+},
+{
+"t": 1463.66,
+"d": 3.432,
+"who": "jamie",
+"n": "thu-9-49",
+"to": "graves"
+},
+{
+"t": 1474.0,
+"d": 5.712,
+"who": "graves",
+"n": "thu-10-0",
+"to": "jamie"
+},
+{
+"t": 1480.41,
+"d": 2.928,
+"who": "jamie",
+"n": "thu-10-1",
+"to": "graves"
+},
+{
+"t": 1487.04,
+"d": 5.472,
+"who": "desmond",
+"n": "thu-10-3",
+"to": "jamie"
+},
+{
+"t": 1493.21,
+"d": 6.528,
+"who": "jamie",
+"n": "thu-10-4",
+"to": "desmond"
+},
+{
+"t": 1500.44,
+"d": 0.792,
+"who": "achebe",
+"n": "thu-10-5",
+"to": "jamie"
+},
+{
+"t": 1501.93,
+"d": 4.632,
+"who": "jamie",
+"n": "thu-10-6",
+"to": "achebe"
+},
+{
+"t": 1507.26,
+"d": 3.144,
+"who": "achebe",
+"n": "thu-10-7",
+"to": "jamie"
+},
+{
+"t": 1514.11,
+"d": 13.8,
+"who": "desmond",
+"n": "thu-10-9",
+"to": "mid"
+},
+{
+"t": 1528.61,
+"d": 1.704,
+"who": "isobel",
+"n": "thu-10-10",
+"to": "desmond"
+},
+{
+"t": 1531.01,
+"d": 4.2,
+"who": "desmond",
+"n": "thu-10-11",
+"to": "isobel"
+},
+{
+"t": 1538.91,
+"d": 3.456,
+"who": "desmond",
+"n": "thu-10-13",
+"to": "jamie"
+},
+{
+"t": 1543.07,
+"d": 9.576,
+"who": "jamie",
+"n": "thu-10-14",
+"to": "desmond"
+},
+{
+"t": 1553.34,
+"d": 4.464,
+"who": "desmond",
+"n": "thu-10-15",
+"to": "jamie"
+},
+{
+"t": 1561.51,
+"d": 1.248,
+"who": "graves",
+"n": "thu-10-17",
+"to": "jamie"
+},
+{
+"t": 1563.46,
+"d": 8.304,
+"who": "jamie",
+"n": "thu-10-18",
+"do": "up:graves",
+"to": "all"
+},
+{
+"t": 1572.46,
+"d": 1.392,
+"who": "graves",
+"n": "thu-10-19",
+"do": "up:jamie"
+},
+{
+"t": 1574.55,
+"d": 2.784,
+"who": "achebe",
+"n": "thu-10-20",
+"do": "up:achebe",
+"to": "jamie"
+},
+{
+"t": 1581.04,
+"d": 2.04,
+"who": "desmond",
+"n": "thu-10-22",
+"to": "kitty"
+},
+{
+"t": 1583.78,
+"d": 2.52,
+"who": "kitty",
+"n": "thu-10-23",
+"to": "desmond"
+},
+{
+"t": 1587.0,
+"d": 6.432,
+"who": "desmond",
+"n": "thu-10-24",
+"to": "kitty"
+},
+{
+"t": 1597.13,
+"d": 9.72,
+"who": "isobel",
+"n": "thu-10-26",
+"to": "desmond"
+},
+{
+"t": 1607.55,
+"d": 5.328,
+"who": "desmond",
+"n": "thu-10-27",
+"to": "isobel"
+},
+{
+"t": 1613.58,
+"d": 8.52,
+"who": "isobel",
+"n": "thu-10-28",
+"ev": "clue:copies",
+"to": "desmond"
+},
+{
+"t": 1622.8,
+"d": 5.472,
+"who": "desmond",
+"n": "thu-10-29",
+"to": "isobel"
+},
+{
+"t": 1631.97,
+"d": 4.152,
+"who": "kitty",
+"n": "thu-10-31",
+"to": "all"
+},
+{
+"t": 1636.82,
+"d": 6.192,
+"who": "desmond",
+"n": "thu-10-32",
+"to": "kitty"
+},
+{
+"t": 1647.71,
+"d": 2.112,
+"who": "isobel",
+"n": "thu-10-34",
+"to": "all"
+},
+{
+"t": 1650.52,
+"d": 3.168,
+"who": "desmond",
+"n": "thu-10-35",
+"to": "all"
+},
+{
+"t": 1654.39,
+"d": 3.576,
+"who": "kitty",
+"n": "thu-10-36",
+"to": "desmond"
+},
+{
+"t": 1661.67,
+"d": 5.328,
+"who": "jamie",
+"n": "thu-10-38",
+"do": "back:jamie",
+"to": "all"
+},
+{
+"t": 1667.7,
+"d": 3.0,
+"who": "desmond",
+"n": "thu-10-39",
+"to": "jamie"
+},
+{
+"t": 1671.4,
+"d": 10.776,
+"who": "jamie",
+"n": "thu-10-40",
+"to": "all"
+},
+{
+"t": 1682.87,
+"d": 1.704,
+"who": "kitty",
+"n": "thu-10-41",
+"ev": "gasp",
+"to": "all"
+},
+{
+"t": 1685.28,
+"d": 3.648,
+"who": "graves",
+"n": "thu-10-42",
+"do": "back:graves",
+"to": "all"
+},
+{
+"t": 1689.62,
+"d": 4.896,
+"who": "achebe",
+"n": "thu-10-43",
+"do": "back:achebe",
+"to": "all"
+},
+{
+"t": 1700.0,
+"d": 4.056,
+"who": "isobel",
+"n": "thu-11-0",
+"to": "jamie"
+},
+{
+"t": 1704.76,
+"d": 9.24,
+"who": "jamie",
+"n": "thu-11-1",
+"to": "isobel"
+},
+{
+"t": 1714.7,
+"d": 4.608,
+"who": "achebe",
+"n": "thu-11-2",
+"to": "jamie"
+},
+{
+"t": 1720.0,
+"d": 6.84,
+"who": "jamie",
+"n": "thu-11-3",
+"do": "show:jamie=key",
+"to": "all"
+},
+{
+"t": 1727.54,
+"d": 8.424,
+"who": "jamie",
+"n": "thu-11-4",
+"ev": "clue:key",
+"to": "all"
+},
+{
+"t": 1736.67,
+"d": 7.32,
+"who": "desmond",
+"n": "thu-11-5",
+"to": "jamie"
+},
+{
+"t": 1744.69,
+"d": 7.32,
+"who": "jamie",
+"n": "thu-11-6",
+"do": "pocket:jamie",
+"to": "desmond"
+},
+{
+"t": 1755.71,
+"d": 2.112,
+"who": "graves",
+"n": "thu-11-8",
+"to": "jamie"
+},
+{
+"t": 1758.52,
+"d": 1.104,
+"who": "jamie",
+"n": "thu-11-9",
+"to": "graves"
+},
+{
+"t": 1760.32,
+"d": 17.88,
+"who": "graves",
+"n": "thu-11-10",
+"to": "jamie"
+},
+{
+"t": 1778.9,
+"d": 5.136,
+"who": "achebe",
+"n": "thu-11-11",
+"to": "graves"
+},
+{
+"t": 1784.74,
+"d": 4.68,
+"who": "graves",
+"n": "thu-11-12",
+"to": "achebe"
+},
+{
+"t": 1793.12,
+"d": 14.568,
+"who": "jamie",
+"n": "thu-11-14",
+"to": "mid"
+},
+{
+"t": 1808.39,
+"d": 5.304,
+"who": "jamie",
+"n": "thu-11-15",
+"to": "mid"
+},
+{
+"t": 1817.39,
+"d": 5.208,
+"who": "isobel",
+"n": "thu-11-17",
+"to": "jamie"
+},
+{
+"t": 1823.3,
+"d": 8.688,
+"who": "jamie",
+"n": "thu-11-18",
+"ev": "clue:call",
+"to": "isobel"
+},
+{
+"t": 1832.69,
+"d": 5.88,
+"who": "isobel",
+"n": "thu-11-19",
+"to": "jamie"
+},
+{
+"t": 1839.27,
+"d": 4.632,
+"who": "jamie",
+"n": "thu-11-20",
+"to": "isobel"
+},
+{
+"t": 1844.6,
+"d": 3.96,
+"who": "achebe",
+"n": "thu-11-21",
+"to": "jamie"
+},
+{
+"t": 1849.26,
+"d": 5.256,
+"who": "jamie",
+"n": "thu-11-22",
+"to": "achebe"
+},
+{
+"t": 1855.22,
+"d": 7.512,
+"who": "achebe",
+"n": "thu-11-23",
+"to": "jamie"
+},
+{
+"t": 1863.43,
+"d": 8.4,
+"who": "jamie",
+"n": "thu-11-24",
+"ev": "clue:authenticated",
+"to": "achebe"
+},
+{
+"t": 1875.53,
+"d": 5.952,
+"who": "desmond",
+"n": "thu-11-26",
+"to": "achebe"
+},
+{
+"t": 1882.18,
+"d": 2.424,
+"who": "achebe",
+"n": "thu-11-27",
+"to": "desmond"
+},
+{
+"t": 1885.3,
+"d": 7.608,
+"who": "isobel",
+"n": "thu-11-28",
+"to": "achebe"
+},
+{
+"t": 1905.0,
+"d": 6.048,
+"who": "graves",
+"n": "thu-12-0",
+"to": "jamie"
+},
+{
+"t": 1911.75,
+"d": 1.392,
+"who": "jamie",
+"n": "thu-12-1",
+"to": "graves"
+},
+{
+"t": 1913.84,
+"d": 3.24,
+"who": "desmond",
+"n": "thu-12-2",
+"to": "all"
+},
+{
+"t": 1920.78,
+"d": 6.024,
+"who": "jamie",
+"n": "thu-12-4",
+"to": "graves"
+},
+{
+"t": 1927.5,
+"d": 7.752,
+"who": "graves",
+"n": "thu-12-5",
+"to": "jamie"
+},
+{
+"t": 1935.96,
+"d": 1.56,
+"who": "achebe",
+"n": "thu-12-6",
+"to": "graves"
+},
+{
+"t": 1938.22,
+"d": 12.696,
+"who": "graves",
+"n": "thu-12-7",
+"to": "achebe"
+},
+{
+"t": 1954.61,
+"d": 4.632,
+"who": "kitty",
+"n": "thu-12-9",
+"to": "jamie"
+},
+{
+"t": 1959.94,
+"d": 1.728,
+"who": "jamie",
+"n": "thu-12-10",
+"to": "kitty"
+},
+{
+"t": 1962.37,
+"d": 3.624,
+"who": "kitty",
+"n": "thu-12-11",
+"to": "jamie"
+},
+{
+"t": 1966.7,
+"d": 5.76,
+"who": "jamie",
+"n": "thu-12-12",
+"do": "show:jamie=telegram",
+"to": "all"
+},
+{
+"t": 1973.16,
+"d": 10.728,
+"who": "jamie",
+"n": "thu-12-13",
+"do": "pocket:jamie",
+"to": "all"
+},
+{
+"t": 1984.58,
+"d": 1.32,
+"who": "desmond",
+"n": "thu-12-14",
+"to": "achebe"
+},
+{
+"t": 1986.6,
+"d": 3.552,
+"who": "achebe",
+"n": "thu-12-15",
+"to": "all"
+},
+{
+"t": 1993.86,
+"d": 6.744,
+"who": "isobel",
+"n": "thu-12-17",
+"to": "achebe"
+},
+{
+"t": 2001.3,
+"d": 4.896,
+"who": "achebe",
+"n": "thu-12-18",
+"to": "isobel"
+},
+{
+"t": 2006.9,
+"d": 2.112,
+"who": "isobel",
+"n": "thu-12-19",
+"to": "achebe"
+},
+{
+"t": 2012.71,
+"d": 6.192,
+"who": "graves",
+"n": "thu-12-21",
+"to": "jamie"
+},
+{
+"t": 2019.6,
+"d": 2.64,
+"who": "jamie",
+"n": "thu-12-22",
+"to": "graves"
+},
+{
+"t": 2022.94,
+"d": 3.288,
+"who": "graves",
+"n": "thu-12-23",
+"to": "jamie"
+},
+{
+"t": 2029.93,
+"d": 4.752,
+"who": "achebe",
+"n": "thu-12-25",
+"to": "jamie"
+},
+{
+"t": 2035.38,
+"d": 11.832,
+"who": "jamie",
+"n": "thu-12-26",
+"to": "achebe"
+},
+{
+"t": 2047.91,
+"d": 1.896,
+"who": "achebe",
+"n": "thu-12-27",
+"to": "jamie"
+},
+{
+"t": 2050.51,
+"d": 4.2,
+"who": "jamie",
+"n": "thu-12-28",
+"to": "achebe"
+},
+{
+"t": 2058.41,
+"d": 3.912,
+"who": "isobel",
+"n": "thu-12-30",
+"to": "jamie"
+},
+{
+"t": 2063.02,
+"d": 8.856,
+"who": "jamie",
+"n": "thu-12-31",
+"to": "isobel"
+},
+{
+"t": 2072.58,
+"d": 4.752,
+"who": "desmond",
+"n": "thu-12-32",
+"to": "jamie"
+},
+{
+"t": 2078.03,
+"d": 6.312,
+"who": "jamie",
+"n": "thu-12-33",
+"to": "desmond"
+},
+{
+"t": 2085.04,
+"d": 4.272,
+"who": "kitty",
+"n": "thu-12-34",
+"to": "jamie"
+},
+{
+"t": 2090.01,
+"d": 2.544,
+"who": "jamie",
+"n": "thu-12-35",
+"to": "kitty"
+},
+{
+"t": 2100.0,
+"d": 8.088,
+"who": "jamie",
+"n": "thu-13-0",
+"to": "all"
+},
+{
+"t": 2108.79,
+"d": 12.864,
+"who": "jamie",
+"n": "thu-13-1",
+"to": "all"
+},
+{
+"t": 2122.35,
+"d": 4.32,
+"who": "graves",
+"n": "thu-13-2",
+"to": "jamie"
+},
+{
+"t": 2127.37,
+"d": 1.488,
+"who": "jamie",
+"n": "thu-13-3",
+"to": "graves"
+},
+{
+"t": 2132.56,
+"d": 5.064,
+"who": "jamie",
+"n": "thu-13-5",
+"to": "mid"
+},
+{
+"t": 2141.32,
+"d": 3.48,
+"who": "kitty",
+"n": "thu-13-7",
+"to": "isobel"
+},
+{
+"t": 2145.5,
+"d": 3.744,
+"who": "isobel",
+"n": "thu-13-8",
+"to": "kitty"
+},
+{
+"t": 2152.95,
+"d": 4.032,
+"who": "desmond",
+"n": "thu-13-10",
+"to": "jamie"
+},
+{
+"t": 2157.68,
+"d": 6.792,
+"who": "jamie",
+"n": "thu-13-11",
+"to": "desmond"
+},
+{
+"t": 2168.17,
+"d": 4.392,
+"who": "achebe",
+"n": "thu-13-13",
+"to": "all"
+},
+{
+"t": 2173.26,
+"d": 3.912,
+"who": "jamie",
+"n": "thu-13-14",
+"to": "achebe"
+},
+{
+"t": 2177.88,
+"d": 1.488,
+"who": "achebe",
+"n": "thu-13-15",
+"to": "jamie"
+},
+{
+"t": 2180.06,
+"d": 1.824,
+"who": "jamie",
+"n": "thu-13-16",
+"to": "achebe"
+},
+{
+"t": 2185.59,
+"d": 5.376,
+"who": "isobel",
+"n": "thu-13-18",
+"to": "jamie"
+},
+{
+"t": 2191.66,
+"d": 4.464,
+"who": "jamie",
+"n": "thu-13-19",
+"to": "isobel"
+},
+{
+"t": 2196.83,
+"d": 4.776,
+"who": "kitty",
+"n": "thu-13-20",
+"to": "all"
+},
+{
+"t": 2202.3,
+"d": 4.008,
+"who": "desmond",
+"n": "thu-13-21",
+"to": "kitty"
+},
+{
+"t": 2207.01,
+"d": 5.376,
+"who": "graves",
+"n": "thu-13-22",
+"to": "jamie"
+},
+{
+"t": 2213.09,
+"d": 6.576,
+"who": "jamie",
+"n": "thu-13-23",
+"to": "graves"
+},
+{
+"t": 2220.36,
+"d": 6.36,
+"who": "desmond",
+"n": "thu-13-24",
+"to": "all"
+},
+{
+"t": 2227.42,
+"d": 4.464,
+"who": "kitty",
+"n": "thu-13-25",
+"to": "desmond"
+},
+{
+"t": 2232.59,
+"d": 4.92,
+"who": "desmond",
+"n": "thu-13-26",
+"to": "kitty"
+},
+{
+"t": 2241.21,
+"d": 8.16,
+"who": "graves",
+"n": "thu-13-28",
+"to": "jamie"
+},
+{
+"t": 2250.07,
+"d": 1.392,
+"who": "jamie",
+"n": "thu-13-29",
+"to": "graves"
+},
+{
+"t": 2257.0,
+"d": 1.488,
+"who": "graves",
+"n": "thu-14-0",
+"to": "jamie"
+},
+{
+"t": 2259.19,
+"d": 5.256,
+"who": "jamie",
+"n": "thu-14-1",
+"ev": "lock",
+"to": "mid"
+},
+{
+"t": 2268.14,
+"d": 15.816,
+"who": "jamie",
+"n": "thu-14-3",
+"to": "all"
+},
+{
+"t": 2284.66,
+"d": 12.072,
+"who": "jamie",
+"n": "thu-14-4",
+"to": "all"
+},
+{
+"t": 2297.43,
+"d": 9.432,
+"who": "jamie",
+"n": "thu-14-5",
+"to": "all"
+},
+{
+"t": 2307.56,
+"d": 13.368,
+"who": "jamie",
+"n": "thu-14-6",
+"to": "all"
+},
+{
+"t": 2321.63,
+"d": 10.176,
+"who": "jamie",
+"n": "thu-14-7",
+"to": "achebe"
+},
+{
+"t": 2334.51,
+"d": 1.728,
+"who": "jamie",
+"n": "thu-14-9",
+"ev": "reveal",
+"to": "achebe"
+},
+{
+"t": 2339.94,
+"d": 3.984,
+"who": "achebe",
+"n": "thu-14-11",
+"to": "jamie"
+},
+{
+"t": 2344.62,
+"d": 2.592,
+"who": "jamie",
+"n": "thu-14-12",
+"to": "achebe"
+},
+{
+"t": 2347.91,
+"d": 16.8,
+"who": "achebe",
+"n": "thu-14-13",
+"to": "jamie"
+},
+{
+"t": 2365.41,
+"d": 1.8,
+"who": "isobel",
+"n": "thu-14-14",
+"to": "achebe"
+},
+{
+"t": 2367.91,
+"d": 7.704,
+"who": "achebe",
+"n": "thu-14-15",
+"to": "isobel"
+},
+{
+"t": 2379.32,
+"d": 6.552,
+"who": "desmond",
+"n": "thu-14-17",
+"to": "achebe"
+},
+{
+"t": 2386.57,
+"d": 13.968,
+"who": "achebe",
+"n": "thu-14-18",
+"to": "desmond"
+},
+{
+"t": 2404.24,
+"d": 2.688,
+"who": "graves",
+"n": "thu-14-20",
+"to": "jamie"
+},
+{
+"t": 2407.62,
+"d": 4.944,
+"who": "jamie",
+"n": "thu-14-21",
+"do": "up:graves",
+"to": "achebe"
+},
+{
+"t": 2413.27,
+"d": 4.368,
+"who": "achebe",
+"n": "thu-14-22",
+"do": "out:achebe",
+"to": "jamie"
+},
+{
+"t": 2418.34,
+"d": 1.152,
+"who": "isobel",
+"n": "thu-14-23",
+"to": "achebe"
+},
+{
+"t": 2420.19,
+"d": 8.52,
+"who": "achebe",
+"n": "thu-14-24",
+"to": "isobel"
+},
+{
+"t": 2433.41,
+"d": 3.192,
+"who": "kitty",
+"n": "thu-14-26",
+"to": "all"
+},
+{
+"t": 2437.3,
+"d": 6.984,
+"who": "desmond",
+"n": "thu-14-27",
+"to": "kitty"
+},
+{
+"t": 2444.98,
+"d": 3.312,
+"who": "kitty",
+"n": "thu-14-28",
+"to": "desmond"
+},
+{
+"t": 2449.0,
+"d": 4.152,
+"who": "desmond",
+"n": "thu-14-29",
+"to": "kitty"
+},
+{
+"t": 2456.85,
+"d": 5.616,
+"who": "isobel",
+"n": "thu-14-31",
+"to": "jamie"
+},
+{
+"t": 2463.16,
+"d": 10.92,
+"who": "jamie",
+"n": "thu-14-32",
+"to": "isobel"
+},
+{
+"t": 2474.78,
+"d": 1.872,
+"who": "isobel",
+"n": "thu-14-33",
+"to": "jamie"
+},
+{
+"t": 2477.36,
+"d": 6.6,
+"who": "jamie",
+"n": "thu-14-34",
+"to": "isobel"
+},
+{
+"t": 2487.66,
+"d": 3.072,
+"who": "desmond",
+"n": "thu-14-36",
+"to": "jamie"
+},
+{
+"t": 2491.43,
+"d": 4.752,
+"who": "jamie",
+"n": "thu-14-37",
+"to": "desmond"
+},
+{
+"t": 2496.88,
+"d": 4.68,
+"who": "desmond",
+"n": "thu-14-38",
+"to": "jamie"
+},
+{
+"t": 2505.26,
+"d": 9.744,
+"who": "graves",
+"n": "thu-14-40",
+"do": "back:graves",
+"to": "jamie"
+},
+{
+"t": 2515.7,
+"d": 1.392,
+"who": "jamie",
+"n": "thu-14-41",
+"to": "graves"
+},
+{
+"t": 2517.8,
+"d": 7.296,
+"who": "graves",
+"n": "thu-14-42",
+"to": "jamie"
+},
+{
+"t": 2525.79,
+"d": 6.864,
+"who": "jamie",
+"n": "thu-14-43",
+"to": "graves"
+},
+{
+"t": 2536.36,
+"d": 5.52,
+"who": "kitty",
+"n": "thu-14-45",
+"to": "jamie"
+},
+{
+"t": 2542.58,
+"d": 1.752,
+"who": "jamie",
+"n": "thu-14-46",
+"to": "kitty"
+},
+{
+"t": 2545.03,
+"d": 4.08,
+"who": "kitty",
+"n": "thu-14-47",
+"to": "jamie"
+},
+{
+"t": 2549.81,
+"d": 7.32,
+"who": "desmond",
+"n": "thu-14-48",
+"to": "kitty"
+},
+{
+"t": 2557.83,
+"d": 1.392,
+"who": "kitty",
+"n": "thu-14-49"
+},
+{
+"t": 2559.92,
+"d": 5.952,
+"who": "desmond",
+"n": "thu-14-50",
+"to": "kitty"
+},
+{
+"t": 2569.57,
+"d": 8.688,
+"who": "isobel",
+"n": "thu-14-52",
+"to": "mid"
+},
+{
+"t": 2581.96,
+"d": 12.672,
+"who": "jamie",
+"n": "thu-14-54",
+"to": "all"
+},
+{
+"t": 2595.33,
+"d": 1.104,
+"who": "isobel",
+"n": "thu-14-55",
+"to": "jamie"
+},
+{
+"t": 2597.14,
+"d": 18.48,
+"who": "jamie",
+"n": "thu-14-56",
+"to": "isobel"
+},
+{
+"t": 2616.32,
+"d": 3.48,
+"who": "desmond",
+"n": "thu-14-57",
+"to": "jamie"
+},
+{
+"t": 2620.5,
+"d": 8.448,
+"who": "jamie",
+"n": "thu-14-58",
+"to": "desmond"
+},
+{
+"t": 2629.64,
+"d": 3.384,
+"who": "kitty",
+"n": "thu-14-59",
+"to": "all"
+},
+{
+"t": 2636.73,
+"d": 6.912,
+"who": "isobel",
+"n": "thu-14-61",
+"to": "jamie"
+},
+{
+"t": 2644.34,
+"d": 3.768,
+"who": "jamie",
+"n": "thu-14-62",
+"to": "isobel"
+},
+{
+"t": 2648.81,
+"d": 5.568,
+"who": "isobel",
+"n": "thu-14-63",
+"to": "jamie"
+},
+{
+"t": 2655.08,
+"d": 3.36,
+"who": "jamie",
+"n": "thu-14-64",
+"to": "isobel"
+},
+{
+"t": 2662.14,
+"d": 5.4,
+"who": "desmond",
+"n": "thu-14-66",
+"to": "kitty"
+},
+{
+"t": 2668.24,
+"d": 4.2,
+"who": "kitty",
+"n": "thu-14-67",
+"to": "desmond"
+},
+{
+"t": 2673.14,
+"d": 4.368,
+"who": "desmond",
+"n": "thu-14-68",
+"to": "kitty"
+},
+{
+"t": 2678.2,
+"d": 3.0,
+"who": "kitty",
+"n": "thu-14-69",
+"to": "desmond"
+},
+{
+"t": 2681.9,
+"d": 2.208,
+"who": "desmond",
+"n": "thu-14-70",
+"to": "kitty"
+},
+{
+"t": 2687.81,
+"d": 6.192,
+"who": "graves",
+"n": "thu-14-72",
+"to": "jamie"
+},
+{
+"t": 2694.7,
+"d": 5.496,
+"who": "jamie",
+"n": "thu-14-73",
+"to": "graves"
+},
+{
+"t": 2700.9,
+"d": 10.584,
+"who": "graves",
+"n": "thu-14-74",
+"to": "jamie"
+},
+{
+"t": 2712.18,
+"d": 5.664,
+"who": "jamie",
+"n": "thu-14-75",
+"to": "graves"
+},
+{
+"t": 2718.55,
+"d": 6.768,
+"who": "graves",
+"n": "thu-14-76",
+"to": "jamie"
+},
+{
+"t": 2729.02,
+"d": 8.304,
+"who": "isobel",
+"n": "thu-14-78",
+"to": "mid"
+},
+{
+"t": 2738.02,
+"d": 3.408,
+"who": "kitty",
+"n": "thu-14-79",
+"to": "mid"
+},
+{
+"t": 2745.13,
+"d": 4.896,
+"who": "desmond",
+"n": "thu-14-81",
+"to": "jamie"
+},
+{
+"t": 2750.72,
+"d": 9.84,
+"who": "jamie",
+"n": "thu-14-82",
+"to": "desmond"
+},
+{
+"t": 2764.26,
+"d": 5.232,
+"who": "kitty",
+"n": "thu-14-84",
+"to": "jamie"
+},
+{
+"t": 2770.2,
+"d": 3.696,
+"who": "jamie",
+"n": "thu-14-85",
+"to": "kitty"
+},
+{
+"t": 2774.59,
+"d": 6.672,
+"who": "desmond",
+"n": "thu-14-86",
+"to": "jamie"
+},
+{
+"t": 2781.96,
+"d": 1.632,
+"who": "jamie",
+"n": "thu-14-87",
+"to": "desmond"
+},
+{
+"t": 2784.3,
+"d": 3.168,
+"who": "desmond",
+"n": "thu-14-88",
+"to": "jamie"
+},
+{
+"t": 2788.16,
+"d": 10.632,
+"who": "isobel",
+"n": "thu-14-89",
+"to": "all"
+},
+{
+"t": 2799.5,
+"d": 3.216,
+"who": "kitty",
+"n": "thu-14-90",
+"to": "isobel"
+},
+{
+"t": 2803.41,
+"d": 3.552,
+"who": "isobel",
+"n": "thu-14-91",
+"to": "kitty"
+},
+{
+"t": 2810.66,
+"d": 6.888,
+"who": "desmond",
+"n": "thu-14-93",
+"to": "jamie"
+},
+{
+"t": 2818.25,
+"d": 6.36,
+"who": "jamie",
+"n": "thu-14-94",
+"to": "desmond"
+},
+{
+"t": 2825.31,
+"d": 2.376,
+"who": "isobel",
+"n": "thu-14-95",
+"to": "jamie"
+},
+{
+"t": 2828.39,
+"d": 4.488,
+"who": "jamie",
+"n": "thu-14-96",
+"to": "isobel"
+},
+{
+"t": 2836.58,
+"d": 3.552,
+"who": "kitty",
+"n": "thu-14-98",
+"to": "graves"
+},
+{
+"t": 2840.83,
+"d": 5.928,
+"who": "graves",
+"n": "thu-14-99",
+"to": "kitty"
+},
+{
+"t": 2847.46,
+"d": 6.192,
+"who": "desmond",
+"n": "thu-14-100",
+"to": "graves"
+},
+{
+"t": 2854.35,
+"d": 4.608,
+"who": "graves",
+"n": "thu-14-101",
+"to": "desmond"
+},
+{
+"t": 2862.66,
+"d": 7.104,
+"who": "jamie",
+"n": "thu-14-103",
+"to": "all"
+},
+{
+"t": 2870.46,
+"d": 4.608,
+"who": "desmond",
+"n": "thu-14-104",
+"to": "all"
+},
+{
+"t": 2875.77,
+"d": 6.624,
+"who": "graves",
+"n": "thu-14-105",
+"do": "out:graves",
+"to": "desmond"
+},
+{
+"t": 2883.09,
+"d": 4.32,
+"who": "kitty",
+"n": "thu-14-106",
+"to": "mid"
+},
+{
+"t": 2888.11,
+"d": 7.632,
+"who": "isobel",
+"n": "thu-14-107",
+"to": "mid"
+}
+]
+}

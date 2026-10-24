@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { SourceType } from "../components/audio-params";
 import { label } from "./tv-controls";
+import TALK from "./bed-talk.json";
 
 // Room sound for the lounge (Jay, 2026-10-20): low background where the
 // people are (the Rovers, the dining room, the cocktail patio, the café, the
@@ -12,19 +13,23 @@ import { label } from "./tv-controls";
 //     over a second or so, and through an open door or across the open south
 //     balcony you hear it faintly and muffled; nothing goes through walls,
 //     and only the zones you can hear are playing at all
-//   - the chatter bed grows with how many figures are in the room; laughs,
-//     glasses, cutlery, darts, the espresso machine come at random from where
-//     the people (or the bar) are
+//   - the chatter bed grows with how many figures are in the room; glasses,
+//     cutlery, darts, the espresso machine come at random from where the
+//     people (or the bar) are. No laughs or cheers (Jay, 2026-10-22, the third
+//     time a generated one came out as a child: a quiet dinner party, no kids)
 //   - the mime: whooshes when his clubs and torches fly, a cymbal and an "ooh"
 //     when a dove or a rabbit appears, squeaks as he twists balloons; clapping
 //     comes from the guests' own hands meeting (and a round of applause when
-//     enough of them do); while he is on the Rovers stage (or the finale's
+//     enough of them do); on his rounds all of it low and cut short (ROAD); while he is on the Rovers stage (or the finale's
 //     lights are down) the pub drops to a murmur that swells with a gasp when
 //     a prop appears or a reveal lands, and every half minute or so anyway
 //   - the couples in bed (the NE couple's loop, the café lady and the mime once
-//     a night in the SW room): low moans only (no bed, breath, sheet or
-//     cigarette noise, which all came out as hiss), coming more often and
-//     louder the longer their strokes go on, to a finish when it stops
+//     a night in the SW room): they talk (bed-talk.json, two voices each, no
+//     moans or bed noise, which came out as hiss and "power tools"): a few
+//     words now and then with long pauses, closer together and hotter the
+//     longer their strokes go on, a finish when it stops and a word or two
+//     after; in the SW room an exchange as she comes in, talk over the
+//     cigarette, and who goes down first
 // Volume: "Lounge sound" in the settings (preferences.loungeAmbienceVolume,
 // per person, saved) and the little SOUND cards on the tables by the seats.
 // When someone in the room is talking it all dips to about half, so speech
@@ -33,19 +38,28 @@ import { label } from "./tv-controls";
 const sfx = require.context("../assets/sfx/lounge", false, /\.mp3$/);
 const URLS = {};
 for (const k of sfx.keys()) URLS[k.replace("./", "").replace(".mp3", "")] = sfx(k);
-// "laugh-man" -> ["laugh-man-0", ...]
+// "gasp" -> ["gasp-0", ...]
 const GROUPS = {};
 for (const n of Object.keys(URLS)) {
   const m = n.match(/^(.*)-(\d+)$/);
   if (m) (GROUPS[m[1]] = GROUPS[m[1]] || []).push(n);
 }
-const LAUGHS = ["laugh-man", "laugh-woman", "laugh-group"];
+// What a voicesOnly zone still plays: the one crowd sound that is just people
+// talking (the murder's gasp). No claps, applause, "ooh" or the mime's props
+// there, ever, him in the room or not (Jay, 2026-10-22: "in the dining room i
+// just want voices").
+const VOICES = new Set(["gasp"]);
 
 const SAMPLE = 0.1; // s between zone / figure updates
 // The Rovers stage (rovers_figures.STAGE_POLY's box, Blender x/y): while the
 // mime is on it, or the finale's lights are down, the pub watches.
 const STAGE = [-3.75, -1.2, -11.7, -10.05];
 const MURMUR = 0.25; // the chatter while they watch
+// The mime's travelling show (his rounds of the tables, not the finale on the
+// stage): ok, but short (Jay, 2026-10-22): each sound at this share of its
+// level, faded out after so many seconds.
+const ROAD = 0.55;
+const CUT = { whoosh: 0.7, fire: 0.8, squeak: 0.6, cymbal: 1.2, ooh: 1.2, clap: 0.5, applause: 2.2 };
 // Sound cues a show puts on the prop rig (lounge-assets nights.py cue()):
 // DinCafeProps_Sfx<Name> shown = this sound there. Cluck repeats while it
 // shows; Roll is a drum roll with a cymbal as it ends; Wow is the room gasping;
@@ -66,7 +80,6 @@ const ZONES = {
     bed: ["bed-pub", n => 0.1 + 0.03 * Math.min(n, 12)],
     music: { name: "pub-piano", at: [-2.62, -15.3, 1.1], who: "Pno", level: 0.24 },
     shots: [
-      { groups: LAUGHS, every: [6, 15], people: 3, at: "person", vol: 0.45 },
       { groups: ["clink", "pint"], every: [5, 12], people: 2, at: [3.2, -14.4, 1.1], vol: 0.35 },
       { groups: ["dart"], every: [5, 11], who: "Dt", at: [-3.85, -12.6, 1.73], vol: 0.3 }
     ]
@@ -79,12 +92,10 @@ const ZONES = {
     ],
     bed: ["bed-dining", n => (n >= 3 ? 0.08 + 0.025 * Math.min(n, 12) : 0.04)],
     music: { name: "dining-strings", level: 0.08, people: 3 },
-    shots: [
-      { groups: ["cutlery"], every: [1.5, 4.5], people: 3, at: "hands", vol: 0.3, ref: 1.5 },
-      { groups: LAUGHS, every: [9, 22], people: 3, at: "person", vol: 0.4 },
-      { groups: ["clink"], every: [8, 20], people: 3, at: "person", vol: 0.3 },
-      { groups: ["chair"], every: [40, 90], people: 3, at: "person", vol: 0.3 }
-    ]
+    // Voices only (Jay, 2026-10-21/22): no cutlery, glasses, chairs, claps,
+    // applause or mime sounds. While the mime is in the room the talk drops to
+    // a murmur, and comes back after he goes.
+    voicesOnly: true
   },
   cocktail: {
     box: [-5.35, 5.95, 4.0, 9.84, -0.6, 3.3],
@@ -96,7 +107,6 @@ const ZONES = {
     extra: [["bed-night", () => 0.1]], // (more beds under the chatter)
     music: { name: "cocktail-jazz", level: 0.09, people: 2 },
     shots: [
-      { groups: LAUGHS, every: [8, 20], people: 2, at: "person", vol: 0.4 },
       { groups: ["clink"], every: [6, 15], people: 2, at: "person", vol: 0.3 },
       { groups: ["shaker"], every: [30, 70], people: 2, at: [0.2, 4.9, 1.1], vol: 0.3 }
     ]
@@ -108,15 +118,13 @@ const ZONES = {
     music: { name: "cafe-accordion", level: 0.09, people: 1 },
     shots: [
       { groups: ["espresso"], every: [40, 90], at: [8.6, -4.7, 1.05], vol: 0.3 },
-      { groups: ["cutlery", "clink"], every: [6, 15], people: 1, at: "person", vol: 0.25 },
-      { groups: LAUGHS, every: [20, 45], people: 2, at: "person", vol: 0.35 }
+      { groups: ["cutlery", "clink"], every: [6, 15], people: 1, at: "person", vol: 0.25 }
     ]
   },
   tub: {
     box: [-12, -7, -10, -4.4, -0.6, 3.3],
     open: 2.5,
-    bed: ["bed-tub", () => 0.22],
-    shots: [{ groups: LAUGHS, every: [10, 28], people: 1, at: "person", vol: 0.4 }]
+    bed: ["bed-tub", () => 0.22]
   },
   bedSW: {
     box: [-11.5, -6, -5.5, -1.4, 3.4, 7.5],
@@ -139,7 +147,8 @@ const PROPS = {
 };
 const COUPLES = {
   ne: { tags: ["BedF", "BedM"], zone: "bedNE" },
-  sw: { tags: ["DinNudeA", "DinNudeM"], zone: "bedSW" }
+  // (her first; the SW pair dressed are the café lady and the mime)
+  sw: { tags: ["DinNudeA", "DinNudeM"], dressed: ["DinCafA", "DinMime"], zone: "bedSW" }
 };
 // Where the volume cards stand: in front of these seats.
 const CARD_SEATS = ["Seat_D3", "Seat_D7", "Seat_RovA3", "Seat_CkE1", "Seat_E1", "Seat_HotTub_N1"];
@@ -221,7 +230,8 @@ AFRAME.registerSystem("lounge-ambience", {
       const short = name.slice(13);
       const kind = Object.keys(PROPS).find(k => PROPS[k].test(short));
       if (kind) this.props.push({ o, short, kind, pos: new THREE.Vector3(), prev: null, vis: false, cool: 0 });
-      else if (short.startsWith("Sfx")) this.cues.push({ o, name: short.slice(3), vis: false, next: 0, pos: new THREE.Vector3() });
+      else if (short.startsWith("Sfx"))
+        this.cues.push({ o, name: short.slice(3), vis: false, next: 0, pos: new THREE.Vector3() });
       else if (short !== "Show") this.kit.push({ o, vis: false });
     }
     this.watching = false;
@@ -238,7 +248,10 @@ AFRAME.registerSystem("lounge-ambience", {
         k,
         {
           ...c,
-          figs: c.tags.map(t => this.byTag[t]).filter(Boolean),
+          key: k,
+          figs: c.tags.map(t => this.byTag[t]),
+          dressed: (c.dressed || []).map(t => this.byTag[t]),
+          used: {},
           last: 0,
           start: 0,
           vocalFree: 0,
@@ -319,13 +332,12 @@ AFRAME.registerSystem("lounge-ambience", {
         "pop",
         "clap",
         "applause",
-        "cheer",
         "drumroll",
         "splash"
       ])
         for (const n of GROUPS[g] || []) out.add(n);
-    if (z.name.startsWith("bed"))
-      for (const g of ["moan-f", "moan-m"]) for (const n of GROUPS[g] || []) out.add(n);
+    for (const c of Object.values(this.couples))
+      if (c.zone === z.name) for (const n of Object.keys(URLS)) if (n.startsWith(`talk-${c.key}-`)) out.add(n);
     return out;
   },
 
@@ -397,15 +409,17 @@ AFRAME.registerSystem("lounge-ambience", {
     return pan;
   },
 
-  // A one-shot from a group in zone z, at a Blender point or a world point.
-  play(z, group, at, vol = 0.4, ref = 2, onLength) {
+  // A one-shot from a group in zone z (or that one clip, as it is), at a Blender
+  // point or a world point; with cut, faded out after that many seconds.
+  play(z, group, at, vol = 0.4, ref = 2, onLength, cut = 0) {
     if (!z.gain || z.heard < 0.02 || this.voices >= MAX_VOICES) return 0;
-    const names = (GROUPS[group] || []).filter(n => this.buffers.has(n));
+    if (z.voicesOnly && !VOICES.has(group)) return 0;
+    const names = (URLS[group] ? [group] : GROUPS[group] || []).filter(n => this.buffers.has(n));
     if (!names.length) return 0;
     const buf = this.buffers.get(pickOne(names));
     const src = this.ctx.createBufferSource();
     src.buffer = buf;
-    src.playbackRate.value = R(0.94, 1.06);
+    src.playbackRate.value = URLS[group] ? 1 : R(0.94, 1.06);
     const gain = this.ctx.createGain();
     gain.gain.value = vol;
     src.connect(gain);
@@ -421,8 +435,21 @@ AFRAME.registerSystem("lounge-ambience", {
       gain.disconnect();
     };
     src.start();
-    if (onLength) onLength(buf.duration);
-    return buf.duration;
+    let len = buf.duration / src.playbackRate.value;
+    if (cut && len > cut) {
+      const t = this.ctx.currentTime + cut;
+      gain.gain.setValueAtTime(vol, t - 0.15);
+      gain.gain.linearRampToValueAtTime(0, t);
+      src.stop(t + 0.02);
+      len = cut;
+    }
+    if (onLength) onLength(len);
+    return len;
+  },
+
+  // One of the mime's sounds on his rounds: low and short.
+  road(z, group, at, vol, ref = 2) {
+    return this.play(z, group, at, vol * ROAD, ref, null, CUT[group] || 1);
   },
 
   // ---- per frame -----------------------------------------------------------------
@@ -431,6 +458,7 @@ AFRAME.registerSystem("lounge-ambience", {
     if (!this.ready) return;
     if (!this.ctx && !this.setupAudio()) return;
     const now = time / 1000;
+    this.now = now;
     const dt = Math.min(0.1, (dtMs || 16) / 1000);
     for (let k = this.later.length - 1; k >= 0; k--) {
       if (now >= this.later[k].at) {
@@ -506,13 +534,22 @@ AFRAME.registerSystem("lounge-ambience", {
       if (z.beds) {
         beds++;
         const n = z.people.length;
-        const hush = z.name === "rovers" && this.watching ? (now < this.swellUntil ? SWELL : MURMUR) : 1;
+        // (scripted: every word in the room is the mystery's, no chatter bed under it)
+        const hush = z.scripted
+          ? 0
+          : z.name === "rovers" && this.watching
+            ? now < this.swellUntil
+              ? SWELL
+              : MURMUR
+            : z.hushed
+              ? MURMUR
+              : 1;
         for (const b of z.beds) {
           let level = b.level(n) * hush;
           if (b.music) level = this.musicLevel(z, b.music);
           b.gain.gain.setTargetAtTime(level, t, hush < 1 ? 0.35 : 0.8);
         }
-        if (heard > 0.02 && !(z.name === "rovers" && this.watching)) this.shots(now, z);
+        if (heard > 0.02 && !(z.name === "rovers" && this.watching) && !z.hushed) this.shots(now, z);
       }
     }
     // dip under voices
@@ -523,12 +560,13 @@ AFRAME.registerSystem("lounge-ambience", {
     const duck = talk > 0.04 ? 0.45 : 1;
     this.master.gain.setTargetAtTime(volume * duck, t, duck < 1 ? 0.08 : 0.6);
     this.mime(now);
+    this.trystTalk(now);
     this.extras(now);
     this.stats = { zone: this.here ? this.here.name : "", voices: this.voices, beds };
   },
 
   musicLevel(z, m) {
-    if (m.couple) return this.couples[m.couple].figs.some(f => f.visible) ? m.level : 0;
+    if (m.couple) return this.couples[m.couple].figs.some(f => f && f.visible) ? m.level : 0;
     if (m.who) {
       const f = this.byTag[m.who];
       return f && f.visible && f.pos.distanceTo(v2.set(m.at[0], m.at[1], m.at[2])) < 1.6
@@ -563,20 +601,33 @@ AFRAME.registerSystem("lounge-ambience", {
     const show = this.showBone;
     this.showDim = show ? show.scale.x : 0;
     const rov = this.zones.rovers;
-    // the finale: a cheer as the lights go down, applause as they come up
+    // the finale: applause as the lights come up
     if (this.showDim > 0.3 && !this.showOnAt) {
       this.showOnAt = now;
-      this.play(rov, "cheer", null, 0.35);
     } else if (this.showDim < 0.1 && this.showOnAt) {
       if (now - this.showOnAt > 30) this.play(rov, "applause", null, 0.45);
       this.showOnAt = 0;
     }
     const mime = this.byTag.DinMime;
     const z = mime?.zone;
+    // the dining room watching him: hushed while he's in there and through the
+    // applause as he goes (a walk through doesn't get one)
+    const din = this.zones.dining;
+    if (z === din) {
+      din.showFrom = din.showFrom || now;
+      din.hushUntil = now + 1.5;
+    } else if (din.showFrom) {
+      if (now - din.showFrom > 15 && now > (this.applauseUntil || 0)) {
+        const len = this.road(din, "applause", null, 0.45);
+        this.applauseUntil = now + Math.max(3, len);
+        din.hushUntil = now + Math.max(1.5, len);
+      }
+      din.showFrom = 0;
+    }
+    din.hushed = now < (din.hushUntil || 0);
     // the pub watching him on stage: down to a murmur, now and then an "ooh"
     const p0 = mime?.pos;
-    const onStage =
-      z === rov && p0 && p0.x > STAGE[0] && p0.x < STAGE[1] && p0.y > STAGE[2] && p0.y < STAGE[3];
+    const onStage = z === rov && p0 && p0.x > STAGE[0] && p0.x < STAGE[1] && p0.y > STAGE[2] && p0.y < STAGE[3];
     const watching = this.showDim > 0.3 || !!onStage;
     if (watching && !this.watching) this.surpriseAt = now + R(12, 25);
     this.watching = watching;
@@ -609,22 +660,21 @@ AFRAME.registerSystem("lounge-ambience", {
       const speed = p.prev && vis ? p.pos.distanceTo(p.prev) / SAMPLE : 0;
       p.prev = vis ? (p.prev || new THREE.Vector3()).copy(p.pos) : null;
       if (p.kind === "reveal" && vis && !p.vis) {
-        this.play(z, "cymbal", p.pos, 0.35);
+        this.road(z, "cymbal", p.pos, 0.35);
         if (this.watching) this.surprise(now + 0.3, R(20, 40), true);
         else {
-          this.later.push({ at: now + 0.3, fn: () => this.play(z, "ooh", null, 0.35) });
-          if (Math.random() < 0.5) this.later.push({ at: now + 1.4, fn: () => this.play(z, pickOne(LAUGHS), null, 0.3) });
+          this.later.push({ at: now + 0.3, fn: () => this.road(z, "ooh", null, 0.35) });
         }
       }
       if (p.kind === "fire" && vis && !p.vis && onStage) this.surprise(now, R(20, 40));
       if ((p.kind === "fire" || p.kind === "juggle") && speed > 3.5 && now > p.cool && whooshes < 2) {
         p.cool = now + 0.35;
         whooshes++;
-        this.play(z, p.kind === "fire" ? "fire" : "whoosh", p.pos, 0.3, 1.5);
+        this.road(z, p.kind === "fire" ? "fire" : "whoosh", p.pos, 0.3, 1.5);
       }
       if (p.kind === "balloon" && vis && speed > 0.15 && now > p.cool) {
         p.cool = now + R(0.7, 1.4);
-        this.play(z, "squeak", p.pos, 0.25, 1.2);
+        this.road(z, "squeak", p.pos, 0.25, 1.2);
       }
       p.vis = vis;
     }
@@ -646,7 +696,6 @@ AFRAME.registerSystem("lounge-ambience", {
       } else if (!on) continue;
       else if (c.name === "Roll") this.play(z, "drumroll", c.pos.clone(), 0.4, 2);
       else if (c.name === "Wow") this.surprise(now, R(20, 40), true);
-      else if (c.name === "Laugh") this.play(z, pickOne(LAUGHS), null, 0.35);
       else if (CUE_GROUP[c.name]) this.play(z, CUE_GROUP[c.name], c.pos.clone(), 0.5, 2);
     }
   },
@@ -660,12 +709,14 @@ AFRAME.registerSystem("lounge-ambience", {
     this.surpriseAt = at + gap;
     this.swellUntil = at + R(2.5, 4);
     this.later.push({ at, fn: () => this.play(rov, "gasp", null, R(0.35, 0.5)) });
-    if (Math.random() < 0.3) this.later.push({ at: at + 1.8, fn: () => this.play(rov, pickOne(LAUGHS), null, 0.25) });
   },
 
   // Guests' hands meeting: a clap from there; enough of them, a round of applause.
   claps(now, z) {
     let clappers = 0;
+    // (for him on his rounds, low and short; the stage and the finale as they are)
+    const roving = this.byTag.DinMime?.zone === z && !(z.name === "rovers" && this.watching);
+    const sound = (g, at, vol, ref) => (roving ? this.road(z, g, at, vol, ref) : this.play(z, g, at, vol, ref));
     for (const f of z.people) {
       if (!f.handL || !f.handR || f.tag === "DinMime") continue;
       const d = this.bonePos(f.handL, v1).distanceTo(this.bonePos(f.handR, v2));
@@ -674,12 +725,12 @@ AFRAME.registerSystem("lounge-ambience", {
       else if (d < 0.09 && c.open) {
         c.open = false;
         c.last = now;
-        if (this.voices < 6) this.play(z, "clap", v1.lerp(v2, 0.5).clone(), 0.25, 1.2);
+        if (this.voices < 6) sound("clap", v1.lerp(v2, 0.5).clone(), 0.25, 1.2);
       }
       if (now - (c.last || -9) < 1.5) clappers++;
     }
     if (clappers >= 4 && now > (this.applauseUntil || 0)) {
-      const len = this.play(z, "applause", null, 0.4);
+      const len = sound("applause", null, 0.4);
       this.applauseUntil = now + Math.max(3, len);
     }
   },
@@ -687,8 +738,7 @@ AFRAME.registerSystem("lounge-ambience", {
   // ---- the couples -----------------------------------------------------------------
 
   rhythm(now, dt, c) {
-    const z = this.zones[c.zone];
-    const figs = c.figs.filter(f => f.visible);
+    const figs = c.figs.filter(f => f && f.visible);
     if (!figs.length) return;
     let stroke = false;
     for (const f of figs) {
@@ -715,30 +765,80 @@ AFRAME.registerSystem("lounge-ambience", {
       }
       c.last = now;
       const I = Math.min(1, (now - c.start) / 90);
-      if (now > c.vocalFree && Math.random() < 0.45 + 0.5 * I) {
-        const her = Math.random() < 0.55;
-        const who = c.figs[her ? 0 : 1] || figs[0];
-        const len = this.play(
-          z,
-          her ? "moan-f" : "moan-m",
-          this.bonePos(who.head || who.hips, new THREE.Vector3()),
-          0.45 + 0.35 * I,
-          1.5
-        );
-        c.vocalFree = now + Math.max(0.8, len * 0.8);
-      }
+      if (now > c.vocalFree && Math.random() < 0.25 + 0.35 * I)
+        this.talk(now, c, I > 0.5 ? "hot" : "warm", I > 0.5 ? [3, 7] : [6, 12], 0.55 + 0.25 * I);
     } else if (!c.done && now - c.last > 2.5) {
-      // it stopped: after a long run, a finish
+      // it stopped: after a long run, a finish, and a moment later a word or two
       c.done = true;
       if (c.last - c.start > 45) {
-        const her = c.figs[0];
-        const him = c.figs[1] || her;
-        this.play(z, "moan-f", this.bonePos(her.head || her.hips, new THREE.Vector3()), 0.85, 1.5);
-        this.later.push({
-          at: now + 0.7,
-          fn: () => this.play(z, "moan-m", this.bonePos(him.head || him.hips, new THREE.Vector3()), 0.8, 1.5)
-        });
+        const end = this.talk(Math.max(now, c.talkEnd || 0), c, "finish", [4, 7], 0.8);
+        this.later.push({ at: end + R(2.5, 5), fn: () => this.talk(this.now, c, "after", [8, 14]) });
       }
+    }
+  },
+
+  // One exchange from a set in bed-talk.json: each line from whoever says it,
+  // a beat between them, then quiet for `pause` seconds. Returns when it ends.
+  talk(now, c, set, pause = [6, 12], vol = 0.6, gap = [0.5, 1.4]) {
+    const z = this.zones[c.zone];
+    const list = TALK.sets[set];
+    if (!list || z.heard < 0.02) return now;
+    let i;
+    if (set === "smoke")
+      i = c.smoked++; // (in order, over the cigarette)
+    else {
+      // not one of the last few heard
+      const used = (c.used[set] = c.used[set] || []);
+      const free = list.map((_, k) => k).filter(k => !used.includes(k));
+      i = pickOne(free.length ? free : list.map((_, k) => k));
+      used.push(i);
+      if (used.length > list.length / 2) used.shift();
+    }
+    if (i >= list.length) return now;
+    const names = list[i].map((_, j) => `talk-${c.key}-${set}-${i}-${j}`);
+    if (!names.every(n => this.buffers.has(n))) return now;
+    let at = now;
+    list[i].forEach(([who], j) => {
+      this.later.push({ at, fn: () => this.play(z, names[j], this.mouth(c, who), vol, 1.5) });
+      at += this.buffers.get(names[j]).duration + R(gap[0], gap[1]);
+    });
+    c.talkEnd = at;
+    c.vocalFree = at + R(pause[0], pause[1]);
+    return at;
+  },
+
+  // Where her (f) or his (m) voice comes from: whichever of them is showing.
+  mouth(c, who) {
+    const k = who === "f" ? 0 : 1;
+    const f = [c.figs[k], c.dressed[k]].find(f => f && f.visible);
+    return f ? this.bonePos(f.head || f.hips, new THREE.Vector3()) : null;
+  },
+
+  // The SW tryst's words outside bed: as she comes in to him, over the
+  // cigarette he conjures, and as they get dressed to go down.
+  trystTalk(now) {
+    const c = this.couples.sw;
+    const room = this.zones[c.zone];
+    const [her, him] = c.dressed;
+    const met = !!her && her.zone === room && him?.zone === room;
+    if (met && !c.met) this.talk(now, c, "enter", [6, 10], 0.6, [0.3, 0.7]);
+    c.met = met;
+    const cig = this.named.DinCafeProps_Cig;
+    if (!cig || !c.figs[0]?.visible) {
+      c.smoking = false;
+      return;
+    }
+    cig.updateWorldMatrix(true, false);
+    if (this.boneScale(cig) > 0.2) {
+      if (!c.smoking) {
+        c.smoking = true;
+        c.smoked = 0;
+        c.nextSmoke = now + 3.5;
+      }
+      if (now > c.nextSmoke && now > c.vocalFree) c.nextSmoke = this.talk(now, c, "smoke", [4, 8]) + R(10, 18);
+    } else if (c.smoking) {
+      c.smoking = false;
+      this.later.push({ at: now + 5, fn: () => this.talk(this.now, c, "leave", [10, 15]) });
     }
   },
 

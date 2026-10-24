@@ -21,10 +21,19 @@ try {
   /* storage unavailable: start at full brightness */
 }
 let showLevel = null; // level in force while the TV is live, if any
+let scriptLevel = null; // a mystery's blackout (lounge/mystery.js), over everything else
 const listeners = new Set();
 
 export function getLightLevel() {
-  return showLevel ?? userLevel;
+  return scriptLevel ?? showLevel ?? userLevel;
+}
+
+// The lights as a mystery's script says (a blackout, a flicker): null gives
+// them back to the viewer's own level.
+export function setScriptLevel(level) {
+  if (level === scriptLevel) return;
+  scriptLevel = level;
+  listeners.forEach(fn => fn(getLightLevel()));
 }
 
 export function onLightLevel(fn) {

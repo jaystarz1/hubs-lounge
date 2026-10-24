@@ -13,15 +13,23 @@ export function label(scene, anchor, rotation, x, y, width, height, lines, onPre
   const material = new THREE.MeshBasicMaterial({ map: texture, transparent: true });
   const geometry = new THREE.PlaneGeometry(width, height);
   el.setObject3D("mesh", new THREE.Mesh(geometry, material));
-  const draw = (text, failed = false, background = "#202a30") => {
+  // (image: a picture across the top, the lines under it)
+  const draw = (text, failed = false, background = "#202a30", image = null) => {
     const ctx = canvas.getContext("2d");
     ctx.fillStyle = background;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
+    let top = 0;
+    if (image) {
+      const side = Math.min(canvas.width * 0.8, canvas.height * 0.52);
+      ctx.drawImage(image, (canvas.width - side) / 2, canvas.height * 0.04, side, side);
+      top = canvas.height * 0.04 + side;
+    }
+    const h = canvas.height - top;
     ctx.fillStyle = failed ? "#ffb6a6" : background === "#202a30" ? "#fff0d4" : "#202a30";
-    ctx.font = `600 ${Math.min(156, Math.floor(canvas.height / (text.length + 1.5)))}px sans-serif`;
+    ctx.font = `600 ${Math.min(156, Math.floor(h / (text.length + 1.5)))}px sans-serif`;
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    text.forEach((line, i) => ctx.fillText(line, 512, (canvas.height * (i + 1)) / (text.length + 1), 970));
+    text.forEach((line, i) => ctx.fillText(line, 512, top + (h * (i + 1)) / (text.length + 1), 970));
     texture.needsUpdate = true;
   };
   draw(lines);

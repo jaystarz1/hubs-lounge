@@ -53,6 +53,7 @@ import "./lounge/dinner-glasses";
 import "./lounge/dinner-plates";
 import "./lounge/skeet";
 import "./lounge/ambience";
+import "./lounge/mystery";
 import "./lounge/telemetry";
 import { remapStaleAvatarId } from "./lounge/avatars";
 import { detectOS, detect } from "detect-browser";

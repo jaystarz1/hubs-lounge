@@ -1,0 +1,3230 @@
+{
+"_": "Written by lounge-assets/mystery-talk.py build from sat.json: each line's start (t) and length (d) in seconds on the dinner clock.",
+"cues": [
+{
+"t": 4.0,
+"d": 8.808,
+"who": "helena",
+"n": "sat-0-0",
+"to": "all"
+},
+{
+"t": 13.51,
+"d": 3.864,
+"who": "rook",
+"n": "sat-0-1",
+"to": "helena"
+},
+{
+"t": 18.07,
+"d": 4.056,
+"who": "penelope",
+"n": "sat-0-2",
+"to": "rook"
+},
+{
+"t": 22.83,
+"d": 7.224,
+"who": "charles",
+"n": "sat-0-3",
+"to": "penelope"
+},
+{
+"t": 30.75,
+"d": 6.072,
+"who": "blake",
+"n": "sat-0-4",
+"to": "charles"
+},
+{
+"t": 37.52,
+"d": 7.56,
+"who": "hester",
+"n": "sat-0-5",
+"to": "all"
+},
+{
+"t": 45.78,
+"d": 2.64,
+"who": "penelope",
+"n": "sat-0-6",
+"to": "hester"
+},
+{
+"t": 49.12,
+"d": 5.088,
+"who": "hester",
+"n": "sat-0-7",
+"to": "penelope"
+},
+{
+"t": 54.91,
+"d": 5.04,
+"who": "helena",
+"n": "sat-0-8",
+"to": "hester"
+},
+{
+"t": 60.65,
+"d": 2.208,
+"who": "rook",
+"n": "sat-0-9",
+"to": "pemberton"
+},
+{
+"t": 63.56,
+"d": 4.776,
+"who": "pemberton",
+"n": "sat-0-10",
+"to": "rook"
+},
+{
+"t": 69.04,
+"d": 1.872,
+"who": "hester",
+"n": "sat-0-11",
+"to": "pemberton"
+},
+{
+"t": 71.61,
+"d": 1.776,
+"who": "pemberton",
+"n": "sat-0-12",
+"to": "helena"
+},
+{
+"t": 78.0,
+"d": 5.352,
+"who": "helena",
+"n": "sat-1-0",
+"to": "all"
+},
+{
+"t": 84.05,
+"d": 2.424,
+"who": "rook",
+"n": "sat-1-1",
+"to": "hester"
+},
+{
+"t": 87.18,
+"d": 4.68,
+"who": "hester",
+"n": "sat-1-2",
+"to": "rook"
+},
+{
+"t": 92.56,
+"d": 1.728,
+"who": "charles",
+"n": "sat-1-3",
+"to": "penelope"
+},
+{
+"t": 94.98,
+"d": 1.872,
+"who": "penelope",
+"n": "sat-1-4",
+"to": "charles"
+},
+{
+"t": 97.56,
+"d": 4.32,
+"who": "charles",
+"n": "sat-1-5",
+"to": "penelope"
+},
+{
+"t": 117.0,
+"d": 5.352,
+"who": "rook",
+"n": "sat-2-0",
+"to": "all"
+},
+{
+"t": 123.05,
+"d": 4.392,
+"who": "helena",
+"n": "sat-2-1",
+"to": "rook"
+},
+{
+"t": 128.14,
+"d": 2.256,
+"who": "blake",
+"n": "sat-2-2",
+"to": "all"
+},
+{
+"t": 131.1,
+"d": 3.24,
+"who": "hester",
+"n": "sat-2-3",
+"to": "all"
+},
+{
+"t": 135.04,
+"d": 1.32,
+"who": "pemberton",
+"n": "sat-2-4"
+},
+{
+"t": 139.06,
+"d": 7.8,
+"who": "helena",
+"n": "sat-2-6",
+"to": "mid"
+},
+{
+"t": 147.56,
+"d": 7.152,
+"who": "helena",
+"n": "sat-2-7",
+"to": "mid"
+},
+{
+"t": 155.41,
+"d": 2.976,
+"who": "rook",
+"n": "sat-2-8",
+"to": "mid"
+},
+{
+"t": 159.09,
+"d": 9.456,
+"who": "helena",
+"n": "sat-2-9",
+"to": "mid"
+},
+{
+"t": 169.24,
+"d": 6.576,
+"who": "charles",
+"n": "sat-2-10",
+"to": "mid"
+},
+{
+"t": 176.52,
+"d": 5.616,
+"who": "helena",
+"n": "sat-2-11",
+"to": "mid"
+},
+{
+"t": 182.84,
+"d": 7.104,
+"who": "blake",
+"n": "sat-2-12",
+"to": "mid"
+},
+{
+"t": 190.64,
+"d": 7.992,
+"who": "helena",
+"n": "sat-2-13",
+"to": "mid"
+},
+{
+"t": 199.33,
+"d": 3.48,
+"who": "hester",
+"n": "sat-2-14",
+"to": "mid"
+},
+{
+"t": 203.51,
+"d": 7.176,
+"who": "helena",
+"n": "sat-2-15",
+"to": "mid"
+},
+{
+"t": 211.39,
+"d": 3.12,
+"who": "pemberton",
+"n": "sat-2-16",
+"to": "mid"
+},
+{
+"t": 215.51,
+"d": 3.36,
+"who": "rook",
+"n": "sat-3-0",
+"to": "helena"
+},
+{
+"t": 219.57,
+"d": 4.008,
+"who": "helena",
+"n": "sat-3-1",
+"to": "rook"
+},
+{
+"t": 224.28,
+"d": 6.216,
+"who": "charles",
+"n": "sat-3-2",
+"to": "rook"
+},
+{
+"t": 231.19,
+"d": 6.36,
+"who": "hester",
+"n": "sat-3-3",
+"to": "charles"
+},
+{
+"t": 238.25,
+"d": 6.504,
+"who": "charles",
+"n": "sat-3-4",
+"to": "hester"
+},
+{
+"t": 245.46,
+"d": 3.168,
+"who": "hester",
+"n": "sat-3-5",
+"to": "charles"
+},
+{
+"t": 252.32,
+"d": 4.632,
+"who": "penelope",
+"n": "sat-3-7",
+"to": "blake"
+},
+{
+"t": 257.66,
+"d": 9.984,
+"who": "blake",
+"n": "sat-3-8",
+"to": "penelope"
+},
+{
+"t": 268.34,
+"d": 1.56,
+"who": "penelope",
+"n": "sat-3-9",
+"to": "blake"
+},
+{
+"t": 270.6,
+"d": 8.112,
+"who": "blake",
+"n": "sat-3-10",
+"to": "penelope"
+},
+{
+"t": 282.41,
+"d": 2.448,
+"who": "helena",
+"n": "sat-3-12",
+"to": "pemberton"
+},
+{
+"t": 285.56,
+"d": 7.032,
+"who": "pemberton",
+"n": "sat-3-13",
+"to": "helena"
+},
+{
+"t": 293.29,
+"d": 2.736,
+"who": "rook",
+"n": "sat-3-14",
+"to": "pemberton"
+},
+{
+"t": 296.73,
+"d": 5.232,
+"who": "pemberton",
+"n": "sat-3-15",
+"to": "rook"
+},
+{
+"t": 302.66,
+"d": 4.92,
+"who": "hester",
+"n": "sat-3-16",
+"to": "all"
+},
+{
+"t": 308.28,
+"d": 4.464,
+"who": "pemberton",
+"n": "sat-3-17",
+"to": "hester"
+},
+{
+"t": 313.44,
+"d": 4.608,
+"who": "hester",
+"n": "sat-3-18",
+"to": "pemberton"
+},
+{
+"t": 321.75,
+"d": 6.072,
+"who": "charles",
+"n": "sat-3-20",
+"to": "pemberton"
+},
+{
+"t": 328.52,
+"d": 5.448,
+"who": "pemberton",
+"n": "sat-3-21",
+"to": "charles"
+},
+{
+"t": 334.67,
+"d": 3.072,
+"who": "charles",
+"n": "sat-3-22",
+"to": "pemberton"
+},
+{
+"t": 338.44,
+"d": 4.752,
+"who": "pemberton",
+"n": "sat-3-23",
+"to": "charles"
+},
+{
+"t": 346.9,
+"d": 5.568,
+"who": "blake",
+"n": "sat-3-25",
+"to": "rook"
+},
+{
+"t": 353.16,
+"d": 4.92,
+"who": "rook",
+"n": "sat-3-26",
+"to": "blake"
+},
+{
+"t": 358.78,
+"d": 5.28,
+"who": "helena",
+"n": "sat-3-27",
+"to": "rook"
+},
+{
+"t": 365.06,
+"d": 6.288,
+"who": "hester",
+"n": "sat-4-0",
+"to": "all"
+},
+{
+"t": 372.05,
+"d": 0.792,
+"who": "pemberton",
+"n": "sat-4-1",
+"to": "hester"
+},
+{
+"t": 373.54,
+"d": 6.12,
+"who": "hester",
+"n": "sat-4-2",
+"do": "show:pemberton=flask",
+"to": "pemberton"
+},
+{
+"t": 380.36,
+"d": 2.688,
+"who": "pemberton",
+"n": "sat-4-3",
+"do": "drink:pemberton",
+"to": "hester"
+},
+{
+"t": 383.75,
+"d": 2.928,
+"who": "rook",
+"n": "sat-4-4",
+"to": "all"
+},
+{
+"t": 387.38,
+"d": 6.624,
+"who": "pemberton",
+"n": "sat-4-5",
+"do": "pocket:pemberton",
+"to": "rook"
+},
+{
+"t": 394.7,
+"d": 4.992,
+"who": "helena",
+"n": "sat-4-6",
+"ev": "clue:flask",
+"to": "rook"
+},
+{
+"t": 403.4,
+"d": 5.832,
+"who": "charles",
+"n": "sat-4-8",
+"to": "pemberton"
+},
+{
+"t": 409.93,
+"d": 4.656,
+"who": "pemberton",
+"n": "sat-4-9",
+"to": "charles"
+},
+{
+"t": 415.28,
+"d": 3.336,
+"who": "charles",
+"n": "sat-4-10",
+"to": "pemberton"
+},
+{
+"t": 419.32,
+"d": 0.864,
+"who": "penelope",
+"n": "sat-4-11",
+"to": "charles"
+},
+{
+"t": 420.88,
+"d": 9.624,
+"who": "charles",
+"n": "sat-4-12",
+"to": "penelope"
+},
+{
+"t": 434.21,
+"d": 10.152,
+"who": "blake",
+"n": "sat-4-14",
+"to": "helena"
+},
+{
+"t": 445.06,
+"d": 5.088,
+"who": "hester",
+"n": "sat-4-15",
+"to": "blake"
+},
+{
+"t": 450.85,
+"d": 1.488,
+"who": "blake",
+"n": "sat-4-16",
+"to": "hester"
+},
+{
+"t": 453.04,
+"d": 3.792,
+"who": "hester",
+"n": "sat-4-17",
+"to": "blake"
+},
+{
+"t": 457.53,
+"d": 3.0,
+"who": "helena",
+"n": "sat-4-18",
+"ev": "clue:monkshood",
+"to": "hester"
+},
+{
+"t": 464.23,
+"d": 4.776,
+"who": "rook",
+"n": "sat-4-20",
+"to": "charles"
+},
+{
+"t": 469.7,
+"d": 8.592,
+"who": "charles",
+"n": "sat-4-21",
+"to": "rook"
+},
+{
+"t": 479.0,
+"d": 1.872,
+"who": "rook",
+"n": "sat-4-22",
+"to": "charles"
+},
+{
+"t": 481.57,
+"d": 4.584,
+"who": "charles",
+"n": "sat-4-23",
+"to": "rook"
+},
+{
+"t": 487.15,
+"d": 3.024,
+"who": "pemberton",
+"n": "sat-5-0",
+"to": "helena"
+},
+{
+"t": 490.88,
+"d": 1.488,
+"who": "helena",
+"n": "sat-5-1",
+"to": "pemberton"
+},
+{
+"t": 493.06,
+"d": 4.272,
+"who": "rook",
+"n": "sat-5-2",
+"to": "helena"
+},
+{
+"t": 498.04,
+"d": 7.656,
+"who": "helena",
+"n": "sat-5-3",
+"to": "rook"
+},
+{
+"t": 509.39,
+"d": 3.552,
+"who": "hester",
+"n": "sat-5-5",
+"to": "penelope"
+},
+{
+"t": 513.64,
+"d": 5.472,
+"who": "penelope",
+"n": "sat-5-6",
+"to": "hester"
+},
+{
+"t": 519.82,
+"d": 3.168,
+"who": "hester",
+"n": "sat-5-7",
+"to": "charles"
+},
+{
+"t": 523.68,
+"d": 3.576,
+"who": "charles",
+"n": "sat-5-8",
+"to": "hester"
+},
+{
+"t": 530.96,
+"d": 4.56,
+"who": "blake",
+"n": "sat-5-10",
+"to": "charles"
+},
+{
+"t": 536.22,
+"d": 5.04,
+"who": "charles",
+"n": "sat-5-11",
+"to": "blake"
+},
+{
+"t": 541.96,
+"d": 2.592,
+"who": "blake",
+"n": "sat-5-12",
+"to": "charles"
+},
+{
+"t": 545.25,
+"d": 7.488,
+"who": "charles",
+"n": "sat-5-13",
+"to": "blake"
+},
+{
+"t": 556.44,
+"d": 4.68,
+"who": "pemberton",
+"n": "sat-5-15",
+"to": "helena"
+},
+{
+"t": 561.82,
+"d": 3.096,
+"who": "helena",
+"n": "sat-5-16",
+"to": "pemberton"
+},
+{
+"t": 565.62,
+"d": 5.304,
+"who": "pemberton",
+"n": "sat-5-17",
+"to": "helena"
+},
+{
+"t": 574.62,
+"d": 4.344,
+"who": "rook",
+"n": "sat-5-19",
+"to": "blake"
+},
+{
+"t": 579.66,
+"d": 4.44,
+"who": "blake",
+"n": "sat-5-20",
+"to": "rook"
+},
+{
+"t": 584.8,
+"d": 3.168,
+"who": "rook",
+"n": "sat-5-21",
+"to": "blake"
+},
+{
+"t": 588.67,
+"d": 3.48,
+"who": "blake",
+"n": "sat-5-22",
+"to": "rook"
+},
+{
+"t": 592.85,
+"d": 2.688,
+"who": "hester",
+"n": "sat-5-23",
+"to": "blake"
+},
+{
+"t": 596.24,
+"d": 1.392,
+"who": "blake",
+"n": "sat-5-24",
+"ev": "clue:malta",
+"to": "hester"
+},
+{
+"t": 601.33,
+"d": 3.288,
+"who": "helena",
+"n": "sat-5-26",
+"to": "hester"
+},
+{
+"t": 605.32,
+"d": 6.168,
+"who": "hester",
+"n": "sat-5-27",
+"to": "helena"
+},
+{
+"t": 615.19,
+"d": 1.872,
+"who": "penelope",
+"n": "sat-5-29",
+"to": "charles"
+},
+{
+"t": 617.76,
+"d": 7.368,
+"who": "charles",
+"n": "sat-5-30",
+"to": "penelope"
+},
+{
+"t": 625.83,
+"d": 1.08,
+"who": "penelope",
+"n": "sat-5-31",
+"to": "charles"
+},
+{
+"t": 627.61,
+"d": 3.432,
+"who": "charles",
+"n": "sat-5-32",
+"to": "penelope"
+},
+{
+"t": 634.74,
+"d": 3.0,
+"who": "rook",
+"n": "sat-5-34",
+"to": "helena"
+},
+{
+"t": 638.44,
+"d": 6.696,
+"who": "helena",
+"n": "sat-5-35",
+"to": "rook"
+},
+{
+"t": 648.84,
+"d": 4.656,
+"who": "penelope",
+"n": "sat-5-37",
+"to": "helena"
+},
+{
+"t": 654.19,
+"d": 5.952,
+"who": "helena",
+"n": "sat-5-38",
+"to": "penelope"
+},
+{
+"t": 660.84,
+"d": 6.336,
+"who": "charles",
+"n": "sat-5-39",
+"to": "penelope"
+},
+{
+"t": 667.88,
+"d": 3.84,
+"who": "penelope",
+"n": "sat-5-40",
+"to": "charles"
+},
+{
+"t": 672.42,
+"d": 4.56,
+"who": "charles",
+"n": "sat-5-41",
+"to": "penelope"
+},
+{
+"t": 677.68,
+"d": 2.208,
+"who": "hester",
+"n": "sat-5-42",
+"to": "charles"
+},
+{
+"t": 680.59,
+"d": 5.664,
+"who": "charles",
+"n": "sat-5-43",
+"to": "hester"
+},
+{
+"t": 686.95,
+"d": 3.888,
+"who": "hester",
+"n": "sat-5-44",
+"to": "charles"
+},
+{
+"t": 700.0,
+"d": 3.744,
+"who": "hester",
+"n": "sat-6-0",
+"to": "rook"
+},
+{
+"t": 704.44,
+"d": 1.632,
+"who": "rook",
+"n": "sat-6-1",
+"to": "hester"
+},
+{
+"t": 706.78,
+"d": 1.632,
+"who": "helena",
+"n": "sat-6-2",
+"to": "rook"
+},
+{
+"t": 709.11,
+"d": 3.0,
+"who": "rook",
+"n": "sat-6-3",
+"to": "helena"
+},
+{
+"t": 712.81,
+"d": 10.752,
+"who": "hester",
+"n": "sat-6-4",
+"to": "helena"
+},
+{
+"t": 724.26,
+"d": 0.912,
+"who": "helena",
+"n": "sat-6-5",
+"to": "rook"
+},
+{
+"t": 725.87,
+"d": 3.456,
+"who": "rook",
+"n": "sat-6-6",
+"to": "helena"
+},
+{
+"t": 730.03,
+"d": 3.48,
+"who": "hester",
+"n": "sat-6-7",
+"to": "helena"
+},
+{
+"t": 737.21,
+"d": 2.016,
+"who": "charles",
+"n": "sat-6-9",
+"to": "penelope"
+},
+{
+"t": 739.92,
+"d": 4.992,
+"who": "penelope",
+"n": "sat-6-10",
+"to": "charles"
+},
+{
+"t": 748.62,
+"d": 3.408,
+"who": "blake",
+"n": "sat-6-12",
+"to": "hester"
+},
+{
+"t": 752.72,
+"d": 4.848,
+"who": "hester",
+"n": "sat-6-13",
+"to": "blake"
+},
+{
+"t": 758.27,
+"d": 1.8,
+"who": "pemberton",
+"n": "sat-6-14",
+"to": "hester"
+},
+{
+"t": 763.77,
+"d": 3.36,
+"who": "helena",
+"n": "sat-6-16",
+"to": "pemberton"
+},
+{
+"t": 767.83,
+"d": 4.848,
+"who": "pemberton",
+"n": "sat-6-17",
+"to": "helena"
+},
+{
+"t": 773.38,
+"d": 1.968,
+"who": "rook",
+"n": "sat-6-18",
+"to": "pemberton"
+},
+{
+"t": 776.05,
+"d": 3.408,
+"who": "pemberton",
+"n": "sat-6-19",
+"to": "rook"
+},
+{
+"t": 783.16,
+"d": 3.552,
+"who": "penelope",
+"n": "sat-6-21",
+"to": "pemberton"
+},
+{
+"t": 787.41,
+"d": 3.312,
+"who": "pemberton",
+"n": "sat-6-22",
+"to": "penelope"
+},
+{
+"t": 791.42,
+"d": 1.608,
+"who": "penelope",
+"n": "sat-6-23",
+"to": "pemberton"
+},
+{
+"t": 793.73,
+"d": 1.728,
+"who": "pemberton",
+"n": "sat-6-24",
+"to": "penelope"
+},
+{
+"t": 799.16,
+"d": 6.432,
+"who": "hester",
+"n": "sat-6-26",
+"to": "all"
+},
+{
+"t": 806.29,
+"d": 2.352,
+"who": "pemberton",
+"n": "sat-6-27",
+"to": "hester"
+},
+{
+"t": 809.34,
+"d": 3.384,
+"who": "rook",
+"n": "sat-6-28",
+"to": "pemberton"
+},
+{
+"t": 813.42,
+"d": 3.744,
+"who": "pemberton",
+"n": "sat-6-29",
+"to": "rook"
+},
+{
+"t": 829.0,
+"d": 2.424,
+"who": "pemberton",
+"n": "sat-7-0",
+"to": "helena"
+},
+{
+"t": 832.12,
+"d": 1.488,
+"who": "helena",
+"n": "sat-7-1",
+"to": "pemberton"
+},
+{
+"t": 834.31,
+"d": 6.12,
+"who": "pemberton",
+"n": "sat-7-2",
+"do": "up:pemberton",
+"to": "helena"
+},
+{
+"t": 841.13,
+"d": 1.632,
+"who": "helena",
+"n": "sat-7-3",
+"to": "pemberton"
+},
+{
+"t": 846.46,
+"d": 7.824,
+"who": "charles",
+"n": "sat-7-5",
+"do": "up:charles",
+"to": "all"
+},
+{
+"t": 854.99,
+"d": 1.632,
+"who": "penelope",
+"n": "sat-7-6",
+"to": "charles"
+},
+{
+"t": 857.32,
+"d": 4.56,
+"who": "charles",
+"n": "sat-7-7",
+"to": "penelope"
+},
+{
+"t": 865.58,
+"d": 2.184,
+"who": "rook",
+"n": "sat-7-9",
+"to": "helena"
+},
+{
+"t": 868.46,
+"d": 5.856,
+"who": "helena",
+"n": "sat-7-10",
+"to": "rook"
+},
+{
+"t": 875.02,
+"d": 3.312,
+"who": "rook",
+"n": "sat-7-11",
+"to": "helena"
+},
+{
+"t": 879.03,
+"d": 4.248,
+"who": "helena",
+"n": "sat-7-12",
+"to": "rook"
+},
+{
+"t": 886.98,
+"d": 4.848,
+"who": "hester",
+"n": "sat-7-14",
+"to": "blake"
+},
+{
+"t": 892.53,
+"d": 3.072,
+"who": "blake",
+"n": "sat-7-15",
+"to": "hester"
+},
+{
+"t": 896.3,
+"d": 4.368,
+"who": "hester",
+"n": "sat-7-16",
+"to": "blake"
+},
+{
+"t": 901.37,
+"d": 9.168,
+"who": "blake",
+"n": "sat-7-17",
+"to": "hester"
+},
+{
+"t": 911.24,
+"d": 1.392,
+"who": "hester",
+"n": "sat-7-18",
+"to": "blake"
+},
+{
+"t": 913.33,
+"d": 4.68,
+"who": "blake",
+"n": "sat-7-19",
+"to": "hester"
+},
+{
+"t": 921.71,
+"d": 3.792,
+"who": "penelope",
+"n": "sat-7-21",
+"to": "helena"
+},
+{
+"t": 926.2,
+"d": 7.392,
+"who": "helena",
+"n": "sat-7-22",
+"to": "penelope"
+},
+{
+"t": 937.29,
+"d": 3.24,
+"who": "pemberton",
+"n": "sat-7-24",
+"do": "back:pemberton",
+"to": "helena"
+},
+{
+"t": 941.23,
+"d": 2.904,
+"who": "helena",
+"n": "sat-7-25",
+"to": "pemberton"
+},
+{
+"t": 944.84,
+"d": 3.408,
+"who": "pemberton",
+"n": "sat-7-26",
+"to": "helena"
+},
+{
+"t": 951.94,
+"d": 6.048,
+"who": "charles",
+"n": "sat-7-28",
+"do": "back:charles",
+"to": "all"
+},
+{
+"t": 958.69,
+"d": 1.776,
+"who": "penelope",
+"n": "sat-7-29",
+"to": "charles"
+},
+{
+"t": 961.17,
+"d": 6.0,
+"who": "charles",
+"n": "sat-7-30",
+"to": "penelope"
+},
+{
+"t": 967.87,
+"d": 1.224,
+"who": "pemberton",
+"n": "sat-7-31",
+"to": "charles"
+},
+{
+"t": 972.79,
+"d": 2.28,
+"who": "hester",
+"n": "sat-7-33",
+"to": "pemberton"
+},
+{
+"t": 975.77,
+"d": 2.112,
+"who": "pemberton",
+"n": "sat-7-34",
+"to": "hester"
+},
+{
+"t": 978.58,
+"d": 4.272,
+"who": "hester",
+"n": "sat-7-35",
+"to": "pemberton"
+},
+{
+"t": 1003.0,
+"d": 4.128,
+"who": "rook",
+"n": "sat-8-0",
+"to": "charles"
+},
+{
+"t": 1007.83,
+"d": 4.32,
+"who": "charles",
+"n": "sat-8-1",
+"to": "rook"
+},
+{
+"t": 1012.85,
+"d": 4.368,
+"who": "rook",
+"n": "sat-8-2",
+"to": "charles"
+},
+{
+"t": 1017.92,
+"d": 6.36,
+"who": "charles",
+"n": "sat-8-3",
+"to": "rook"
+},
+{
+"t": 1024.98,
+"d": 2.328,
+"who": "rook",
+"n": "sat-8-4",
+"to": "charles"
+},
+{
+"t": 1028.0,
+"d": 3.336,
+"who": "charles",
+"n": "sat-8-5",
+"to": "rook"
+},
+{
+"t": 1035.04,
+"d": 7.248,
+"who": "helena",
+"n": "sat-8-7",
+"to": "all"
+},
+{
+"t": 1042.99,
+"d": 6.768,
+"who": "blake",
+"n": "sat-8-8",
+"to": "helena"
+},
+{
+"t": 1053.46,
+"d": 1.944,
+"who": "penelope",
+"n": "sat-8-10",
+"to": "hester"
+},
+{
+"t": 1056.1,
+"d": 9.072,
+"who": "hester",
+"n": "sat-8-11",
+"to": "penelope"
+},
+{
+"t": 1065.87,
+"d": 1.152,
+"who": "penelope",
+"n": "sat-8-12",
+"to": "hester"
+},
+{
+"t": 1067.72,
+"d": 6.84,
+"who": "hester",
+"n": "sat-8-13",
+"to": "penelope"
+},
+{
+"t": 1078.26,
+"d": 5.76,
+"who": "charles",
+"n": "sat-8-15",
+"to": "hester"
+},
+{
+"t": 1084.72,
+"d": 6.432,
+"who": "hester",
+"n": "sat-8-16",
+"to": "charles"
+},
+{
+"t": 1091.86,
+"d": 2.04,
+"who": "pemberton",
+"n": "sat-8-17",
+"to": "hester"
+},
+{
+"t": 1097.6,
+"d": 4.776,
+"who": "rook",
+"n": "sat-8-19",
+"to": "pemberton"
+},
+{
+"t": 1103.07,
+"d": 2.592,
+"who": "pemberton",
+"n": "sat-8-20",
+"to": "rook"
+},
+{
+"t": 1106.36,
+"d": 3.192,
+"who": "rook",
+"n": "sat-8-21",
+"to": "pemberton"
+},
+{
+"t": 1110.26,
+"d": 2.832,
+"who": "pemberton",
+"n": "sat-8-22",
+"to": "rook"
+},
+{
+"t": 1116.79,
+"d": 8.04,
+"who": "blake",
+"n": "sat-8-24",
+"to": "penelope"
+},
+{
+"t": 1125.53,
+"d": 3.072,
+"who": "penelope",
+"n": "sat-8-25",
+"to": "blake"
+},
+{
+"t": 1129.3,
+"d": 9.816,
+"who": "blake",
+"n": "sat-8-26",
+"to": "penelope"
+},
+{
+"t": 1139.82,
+"d": 3.6,
+"who": "penelope",
+"n": "sat-8-27",
+"to": "blake"
+},
+{
+"t": 1144.12,
+"d": 3.648,
+"who": "rook",
+"n": "sat-8-28",
+"to": "penelope"
+},
+{
+"t": 1151.46,
+"d": 5.808,
+"who": "helena",
+"n": "sat-8-30",
+"to": "charles"
+},
+{
+"t": 1157.97,
+"d": 8.952,
+"who": "charles",
+"n": "sat-8-31",
+"to": "helena"
+},
+{
+"t": 1167.62,
+"d": 4.488,
+"who": "helena",
+"n": "sat-8-32",
+"to": "charles"
+},
+{
+"t": 1172.81,
+"d": 4.056,
+"who": "charles",
+"n": "sat-8-33",
+"to": "helena"
+},
+{
+"t": 1177.57,
+"d": 2.928,
+"who": "hester",
+"n": "sat-8-34",
+"to": "charles"
+},
+{
+"t": 1181.2,
+"d": 5.976,
+"who": "charles",
+"n": "sat-8-35",
+"to": "hester"
+},
+{
+"t": 1187.87,
+"d": 2.76,
+"who": "hester",
+"n": "sat-8-36",
+"to": "charles"
+},
+{
+"t": 1194.33,
+"d": 4.032,
+"who": "blake",
+"n": "sat-8-38",
+"to": "pemberton"
+},
+{
+"t": 1199.06,
+"d": 2.592,
+"who": "pemberton",
+"n": "sat-8-39",
+"to": "blake"
+},
+{
+"t": 1202.36,
+"d": 1.272,
+"who": "blake",
+"n": "sat-8-40",
+"to": "pemberton"
+},
+{
+"t": 1204.33,
+"d": 3.36,
+"who": "pemberton",
+"n": "sat-8-41",
+"to": "blake"
+},
+{
+"t": 1208.69,
+"d": 3.024,
+"who": "pemberton",
+"n": "sat-9-0",
+"to": "helena"
+},
+{
+"t": 1212.41,
+"d": 1.488,
+"who": "helena",
+"n": "sat-9-1",
+"to": "pemberton"
+},
+{
+"t": 1214.6,
+"d": 5.088,
+"who": "hester",
+"n": "sat-9-2",
+"to": "all"
+},
+{
+"t": 1220.39,
+"d": 4.68,
+"who": "helena",
+"n": "sat-9-3",
+"to": "hester"
+},
+{
+"t": 1228.77,
+"d": 8.568,
+"who": "charles",
+"n": "sat-9-5",
+"to": "rook"
+},
+{
+"t": 1238.04,
+"d": 5.064,
+"who": "rook",
+"n": "sat-9-6",
+"to": "charles"
+},
+{
+"t": 1246.8,
+"d": 1.872,
+"who": "penelope",
+"n": "sat-9-8",
+"to": "charles"
+},
+{
+"t": 1249.37,
+"d": 6.288,
+"who": "charles",
+"n": "sat-9-9",
+"to": "penelope"
+},
+{
+"t": 1256.36,
+"d": 3.408,
+"who": "hester",
+"n": "sat-9-10",
+"to": "charles"
+},
+{
+"t": 1263.47,
+"d": 2.184,
+"who": "blake",
+"n": "sat-9-12",
+"to": "hester"
+},
+{
+"t": 1266.35,
+"d": 7.68,
+"who": "hester",
+"n": "sat-9-13",
+"to": "blake"
+},
+{
+"t": 1277.73,
+"d": 9.12,
+"who": "rook",
+"n": "sat-9-15",
+"to": "helena"
+},
+{
+"t": 1287.55,
+"d": 4.992,
+"who": "helena",
+"n": "sat-9-16",
+"to": "rook"
+},
+{
+"t": 1293.24,
+"d": 1.608,
+"who": "rook",
+"n": "sat-9-17",
+"to": "helena"
+},
+{
+"t": 1295.55,
+"d": 3.72,
+"who": "hester",
+"n": "sat-9-18",
+"to": "rook"
+},
+{
+"t": 1302.97,
+"d": 3.36,
+"who": "pemberton",
+"n": "sat-9-20",
+"to": "helena"
+},
+{
+"t": 1307.03,
+"d": 4.368,
+"who": "helena",
+"n": "sat-9-21",
+"to": "pemberton"
+},
+{
+"t": 1315.1,
+"d": 13.872,
+"who": "charles",
+"n": "sat-9-23",
+"to": "all"
+},
+{
+"t": 1329.67,
+"d": 1.56,
+"who": "rook",
+"n": "sat-9-24",
+"to": "all"
+},
+{
+"t": 1331.93,
+"d": 4.032,
+"who": "hester",
+"n": "sat-9-25",
+"to": "all"
+},
+{
+"t": 1336.66,
+"d": 1.032,
+"who": "blake",
+"n": "sat-9-26",
+"to": "all"
+},
+{
+"t": 1341.4,
+"d": 5.088,
+"who": "penelope",
+"n": "sat-9-28",
+"to": "charles"
+},
+{
+"t": 1347.18,
+"d": 2.496,
+"who": "charles",
+"n": "sat-9-29",
+"to": "penelope"
+},
+{
+"t": 1350.38,
+"d": 4.368,
+"who": "hester",
+"n": "sat-9-30",
+"to": "charles"
+},
+{
+"t": 1355.45,
+"d": 3.648,
+"who": "charles",
+"n": "sat-9-31",
+"to": "hester"
+},
+{
+"t": 1359.8,
+"d": 4.416,
+"who": "hester",
+"n": "sat-9-32",
+"to": "charles"
+},
+{
+"t": 1364.91,
+"d": 4.128,
+"who": "penelope",
+"n": "sat-9-33",
+"to": "hester"
+},
+{
+"t": 1369.74,
+"d": 2.832,
+"who": "rook",
+"n": "sat-9-34",
+"to": "penelope"
+},
+{
+"t": 1373.27,
+"d": 5.256,
+"who": "penelope",
+"n": "sat-9-35",
+"to": "rook"
+},
+{
+"t": 1379.23,
+"d": 2.136,
+"who": "rook",
+"n": "sat-9-36",
+"to": "charles"
+},
+{
+"t": 1382.06,
+"d": 5.16,
+"who": "charles",
+"n": "sat-9-37",
+"to": "rook"
+},
+{
+"t": 1390.92,
+"d": 4.176,
+"who": "helena",
+"n": "sat-9-39",
+"to": "pemberton"
+},
+{
+"t": 1395.8,
+"d": 1.488,
+"who": "pemberton",
+"n": "sat-9-40",
+"to": "helena"
+},
+{
+"t": 1397.99,
+"d": 3.288,
+"who": "helena",
+"n": "sat-9-41",
+"to": "pemberton"
+},
+{
+"t": 1401.98,
+"d": 3.36,
+"who": "pemberton",
+"n": "sat-9-42",
+"to": "helena"
+},
+{
+"t": 1409.04,
+"d": 8.16,
+"who": "blake",
+"n": "sat-9-44",
+"to": "charles"
+},
+{
+"t": 1417.9,
+"d": 5.52,
+"who": "charles",
+"n": "sat-9-45",
+"to": "blake"
+},
+{
+"t": 1424.12,
+"d": 2.16,
+"who": "blake",
+"n": "sat-9-46",
+"to": "charles"
+},
+{
+"t": 1426.98,
+"d": 5.112,
+"who": "charles",
+"n": "sat-9-47",
+"to": "blake"
+},
+{
+"t": 1432.79,
+"d": 1.632,
+"who": "blake",
+"n": "sat-9-48",
+"to": "charles"
+},
+{
+"t": 1435.12,
+"d": 3.84,
+"who": "charles",
+"n": "sat-9-49",
+"to": "blake"
+},
+{
+"t": 1442.66,
+"d": 6.048,
+"who": "hester",
+"n": "sat-9-51",
+"to": "helena"
+},
+{
+"t": 1449.41,
+"d": 4.056,
+"who": "helena",
+"n": "sat-9-52",
+"to": "hester"
+},
+{
+"t": 1454.16,
+"d": 5.808,
+"who": "hester",
+"n": "sat-9-53",
+"to": "helena"
+},
+{
+"t": 1460.67,
+"d": 2.712,
+"who": "rook",
+"n": "sat-9-54",
+"to": "hester"
+},
+{
+"t": 1464.08,
+"d": 4.68,
+"who": "hester",
+"n": "sat-9-55",
+"to": "rook"
+},
+{
+"t": 1474.0,
+"d": 2.064,
+"who": "pemberton",
+"n": "sat-10-0",
+"to": "helena"
+},
+{
+"t": 1476.76,
+"d": 1.488,
+"who": "helena",
+"n": "sat-10-1",
+"to": "pemberton"
+},
+{
+"t": 1478.95,
+"d": 3.24,
+"who": "rook",
+"n": "sat-10-2",
+"to": "all"
+},
+{
+"t": 1482.89,
+"d": 2.448,
+"who": "hester",
+"n": "sat-10-3",
+"to": "rook"
+},
+{
+"t": 1486.04,
+"d": 5.736,
+"who": "rook",
+"n": "sat-10-4",
+"to": "hester"
+},
+{
+"t": 1495.48,
+"d": 5.568,
+"who": "blake",
+"n": "sat-10-6",
+"to": "pemberton"
+},
+{
+"t": 1501.74,
+"d": 3.96,
+"who": "pemberton",
+"n": "sat-10-7",
+"to": "blake"
+},
+{
+"t": 1509.4,
+"d": 5.424,
+"who": "helena",
+"n": "sat-10-9",
+"to": "blake"
+},
+{
+"t": 1515.53,
+"d": 6.36,
+"who": "blake",
+"n": "sat-10-10",
+"to": "helena"
+},
+{
+"t": 1522.59,
+"d": 2.16,
+"who": "rook",
+"n": "sat-10-11",
+"to": "blake"
+},
+{
+"t": 1528.45,
+"d": 3.24,
+"who": "penelope",
+"n": "sat-10-13",
+"to": "charles"
+},
+{
+"t": 1532.39,
+"d": 4.368,
+"who": "charles",
+"n": "sat-10-14",
+"to": "penelope"
+},
+{
+"t": 1537.46,
+"d": 1.8,
+"who": "penelope",
+"n": "sat-10-15",
+"to": "charles"
+},
+{
+"t": 1539.96,
+"d": 1.344,
+"who": "charles",
+"n": "sat-10-16",
+"to": "penelope"
+},
+{
+"t": 1542.0,
+"d": 2.016,
+"who": "helena",
+"n": "sat-10-17",
+"to": "charles"
+},
+{
+"t": 1544.72,
+"d": 1.608,
+"who": "charles",
+"n": "sat-10-18",
+"to": "helena"
+},
+{
+"t": 1550.02,
+"d": 5.808,
+"who": "penelope",
+"n": "sat-10-20",
+"to": "pemberton"
+},
+{
+"t": 1556.53,
+"d": 5.064,
+"who": "pemberton",
+"n": "sat-10-21",
+"do": "show:pemberton=flask",
+"to": "penelope"
+},
+{
+"t": 1562.3,
+"d": 0.96,
+"who": "pemberton",
+"n": "sat-10-22",
+"do": "drink:pemberton"
+},
+{
+"t": 1566.96,
+"d": 6.12,
+"who": "pemberton",
+"n": "sat-10-24",
+"to": "helena"
+},
+{
+"t": 1573.78,
+"d": 2.928,
+"who": "pemberton",
+"n": "sat-10-25",
+"do": "die:pemberton",
+"to": "helena"
+},
+{
+"t": 1577.4,
+"d": 1.032,
+"who": "helena",
+"n": "sat-10-26",
+"ev": "gasp",
+"to": "all"
+},
+{
+"t": 1579.14,
+"d": 1.56,
+"who": "rook",
+"n": "sat-10-27",
+"to": "all"
+},
+{
+"t": 1581.4,
+"d": 5.568,
+"who": "helena",
+"n": "sat-10-28",
+"do": "go:helena",
+"to": "all"
+},
+{
+"t": 1590.66,
+"d": 3.144,
+"who": "penelope",
+"n": "sat-10-30",
+"to": "all"
+},
+{
+"t": 1594.51,
+"d": 3.696,
+"who": "helena",
+"n": "sat-10-31",
+"do": "home:helena",
+"to": "all"
+},
+{
+"t": 1598.9,
+"d": 3.96,
+"who": "hester",
+"n": "sat-10-32",
+"to": "all"
+},
+{
+"t": 1606.56,
+"d": 2.808,
+"who": "penelope",
+"n": "sat-10-34",
+"to": "all"
+},
+{
+"t": 1610.07,
+"d": 4.056,
+"who": "rook",
+"n": "sat-10-35",
+"to": "helena"
+},
+{
+"t": 1614.83,
+"d": 6.168,
+"who": "helena",
+"n": "sat-10-36",
+"to": "rook"
+},
+{
+"t": 1624.7,
+"d": 3.672,
+"who": "blake",
+"n": "sat-10-38",
+"to": "helena"
+},
+{
+"t": 1629.07,
+"d": 6.216,
+"who": "helena",
+"n": "sat-10-39",
+"to": "blake"
+},
+{
+"t": 1635.98,
+"d": 9.888,
+"who": "blake",
+"n": "sat-10-40",
+"to": "all"
+},
+{
+"t": 1646.57,
+"d": 2.04,
+"who": "hester",
+"n": "sat-10-41",
+"to": "all"
+},
+{
+"t": 1652.31,
+"d": 9.6,
+"who": "helena",
+"n": "sat-10-43",
+"to": "all"
+},
+{
+"t": 1662.61,
+"d": 2.04,
+"who": "rook",
+"n": "sat-10-44",
+"to": "helena"
+},
+{
+"t": 1665.35,
+"d": 6.672,
+"who": "helena",
+"n": "sat-10-45",
+"to": "rook"
+},
+{
+"t": 1672.72,
+"d": 1.608,
+"who": "rook",
+"n": "sat-10-46",
+"to": "helena"
+},
+{
+"t": 1675.03,
+"d": 10.248,
+"who": "helena",
+"n": "sat-10-47",
+"to": "rook"
+},
+{
+"t": 1688.98,
+"d": 3.84,
+"who": "rook",
+"n": "sat-10-49",
+"to": "helena"
+},
+{
+"t": 1693.52,
+"d": 6.168,
+"who": "helena",
+"n": "sat-10-50",
+"do": "up:rook",
+"to": "rook"
+},
+{
+"t": 1700.39,
+"d": 2.784,
+"who": "rook",
+"n": "sat-10-51",
+"to": "helena"
+},
+{
+"t": 1704.17,
+"d": 3.672,
+"who": "rook",
+"n": "sat-11-0",
+"to": "helena"
+},
+{
+"t": 1708.54,
+"d": 9.456,
+"who": "helena",
+"n": "sat-11-1",
+"to": "rook"
+},
+{
+"t": 1718.7,
+"d": 5.64,
+"who": "hester",
+"n": "sat-11-2",
+"to": "helena"
+},
+{
+"t": 1725.04,
+"d": 4.032,
+"who": "blake",
+"n": "sat-11-3",
+"to": "hester"
+},
+{
+"t": 1729.77,
+"d": 5.328,
+"who": "hester",
+"n": "sat-11-4",
+"to": "blake"
+},
+{
+"t": 1738.8,
+"d": 14.448,
+"who": "helena",
+"n": "sat-11-6",
+"to": "all"
+},
+{
+"t": 1753.95,
+"d": 3.36,
+"who": "charles",
+"n": "sat-11-7",
+"to": "helena"
+},
+{
+"t": 1758.01,
+"d": 9.168,
+"who": "helena",
+"n": "sat-11-8",
+"ev": "clue:pantry",
+"to": "charles"
+},
+{
+"t": 1767.88,
+"d": 4.296,
+"who": "charles",
+"n": "sat-11-9",
+"to": "helena"
+},
+{
+"t": 1772.87,
+"d": 6.48,
+"who": "helena",
+"n": "sat-11-10",
+"to": "charles"
+},
+{
+"t": 1780.05,
+"d": 3.408,
+"who": "hester",
+"n": "sat-11-11",
+"to": "charles"
+},
+{
+"t": 1787.16,
+"d": 5.688,
+"who": "rook",
+"n": "sat-11-13",
+"do": "back:rook",
+"to": "helena"
+},
+{
+"t": 1793.55,
+"d": 1.464,
+"who": "helena",
+"n": "sat-11-14",
+"to": "rook"
+},
+{
+"t": 1798.71,
+"d": 9.456,
+"who": "helena",
+"n": "sat-11-16",
+"to": "mid"
+},
+{
+"t": 1808.87,
+"d": 8.904,
+"who": "helena",
+"n": "sat-11-17",
+"to": "mid"
+},
+{
+"t": 1821.47,
+"d": 4.224,
+"who": "penelope",
+"n": "sat-11-19",
+"to": "charles"
+},
+{
+"t": 1826.4,
+"d": 4.776,
+"who": "charles",
+"n": "sat-11-20",
+"to": "penelope"
+},
+{
+"t": 1831.87,
+"d": 2.856,
+"who": "penelope",
+"n": "sat-11-21",
+"to": "charles"
+},
+{
+"t": 1835.43,
+"d": 3.792,
+"who": "charles",
+"n": "sat-11-22",
+"to": "penelope"
+},
+{
+"t": 1842.92,
+"d": 3.96,
+"who": "blake",
+"n": "sat-11-24",
+"to": "helena"
+},
+{
+"t": 1847.58,
+"d": 5.136,
+"who": "helena",
+"n": "sat-11-25",
+"do": "show:helena=notebook",
+"to": "blake"
+},
+{
+"t": 1853.42,
+"d": 3.96,
+"who": "hester",
+"n": "sat-11-26",
+"to": "helena"
+},
+{
+"t": 1858.08,
+"d": 11.736,
+"who": "helena",
+"n": "sat-11-27",
+"ev": "clue:book",
+"to": "all"
+},
+{
+"t": 1870.51,
+"d": 4.944,
+"who": "charles",
+"n": "sat-11-28",
+"to": "helena"
+},
+{
+"t": 1876.16,
+"d": 9.216,
+"who": "helena",
+"n": "sat-11-29",
+"do": "pocket:helena",
+"to": "charles"
+},
+{
+"t": 1905.0,
+"d": 4.656,
+"who": "helena",
+"n": "sat-12-0",
+"to": "all"
+},
+{
+"t": 1910.36,
+"d": 11.592,
+"who": "helena",
+"n": "sat-12-1",
+"to": "all"
+},
+{
+"t": 1922.65,
+"d": 2.928,
+"who": "penelope",
+"n": "sat-12-2",
+"to": "helena"
+},
+{
+"t": 1929.28,
+"d": 10.032,
+"who": "hester",
+"n": "sat-12-4",
+"to": "helena"
+},
+{
+"t": 1940.01,
+"d": 1.464,
+"who": "helena",
+"n": "sat-12-5",
+"to": "hester"
+},
+{
+"t": 1942.17,
+"d": 5.808,
+"who": "hester",
+"n": "sat-12-6",
+"do": "show:hester=letters",
+"to": "helena"
+},
+{
+"t": 1948.68,
+"d": 3.648,
+"who": "rook",
+"n": "sat-12-7",
+"to": "hester"
+},
+{
+"t": 1953.03,
+"d": 4.752,
+"who": "hester",
+"n": "sat-12-8",
+"ev": "clue:letters",
+"do": "pocket:hester",
+"to": "rook"
+},
+{
+"t": 1958.48,
+"d": 7.632,
+"who": "helena",
+"n": "sat-12-9",
+"to": "hester"
+},
+{
+"t": 1969.81,
+"d": 11.424,
+"who": "blake",
+"n": "sat-12-11",
+"to": "helena"
+},
+{
+"t": 1981.94,
+"d": 3.816,
+"who": "helena",
+"n": "sat-12-12",
+"to": "blake"
+},
+{
+"t": 1986.45,
+"d": 9.48,
+"who": "blake",
+"n": "sat-12-13",
+"to": "helena"
+},
+{
+"t": 1996.63,
+"d": 4.896,
+"who": "helena",
+"n": "sat-12-14",
+"to": "blake"
+},
+{
+"t": 2005.23,
+"d": 6.6,
+"who": "hester",
+"n": "sat-12-16",
+"to": "charles"
+},
+{
+"t": 2012.53,
+"d": 2.856,
+"who": "charles",
+"n": "sat-12-17",
+"to": "hester"
+},
+{
+"t": 2016.08,
+"d": 9.0,
+"who": "hester",
+"n": "sat-12-18",
+"to": "charles"
+},
+{
+"t": 2025.78,
+"d": 5.88,
+"who": "blake",
+"n": "sat-12-19",
+"to": "charles"
+},
+{
+"t": 2032.36,
+"d": 3.432,
+"who": "charles",
+"n": "sat-12-20",
+"to": "blake"
+},
+{
+"t": 2036.5,
+"d": 4.248,
+"who": "blake",
+"n": "sat-12-21",
+"to": "charles"
+},
+{
+"t": 2044.44,
+"d": 4.68,
+"who": "penelope",
+"n": "sat-12-23",
+"to": "charles"
+},
+{
+"t": 2049.82,
+"d": 3.696,
+"who": "charles",
+"n": "sat-12-24",
+"to": "penelope"
+},
+{
+"t": 2054.22,
+"d": 2.448,
+"who": "penelope",
+"n": "sat-12-25",
+"to": "charles"
+},
+{
+"t": 2057.37,
+"d": 3.912,
+"who": "charles",
+"n": "sat-12-26",
+"to": "penelope"
+},
+{
+"t": 2064.98,
+"d": 3.936,
+"who": "rook",
+"n": "sat-12-28",
+"to": "charles"
+},
+{
+"t": 2069.62,
+"d": 2.232,
+"who": "charles",
+"n": "sat-12-29",
+"to": "rook"
+},
+{
+"t": 2072.55,
+"d": 6.264,
+"who": "rook",
+"n": "sat-12-30",
+"to": "charles"
+},
+{
+"t": 2079.51,
+"d": 4.68,
+"who": "charles",
+"n": "sat-12-31",
+"to": "rook"
+},
+{
+"t": 2084.89,
+"d": 1.128,
+"who": "rook",
+"n": "sat-12-32",
+"to": "charles"
+},
+{
+"t": 2086.72,
+"d": 4.416,
+"who": "charles",
+"n": "sat-12-33",
+"to": "rook"
+},
+{
+"t": 2091.84,
+"d": 2.736,
+"who": "rook",
+"n": "sat-12-34",
+"to": "charles"
+},
+{
+"t": 2098.27,
+"d": 5.28,
+"who": "helena",
+"n": "sat-12-36",
+"to": "all"
+},
+{
+"t": 2104.25,
+"d": 7.008,
+"who": "blake",
+"n": "sat-12-37",
+"do": "up:blake",
+"to": "helena"
+},
+{
+"t": 2111.96,
+"d": 1.776,
+"who": "helena",
+"n": "sat-12-38",
+"to": "blake"
+},
+{
+"t": 2114.74,
+"d": 4.8,
+"who": "helena",
+"n": "sat-13-0",
+"to": "all"
+},
+{
+"t": 2120.24,
+"d": 19.752,
+"who": "helena",
+"n": "sat-13-1",
+"to": "all"
+},
+{
+"t": 2140.69,
+"d": 2.856,
+"who": "charles",
+"n": "sat-13-2",
+"to": "helena"
+},
+{
+"t": 2144.24,
+"d": 1.512,
+"who": "helena",
+"n": "sat-13-3",
+"to": "charles"
+},
+{
+"t": 2149.46,
+"d": 3.024,
+"who": "blake",
+"n": "sat-13-5",
+"do": "back:blake",
+"to": "helena"
+},
+{
+"t": 2153.18,
+"d": 0.84,
+"who": "helena",
+"n": "sat-13-6",
+"to": "blake"
+},
+{
+"t": 2154.72,
+"d": 11.352,
+"who": "blake",
+"n": "sat-13-7",
+"to": "helena"
+},
+{
+"t": 2166.77,
+"d": 5.976,
+"who": "helena",
+"n": "sat-13-8",
+"to": "blake"
+},
+{
+"t": 2173.45,
+"d": 3.648,
+"who": "blake",
+"n": "sat-13-9",
+"to": "helena"
+},
+{
+"t": 2180.8,
+"d": 4.944,
+"who": "helena",
+"n": "sat-13-11",
+"to": "mid"
+},
+{
+"t": 2189.44,
+"d": 3.84,
+"who": "penelope",
+"n": "sat-13-13",
+"to": "charles"
+},
+{
+"t": 2193.98,
+"d": 4.944,
+"who": "charles",
+"n": "sat-13-14",
+"to": "penelope"
+},
+{
+"t": 2199.62,
+"d": 4.464,
+"who": "penelope",
+"n": "sat-13-15",
+"to": "charles"
+},
+{
+"t": 2204.79,
+"d": 1.584,
+"who": "charles",
+"n": "sat-13-16",
+"to": "penelope"
+},
+{
+"t": 2207.07,
+"d": 3.48,
+"who": "penelope",
+"n": "sat-13-17",
+"to": "charles"
+},
+{
+"t": 2214.25,
+"d": 3.6,
+"who": "rook",
+"n": "sat-13-19",
+"to": "hester"
+},
+{
+"t": 2218.55,
+"d": 5.472,
+"who": "hester",
+"n": "sat-13-20",
+"to": "rook"
+},
+{
+"t": 2227.72,
+"d": 4.224,
+"who": "blake",
+"n": "sat-13-22",
+"to": "rook"
+},
+{
+"t": 2232.65,
+"d": 6.384,
+"who": "rook",
+"n": "sat-13-23",
+"to": "blake"
+},
+{
+"t": 2242.73,
+"d": 4.752,
+"who": "hester",
+"n": "sat-13-25",
+"to": "all"
+},
+{
+"t": 2248.18,
+"d": 2.928,
+"who": "rook",
+"n": "sat-13-26",
+"to": "hester"
+},
+{
+"t": 2251.81,
+"d": 2.208,
+"who": "helena",
+"n": "sat-13-27",
+"to": "all"
+},
+{
+"t": 2257.0,
+"d": 3.12,
+"who": "helena",
+"n": "sat-14-0",
+"to": "all"
+},
+{
+"t": 2260.82,
+"d": 4.368,
+"who": "helena",
+"n": "sat-14-1",
+"ev": "lock",
+"to": "mid"
+},
+{
+"t": 2268.89,
+"d": 15.648,
+"who": "helena",
+"n": "sat-14-3",
+"to": "all"
+},
+{
+"t": 2285.24,
+"d": 12.528,
+"who": "helena",
+"n": "sat-14-4",
+"to": "all"
+},
+{
+"t": 2298.46,
+"d": 13.944,
+"who": "helena",
+"n": "sat-14-5",
+"to": "all"
+},
+{
+"t": 2313.11,
+"d": 11.256,
+"who": "helena",
+"n": "sat-14-6",
+"to": "all"
+},
+{
+"t": 2325.06,
+"d": 20.88,
+"who": "helena",
+"n": "sat-14-7",
+"to": "all"
+},
+{
+"t": 2348.64,
+"d": 1.656,
+"who": "helena",
+"n": "sat-14-9",
+"ev": "reveal",
+"to": "charles"
+},
+{
+"t": 2354.0,
+"d": 1.08,
+"who": "penelope",
+"n": "sat-14-11",
+"to": "charles"
+},
+{
+"t": 2355.78,
+"d": 8.712,
+"who": "charles",
+"n": "sat-14-12",
+"to": "penelope"
+},
+{
+"t": 2365.19,
+"d": 4.272,
+"who": "penelope",
+"n": "sat-14-13",
+"to": "charles"
+},
+{
+"t": 2370.16,
+"d": 8.64,
+"who": "charles",
+"n": "sat-14-14",
+"to": "penelope"
+},
+{
+"t": 2379.5,
+"d": 6.696,
+"who": "blake",
+"n": "sat-14-15",
+"to": "charles"
+},
+{
+"t": 2389.9,
+"d": 1.824,
+"who": "helena",
+"n": "sat-14-17",
+"to": "charles"
+},
+{
+"t": 2392.42,
+"d": 13.896,
+"who": "charles",
+"n": "sat-14-18",
+"to": "helena"
+},
+{
+"t": 2407.02,
+"d": 15.768,
+"who": "charles",
+"n": "sat-14-19",
+"to": "helena"
+},
+{
+"t": 2423.49,
+"d": 2.112,
+"who": "hester",
+"n": "sat-14-20",
+"to": "charles"
+},
+{
+"t": 2426.3,
+"d": 5.16,
+"who": "charles",
+"n": "sat-14-21",
+"to": "hester"
+},
+{
+"t": 2435.16,
+"d": 6.168,
+"who": "rook",
+"n": "sat-14-23",
+"to": "charles"
+},
+{
+"t": 2442.03,
+"d": 2.256,
+"who": "charles",
+"n": "sat-14-24",
+"to": "rook"
+},
+{
+"t": 2444.98,
+"d": 2.52,
+"who": "penelope",
+"n": "sat-14-25",
+"do": "out:charles",
+"to": "charles"
+},
+{
+"t": 2452.2,
+"d": 3.48,
+"who": "hester",
+"n": "sat-14-27",
+"to": "penelope"
+},
+{
+"t": 2456.38,
+"d": 3.528,
+"who": "penelope",
+"n": "sat-14-28",
+"to": "hester"
+},
+{
+"t": 2460.61,
+"d": 7.152,
+"who": "hester",
+"n": "sat-14-29",
+"to": "penelope"
+},
+{
+"t": 2471.46,
+"d": 13.008,
+"who": "blake",
+"n": "sat-14-31",
+"to": "helena"
+},
+{
+"t": 2485.17,
+"d": 3.864,
+"who": "helena",
+"n": "sat-14-32",
+"to": "blake"
+},
+{
+"t": 2489.74,
+"d": 6.0,
+"who": "blake",
+"n": "sat-14-33",
+"to": "helena"
+},
+{
+"t": 2499.44,
+"d": 5.856,
+"who": "rook",
+"n": "sat-14-35",
+"to": "helena"
+},
+{
+"t": 2505.99,
+"d": 8.88,
+"who": "helena",
+"n": "sat-14-36",
+"to": "rook"
+},
+{
+"t": 2515.57,
+"d": 0.864,
+"who": "rook",
+"n": "sat-14-37"
+},
+{
+"t": 2520.14,
+"d": 4.008,
+"who": "penelope",
+"n": "sat-14-39",
+"to": "all"
+},
+{
+"t": 2524.84,
+"d": 9.576,
+"who": "helena",
+"n": "sat-14-40",
+"to": "penelope"
+},
+{
+"t": 2538.12,
+"d": 6.528,
+"who": "hester",
+"n": "sat-14-42",
+"to": "all"
+},
+{
+"t": 2545.35,
+"d": 9.192,
+"who": "blake",
+"n": "sat-14-43",
+"to": "hester"
+},
+{
+"t": 2555.24,
+"d": 3.24,
+"who": "hester",
+"n": "sat-14-44",
+"to": "blake"
+},
+{
+"t": 2559.18,
+"d": 4.272,
+"who": "blake",
+"n": "sat-14-45",
+"to": "hester"
+},
+{
+"t": 2567.15,
+"d": 4.368,
+"who": "rook",
+"n": "sat-14-47",
+"to": "helena"
+},
+{
+"t": 2572.22,
+"d": 8.04,
+"who": "helena",
+"n": "sat-14-48",
+"to": "rook"
+},
+{
+"t": 2580.96,
+"d": 1.08,
+"who": "rook",
+"n": "sat-14-49",
+"to": "helena"
+},
+{
+"t": 2582.74,
+"d": 8.136,
+"who": "helena",
+"n": "sat-14-50",
+"to": "rook"
+},
+{
+"t": 2594.58,
+"d": 5.784,
+"who": "penelope",
+"n": "sat-14-52",
+"to": "helena"
+},
+{
+"t": 2601.06,
+"d": 5.616,
+"who": "helena",
+"n": "sat-14-53",
+"to": "penelope"
+},
+{
+"t": 2607.38,
+"d": 3.624,
+"who": "hester",
+"n": "sat-14-54",
+"to": "penelope"
+},
+{
+"t": 2614.7,
+"d": 7.392,
+"who": "hester",
+"n": "sat-14-56",
+"to": "penelope"
+},
+{
+"t": 2622.79,
+"d": 2.352,
+"who": "penelope",
+"n": "sat-14-57",
+"to": "hester"
+},
+{
+"t": 2625.84,
+"d": 4.752,
+"who": "hester",
+"n": "sat-14-58",
+"to": "penelope"
+},
+{
+"t": 2631.3,
+"d": 1.968,
+"who": "penelope",
+"n": "sat-14-59",
+"to": "hester"
+},
+{
+"t": 2633.96,
+"d": 6.528,
+"who": "hester",
+"n": "sat-14-60",
+"to": "penelope"
+},
+{
+"t": 2644.19,
+"d": 9.216,
+"who": "rook",
+"n": "sat-14-62",
+"to": "helena"
+},
+{
+"t": 2654.11,
+"d": 7.824,
+"who": "helena",
+"n": "sat-14-63",
+"to": "rook"
+},
+{
+"t": 2662.63,
+"d": 4.32,
+"who": "rook",
+"n": "sat-14-64",
+"to": "helena"
+},
+{
+"t": 2670.65,
+"d": 9.36,
+"who": "helena",
+"n": "sat-14-66",
+"to": "all"
+},
+{
+"t": 2680.71,
+"d": 3.576,
+"who": "penelope",
+"n": "sat-14-67",
+"to": "helena"
+},
+{
+"t": 2684.99,
+"d": 9.024,
+"who": "helena",
+"n": "sat-14-68",
+"to": "penelope"
+},
+{
+"t": 2697.71,
+"d": 6.336,
+"who": "blake",
+"n": "sat-14-70",
+"to": "helena"
+},
+{
+"t": 2704.75,
+"d": 9.48,
+"who": "helena",
+"n": "sat-14-71",
+"to": "blake"
+},
+{
+"t": 2714.93,
+"d": 6.336,
+"who": "blake",
+"n": "sat-14-72",
+"to": "helena"
+},
+{
+"t": 2721.96,
+"d": 4.608,
+"who": "hester",
+"n": "sat-14-73",
+"to": "blake"
+},
+{
+"t": 2730.27,
+"d": 5.496,
+"who": "penelope",
+"n": "sat-14-75",
+"to": "all"
+},
+{
+"t": 2736.47,
+"d": 6.168,
+"who": "helena",
+"n": "sat-14-76",
+"to": "penelope"
+},
+{
+"t": 2746.34,
+"d": 5.28,
+"who": "rook",
+"n": "sat-14-78",
+"to": "all"
+},
+{
+"t": 2752.32,
+"d": 2.664,
+"who": "helena",
+"n": "sat-14-79",
+"to": "rook"
+},
+{
+"t": 2755.68,
+"d": 5.712,
+"who": "rook",
+"n": "sat-14-80",
+"to": "helena"
+},
+{
+"t": 2765.09,
+"d": 9.24,
+"who": "helena",
+"n": "sat-14-82",
+"to": "mid"
+},
+{
+"t": 2775.03,
+"d": 3.96,
+"who": "penelope",
+"n": "sat-14-83",
+"to": "mid"
+},
+{
+"t": 2782.69,
+"d": 3.672,
+"who": "rook",
+"n": "sat-14-85",
+"to": "helena"
+},
+{
+"t": 2787.06,
+"d": 4.248,
+"who": "helena",
+"n": "sat-14-86",
+"to": "rook"
+},
+{
+"t": 2792.01,
+"d": 1.944,
+"who": "rook",
+"n": "sat-14-87",
+"to": "helena"
+},
+{
+"t": 2794.66,
+"d": 4.128,
+"who": "helena",
+"n": "sat-14-88",
+"to": "rook"
+},
+{
+"t": 2802.48,
+"d": 3.864,
+"who": "hester",
+"n": "sat-14-90",
+"to": "blake"
+},
+{
+"t": 2807.05,
+"d": 5.64,
+"who": "blake",
+"n": "sat-14-91",
+"to": "hester"
+},
+{
+"t": 2813.39,
+"d": 5.64,
+"who": "hester",
+"n": "sat-14-92",
+"to": "blake"
+},
+{
+"t": 2822.73,
+"d": 3.408,
+"who": "penelope",
+"n": "sat-14-94",
+"to": "helena"
+},
+{
+"t": 2826.84,
+"d": 8.136,
+"who": "helena",
+"n": "sat-14-95",
+"to": "penelope"
+},
+{
+"t": 2835.67,
+"d": 4.416,
+"who": "penelope",
+"n": "sat-14-96",
+"to": "helena"
+},
+{
+"t": 2840.79,
+"d": 6.912,
+"who": "helena",
+"n": "sat-14-97",
+"to": "penelope"
+},
+{
+"t": 2851.4,
+"d": 3.936,
+"who": "penelope",
+"n": "sat-14-99",
+"to": "helena"
+},
+{
+"t": 2856.04,
+"d": 6.024,
+"who": "helena",
+"n": "sat-14-100",
+"to": "penelope"
+},
+{
+"t": 2862.76,
+"d": 3.096,
+"who": "penelope",
+"n": "sat-14-101"
+},
+{
+"t": 2869.56,
+"d": 5.568,
+"who": "blake",
+"n": "sat-14-103",
+"to": "mid"
+},
+{
+"t": 2875.82,
+"d": 10.2,
+"who": "helena",
+"n": "sat-14-104",
+"to": "mid"
+},
+{
+"t": 2886.72,
+"d": 4.8,
+"who": "rook",
+"n": "sat-14-105",
+"to": "all"
+},
+{
+"t": 2892.22,
+"d": 7.272,
+"who": "penelope",
+"n": "sat-14-106",
+"to": "mid"
+}
+]
+}

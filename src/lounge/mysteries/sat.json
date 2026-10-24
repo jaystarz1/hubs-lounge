@@ -1,0 +1,3790 @@
+{
+ "_": "Saturday's case (Jay, 2026-10-24). Penelope Rook's engagement dinner; Pemberton, who has kept the family's secrets for thirty years in a little black book, takes a nip from his flask at the beef and goes down at his post. Source of services/hubs/src/lounge/mysteries/sat.json (mystery-script.py).",
+ "title": "THE BUTLER'S LAST SERVICE: WHO KILLED PEMBERTON?",
+ "voices": {
+  "rook": "us-male-p022",
+  "helena": "house-uk",
+  "charles": "jay",
+  "penelope": "us-female-p059",
+  "blake": "us-male-p046",
+  "hester": "us-female-p084",
+  "pemberton": "us-male-p087"
+ },
+ "who": {
+  "rook": "DinGa",
+  "helena": "DinGb",
+  "charles": "DinGd",
+  "penelope": "DinGe",
+  "blake": "DinGf",
+  "hester": "DinGh",
+  "pemberton": "DinButler"
+ },
+ "suspects": [
+  {
+   "id": "rook",
+   "name": "LORD ARTHUR ROOK",
+   "role": "the father of the bride"
+  },
+  {
+   "id": "charles",
+   "name": "CHARLES DELACOURT",
+   "role": "the fiance"
+  },
+  {
+   "id": "penelope",
+   "name": "PENELOPE ROOK",
+   "role": "the bride"
+  },
+  {
+   "id": "blake",
+   "name": "THE REVEREND JOSIAH BLAKE",
+   "role": "the vicar"
+  },
+  {
+   "id": "hester",
+   "name": "MISS HESTER ROOK",
+   "role": "the aunt"
+  }
+ ],
+ "cast": [
+  {
+   "id": "pemberton",
+   "name": "PEMBERTON",
+   "role": "the butler"
+  },
+  {
+   "id": "helena",
+   "name": "LADY HELENA ROOK",
+   "role": "the mother of the bride"
+  }
+ ],
+ "killer": "charles",
+ "gone": [
+  "pemberton",
+  "charles"
+ ],
+ "clues": {
+  "flask": {
+   "text": "Pemberton's silver flask, always at his post",
+   "on": [
+    "hester",
+    "charles"
+   ]
+  },
+  "pantry": {
+   "text": "Charles and Pemberton both out at the fish",
+   "on": [
+    "charles"
+   ]
+  },
+  "monkshood": {
+   "text": "Monkshood in Hester's window box",
+   "on": [
+    "hester",
+    "charles"
+   ]
+  },
+  "book": {
+   "text": "Pemberton's black book: Brighton, nineteen fifty six",
+   "on": [
+    "charles"
+   ]
+  },
+  "letters": {
+   "text": "Lord Rook's letters to an actress",
+   "on": [
+    "rook"
+   ]
+  },
+  "malta": {
+   "text": "The Reverend left Malta in a hurry",
+   "on": [
+    "blake"
+   ]
+  }
+ },
+ "blocks": [
+  {
+   "at": 4.0,
+   "lines": [
+    [
+     "helena",
+     "Welcome, everybody. To Penelope and Charles. Engaged since Tuesday, and still speaking to each other.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "rook",
+     "Only just, Helena. They argued about the hymns in the car.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "penelope",
+     "We didn't argue, Daddy. Charles just doesn't know any hymns.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "charles",
+     "I know one, darling. The one about the sea. They play it at every funeral I've ever been to.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "blake",
+     "Eternal Father, Mister Delacourt. Strong to save. We'll find you a jollier one.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "hester",
+     "I brought you a present, Penelope. A sprig of everything in my window box. For luck. And for the soup.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "penelope",
+     "Aunt Hester, you can't put your window box in the soup.",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "hester",
+     "I can, dear. I've done it for years. Nobody's died yet.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "helena",
+     "Hester, please. Not tonight. Not the herbs.",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "rook",
+     "Pemberton, is the champagne holding up?",
+     {
+      "to": "pemberton"
+     }
+    ],
+    [
+     "pemberton",
+     "There's another case in the ice, my lord. Her ladyship anticipated Miss Hester.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "hester",
+     "Very wise of her, Pemberton.",
+     {
+      "to": "pemberton"
+     }
+    ],
+    [
+     "pemberton",
+     "Dinner is served, my lady.",
+     {
+      "to": "helena"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 78.0,
+   "lines": [
+    [
+     "helena",
+     "In we go. Arthur, take Hester in, and don't let her near the cook.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "rook",
+     "Come along, Hester. Mind the step.",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "hester",
+     "I've minded that step for forty years, Arthur. It's the step that should mind me.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "charles",
+     "After you, darling.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "penelope",
+     "You're very gallant tonight, Charles.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "I'm always gallant. It's the only thing I was ever good at at school.",
+     {
+      "to": "penelope"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 117.0,
+   "lines": [
+    [
+     "rook",
+     "Glasses up, everybody. To Penelope and Charles. May they be as happy as Helena and I.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "helena",
+     "Happier, Arthur. Please. Much happier.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "blake",
+     "To Penelope and Charles.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "hester",
+     "To Pemberton, who'll have to put up with Charles at Christmas.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "pemberton",
+     "Thank you, madam."
+    ],
+    [
+     "pause",
+     2.0
+    ],
+    [
+     "helena",
+     "Now, our two friends in the middle. Let me tell you who's who, before Hester tells you something worse.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "helena",
+     "My husband, Lord Rook. He sits in the House of Lords and sleeps in it. He's very good at both.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "rook",
+     "I've never missed a vote, madam. I've slept through a few.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "helena",
+     "Our daughter, Penelope. Engaged on Tuesday, to Mister Charles Delacourt, whom she met in July, in a hat shop.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "charles",
+     "I was buying a hat for my mother. Penelope was buying the same hat. We decided to share.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "helena",
+     "The Reverend Josiah Blake, who will marry them in June, if nobody objects.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "blake",
+     "Nobody ever objects, madam. I've been asking for twenty years. Not one objection.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "helena",
+     "My husband's sister, Miss Hester Rook. She grows herbs in a window box and knows everything about everybody.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "hester",
+     "Not everything, dear. Only the interesting half.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "helena",
+     "And Pemberton. Thirty years with this family. He carried Penelope home from the hospital.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "pemberton",
+     "In a laundry basket, sir, madam. It was all we had.",
+     {
+      "to": "mid"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 190.0,
+   "lines": [
+    [
+     "rook",
+     "Crab cakes, Helena. Very coastal.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "Charles likes crab, Arthur. He grew up by the sea.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "charles",
+     "In Dorset, Lord Rook. Lyme Regis. Fossils, mostly. And crabs.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "hester",
+     "Lyme Regis? My dear, I thought you said Devon. In the hat shop. Penelope told me you said Devon.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "Dorset, Devon. It's the same sea, Miss Rook. The crabs don't know the difference.",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "hester",
+     "I know the difference, dear. I always know the difference.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "penelope",
+     "Reverend, will you do the banns this Sunday? Before Mummy changes her mind?",
+     {
+      "to": "blake"
+     }
+    ],
+    [
+     "blake",
+     "This Sunday, Penelope. And the next two. If there's an impediment, somebody will stand up in church and say so.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "penelope",
+     "Has anybody ever?",
+     {
+      "to": "blake"
+     }
+    ],
+    [
+     "blake",
+     "Once, in nineteen forty nine. A woman in a red hat. It turned out she was at the wrong wedding.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "helena",
+     "Pemberton, you look tired.",
+     {
+      "to": "pemberton"
+     }
+    ],
+    [
+     "pemberton",
+     "Thirty years, my lady. Thirty years of engagements. This is the fourth in this family. The other three were mine to serve too.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "rook",
+     "And you remember every one of them, I suppose.",
+     {
+      "to": "pemberton"
+     }
+    ],
+    [
+     "pemberton",
+     "Every one, my lord. I write things down. In a little book. It's a habit from the war.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "hester",
+     "Pemberton's little black book. He's had it since nineteen thirty. It's got all of us in it.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "pemberton",
+     "Only the dates, madam. Birthdays. Anniversaries. Who takes sugar.",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "hester",
+     "And who doesn't take their wedding vows, Pemberton. Don't be modest.",
+     {
+      "to": "pemberton"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "charles",
+     "Pemberton, you were in Brighton before you came here, weren't you? Lady Rook said.",
+     {
+      "to": "pemberton"
+     }
+    ],
+    [
+     "pemberton",
+     "For a short time, sir. Nineteen fifty five to fifty seven. With a family on the front.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "Lovely town. I've always meant to go.",
+     {
+      "to": "pemberton"
+     }
+    ],
+    [
+     "pemberton",
+     "You'd like it, sir. Very good for weddings. The registry office is on the front.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "blake",
+     "Arthur, the House of Lords. Are they still talking about the bridge?",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "rook",
+     "They've been talking about that bridge since nineteen twelve, Josiah. It'll be finished the week I die.",
+     {
+      "to": "blake"
+     }
+    ],
+    [
+     "helena",
+     "Then we'll name it after you, Arthur. The Rook Bridge. Nobody will cross it.",
+     {
+      "to": "rook"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 356.0,
+   "lines": [
+    [
+     "hester",
+     "I've noticed Pemberton's flask. Have you? Silver. In his tailcoat. He thinks we don't know.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "pemberton",
+     "Madam.",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "hester",
+     "Go on, Pemberton. Have your nip. It's a party. I've watched you do it since nineteen forty six.",
+     {
+      "to": "pemberton",
+      "do": "show:pemberton=flask"
+     }
+    ],
+    [
+     "pemberton",
+     "Very good, madam. Your health.",
+     {
+      "to": "hester",
+      "do": "drink:pemberton"
+     }
+    ],
+    [
+     "rook",
+     "Good Lord, Pemberton. In front of the guests.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "pemberton",
+     "Miss Hester insisted, my lord. Brandy. Your brandy, my lord. I fill it in the pantry, every evening, at the fish.",
+     {
+      "to": "rook",
+      "do": "pocket:pemberton"
+     }
+    ],
+    [
+     "helena",
+     "Arthur, he's been doing it for thirty years. Leave him alone.",
+     {
+      "to": "rook",
+      "ev": "clue:flask"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "charles",
+     "It's a lovely flask, Pemberton. Sterling, isn't it? Asprey?",
+     {
+      "to": "pemberton"
+     }
+    ],
+    [
+     "pemberton",
+     "A gift, sir. From his lordship's father. In nineteen thirty one.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "Lucky man. I'd have pawned it by now.",
+     {
+      "to": "pemberton"
+     }
+    ],
+    [
+     "penelope",
+     "Charles!",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "I'm joking, darling. I've never pawned anything in my life. I sell things. It's quicker.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "blake",
+     "Lady Rook, Hester's window box. I couldn't help noticing on the terrace. The blue flowers. Very pretty.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "hester",
+     "Monkshood, Vicar. Aconitum. Very pretty and very deadly. I keep it for the slugs.",
+     {
+      "to": "blake"
+     }
+    ],
+    [
+     "blake",
+     "For the slugs?",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "hester",
+     "For the slugs, and for my neighbour's cat, if it ever comes back.",
+     {
+      "to": "blake"
+     }
+    ],
+    [
+     "helena",
+     "Hester. Not at the table.",
+     {
+      "to": "hester",
+      "ev": "clue:monkshood"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "rook",
+     "Charles, what is it you do? Exactly? Penelope says something in the City.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "Shipping, Lord Rook. Insurance on cargoes. Very dull. Ships go out, ships come back, and I'm paid either way.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "rook",
+     "And if they don't come back?",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "Then I'm paid more, Lord Rook. That's the beauty of insurance.",
+     {
+      "to": "rook"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 482.0,
+   "lines": [
+    [
+     "pemberton",
+     "The soup, my lady. Lobster bisque.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "Thank you, Pemberton.",
+     {
+      "to": "pemberton"
+     }
+    ],
+    [
+     "rook",
+     "Lobster. Very generous, Helena. Somebody's been to Billingsgate.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "Somebody's been to your bank, Arthur. It's an engagement. One doesn't serve sardines at an engagement.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "hester",
+     "Penelope, my dear. Your ring. May I see it?",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "penelope",
+     "It isn't ready, Aunt Hester. The jeweller's sizing it. Charles is collecting it on Monday.",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "hester",
+     "On Monday. How very convenient.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "Jewellers are very slow, Miss Rook. Particularly the good ones.",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "blake",
+     "Mister Delacourt, your family. Will they be at the wedding?",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "My mother, Reverend. My father's dead. The war.",
+     {
+      "to": "blake"
+     }
+    ],
+    [
+     "blake",
+     "I'm sorry. Where was he?",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "North Africa. Tobruk. A very brave man. I hardly knew him.",
+     {
+      "to": "blake"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "pemberton",
+     "My lady. If I might have a word after dinner. A private matter.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "After dinner, Pemberton? Is something wrong?",
+     {
+      "to": "pemberton"
+     }
+    ],
+    [
+     "pemberton",
+     "After the toast, my lady. It will keep until then. I'd like to be sure of something first.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "rook",
+     "Josiah, you were in Malta. Before you came to us. Weren't you?",
+     {
+      "to": "blake"
+     }
+    ],
+    [
+     "blake",
+     "For a few years, Arthur. A chaplaincy. With the Navy.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "rook",
+     "And why did you leave? I've always wondered. You never say.",
+     {
+      "to": "blake"
+     }
+    ],
+    [
+     "blake",
+     "The climate, Arthur. It didn't agree with me.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "hester",
+     "Or the Admiral's wife didn't, Vicar.",
+     {
+      "to": "blake"
+     }
+    ],
+    [
+     "blake",
+     "Miss Rook, really.",
+     {
+      "to": "hester",
+      "ev": "clue:malta"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "helena",
+     "Hester, you are being impossible tonight.",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "hester",
+     "I'm always impossible at engagements, Helena. Somebody has to be. Everybody else is lying.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "penelope",
+     "Charles, you've gone quiet.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "I'm thinking about the wedding, darling. June. The roses. You in white.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "penelope",
+     "And you?",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "In a very good suit, and a state of shock.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "rook",
+     "Helena, Pemberton wants a word. What about?",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "I don't know, Arthur. He's never asked for a word in thirty years. He's always just had them.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "penelope",
+     "Mummy, Pemberton's never been ill a day in his life. Do you think he's ill?",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "Pemberton doesn't get ill, darling. He gets thoughtful. It's much more worrying.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "charles",
+     "Butlers always have something to say at engagements. My mother's butler gave me a lecture on fish knives.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "penelope",
+     "Your mother has a butler? You said she lived in a cottage.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "A very large cottage, darling. With a very small butler.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "hester",
+     "How small, dear?",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "Five foot two, Miss Rook. He stood on a box to pour.",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "hester",
+     "How very convenient. A butler nobody can see over the soup.",
+     {
+      "to": "charles"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 700.0,
+   "lines": [
+    [
+     "hester",
+     "Arthur, your actress. The one in the letters. Is she still alive?",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "rook",
+     "Hester, for God's sake.",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "helena",
+     "What letters, Arthur?",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "rook",
+     "Nothing, Helena. Hester is drunk.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "hester",
+     "I'm never drunk, dear. I'm herbal. I found them in nineteen forty nine in the library. Love letters. To a Miss Daisy Laine of the Gaiety. I've kept them in my sewing box ever since.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "Arthur.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "rook",
+     "It was before we were married, Helena. Very nearly.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "hester",
+     "Six weeks before, dear. I checked the postmarks.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "charles",
+     "Your family's very lively, darling.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "penelope",
+     "They're not usually. It's the lobster. Lobster makes them honest.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "blake",
+     "Miss Rook, you seem to have something on everybody.",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "hester",
+     "Not on everybody, Vicar. Nobody can get anything on Pemberton. Pemberton's got it all.",
+     {
+      "to": "blake"
+     }
+    ],
+    [
+     "pemberton",
+     "Madam is too kind.",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "helena",
+     "Pemberton, did you know about Arthur's actress?",
+     {
+      "to": "pemberton"
+     }
+    ],
+    [
+     "pemberton",
+     "I posted the letters, my lady. Every Thursday. In nineteen forty nine.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "rook",
+     "Pemberton! You're a traitor.",
+     {
+      "to": "pemberton"
+     }
+    ],
+    [
+     "pemberton",
+     "I'm a butler, my lord. It's very nearly the same job.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "penelope",
+     "Pemberton, have you got anything on Charles? In your little book?",
+     {
+      "to": "pemberton"
+     }
+    ],
+    [
+     "pemberton",
+     "I've only known Mister Delacourt since Tuesday, miss.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "penelope",
+     "That's not an answer.",
+     {
+      "to": "pemberton"
+     }
+    ],
+    [
+     "pemberton",
+     "No, miss. It isn't.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "hester",
+     "Pemberton knows I gave up smoking in nineteen fifty two and started again in fifty three. He's never told a soul.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "pemberton",
+     "Madam has never asked me to, madam.",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "rook",
+     "Is there anybody in this family you haven't got in that book, Pemberton?",
+     {
+      "to": "pemberton"
+     }
+    ],
+    [
+     "pemberton",
+     "The cat, my lord. And only because she won't sit still.",
+     {
+      "to": "rook"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 829.0,
+   "lines": [
+    [
+     "pemberton",
+     "The fish, my lady. Sea bass.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "Thank you, Pemberton.",
+     {
+      "to": "pemberton"
+     }
+    ],
+    [
+     "pemberton",
+     "And if I may, my lady, I'll fetch the champagne up for the toast now. And fill my flask. It's the hour.",
+     {
+      "to": "helena",
+      "do": "up:pemberton"
+     }
+    ],
+    [
+     "helena",
+     "Go on, Pemberton.",
+     {
+      "to": "pemberton"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "charles",
+     "Excuse me. Forgive me. I've left my cigarette case in my coat. I won't be a moment.",
+     {
+      "to": "all",
+      "do": "up:charles"
+     }
+    ],
+    [
+     "penelope",
+     "You don't smoke, Charles.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "I'm starting, darling. Engagements are very stressful.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "rook",
+     "Helena, about Daisy Laine.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "Not now, Arthur. Eat your sea bass. You can explain her at Christmas.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "rook",
+     "She was a very nice girl. She married a dentist.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "Good. Dentists are very forgiving. They have to be.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "hester",
+     "Vicar, Malta. The Admiral's wife. Was she very beautiful?",
+     {
+      "to": "blake"
+     }
+    ],
+    [
+     "blake",
+     "Miss Rook, I'm a clergyman.",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "hester",
+     "That's not an answer either, Vicar. Everybody's very bad at answers tonight.",
+     {
+      "to": "blake"
+     }
+    ],
+    [
+     "blake",
+     "She was very beautiful, and very unhappy, and I was very young. Nothing happened. That's why I had to leave. Something would have.",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "hester",
+     "How dull.",
+     {
+      "to": "blake"
+     }
+    ],
+    [
+     "blake",
+     "It was the hardest thing I've ever done, Miss Rook. I don't recommend it.",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "penelope",
+     "Mummy, what does Pemberton want to tell you? After the toast?",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "I've no idea, darling. Perhaps he wants a raise. He's due one. Since nineteen fifty.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "pemberton",
+     "The champagne is in the ice, my lady. For the toast.",
+     {
+      "to": "helena",
+      "do": "back:pemberton"
+     }
+    ],
+    [
+     "helena",
+     "Thank you, Pemberton. You look pale.",
+     {
+      "to": "pemberton"
+     }
+    ],
+    [
+     "pemberton",
+     "It's warm in the pantry, my lady. I'm quite well.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "charles",
+     "Found it. My case. In the wrong pocket. Typical.",
+     {
+      "to": "all",
+      "do": "back:charles"
+     }
+    ],
+    [
+     "penelope",
+     "You were gone ages, Charles.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "The hall's very dark, darling. I took a wrong turning and ended up in the pantry. Pemberton put me right.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "pemberton",
+     "I did, sir.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "hester",
+     "Pemberton, did you fill your flask?",
+     {
+      "to": "pemberton"
+     }
+    ],
+    [
+     "pemberton",
+     "At the fish, madam. As always.",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "hester",
+     "Good. I'd hate you to go thirsty at an engagement.",
+     {
+      "to": "pemberton"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 1003.0,
+   "lines": [
+    [
+     "rook",
+     "Charles. Shipping. Who do you work for? Which firm?",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "Hartley and Vane, Lord Rook. In Leadenhall Street.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "rook",
+     "I know Hartley. Old Freddie Hartley. Sat next to him at the Carlton.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "Not old Freddie, sir. Young Freddie. His nephew. The firm's changed hands.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "rook",
+     "Has it? I hadn't heard.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "It's very recent, sir. Very discreet.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "helena",
+     "Josiah, will you say the grace before the toast? Pemberton will fill the glasses.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "blake",
+     "Of course, Lady Rook. Something short. The champagne gets warm while God listens.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "penelope",
+     "Aunt Hester, why don't you like Charles?",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "hester",
+     "I don't dislike him, dear. I just can't find him. In any of my books. Not Debrett's, not Who's Who, not the Lyme Regis parish register.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "penelope",
+     "You looked?",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "hester",
+     "I always look, dear. I looked at your father in nineteen forty nine. He was in all of them. That's how I knew he was dull.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "charles",
+     "Miss Rook, I'm a very ordinary man. Ordinary men aren't in books.",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "hester",
+     "Everybody's in a book somewhere, Mister Delacourt. Births, marriages, deaths. Somebody has to write them down.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "pemberton",
+     "Quite so, madam.",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "rook",
+     "Pemberton, what's this private word? You've got Helena worried. Helena's never worried.",
+     {
+      "to": "pemberton"
+     }
+    ],
+    [
+     "pemberton",
+     "After the toast, my lord. With respect.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "rook",
+     "You've never made me wait for anything in thirty years, Pemberton.",
+     {
+      "to": "pemberton"
+     }
+    ],
+    [
+     "pemberton",
+     "No, my lord. I'm sorry. Just this once.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "blake",
+     "Penelope, the hymns. Mister Delacourt only knows one. Shall we choose the rest together?",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "penelope",
+     "Something cheerful, Reverend. Something with trumpets.",
+     {
+      "to": "blake"
+     }
+    ],
+    [
+     "blake",
+     "Trumpets cost extra, Penelope. The organist's brother plays one, but he only knows the Last Post.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "penelope",
+     "The Last Post at a wedding, Reverend. Daddy would cry.",
+     {
+      "to": "blake"
+     }
+    ],
+    [
+     "rook",
+     "I'd cry at any wedding, Penelope. It's the bills.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "helena",
+     "Charles, your mother. Will she come up from Dorset for the wedding? Or is it Devon?",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "Dorset, Lady Rook. If her hip allows. She's very frail. She sends her love.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "I'd like to meet her before June. Perhaps we'll motor down.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "She'd love that, Lady Rook. She doesn't see many people.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "hester",
+     "What's her address, dear? I'll send her a card.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "Care of the post office in Lyme Regis, Miss Rook. She has very strong views about postmen.",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "hester",
+     "Care of the post office. Of course.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "blake",
+     "Pemberton, you're very quiet tonight. Even for you.",
+     {
+      "to": "pemberton"
+     }
+    ],
+    [
+     "pemberton",
+     "I'm thinking, sir. About Brighton.",
+     {
+      "to": "blake"
+     }
+    ],
+    [
+     "blake",
+     "What about Brighton?",
+     {
+      "to": "pemberton"
+     }
+    ],
+    [
+     "pemberton",
+     "Weddings, sir. They had a great many weddings in Brighton.",
+     {
+      "to": "blake"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 1203.0,
+   "lines": [
+    [
+     "pemberton",
+     "The sorbet, my lady. Champagne sorbet.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "Thank you, Pemberton.",
+     {
+      "to": "pemberton"
+     }
+    ],
+    [
+     "hester",
+     "Champagne sorbet. Before the champagne. Helena, you're showing off.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "helena",
+     "It's an engagement, Hester. Showing off is the whole point.",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "charles",
+     "Lord Rook, the toast. May I say a few words? To Penelope? Before Pemberton opens the champagne?",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "rook",
+     "By all means, Charles. Keep it short. The Lords has given me a horror of speeches.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "penelope",
+     "Charles, your hands are shaking.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "Nerves, darling. My first speech to your family. I'd rather face a firing squad.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "hester",
+     "You might get both, dear. In this family.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "blake",
+     "Miss Rook, you're very hard on him.",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "hester",
+     "Somebody has to be, Vicar. Helena's too polite and Arthur's too deaf and Penelope's in love. That leaves me and Pemberton.",
+     {
+      "to": "blake"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "rook",
+     "Helena, I'm going to say it now. About Daisy Laine. I wrote her eleven letters and she wrote me two. She married the dentist and I married you, and I've never once regretted it.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "Arthur. That's the nicest thing you've said to me since nineteen fifty.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "rook",
+     "I've been saving it.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "hester",
+     "Six weeks before the wedding, Arthur. I'm only saying.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "pemberton",
+     "My lady, the champagne. Shall I open it for the toast?",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "Please, Pemberton. And then, I think, the beef.",
+     {
+      "to": "pemberton"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "charles",
+     "Penelope. In July, in a hat shop in Bond Street, I met the only girl in London who wanted the same hat as I did. We bought it together, and we've been sharing everything since. To Penelope.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "rook",
+     "To Penelope.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "hester",
+     "To Penelope. And to Pemberton's champagne.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "blake",
+     "To Penelope.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "penelope",
+     "That was lovely, Charles. Short, and lovely.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "I've been practising in the bath since Tuesday.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "hester",
+     "In a hat shop, you said. In July. Which hat shop, dear?",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "Lock's, Miss Rook. In St James's.",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "hester",
+     "Lock's is a gentlemen's hatter, dear. Penelope doesn't wear a bowler.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "penelope",
+     "It was a present for Daddy, Aunt Hester. A birthday present.",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "rook",
+     "You bought me a hat? I never got a hat.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "penelope",
+     "Charles bought it, Daddy. We gave you the tie instead. Charles said the hat wouldn't suit you.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "rook",
+     "How would you know, Charles? You'd never met me.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "Penelope described you very well, Lord Rook. I could see it wouldn't do.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "helena",
+     "Pemberton, the champagne was perfect. Thank you.",
+     {
+      "to": "pemberton"
+     }
+    ],
+    [
+     "pemberton",
+     "Thank you, my lady.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "You still want your word? After the toast?",
+     {
+      "to": "pemberton"
+     }
+    ],
+    [
+     "pemberton",
+     "More than ever, my lady. After the beef. If I may.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "blake",
+     "Mister Delacourt, the banns. On Sunday I'll need your full name, your parish, and your status. Bachelor, widower.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "Bachelor, Reverend. Charles Edward Delacourt. Of Kensington.",
+     {
+      "to": "blake"
+     }
+    ],
+    [
+     "blake",
+     "And previously of Lyme Regis.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "Previously of all sorts of places, Reverend. My father moved about.",
+     {
+      "to": "blake"
+     }
+    ],
+    [
+     "blake",
+     "The army does that.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "Yes. It does.",
+     {
+      "to": "blake"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "hester",
+     "Helena, did you know the banns are read three Sundays running? So anybody who knows a reason can say so.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "I've been married twenty five years, Hester. I'm aware.",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "hester",
+     "I've always wanted to stand up in church and say I know a reason. Just once. Before I die.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "rook",
+     "Hester, if you ever do, I'll have you sectioned.",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "hester",
+     "You'd need two doctors, Arthur. I know them both. They wouldn't sign.",
+     {
+      "to": "rook"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 1474.0,
+   "lines": [
+    [
+     "pemberton",
+     "The beef Wellington, my lady.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "Thank you, Pemberton.",
+     {
+      "to": "pemberton"
+     }
+    ],
+    [
+     "rook",
+     "Wellington. Now there's a dish that won a war.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "hester",
+     "That was the other Wellington, Arthur.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "rook",
+     "I'm aware, Hester. I've been in the Lords for twenty years. I've met several Wellingtons. None of them as good as the beef.",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "blake",
+     "Pemberton, you look unwell. Sit down a moment.",
+     {
+      "to": "pemberton"
+     }
+    ],
+    [
+     "pemberton",
+     "I couldn't, sir. Not in the dining room. It isn't done.",
+     {
+      "to": "blake"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "helena",
+     "Josiah, will you stay for the brandy? Arthur's got the good one out.",
+     {
+      "to": "blake"
+     }
+    ],
+    [
+     "blake",
+     "One glass, Lady Rook. I've the early service. God doesn't like a hangover.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "rook",
+     "God's never tried my brandy, Josiah.",
+     {
+      "to": "blake"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "penelope",
+     "Charles, will we live in Kensington? After?",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "Anywhere you like, darling. Kensington, the country, the moon.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "penelope",
+     "The moon's very far from Mummy.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "That's rather the point.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "helena",
+     "I heard that, Charles.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "You were meant to, Lady Rook.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "penelope",
+     "Pemberton, have a nip. From your flask. You look like you need it.",
+     {
+      "to": "pemberton"
+     }
+    ],
+    [
+     "pemberton",
+     "Thank you, miss. Just a small one. Your health, miss. And Mister Delacourt's.",
+     {
+      "to": "penelope",
+      "do": "show:pemberton=flask"
+     }
+    ],
+    [
+     "pemberton",
+     "Your health.",
+     {
+      "do": "drink:pemberton"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "pemberton",
+     "My lady. My lady, I can't... my mouth. It's burning. My lady, the book...",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "pemberton",
+     "Brighton, my lady. Ask him about Brighton.",
+     {
+      "to": "helena",
+      "do": "die:pemberton"
+     }
+    ],
+    [
+     "helena",
+     "Pemberton!",
+     {
+      "to": "all",
+      "ev": "gasp"
+     }
+    ],
+    [
+     "rook",
+     "Good God. Pemberton!",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "helena",
+     "Stay where you are, all of you. Josiah, nobody moves.",
+     {
+      "to": "all",
+      "do": "go:helena"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "penelope",
+     "Mummy? Mummy, is he...",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "helena",
+     "He's dead, Penelope. Pemberton is dead.",
+     {
+      "to": "all",
+      "do": "home:helena"
+     }
+    ],
+    [
+     "hester",
+     "The flask. Nobody touch the flask. It's in his hand.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "penelope",
+     "Pemberton. Oh, Pemberton.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "rook",
+     "Helena, the poor man. Thirty years. At his post.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "At his post, Arthur. He'd have wanted it that way. He just wouldn't have wanted it tonight.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "blake",
+     "Lady Rook, shall I say something? A prayer?",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "Say it quietly, Josiah. And quickly. And then I'm going to find out who did this.",
+     {
+      "to": "blake"
+     }
+    ],
+    [
+     "blake",
+     "Lord, receive your servant Pemberton, who served this family faithfully for thirty years, and knew all our secrets, and kept them. Amen.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "hester",
+     "Amen. He kept mine for twenty.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "helena",
+     "Thank you, Josiah. Now. Everybody stay exactly where you are. Nobody touches anything. Not a glass, not a fork.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "rook",
+     "Helena, you sound like a sergeant major.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "I was a Wren, Arthur. In nineteen forty two. You never asked what I did.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "rook",
+     "I assumed you typed.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "I typed, Arthur. Signals. From people who were about to die. I know what it sounds like when somebody's trying to tell you something.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "rook",
+     "Helena, the police. We must telephone.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "You telephone, Arthur. From the hall. And don't touch anything in the pantry on the way.",
+     {
+      "to": "rook",
+      "do": "up:rook"
+     }
+    ],
+    [
+     "rook",
+     "Of course. Of course.",
+     {
+      "to": "helena"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 1700.0,
+   "lines": [
+    [
+     "rook",
+     "Helena, his heart. He's sixty four. He works too hard.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "His mouth burned, Arthur. He said so. And his lips are numb and his face has gone grey. That's not his heart.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "hester",
+     "Aconite. It burns the mouth, and then it numbs it, and then it stops the heart. It's in every book.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "blake",
+     "Your monkshood, Miss Rook. In your window box.",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "hester",
+     "In my window box, Vicar, on the terrace. Where anybody could pick it.",
+     {
+      "to": "blake"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "helena",
+     "Somebody put aconite in Pemberton's flask. He told us himself, he fills it in the pantry, every evening, at the fish. Tonight he went to the pantry at the fish, and he came back pale.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "charles",
+     "Lady Rook, anyone could have got into the pantry.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "You did, Charles. You told us. You took a wrong turning to the pantry, looking for your cigarette case. And you don't smoke.",
+     {
+      "to": "charles",
+      "ev": "clue:pantry"
+     }
+    ],
+    [
+     "charles",
+     "I was there for a moment. Pemberton showed me the way back.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "You were both gone six minutes, Charles. Hester timed it. Hester times everything.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "hester",
+     "Six minutes, dear. By the carriage clock.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "rook",
+     "The police are coming, Helena. And Doctor Lowe from the second floor. He's in his dressing gown.",
+     {
+      "to": "helena",
+      "do": "back:rook"
+     }
+    ],
+    [
+     "helena",
+     "Thank you, Arthur.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "helena",
+     "You two in the middle. You've seen everything tonight that I have. There's a board at the end of the table. Put your pins on whoever you think did this.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "helena",
+     "Move them as often as you like. When the pudding comes, it closes. Pemberton would have wanted it done properly.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "penelope",
+     "Charles. Tell them. You didn't. You couldn't. Tell them.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "I didn't, darling. Of course I didn't. Why would I hurt your butler?",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "penelope",
+     "He said Brighton. He said ask him about Brighton.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "He was dying, Penelope. He was saying anything.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "blake",
+     "Lady Rook, Pemberton's book. The little black book. He said, the book.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "I know, Josiah. I took it from his pocket when I knelt by him.",
+     {
+      "to": "blake",
+      "do": "show:helena=notebook"
+     }
+    ],
+    [
+     "hester",
+     "Read it, Helena. Read the last page.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "Tuesday. Mister Delacourt engaged to Miss Penelope. Then underneath, in red. B. Nineteen fifty six. St Peter's. Check.",
+     {
+      "to": "all",
+      "ev": "clue:book"
+     }
+    ],
+    [
+     "charles",
+     "That could be anything. A wine. A cricket score.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "Pemberton was in Brighton in nineteen fifty six, Charles. He told you at the crab cakes. You said you'd always meant to go.",
+     {
+      "to": "charles",
+      "do": "pocket:helena"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ]
+   ]
+  },
+  {
+   "at": 1905.0,
+   "lines": [
+    [
+     "helena",
+     "The cheese. Somebody has to say it, and Pemberton can't.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "helena",
+     "Brie, Stilton, manchego, and quince. He chose it himself. He said the quince was for Penelope. She was always fond of it as a little girl.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "penelope",
+     "I was. He used to sneak it to me in the pantry.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "hester",
+     "Helena, Arthur's letters. I should say it before the police do. I brought them tonight, in my bag. I was going to give them back to him. As an engagement present. To clear the air.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "Show me, Hester.",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "hester",
+     "Here. Eleven letters. To Daisy Laine of the Gaiety. Nineteen forty nine.",
+     {
+      "to": "helena",
+      "do": "show:hester=letters"
+     }
+    ],
+    [
+     "rook",
+     "Hester, burn them. For God's sake.",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "hester",
+     "I'm giving them to Helena, Arthur. She can burn them. It's her house.",
+     {
+      "to": "rook",
+      "ev": "clue:letters",
+      "do": "pocket:hester"
+     }
+    ],
+    [
+     "helena",
+     "Thank you, Hester. I'll read them first. Then I'll burn them. Then I'll forgive him. In that order.",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "blake",
+     "Lady Rook, I should tell you about Malta. Pemberton knew. He was the Admiral's steward's cousin. He'd have it in his book.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "Did Pemberton ever say anything about Malta, Josiah?",
+     {
+      "to": "blake"
+     }
+    ],
+    [
+     "blake",
+     "Never. Not a word. He'd look at me at Christmas, and pour my sherry, and say nothing. It was very kind of him.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "That was Pemberton. He knew everything and he poured the sherry.",
+     {
+      "to": "blake"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "hester",
+     "Mister Delacourt. St Peter's. Nineteen fifty six. Brighton. Is that a church?",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "There are a dozen St Peter's in England, Miss Rook.",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "hester",
+     "There's one in Brighton, dear. On the front. Opposite the registry office Pemberton mentioned. Weddings, dear. Weddings and banns.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "blake",
+     "I know St Peter's, Brighton. The vicar's a friend of mine. He keeps a very good register.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "Then telephone him, Reverend. On a Saturday night.",
+     {
+      "to": "blake"
+     }
+    ],
+    [
+     "blake",
+     "I may, Mister Delacourt. He's a very light sleeper.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "penelope",
+     "Charles. Were you married? In Brighton? In nineteen fifty six?",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "Penelope, darling, I've never been to Brighton in my life.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "penelope",
+     "You told Pemberton you'd always meant to go.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "Exactly. I've always meant to. I never have.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "rook",
+     "Charles. Your father. Tobruk. Which regiment?",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "The Rifle Brigade, Lord Rook.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "rook",
+     "I was with the Rifle Brigade, Charles. At Tobruk. There were no Delacourts. I'd remember. It's an unusual name.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "He served under another name, sir. Our name was changed after the war.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "rook",
+     "From what?",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "Does it matter, Lord Rook? On a night like this?",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "rook",
+     "On a night like this, Charles, it's all that matters.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "helena",
+     "Josiah, the vicar in Brighton. Is he really a light sleeper?",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "blake",
+     "I've no idea, Lady Rook. But I'll telephone him now, if you like. From the hall.",
+     {
+      "to": "helena",
+      "do": "up:blake"
+     }
+    ],
+    [
+     "helena",
+     "Please, Josiah.",
+     {
+      "to": "blake"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 2100.0,
+   "lines": [
+    [
+     "helena",
+     "Arthur. Hester. Penelope. Charles.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "helena",
+     "A husband who wrote eleven letters to an actress. A vicar who left Malta in a hurry. A sister in law who keeps monkshood for the slugs. A daughter who sneaked quince in the pantry. And a young man nobody can find in any book, who took a wrong turning at the fish.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "charles",
+     "And who loves your daughter, Lady Rook.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "We'll see, Charles.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "blake",
+     "Lady Rook. I've spoken to Brighton.",
+     {
+      "to": "helena",
+      "do": "back:blake"
+     }
+    ],
+    [
+     "helena",
+     "And?",
+     {
+      "to": "blake"
+     }
+    ],
+    [
+     "blake",
+     "He got up to look. He was very kind about it. He'll telephone the police in the morning. I'd rather say the rest after the pudding. It's not mine to say in front of Penelope before she's ready.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "Thank you, Josiah. That's very wise. You learned that in Malta, I suppose.",
+     {
+      "to": "blake"
+     }
+    ],
+    [
+     "blake",
+     "In Malta, Lady Rook. Yes.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "helena",
+     "You two in the middle. The board. You have until the pudding.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "penelope",
+     "Charles, look at me. Did you go into the pantry? Did you?",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "I went into the pantry, Penelope. By mistake. I said so.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "penelope",
+     "You never make mistakes, Charles. You told me in the hat shop. You said you'd planned to meet me for a week.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "That was romantic, darling.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "penelope",
+     "It was a plan, Charles. I've only just noticed.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "rook",
+     "Hester, your window box. After tonight, will you pull it up?",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "hester",
+     "Every root, Arthur. With my own hands. Pemberton would have done it for me, if I'd asked.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "blake",
+     "Arthur, will you want the church? For Pemberton?",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "rook",
+     "St Mary's, Josiah. He sat at the back every Sunday for thirty years. He should have the front, just once.",
+     {
+      "to": "blake"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "hester",
+     "Tiramisu. I asked the cook. Pick me up, it means, in Italian. I don't think it will.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "rook",
+     "Nothing will, Hester. Nothing will tonight.",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "helena",
+     "The pudding is coming up now.",
+     {
+      "to": "all"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 2257.0,
+   "lines": [
+    [
+     "helena",
+     "Tiramisu. Pemberton's last menu.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "helena",
+     "Pudding. Pins down, please. The board is closed.",
+     {
+      "to": "mid",
+      "ev": "lock"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "helena",
+     "Pemberton has had a silver flask in his tailcoat for thirty years, and he fills it in the pantry every evening at the fish. Everybody at this table knows it. Hester made him drink from it in front of us all at the crab cakes.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "helena",
+     "Hester's monkshood grows in a window box on the terrace, where we all stood for the champagne. Anybody could pick it. It burns the mouth, and numbs it, and stops the heart.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "helena",
+     "Tonight, at the fish, Pemberton went to the pantry to fill his flask, and one other person left this table and took a wrong turning into that pantry, looking for a cigarette case, without smoking.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "helena",
+     "Pemberton came back pale, and at the beef he asked for a word with me after the toast. And he died with his flask in his hand, telling me to ask about Brighton.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "helena",
+     "Pemberton was in Brighton in nineteen fifty six. His book says St Peter's, Brighton, and the vicar there has a very good register. And the man who wanted Pemberton silent before the toast is the man who was married there in nineteen fifty six, under a name nobody at this table has ever heard.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "pause",
+     2.0
+    ],
+    [
+     "helena",
+     "Charles Delacourt.",
+     {
+      "to": "charles",
+      "ev": "reveal"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "penelope",
+     "Charles.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "I'm sorry, Penelope. I'm so sorry. I was going to tell you. After the wedding. Then it wouldn't have mattered.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "penelope",
+     "After the wedding. When we'd have been married. When you'd have been married twice.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "She left me in nineteen fifty seven. Margaret. I don't know where she is. I've never known. I thought it didn't count if she'd gone.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "blake",
+     "It counts, Mister Delacourt. It always counts. That's the whole point of the register.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "helena",
+     "And Pemberton?",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "He knew me, Lady Rook. The minute I walked in on Tuesday. He'd poured the champagne at my wedding. He told me in the pantry tonight. Leave before the toast, Mister Delacourt, or I tell her ladyship after it.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "charles",
+     "I'd picked the flowers on the terrace before dinner. For Penelope. Blue. Miss Rook said they were monkshood, at the crab cakes, and I thought, that's the answer. And then he took his flask out to fill it. And I asked him the way to the hall.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "hester",
+     "You picked my monkshood for my niece.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "They were very pretty, Miss Rook. That's all I saw. At first.",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "rook",
+     "Get out of my sight. Get downstairs. Wait for the police in the hall. If I see you again tonight I'll forget I'm in the Lords.",
+     {
+      "to": "charles"
+     }
+    ],
+    [
+     "charles",
+     "Yes, sir. Penelope.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "penelope",
+     "Go, Charles. Please. Just go.",
+     {
+      "to": "charles",
+      "do": "out:charles"
+     }
+    ],
+    [
+     "pause",
+     4.0
+    ],
+    [
+     "hester",
+     "Come here, dear. Come here. Sit by your old aunt.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "penelope",
+     "You knew. Aunt Hester, you knew all evening.",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "hester",
+     "I didn't know, dear. I suspected. Suspecting is what I do instead of knitting. I'm sorry I was right.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "blake",
+     "Lady Rook. The vicar in Brighton. Margaret Delacourt. Married at St Peter's in June nineteen fifty six. Charles Delacourt, bachelor, of Hove. He has the entry in front of him.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "Thank you, Josiah. You did that very gently.",
+     {
+      "to": "blake"
+     }
+    ],
+    [
+     "blake",
+     "I've had practice, Lady Rook. Not in Malta. Since.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "rook",
+     "Helena. Pemberton. Thirty years. He carried Penelope home in a laundry basket.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "I know, Arthur. And tonight he carried her one more time. Away from that man. He just didn't get to put her down.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "rook",
+     "No."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "penelope",
+     "I want to see him. Pemberton. Before they take him.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "helena",
+     "You may, darling. In a moment. He's just there, by his post. He'd want you to say goodnight. He always waited up.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "hester",
+     "I'm going to pull up every bit of monkshood on that terrace tonight. Every root. I'll do it in my evening gloves.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "blake",
+     "I'll help you, Miss Rook. I'm very good with a trowel. They taught us at theological college. For the graves.",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "hester",
+     "Vicar, that's the first joke you've made in twenty years.",
+     {
+      "to": "blake"
+     }
+    ],
+    [
+     "blake",
+     "It's the first time in twenty years I've felt I could, Miss Rook.",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "rook",
+     "Helena, the letters. Daisy Laine. Will you really burn them?",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "Tonight, Arthur. In the fireplace. And then I'll make you sit there and watch, and tell me about every one.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "rook",
+     "All eleven?",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "All eleven, Arthur. We have time. We have a great deal of time. Pemberton saw to that.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "penelope",
+     "Mummy. Who'll look after us now? Who'll pour the sherry at Christmas, and know who takes sugar?",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "We'll have to learn ourselves, darling. It'll be terrible. We'll get it all wrong.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "hester",
+     "I'll keep a little book, dear. In red. Somebody must.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "hester",
+     "Penelope, dear. The ring. The one the jeweller's sizing. Collecting on Monday.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "penelope",
+     "There isn't a ring, is there, Aunt Hester.",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "hester",
+     "I shouldn't think so, dear. I telephoned Asprey's on Wednesday. They'd never heard of him.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "penelope",
+     "You telephoned Asprey's?",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "hester",
+     "I telephone everybody, dear. It's how I knew about your father's actress. I telephoned the Gaiety in nineteen forty nine.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "rook",
+     "Helena, Pemberton's flask. His lordship's father gave it to him in nineteen thirty one. When the police are done with it, I'd like it back. For the cabinet. With his book.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "Yes, Arthur. With his book. And his gloves. Next to the medals.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "rook",
+     "Next to the medals. Yes. He'd earned a medal. Thirty years of us.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "helena",
+     "He has a sister. In Bournemouth. Pemberton. I've written to her every Christmas for twenty years. She sends a cake.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "penelope",
+     "Will you go and tell her, Mummy? Not a letter. Go.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "Tomorrow, darling. On the first train. And I'll take her the book. She should have it. It's mostly about her brother being kind.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "blake",
+     "Lady Rook, the banns. On Sunday. What shall I read?",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "Nothing, Josiah. Read nothing. Preach about Pemberton instead. He'd hate it. That's how we'll know it was right.",
+     {
+      "to": "blake"
+     }
+    ],
+    [
+     "blake",
+     "I'll take my text from the Psalms. Mark the perfect man, and behold the upright.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "hester",
+     "He'd have said, Vicar, the perfect man is the one who knows where the corkscrew is.",
+     {
+      "to": "blake"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "penelope",
+     "I still want to get married. One day. Not to him. Just. I still want it.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "helena",
+     "You will, darling. To somebody who's in Debrett's. Or at least in the telephone book.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "rook",
+     "The Lock's hat. The one Charles said wouldn't suit me. I'm going to go to St James's on Monday and buy it.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "helena",
+     "Arthur, it'll look ridiculous.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "rook",
+     "Exactly, Helena. I'm going to wear it to the funeral. Pemberton always said I needed a better hat.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "helena",
+     "You two. You heard him at the crab cakes. Charles said he'd always meant to go to Brighton. Did you notice? Pemberton did.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "penelope",
+     "I didn't notice anything. I was in love. It's very bad for noticing.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "rook",
+     "Helena. A Wren. Signals. Why didn't you ever tell me?",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "You never asked, Arthur. You were writing to an actress.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "rook",
+     "Six weeks before, Helena.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "I know, Arthur. Hester checked the postmarks.",
+     {
+      "to": "rook"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "hester",
+     "Vicar, Malta. Does the Admiral's wife still write?",
+     {
+      "to": "blake"
+     }
+    ],
+    [
+     "blake",
+     "Every Easter, Miss Rook. A card with a lamb on it. Nothing inside.",
+     {
+      "to": "hester"
+     }
+    ],
+    [
+     "hester",
+     "Nothing inside is the most romantic card there is, Vicar. I should know. I've sent hundreds.",
+     {
+      "to": "blake"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "penelope",
+     "Mummy, may I sleep in your room tonight? Like when I was little?",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "Of course, darling. I'll make the cocoa. Badly. Pemberton always said I boiled the milk.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "penelope",
+     "He said you boiled everything, Mummy. Even the eggs for Easter.",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "He was right, darling. He was always right. It was his most irritating quality.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "penelope",
+     "Mummy, Pemberton's laundry basket. Do we still have it?",
+     {
+      "to": "helena"
+     }
+    ],
+    [
+     "helena",
+     "In the attic, darling. He kept it. He said one day you'd need it for your own.",
+     {
+      "to": "penelope"
+     }
+    ],
+    [
+     "penelope",
+     "I will. One day. With somebody real."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "blake",
+     "You two in the middle. You saw all of it. I'm sorry your evening was so sad.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "helena",
+     "Come downstairs. Please. The Rovers. Arthur will buy the drinks, and Hester will tell you everybody's secrets, and nobody will die.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "rook",
+     "Downstairs, all of you. I'll tell the police we're at the bar. They'll know where to find a Rook.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "penelope",
+     "And bring a coat. I'm going to walk on the front tomorrow. In Brighton. I want to see the church. I'd like company.",
+     {
+      "to": "mid"
+     }
+    ]
+   ]
+  }
+ ]
+}

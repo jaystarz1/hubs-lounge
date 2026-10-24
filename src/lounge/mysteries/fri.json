@@ -1,0 +1,3962 @@
+{
+ "_": "The Seventh Course, Friday's case (Jay, 2026-10-22: the whole dinner scripted and spoken, the diners act it; 2026-10-24: a plain murder mystery, not dinner theatre, and no lulls). Source of services/hubs/src/lounge/mysteries/fri.json (mystery-script.py).",
+ "title": "THE SEVENTH COURSE: WHO KILLED MAX HARROW?",
+ "voices": {
+  "rupert": "us-male-p097",
+  "celia": "us-female-p092",
+  "max": "us-male-ex01",
+  "nancy": "house-us",
+  "locke": "jay",
+  "edith": "us-female-p084",
+  "hobbs": "house-uk"
+ },
+ "who": {
+  "rupert": "DinGa",
+  "celia": "DinGb",
+  "max": "DinGd",
+  "nancy": "DinGe",
+  "locke": "DinGf",
+  "edith": "DinGh",
+  "hobbs": "DinButler"
+ },
+ "suspects": [
+  {
+   "id": "celia",
+   "name": "LADY CELIA ASHCOMBE",
+   "role": "the wife"
+  },
+  {
+   "id": "nancy",
+   "name": "NANCY PIKE",
+   "role": "the niece, a nurse"
+  },
+  {
+   "id": "edith",
+   "name": "EDITH VANE",
+   "role": "the novelist"
+  },
+  {
+   "id": "rupert",
+   "name": "LORD RUPERT ASHCOMBE",
+   "role": "the host"
+  },
+  {
+   "id": "hobbs",
+   "name": "HOBBS",
+   "role": "the butler"
+  }
+ ],
+ "cast": [
+  {
+   "id": "max",
+   "name": "MAX HARROW",
+   "role": "the columnist"
+  },
+  {
+   "id": "locke",
+   "name": "INSPECTOR LOCKE",
+   "role": "Scotland Yard, retired"
+  }
+ ],
+ "killer": "rupert",
+ "gone": [
+  "max",
+  "rupert"
+ ],
+ "clues": {
+  "spring": {
+   "text": "His Arnhem was in spring. It was September",
+   "on": [
+    "rupert"
+   ]
+  },
+  "vial": {
+   "text": "A vial of digitalis gone from Nancy's bag",
+   "on": [
+    "nancy"
+   ]
+  },
+  "letters": {
+   "text": "Celia's letters in Max's jacket",
+   "on": [
+    "celia",
+    "rupert"
+   ]
+  },
+  "novel": {
+   "text": "Edith's new book: cyanide in a toast",
+   "on": [
+    "edith"
+   ]
+  },
+  "claret": {
+   "text": "Rupert poured Max's glass himself",
+   "on": [
+    "rupert",
+    "hobbs"
+   ]
+  },
+  "notebook": {
+   "text": "Max's notebook: R.A. was never at Arnhem",
+   "on": [
+    "rupert"
+   ]
+  }
+ },
+ "blocks": [
+  {
+   "at": 4.0,
+   "lines": [
+    [
+     "rupert",
+     "Ten years in this flat, Celia. And the view still costs more than the furniture.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "celia",
+     "The view doesn't snore, Rupert."
+    ],
+    [
+     "max",
+     "Nor does it read my column. Which is more than I can say for anyone here.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "edith",
+     "I read it every Monday, Max. In the bath. It's the only place I can bear it."
+    ],
+    [
+     "max",
+     "Missus Vane, you say the loveliest things."
+    ],
+    [
+     "nancy",
+     "Uncle Rupert, there are two empty chairs at the table. Who else is coming?",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "rupert",
+     "Our two friends from the lounge, Nancy. They sit in the middle. They hear everything."
+    ],
+    [
+     "locke",
+     "Then they had better keep their ears open. Things get said at dinners.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "max",
+     "Things get said. And on Monday, things get printed."
+    ],
+    [
+     "celia",
+     "Not tonight, Max. Tonight is our anniversary.",
+     {
+      "to": "max"
+     }
+    ],
+    [
+     "edith",
+     "Ten years. I gave it two. I lost a pound to Hobbs on it."
+    ],
+    [
+     "rupert",
+     "Then let's go in before Hobbs wants another pound. Celia, your arm.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "edith",
+     "Nancy, darling, you look exhausted. Have they had you on nights again?",
+     {
+      "to": "nancy"
+     }
+    ],
+    [
+     "nancy",
+     "Four in a row. I could sleep standing up. Don't let me near the claret.",
+     {
+      "to": "edith"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 78.0,
+   "lines": [
+    [
+     "edith",
+     "Inspector, mind the step. You always miss the step.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "Thirty years at the Yard, Missus Vane. I have never once missed a step."
+    ],
+    [
+     "nancy",
+     "You missed one at my christening. Mother still talks about it.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "max",
+     "I'm by the window, I see. The best seat for watching everybody.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "rupert",
+     "You always take the best seat, Max. Even when it isn't yours.",
+     {
+      "to": "max"
+     }
+    ],
+    [
+     "locke",
+     "Thank you for having me, Rupert. Celia says you've been planning a surprise all week.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "rupert",
+     "Not planning, Locke. Choosing. There's a difference, as you'll see at the sorbet.",
+     {
+      "to": "locke"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 117.0,
+   "lines": [
+    [
+     "rupert",
+     "Glasses up, everyone. To Celia. Ten years, and she has not poisoned me once.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "celia",
+     "The night is young, darling."
+    ],
+    [
+     "max",
+     "Here's to Celia.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "nancy",
+     "To Aunt Celia.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "pause",
+     2.0
+    ],
+    [
+     "rupert",
+     "And now, for our two friends in the middle, some introductions.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "rupert",
+     "My wife, Lady Celia. She married me for the view.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "celia",
+     "And stayed for the cellar.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "rupert",
+     "My niece, Nancy. A nurse at Saint Thomas's. She keeps us all alive.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "nancy",
+     "Most of you. On a good night.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "rupert",
+     "Missus Edith Vane. She lives downstairs and murders people for a living.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "edith",
+     "On paper, Rupert. Only on paper. It pays better than the real thing.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "rupert",
+     "Inspector Locke. Scotland Yard, retired. Celia's godfather.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "locke",
+     "I used to arrest people. Now I mostly arrest greenfly.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "rupert",
+     "And Max Harrow, who writes The Harrow Report. Every Monday, half of London wakes up ruined.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "max",
+     "Only the interesting half.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "rupert",
+     "And Hobbs, our butler. Hobbs knows where all the bodies are buried.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "hobbs",
+     "Only the ones in the cellar, my lord."
+    ],
+    [
+     "max",
+     "Rupert, are you speaking at the regiment dinner in November?",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "rupert",
+     "I always speak, Max. They ask for the bridge every year.",
+     {
+      "to": "max"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 190.0,
+   "lines": [
+    [
+     "celia",
+     "We had wasps at Ashcombe this summer. Dreadful. A nest in every chimney.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "rupert",
+     "I had Jenkins put the cyanide down in August. Not a wasp left in the county.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "edith",
+     "Cyanide! How marvellous. Where does one buy cyanide?",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "rupert",
+     "The chemist in the village. You sign a little book."
+    ],
+    [
+     "edith",
+     "I must remember that. For work."
+    ],
+    [
+     "nancy",
+     "Please don't remember it at the table.",
+     {
+      "to": "edith"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "max",
+     "Edith, how is the new book? Who dies this time?",
+     {
+      "to": "edith"
+     }
+    ],
+    [
+     "edith",
+     "A sea captain. It's called Death at the Captain's Table. It's out in March."
+    ],
+    [
+     "max",
+     "And who did it?"
+    ],
+    [
+     "edith",
+     "I never tell, Max. Not even my publisher knows. Well. Rupert knows. He read the proofs.",
+     {
+      "to": "max"
+     }
+    ],
+    [
+     "rupert",
+     "I said the ending was too obvious.",
+     {
+      "to": "edith"
+     }
+    ],
+    [
+     "edith",
+     "You say that about everything, Rupert. You said it about the moon landing."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "nancy",
+     "Uncle Rupert, are you taking your drops? Every night?",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "rupert",
+     "Every night, Nurse. One drop, in water. I'm a model patient.",
+     {
+      "to": "nancy"
+     }
+    ],
+    [
+     "pause",
+     4.0
+    ],
+    [
+     "nancy",
+     "Uncle Rupert was at Arnhem.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "rupert",
+     "Don't, Nancy. Our friends don't want to hear about the war over the salmon.",
+     {
+      "to": "nancy"
+     }
+    ],
+    [
+     "max",
+     "Oh, they do. Go on, Rupert. The bridge.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "rupert",
+     "Well. If you insist. Spring of forty four. The blossom was out on the trees. I remember that. The blossom, and the noise.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "rupert",
+     "We held that bridge for three days. Three days, and no tea."
+    ],
+    [
+     "max",
+     "Arnhem was September, Rupert.",
+     {
+      "to": "rupert",
+      "ev": "clue:spring"
+     }
+    ],
+    [
+     "pause",
+     2.0
+    ],
+    [
+     "rupert",
+     "Was it? Well. It felt like spring. One was young.",
+     {
+      "to": "max"
+     }
+    ],
+    [
+     "max",
+     "One was, wasn't one."
+    ],
+    [
+     "celia",
+     "Max, eat your salmon.",
+     {
+      "to": "max"
+     }
+    ],
+    [
+     "max",
+     "I'm eating, darling. I'm just savouring Rupert's war. It's the best thing on the menu.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "edith",
+     "Inspector, were you ever in the army?",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "The Military Police, Missus Vane. Nineteen fifty three. I arrested a great many heroes.",
+     {
+      "to": "edith"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 356.0,
+   "lines": [
+    [
+     "edith",
+     "Max, what's in Monday's column? You've been grinning like a cat all evening.",
+     {
+      "to": "max"
+     }
+    ],
+    [
+     "max",
+     "Monday. Monday, The Harrow Report will tell London about a war hero who was never at the war.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "max",
+     "A chest full of medals, bought at an auction in Brighton. Three pounds, the lot."
+    ],
+    [
+     "nancy",
+     "Who?"
+    ],
+    [
+     "max",
+     "Somebody very well known. Somebody who dines out on it. Every night of the week."
+    ],
+    [
+     "locke",
+     "That's half the men at my club.",
+     {
+      "to": "max"
+     }
+    ],
+    [
+     "celia",
+     "Max, that's cruel. Those men were proud of something.",
+     {
+      "to": "max"
+     }
+    ],
+    [
+     "max",
+     "Proud of something they didn't do, darling. That's what makes it a story."
+    ],
+    [
+     "rupert",
+     "You'll get sued, Max.",
+     {
+      "to": "max"
+     }
+    ],
+    [
+     "max",
+     "Not by this one, Rupert. This one wouldn't dare stand up in a court."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "hobbs",
+     "More wine, my lady?",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "celia",
+     "A drop, Hobbs. A big drop."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "nancy",
+     "Inspector, do you miss it? The Yard?",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "I miss the poisoners, Nancy. They were the only clever ones.",
+     {
+      "to": "nancy"
+     }
+    ],
+    [
+     "celia",
+     "He solved the Brixton poisonings. The vicar.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "locke",
+     "Every poisoner I ever caught had one habit, Celia. They always insisted on pouring.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "rupert",
+     "Then I must be a terrible suspect, Locke. I pour everything in this house.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "celia",
+     "He does. Ten years, and Hobbs has never once poured the good stuff.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "hobbs",
+     "I am permitted the sherry, my lady. On Tuesdays."
+    ],
+    [
+     "edith",
+     "Tell them about the vicar, Inspector. It was in the communion wine, wasn't it?",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "In the flask he carried for the sick. He visited eleven parishioners. Six of them left him money.",
+     {
+      "to": "edith"
+     }
+    ],
+    [
+     "locke",
+     "It was very efficient, Nancy. Murder usually is. It's getting away with it that takes imagination.",
+     {
+      "to": "nancy"
+     }
+    ],
+    [
+     "celia",
+     "Max, the soup is coming. Behave.",
+     {
+      "to": "max"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 482.0,
+   "lines": [
+    [
+     "hobbs",
+     "The soup is served, my lord.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "rupert",
+     "Thank you, Hobbs."
+    ],
+    [
+     "max",
+     "Celia, you're wearing the green. I always liked you in the green.",
+     {
+      "to": "celia",
+      "q": 1
+     }
+    ],
+    [
+     "celia",
+     "Not now, Max.",
+     {
+      "to": "max",
+      "q": 1
+     }
+    ],
+    [
+     "edith",
+     "Max, you're very attentive to Celia tonight.",
+     {
+      "to": "max"
+     }
+    ],
+    [
+     "max",
+     "I'm attentive to everyone, Edith. It's my job.",
+     {
+      "to": "edith"
+     }
+    ],
+    [
+     "rupert",
+     "Your job is selling other people's secrets, Max.",
+     {
+      "to": "max"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "locke",
+     "How are things at the hospital, Nancy?",
+     {
+      "to": "nancy"
+     }
+    ],
+    [
+     "nancy",
+     "Busy. I'm on call tonight, so if anyone collapses, aim for me.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "rupert",
+     "Nancy carries a whole pharmacy in that bag of hers.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "nancy",
+     "Somebody has to. Uncle Rupert's heart pills, Aunt Celia's sleeping pills, Edith's everything pills."
+    ],
+    [
+     "edith",
+     "They're vitamins, Nancy."
+    ],
+    [
+     "nancy",
+     "They're not vitamins, Edith."
+    ],
+    [
+     "pause",
+     4.0
+    ],
+    [
+     "nancy",
+     "Oh, my bag. I left it out on the terrace. Excuse me, I'm on call.",
+     {
+      "to": "celia",
+      "do": "up:nancy"
+     }
+    ],
+    [
+     "celia",
+     "Take your time, darling."
+    ],
+    [
+     "pause",
+     2.0
+    ],
+    [
+     "max",
+     "Rupert, the soup is excellent. Is it the same cook?",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "rupert",
+     "The same cook for twenty years. She hates you, Max."
+    ],
+    [
+     "max",
+     "Everybody's cook hates me. I write about their dinners."
+    ],
+    [
+     "edith",
+     "You wrote that my fish pie tasted of regret.",
+     {
+      "to": "max"
+     }
+    ],
+    [
+     "max",
+     "It did, Edith. It tasted of years of it."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "locke",
+     "Celia, the flowers are lovely. From the country?",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "celia",
+     "From the florist on the corner, Inspector. The country only grows wasps."
+    ],
+    [
+     "rupert",
+     "And Jenkins.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "celia",
+     "And Jenkins. Who is mostly a wasp."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "nancy",
+     "Sorry. All quiet at the hospital. Nobody's dying yet.",
+     {
+      "to": "all",
+      "do": "back:nancy"
+     }
+    ],
+    [
+     "max",
+     "The night is young.",
+     {
+      "to": "nancy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "edith",
+     "Nancy, are you still set on Canada?",
+     {
+      "to": "nancy"
+     }
+    ],
+    [
+     "nancy",
+     "Toronto. In the spring. If I can find the fare.",
+     {
+      "to": "edith"
+     }
+    ],
+    [
+     "rupert",
+     "I said I'd pay your fare, Nancy.",
+     {
+      "to": "nancy"
+     }
+    ],
+    [
+     "nancy",
+     "After Monday, you said.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "rupert",
+     "After Monday, everything.",
+     {
+      "to": "nancy",
+      "q": 1
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "locke",
+     "Rupert, I saw Brigadier Fenwick at the club. He says he doesn't remember you at Arnhem.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "rupert",
+     "Fenwick doesn't remember his own wife, Locke.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "max",
+     "Fenwick remembers everything. I had lunch with him on Tuesday.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "rupert",
+     "You had lunch with Fenwick. Of course you did.",
+     {
+      "to": "max"
+     }
+    ],
+    [
+     "max",
+     "He paid, Rupert. That's how I knew he was serious.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "locke",
+     "What did the Brigadier have to say?",
+     {
+      "to": "max"
+     }
+    ],
+    [
+     "max",
+     "That the young men at the bridge were very brave. And that not one of them was called Ashcombe.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "rupert",
+     "Fenwick was shot in the head in nineteen forty four. He's been forgetting things ever since.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "edith",
+     "Rupert! The poor man.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "rupert",
+     "He'd say it himself, Edith. He says it every November."
+    ],
+    [
+     "celia",
+     "Rupert, you're shouting. The neighbours will think it's a party.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "rupert",
+     "It is a party, darling. It's our anniversary. I'm entitled to shout.",
+     {
+      "to": "celia"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 700.0,
+   "lines": [
+    [
+     "edith",
+     "Hobbs is very quiet tonight. Is he well?",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "rupert",
+     "Hobbs is always quiet. It's why I pay him."
+    ],
+    [
+     "max",
+     "Hobbs hears everything, don't you, Hobbs?",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "celia",
+     "Leave Hobbs alone, Max.",
+     {
+      "to": "max"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "locke",
+     "Max, you've been at Rupert's table, what, five years?",
+     {
+      "to": "max"
+     }
+    ],
+    [
+     "max",
+     "Six. Rupert feeds me and I keep his name out of the paper. It's a very English arrangement.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "rupert",
+     "It's a very expensive arrangement.",
+     {
+      "to": "max"
+     }
+    ],
+    [
+     "max",
+     "The wine is the expensive part, Rupert. My silence is a bargain."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "max",
+     "Nancy, does Rupert really take heart pills?",
+     {
+      "to": "nancy"
+     }
+    ],
+    [
+     "nancy",
+     "Digitalis. One drop in water, every night. Doctor's orders.",
+     {
+      "to": "max"
+     }
+    ],
+    [
+     "rupert",
+     "I'm sixty eight, Max. My heart is an antique. Like the furniture.",
+     {
+      "to": "max"
+     }
+    ],
+    [
+     "max",
+     "The furniture is from Harrods, Rupert. I checked."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "locke",
+     "Where are you going this winter, Celia?",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "celia",
+     "Rupert wants Scotland. I want Monte Carlo. We'll go to Scotland."
+    ],
+    [
+     "rupert",
+     "Monte Carlo is full of people like Max.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "max",
+     "That's why it's so lovely, Rupert."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "edith",
+     "Max goes to Monte Carlo every winter. Don't you, Max?",
+     {
+      "to": "max"
+     }
+    ],
+    [
+     "max",
+     "Every winter. This winter I may not go alone.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "celia",
+     "Edith, you're very quiet.",
+     {
+      "to": "edith"
+     }
+    ],
+    [
+     "edith",
+     "I'm watching, Celia. Novelists watch. It's cheaper than going out.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "celia",
+     "Locke, will you come to Ashcombe at Christmas? Rupert wants to shoot something.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "As long as it isn't me, Celia.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "rupert",
+     "Pheasant, Locke. Only pheasant. I've never shot anything that could shoot back.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "max",
+     "Now there's a quote for Monday.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "celia",
+     "Max, you collect quotes the way other men collect stamps.",
+     {
+      "to": "max"
+     }
+    ],
+    [
+     "max",
+     "Stamps don't pay, darling. Quotes do.",
+     {
+      "to": "celia"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 829.0,
+   "lines": [
+    [
+     "hobbs",
+     "The sole, my lord.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "rupert",
+     "Hobbs, leave the wine. I'll fetch the twenty eight up myself.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "celia",
+     "Rupert, let Hobbs go. You'll miss the fish."
+    ],
+    [
+     "rupert",
+     "Nobody touches the twenty eight but me, Celia. Ten years tonight. It deserves the right hands.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "pause",
+     4.0
+    ],
+    [
+     "locke",
+     "This is a good sole.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "celia",
+     "Rupert chose the whole menu himself this year. Even the claret at the sorbet. I've never known him so interested.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "edith",
+     "Max, how did you find out about the medals? Your war hero.",
+     {
+      "to": "max"
+     }
+    ],
+    [
+     "max",
+     "A man in a pub in Brighton, Edith. He sold them. He remembered the buyer. Men always remember a buyer who pays cash.",
+     {
+      "to": "edith"
+     }
+    ],
+    [
+     "edith",
+     "And the buyer was somebody we know."
+    ],
+    [
+     "max",
+     "Monday, Edith. Patience."
+    ],
+    [
+     "celia",
+     "Rupert's father was the same about wine. He slept in the cellar all through the Blitz.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "A sensible man. Cellars are very safe places.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "rupert",
+     "The safest place in London, Locke. Nobody goes down there but me.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "nancy",
+     "And Hobbs.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "rupert",
+     "Hobbs carries the bottles up, Nancy. He doesn't choose them.",
+     {
+      "to": "nancy"
+     }
+    ],
+    [
+     "rupert",
+     "Excuse me, all of you. I won't be long.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "edith",
+     "He's very particular about that wine.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "celia",
+     "He's very particular about everything that's his.",
+     {
+      "to": "edith",
+      "do": "up:rupert"
+     }
+    ],
+    [
+     "max",
+     "Including you, darling.",
+     {
+      "to": "celia",
+      "q": 1
+     }
+    ],
+    [
+     "celia",
+     "Eat your fish, Max.",
+     {
+      "to": "max",
+      "q": 1
+     }
+    ],
+    [
+     "pause",
+     4.0
+    ],
+    [
+     "nancy",
+     "Uncle Rupert's taking a long time with that wine.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "celia",
+     "The cellar is a long way down, and he stops to talk to every bottle."
+    ],
+    [
+     "pause",
+     4.0
+    ],
+    [
+     "rupert",
+     "There. The twenty eight. Decanted, and breathing. Hobbs will pour it at the sorbet.",
+     {
+      "to": "all",
+      "do": "back:rupert"
+     }
+    ],
+    [
+     "edith",
+     "At the sorbet? Isn't that unusual?",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "rupert",
+     "It's my anniversary, Edith. I'll drink claret with my custard if I want to.",
+     {
+      "do": "seconds:edith"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "locke",
+     "Rupert, you'll have to tell me about this twenty eight. I know nothing about wine.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "rupert",
+     "Nineteen twenty eight. A great year in Bordeaux. My father laid down two cases, and there are four bottles left."
+    ],
+    [
+     "max",
+     "Three, now.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "rupert",
+     "Three, now."
+    ],
+    [
+     "edith",
+     "Four bottles left, and you're opening one for Max. You must be very fond of him.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "rupert",
+     "I'm fond of everybody tonight, Edith. It's my anniversary.",
+     {
+      "to": "edith"
+     }
+    ],
+    [
+     "max",
+     "He's never been fond of me in his life, Inspector. That's what worries me.",
+     {
+      "to": "locke"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 1003.0,
+   "lines": [
+    [
+     "edith",
+     "Rupert, did you finish my proofs? You kept them a fortnight.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "rupert",
+     "I read the last chapter twice, Edith. I wanted to be sure how it was done.",
+     {
+      "to": "edith"
+     }
+    ],
+    [
+     "edith",
+     "And?"
+    ],
+    [
+     "rupert",
+     "It was obvious. I told you."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "locke",
+     "Nancy, the hospital must keep a great deal of poison about.",
+     {
+      "to": "nancy"
+     }
+    ],
+    [
+     "nancy",
+     "Locked away, Inspector. Everything is signed for. Every drop.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "Unlike a chemist in the country.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "rupert",
+     "Jenkins signs for ours.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "max",
+     "Ten years, Rupert. What's the secret?",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "rupert",
+     "Separate bedrooms and a good butler.",
+     {
+      "to": "max"
+     }
+    ],
+    [
+     "celia",
+     "He's joking.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "rupert",
+     "I'm not joking, darling. Hobbs is a very good butler."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "edith",
+     "Inspector, what was your strangest case?",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "A man in Putney who poisoned his wife with her own marmalade. Took him eleven years.",
+     {
+      "to": "edith"
+     }
+    ],
+    [
+     "nancy",
+     "Eleven years?"
+    ],
+    [
+     "locke",
+     "A spoonful at a time. She said it tasted a little sharp. She was very fond of marmalade."
+    ],
+    [
+     "edith",
+     "Oh, I'm stealing that.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "Everybody does."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "max",
+     "Celia. The terrace, after dinner. I need some air.",
+     {
+      "to": "celia",
+      "q": 1
+     }
+    ],
+    [
+     "celia",
+     "Monday, Max. We said Monday.",
+     {
+      "to": "max",
+      "q": 1
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "rupert",
+     "What are you two whispering about?",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "celia",
+     "The flowers, darling.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "rupert",
+     "Of course. The flowers.",
+     {
+      "to": "max"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "locke",
+     "Our friends in the middle are very quiet. Are you enjoying yourselves?",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "edith",
+     "They're listening, Inspector. Clever people listen.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "max",
+     "And on Monday, clever people read.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "edith",
+     "Celia, you've had your hair done. For anyone special?",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "celia",
+     "For my anniversary, Edith.",
+     {
+      "to": "edith"
+     }
+    ],
+    [
+     "max",
+     "For Monday.",
+     {
+      "to": "celia",
+      "q": 1
+     }
+    ],
+    [
+     "nancy",
+     "Is that the sorbet coming? I can hear spoons.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "rupert",
+     "Hobbs can hear a spoon from three floors away."
+    ],
+    [
+     "locke",
+     "My old sergeant used to say, watch the man who's quiet at his own party.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "edith",
+     "Rupert's never quiet.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "No. He's talked about the war all evening.",
+     {
+      "to": "edith"
+     }
+    ],
+    [
+     "rupert",
+     "People ask, Locke. A man can't help being asked.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "celia",
+     "Nobody asked tonight, darling. You told them anyway.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "nancy",
+     "Uncle Rupert's medals are in a glass case in the hall. You walked past them on the way in.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "I noticed them, Nancy. They're very clean.",
+     {
+      "to": "nancy"
+     }
+    ],
+    [
+     "max",
+     "Never been worn, you see. Not by him, anyway.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "rupert",
+     "That's enough, Max.",
+     {
+      "to": "max"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 1203.0,
+   "lines": [
+    [
+     "hobbs",
+     "The sorbet, my lady. Lemon.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "celia",
+     "Thank you, Hobbs."
+    ],
+    [
+     "edith",
+     "Lemon sorbet. To clean the palate before the beef. Very proper.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "nancy",
+     "It's lovely. Like eating a cloud."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "celia",
+     "Rupert, you're not eating your sorbet.",
+     {
+      "to": "rupert",
+      "do": "write:max"
+     }
+    ],
+    [
+     "rupert",
+     "I'm saving myself for the toast, darling.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "nancy",
+     "Max, what are you writing in that little book?",
+     {
+      "to": "max"
+     }
+    ],
+    [
+     "max",
+     "Notes, Nancy. Monday doesn't write itself.",
+     {
+      "to": "nancy"
+     }
+    ],
+    [
+     "rupert",
+     "Put it away, Max. Not at my table.",
+     {
+      "to": "max"
+     }
+    ],
+    [
+     "max",
+     "As you like, Rupert. It's all up here anyway.",
+     {
+      "to": "rupert",
+      "do": "pocket:max"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "rupert",
+     "Hobbs, the twenty eight, please.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "rupert",
+     "Glasses up, everybody. The twenty eight. To Max, and to Monday.",
+     {
+      "to": "max",
+      "do": "toast"
+     }
+    ],
+    [
+     "max",
+     "To Monday.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "edith",
+     "To Monday."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "max",
+     "Rupert. That's not the twenty eight. That's... it's bitter... my throat...",
+     {
+      "to": "rupert",
+      "ev": "gasp",
+      "do": "die:max"
+     }
+    ],
+    [
+     "celia",
+     "Max? Max!",
+     {
+      "to": "max"
+     }
+    ],
+    [
+     "nancy",
+     "Let me through, I'm a nurse!",
+     {
+      "to": "max",
+      "do": "stand:nancy"
+     }
+    ],
+    [
+     "locke",
+     "Sit down, Nancy. Nobody move. Let me see him.",
+     {
+      "to": "max",
+      "do": [
+       "go:locke",
+       "sit:nancy"
+      ]
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "locke",
+     "No pulse.",
+     {
+      "to": "max",
+      "q": 1
+     }
+    ],
+    [
+     "pause",
+     2.0
+    ],
+    [
+     "locke",
+     "He's dead.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "celia",
+     "He can't be. He was talking. He was just talking.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "Bitter almonds. On his lips, and in his glass. Cyanide.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "edith",
+     "Cyanide. Oh, my word.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "Nobody touches that glass. And nobody leaves this table.",
+     {
+      "to": "all",
+      "do": "home:locke"
+     }
+    ],
+    [
+     "rupert",
+     "Locke, you can't seriously think that one of us...",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "I think one of you, Rupert. Very seriously.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "nancy",
+     "Inspector, his eyes. Shouldn't somebody close his eyes?",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "Leave him exactly as he is, Nancy. He's the only one of us who can't lie.",
+     {
+      "to": "nancy"
+     }
+    ],
+    [
+     "edith",
+     "Celia, darling. Breathe. Just breathe.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "celia",
+     "He was laughing, Edith. A minute ago he was laughing at Rupert.",
+     {
+      "to": "edith"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 1350.0,
+   "lines": [
+    [
+     "celia",
+     "Shouldn't somebody telephone?",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "I'll telephone when I know who to tell them to collect.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "edith",
+     "We can't just sit here with him.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "We can, Missus Vane. We will. Everybody stays exactly where they were when he drank."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "locke",
+     "You two, in the middle. You've been sitting there all evening with your ears open. Keep them open.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "locke",
+     "There's a board at the end of the table. Put your pin on whoever you think did this, and move it as often as these people change their stories.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "locke",
+     "When the pudding comes, the board closes.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "rupert",
+     "This is absurd. A parlour game, with Max lying there.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "Max would have loved it, Rupert. He'd have written it up."
+    ],
+    [
+     "pause",
+     4.0
+    ],
+    [
+     "nancy",
+     "He said the sorbet tasted bitter. No. He said the wine.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "He said that's not the twenty eight. Remember that, all of you.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "edith",
+     "My captain says something very like that. In my book. Before he dies.",
+     {
+      "to": "locke",
+      "q": 1
+     }
+    ],
+    [
+     "locke",
+     "We'll come to your book, Missus Vane.",
+     {
+      "to": "edith"
+     }
+    ],
+    [
+     "rupert",
+     "Locke, I must protest. My guests are not suspects. They're my guests.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "Your guest is on the floor, Rupert. The rest of you are suspects.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "nancy",
+     "I've never been a suspect before.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "edith",
+     "It's very bracing, Nancy. I've been one twice. Both times for a review.",
+     {
+      "to": "nancy"
+     }
+    ],
+    [
+     "celia",
+     "Locke, you've known all of us for years. You can't think it's one of us.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "I've known a great many murderers for years, Celia. Usually longer than they knew I knew.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "celia",
+     "I can't eat. I can't possibly eat."
+    ]
+   ]
+  },
+  {
+   "at": 1474.0,
+   "lines": [
+    [
+     "hobbs",
+     "Shall I hold the beef, sir?",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "No, Hobbs. Serve the beef. People talk more when they're eating.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "hobbs",
+     "Very good, sir. And for Mister Harrow?"
+    ],
+    [
+     "rupert",
+     "Serve him too, Hobbs. He'd have hated to miss the beef.",
+     {
+      "to": "max"
+     }
+    ],
+    [
+     "celia",
+     "Rupert!",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "rupert",
+     "Well, he would."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "edith",
+     "Horseradish, please, Hobbs. Lots. It's been a trying evening."
+    ]
+   ]
+  },
+  {
+   "at": 1500.0,
+   "lines": [
+    [
+     "locke",
+     "Nancy. You left the table during the soup.",
+     {
+      "to": "nancy"
+     }
+    ],
+    [
+     "nancy",
+     "To fetch my bag from the terrace. I'm on call.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "And was everything in your bag?"
+    ],
+    [
+     "pause",
+     2.0
+    ],
+    [
+     "nancy",
+     "No. A vial is missing. Digitalis. I counted it twice when I came back in.",
+     {
+      "to": "locke",
+      "ev": "clue:vial"
+     }
+    ],
+    [
+     "celia",
+     "Digitalis. That's the heart medicine. That would do it, wouldn't it?",
+     {
+      "to": "nancy"
+     }
+    ],
+    [
+     "nancy",
+     "It would. Enough of it would stop a horse.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "edith",
+     "Rupert takes digitalis. Nancy brings it for him.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "rupert",
+     "One drop in water, Edith. Not a vial in the claret.",
+     {
+      "to": "edith"
+     }
+    ],
+    [
+     "nancy",
+     "And it doesn't smell of almonds, Inspector. Digitalis smells of nothing at all.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "No. It does not.",
+     {
+      "to": "nancy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "locke",
+     "Who knew the bag was on the terrace?",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "nancy",
+     "Everybody. I put it down by the champagne when we came up.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "pause",
+     2.0
+    ],
+    [
+     "locke",
+     "Nancy, did you go anywhere else while you were out? The pantry? The cellar?",
+     {
+      "to": "nancy"
+     }
+    ],
+    [
+     "nancy",
+     "No. The terrace and back. You can ask Hobbs, he saw me on the terrace.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "I will."
+    ]
+   ]
+  },
+  {
+   "at": 1600.0,
+   "lines": [
+    [
+     "locke",
+     "Hobbs. The twenty eight, at the toast. Who poured it?",
+     {
+      "to": "hobbs"
+     }
+    ],
+    [
+     "hobbs",
+     "I poured the table, sir. All but Mister Harrow's.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "And Mister Harrow's?"
+    ],
+    [
+     "hobbs",
+     "His lordship poured it himself, sir. In the pantry, during the fish. He handed me the glass and said Mister Harrow was to have the first of the bottle.",
+     {
+      "to": "locke",
+      "ev": "clue:claret"
+     }
+    ],
+    [
+     "rupert",
+     "It's the host's privilege, Hobbs. The first glass for the guest of honour.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "And you carried that glass to Max's place, Hobbs.",
+     {
+      "to": "hobbs"
+     }
+    ],
+    [
+     "hobbs",
+     "I did, sir. On the tray, by itself. Nobody else touched it.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "pause",
+     2.0
+    ],
+    [
+     "hobbs",
+     "And I found this under the coats in the hall, sir. A little brown bottle.",
+     {
+      "to": "locke",
+      "do": "show:hobbs=vial"
+     }
+    ],
+    [
+     "nancy",
+     "My digitalis! I must have dropped it on the way in.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "Is it full, Hobbs?"
+    ],
+    [
+     "hobbs",
+     "Quite full, sir."
+    ],
+    [
+     "locke",
+     "Then that's one thing that didn't kill him.",
+     {
+      "to": "nancy",
+      "do": "pocket:hobbs"
+     }
+    ],
+    [
+     "nancy",
+     "I'm sorry, Inspector. I didn't even notice it was gone until I counted.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "You counted, Nancy. That's more than most people do. Why did you count?",
+     {
+      "to": "nancy"
+     }
+    ],
+    [
+     "nancy",
+     "Habit. On the wards, if you lose a drop, you write a page.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "rupert",
+     "You see, Locke? A full bottle. A careless girl. Nothing more.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "nancy",
+     "I'm not careless, Uncle Rupert. I'm tired.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "edith",
+     "Tired and careless are the same thing after midnight, dear. Ask any publisher.",
+     {
+      "to": "nancy"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 1700.0,
+   "lines": [
+    [
+     "locke",
+     "Missus Vane. Your new book.",
+     {
+      "to": "edith"
+     }
+    ],
+    [
+     "edith",
+     "Death at the Captain's Table. Out in March. Heinemann."
+    ],
+    [
+     "locke",
+     "How does the captain die?"
+    ],
+    [
+     "pause",
+     2.0
+    ],
+    [
+     "edith",
+     "Cyanide. In his glass. During a toast. Oh dear.",
+     {
+      "to": "locke",
+      "ev": "clue:novel"
+     }
+    ],
+    [
+     "nancy",
+     "Edith!",
+     {
+      "to": "edith"
+     }
+    ],
+    [
+     "edith",
+     "But everybody at this table knows the plot! I bore people with it constantly. I bored you with it in July.",
+     {
+      "to": "nancy"
+     }
+    ],
+    [
+     "nancy",
+     "You did."
+    ],
+    [
+     "edith",
+     "And Rupert read the proofs. Rupert said the ending was obvious.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "rupert",
+     "It was obvious, Edith. The butler did it.",
+     {
+      "to": "edith"
+     }
+    ],
+    [
+     "hobbs",
+     "Not tonight, my lord. I was polishing the spoons."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "locke",
+     "Where were you during the fish, Missus Vane?",
+     {
+      "to": "edith"
+     }
+    ],
+    [
+     "edith",
+     "Here. Eating it. With both hands, in front of everybody. Ask anyone.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "nancy",
+     "She was. She had seconds.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "edith",
+     "It was very good sole."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "edith",
+     "Inspector, I write murders. I don't commit them. It would ruin the sales.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "I'm told it does the opposite, Missus Vane."
+    ],
+    [
+     "edith",
+     "And I'd never use the poison from my own book. It's terribly bad form.",
+     {
+      "to": "locke"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 1790.0,
+   "lines": [
+    [
+     "locke",
+     "Celia. When I checked Max, there were letters in his jacket.",
+     {
+      "to": "celia",
+      "do": "show:locke=letters"
+     }
+    ],
+    [
+     "locke",
+     "Monday, my darling. We'll tell him on Monday. Your hand, I think.",
+     {
+      "to": "celia",
+      "ev": "clue:letters"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "celia",
+     "Yes. All right. Yes. Max and I. Since the spring.",
+     {
+      "to": "locke",
+      "do": "pocket:locke"
+     }
+    ],
+    [
+     "rupert",
+     "Since the spring.",
+     {
+      "to": "celia",
+      "q": 1
+     }
+    ],
+    [
+     "celia",
+     "You knew, darling. You always know everything. You just never say.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "rupert",
+     "I knew about the letters, Celia. I didn't know about Monday.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "edith",
+     "Well. That's a motive. For both of you.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "celia",
+     "I loved him, Edith. You don't poison a man you're about to run away with.",
+     {
+      "to": "edith"
+     }
+    ],
+    [
+     "locke",
+     "Unless he's changed his mind, Celia.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "celia",
+     "He hadn't. He said so on the terrace. Before dinner.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "locke",
+     "You sat beside him all evening.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "celia",
+     "I sat beside our friend here, Inspector. With our friend between us. I couldn't have reached his glass without climbing over them.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "edith",
+     "That's true. I watched. I always watch Celia when Max is talking.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "celia",
+     "Thank you, Edith. I think."
+    ],
+    [
+     "locke",
+     "Rupert. You said you knew about the letters. How long?",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "rupert",
+     "Since August. Celia leaves things in her coat pockets. She always has.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "celia",
+     "And you said nothing. For two months.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "rupert",
+     "What would I say, darling? I'm sixty eight, and he made you laugh.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "nancy",
+     "Aunt Celia, were you really going to leave?",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "celia",
+     "On Tuesday. We had tickets for Nice. Max said Monday would pay for everything.",
+     {
+      "to": "nancy"
+     }
+    ],
+    [
+     "locke",
+     "Monday seems to have paid for a great deal."
+    ]
+   ]
+  },
+  {
+   "at": 1905.0,
+   "lines": [
+    [
+     "hobbs",
+     "The cheese, my lord.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "rupert",
+     "Thank you, Hobbs. At least something tonight is still civilised."
+    ],
+    [
+     "pause",
+     4.0
+    ],
+    [
+     "locke",
+     "One more thing from Max's jacket. His notebook. Monday's column.",
+     {
+      "to": "all",
+      "do": "show:locke=notebook"
+     }
+    ],
+    [
+     "locke",
+     "R.A. Never at Arnhem. Spent the war in a supply office in Aldershot. The medals were bought at auction in Brighton.",
+     {
+      "to": "all",
+      "ev": "clue:notebook"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "celia",
+     "R.A.",
+     {
+      "to": "rupert",
+      "q": 1,
+      "do": "pocket:locke"
+     }
+    ],
+    [
+     "nancy",
+     "Rupert Ashcombe.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "rupert",
+     "Or Ronald Archer. Or Roger Ames. Half my club are R.A., Locke.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "Your club is a very decorated place, Rupert.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "edith",
+     "The blossom, Rupert. You said the blossom was out on the trees at Arnhem.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "rupert",
+     "One misremembers, Edith. It was forty years ago."
+    ],
+    [
+     "locke",
+     "Forty years is a long time to remember a battle you weren't at.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "rupert",
+     "I've known you thirty years, Locke. You think I would poison a man at my own table, on my own anniversary?",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "I think somebody did.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "celia",
+     "Rupert went down to the cellar during the fish.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "rupert",
+     "For the claret! Which you all drank!",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "edith",
+     "We drank ours, Rupert. Max drank his.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "nancy",
+     "But where would anybody get cyanide? In London?",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "celia",
+     "Ashcombe. The wasps. Jenkins puts it down every August.",
+     {
+      "to": "nancy"
+     }
+    ],
+    [
+     "rupert",
+     "Jenkins has the key to the shed, not me.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "celia",
+     "There's a key on your watch chain, darling. There always has been.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "edith",
+     "This is a very good Stilton. I don't know how I can taste it, but I can.",
+     {
+      "to": "nancy"
+     }
+    ],
+    [
+     "nancy",
+     "Grief makes some people hungry, Edith. We see it on the wards.",
+     {
+      "to": "edith"
+     }
+    ],
+    [
+     "edith",
+     "Then I must be grieving terribly."
+    ],
+    [
+     "locke",
+     "Hobbs. When his lordship came up from the cellar, which way did he come?",
+     {
+      "to": "hobbs"
+     }
+    ],
+    [
+     "hobbs",
+     "By the pantry, sir. Up the back stairs, the way the bottles come.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "And was he alone in the pantry?",
+     {
+      "to": "hobbs"
+     }
+    ],
+    [
+     "hobbs",
+     "Quite alone, sir. He sent me up to the table ahead of him.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "celia",
+     "He kept us waiting twenty minutes.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "edith",
+     "Twenty two. I timed him. I time everything. It's how I plot.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "Twenty two minutes to bring up one bottle.",
+     {
+      "to": "edith"
+     }
+    ],
+    [
+     "rupert",
+     "And a decanter, Locke. And I had to find the funnel.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "nancy",
+     "You said you'd decanted it. You said it was breathing.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "rupert",
+     "It was breathing, Nancy. Somebody in this room should be.",
+     {
+      "to": "nancy"
+     }
+    ],
+    [
+     "edith",
+     "Inspector, I've just realised. I'll have to rewrite my ending. Everyone at this table knows it now.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "Change the poison, Missus Vane. Nobody ever checks.",
+     {
+      "to": "edith"
+     }
+    ]
+   ]
+  },
+  {
+   "at": 2100.0,
+   "lines": [
+    [
+     "locke",
+     "Ladies and gentlemen.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "locke",
+     "A wife with a lover. A niece with a missing bottle. A novelist with a plot. A butler with a glass. And a host with a war he never fought.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "hobbs",
+     "I didn't fight it either, sir."
+    ],
+    [
+     "locke",
+     "No, Hobbs. But you never said you did.",
+     {
+      "to": "hobbs"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "locke",
+     "You two in the middle. The board. You have until the pudding.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "pause",
+     4.0
+    ],
+    [
+     "celia",
+     "Rupert. Look at me. Did you?",
+     {
+      "to": "rupert",
+      "q": 1
+     }
+    ],
+    [
+     "rupert",
+     "Eat your cheese, Celia.",
+     {
+      "to": "celia",
+      "q": 1
+     }
+    ],
+    [
+     "pause",
+     4.0
+    ],
+    [
+     "nancy",
+     "I want to go home.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "celia",
+     "So do I, darling. So do I.",
+     {
+      "to": "nancy"
+     }
+    ],
+    [
+     "pause",
+     4.0
+    ],
+    [
+     "edith",
+     "When the pudding comes, I'm going to have a very large glass of something. Not the twenty eight.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "Very wise, Missus Vane."
+    ],
+    [
+     "pause",
+     4.0
+    ],
+    [
+     "rupert",
+     "Inspector, this is my house. You can't keep us at this table all night.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "Only until the pudding, Rupert. Then you can all go wherever I tell you.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "celia",
+     "Max would have loved this. All of us, frightened of a pudding.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "nancy",
+     "Don't, Aunt Celia.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "edith",
+     "In my books the detective always waits for the last course. It's very cruel.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "It's very effective, Missus Vane. Nobody ever leaves before the pudding.",
+     {
+      "to": "edith"
+     }
+    ],
+    [
+     "celia",
+     "Locke, if it was Rupert. What happens to him?",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "The same as anybody, Celia. A cell, a judge, and a great many reporters. Max would have hated to miss it.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "edith",
+     "There'll be a trial? I've always wanted to attend a trial. Properly. With a sandwich.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "nancy",
+     "Edith, how can you?",
+     {
+      "to": "edith"
+     }
+    ],
+    [
+     "edith",
+     "Because if I stop talking, dear, I'll start crying. And I never cry before the pudding.",
+     {
+      "to": "nancy"
+     }
+    ],
+    [
+     "rupert",
+     "You haven't said it was me, Locke.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "No, Rupert. I haven't said anything yet.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "hobbs",
+     "The pudding is coming up now, sir.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "Thank you, Hobbs."
+    ]
+   ]
+  },
+  {
+   "at": 2257.0,
+   "lines": [
+    [
+     "hobbs",
+     "The pudding, my lord. Chocolate torte.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "locke",
+     "Pudding. Pins down, please. The board is closed.",
+     {
+      "to": "mid",
+      "ev": "lock"
+     }
+    ],
+    [
+     "pause",
+     4.0
+    ],
+    [
+     "locke",
+     "Max was not poisoned at this table. I watched him all evening. Nobody reached across him. Not even Celia.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "locke",
+     "The claret was poured for the table from one decanter, and we all drank it, and we are all still here. So it was in one glass.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "locke",
+     "Nancy's digitalis is full. Missus Vane never left her fish. Hobbs carried a glass that somebody else poured.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "locke",
+     "And Celia had every reason to keep Max alive until Monday.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "locke",
+     "But somebody went down alone during the fish, and poured one glass himself, in the pantry. Somebody with cyanide in a shed and the key on his watch chain. Somebody who remembers blossom at a battle in September.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "locke",
+     "Poisoners always insist on pouring.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "pause",
+     2.0
+    ],
+    [
+     "locke",
+     "Lord Rupert Ashcombe.",
+     {
+      "to": "rupert",
+      "ev": "reveal"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "rupert",
+     "Forty years, Locke.",
+     {
+      "to": "locke",
+      "do": "stand:rupert"
+     }
+    ],
+    [
+     "rupert",
+     "Forty years of being a hero at dinner. Forty years of the bridge, and the blossom, and the noise. They believed every word.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "rupert",
+     "And on Monday, a man I had fed at this table for six years was going to sell me to the newspapers for a paragraph. And run off with my wife on the money.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "celia",
+     "Rupert.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "rupert",
+     "I took Edith's ending, Edith. You were right. It wasn't obvious at all.",
+     {
+      "to": "edith",
+      "do": "sit:rupert"
+     }
+    ],
+    [
+     "pause",
+     2.0
+    ],
+    [
+     "locke",
+     "Rupert Ashcombe, I am arresting you for the murder of Max Harrow.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "rupert",
+     "Let me pay Hobbs first, Locke. He's owed for March.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "pause",
+     2.0
+    ],
+    [
+     "locke",
+     "Then pay Hobbs.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "hobbs",
+     "Thank you, my lord.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "locke",
+     "And then telephone the station, Hobbs. Ask for Inspector Dawes. Tell him Locke has one for him.",
+     {
+      "to": "hobbs",
+      "do": "up:hobbs"
+     }
+    ],
+    [
+     "hobbs",
+     "At once, sir."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "celia",
+     "Rupert. Look at me.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "rupert",
+     "I can't, darling. Not tonight.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "celia",
+     "Ten years. Ten years, and I never knew if a single thing you told me was true.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "rupert",
+     "The cellar was true, Celia. And the view. And you. You were always true.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "celia",
+     "Don't."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "nancy",
+     "You held my hand at Mummy's funeral. You told me about the bridge. You said being brave was just being frightened for a bit longer than everyone else.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "rupert",
+     "That was true too, Nancy. I just wasn't the one who said it first. A man called Fenwick said it to me in nineteen forty four. In Aldershot.",
+     {
+      "to": "nancy"
+     }
+    ],
+    [
+     "nancy",
+     "I don't want to know any more."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "edith",
+     "I gave him the idea. My ending. He read it in my proofs and he did it.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "He'd have done it with a carving knife if you'd written a carving knife, Missus Vane. You gave him a recipe. He brought the appetite.",
+     {
+      "to": "edith"
+     }
+    ],
+    [
+     "edith",
+     "That's very kind, Inspector. It's also very good. May I use it?",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "Everybody does."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "rupert",
+     "Locke. I'd like to wait somewhere else. Not across the table from him.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "The library, Rupert. Hobbs will lock the door when he's back. You know the way.",
+     {
+      "to": "rupert"
+     }
+    ],
+    [
+     "rupert",
+     "I know the way. I'm not going to run, Locke. Where would I run? Every man at my club knows my face.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "rupert",
+     "Goodnight, Celia. Happy anniversary.",
+     {
+      "to": "celia",
+      "do": "out:rupert"
+     }
+    ],
+    [
+     "celia",
+     "Goodnight, Rupert."
+    ],
+    [
+     "pause",
+     4.0
+    ],
+    [
+     "edith",
+     "Oh, Celia.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "celia",
+     "Don't be kind to me, Edith. I'll fall to pieces, and there's still the torte.",
+     {
+      "to": "edith"
+     }
+    ],
+    [
+     "edith",
+     "Then I shall be beastly. You look dreadful in green.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "celia",
+     "Thank you, Edith. That's much better.",
+     {
+      "to": "edith"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "nancy",
+     "Inspector, when did you know?",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "When he said blossom, Nancy. Nobody who was at Arnhem talks about the blossom. They talk about the noise, and they don't talk about it at dinner.",
+     {
+      "to": "nancy"
+     }
+    ],
+    [
+     "nancy",
+     "And Max knew.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "Max always knew. Knowing was his job. Being careful wasn't.",
+     {
+      "to": "nancy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "hobbs",
+     "Inspector Dawes is on his way, sir. Ten minutes. He asked me to say thank you, and to say that it's your round.",
+     {
+      "to": "locke",
+      "do": "back:hobbs"
+     }
+    ],
+    [
+     "locke",
+     "Thank you, Hobbs. Lock the library door, would you? His lordship is waiting in there.",
+     {
+      "to": "hobbs"
+     }
+    ],
+    [
+     "hobbs",
+     "Very good, sir. He asked for a brandy on the way past. I took the liberty of giving him the twenty eight."
+    ],
+    [
+     "celia",
+     "The real twenty eight, Hobbs?",
+     {
+      "to": "hobbs"
+     }
+    ],
+    [
+     "hobbs",
+     "The last bottle of it, my lady. I thought he ought to have it before the police did.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "celia",
+     "Yes. Yes, he ought."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "edith",
+     "Inspector, our two friends in the middle. They've been very good. They haven't said a word all night.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "They didn't need to, Missus Vane. They were watching. Some of them had their pins on him before the beef.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "edith",
+     "Clever people listen. I said so at the sole.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "nancy",
+     "I had mine on Edith. I'm so sorry, Edith.",
+     {
+      "to": "mid"
+     }
+    ],
+    [
+     "edith",
+     "Don't be, dear. I'd have had mine on me too. I'm very suspicious.",
+     {
+      "to": "nancy"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "celia",
+     "What do I tell people, Locke? Tomorrow. At the club, at church. In the papers.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "Tell them the truth, Celia. It'll be in the papers either way, and the truth is better written.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "celia",
+     "Max would have written it.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "Max would have written it on Monday. And it would have been very good, and very unkind.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "celia",
+     "It would. He'd have called me the green widow."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "nancy",
+     "Aunt Celia, come and stay with me. I've got a sofa, and a kettle, and nobody ever comes round.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "celia",
+     "That's the nicest thing anybody's said to me all night, darling.",
+     {
+      "to": "nancy"
+     }
+    ],
+    [
+     "nancy",
+     "You can have the sofa. I'm never home anyway. I'm always on call.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "edith",
+     "What happens to Max now?",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "He stays exactly where he is until Dawes has seen him. Then they'll take him down in the lift. Quietly.",
+     {
+      "to": "edith"
+     }
+    ],
+    [
+     "edith",
+     "He'd hate quietly. He'd want a band.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "He can have one at the funeral, Missus Vane. I'll see to it.",
+     {
+      "to": "edith"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "hobbs",
+     "Will you take the torte, my lady? Cook made it for the anniversary.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "celia",
+     "Leave it, Hobbs. I'll have it in the morning, for breakfast, in bed, and I'll cry into it.",
+     {
+      "to": "hobbs"
+     }
+    ],
+    [
+     "hobbs",
+     "Very good, my lady."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "nancy",
+     "Inspector, Max's notebook. What will happen to it?",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "Evidence, Nancy. Every page of it. Half of London will be very glad it's locked up.",
+     {
+      "to": "nancy"
+     }
+    ],
+    [
+     "edith",
+     "And the other half will be furious they weren't in it.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "celia",
+     "Locke. Thank you. I don't think I could have borne it if it had been somebody I liked.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "I know, Celia. That's why I watched him all evening and not you.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "edith",
+     "Inspector, will you write this one up? For the memoirs?",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "Chapter four, Missus Vane. The claret. I think it'll be shorter than the vicar.",
+     {
+      "to": "edith"
+     }
+    ],
+    [
+     "edith",
+     "Make me cleverer than I was. Everybody else will.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "You were clever enough. You timed him. Twenty two minutes. It'll be in the evidence.",
+     {
+      "to": "edith"
+     }
+    ],
+    [
+     "edith",
+     "Then I've been useful. How mortifying."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "nancy",
+     "Aunt Celia, Toronto. Max said he'd lend me the fare on Monday. I suppose that's gone too.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "celia",
+     "Nothing's gone, darling. Max left his money to me, and I'm going to spend it on you. He'd have liked that. It would have annoyed Rupert terribly.",
+     {
+      "to": "nancy"
+     }
+    ],
+    [
+     "nancy",
+     "Thank you. I'll send you blossom. Real blossom, in the spring.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "celia",
+     "Send me a postcard, Nancy. I've had enough blossom for one lifetime."
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "hobbs",
+     "The police are in the lift, sir. I'll go down and meet them, if I may.",
+     {
+      "to": "locke",
+      "do": "out:hobbs"
+     }
+    ],
+    [
+     "locke",
+     "Do, Hobbs. And thank you. You were very good tonight.",
+     {
+      "to": "hobbs"
+     }
+    ],
+    [
+     "hobbs",
+     "Ten years, sir. I'm owed a pound by Missus Vane on the marriage. I don't suppose I'll collect it now.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "edith",
+     "You'll collect it, Hobbs. With interest. It lasted the ten years. It just didn't last the eleventh.",
+     {
+      "to": "hobbs"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "nancy",
+     "Inspector, will you be all right? Going home tonight? On your own?",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "I've a cat called Sergeant, Nancy, and a bottle of something that isn't the twenty eight. We'll manage.",
+     {
+      "to": "nancy"
+     }
+    ],
+    [
+     "celia",
+     "Come to us for Christmas, Locke. You and Sergeant. Me and Nancy.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "locke",
+     "Ashcombe, Celia?",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "celia",
+     "Monte Carlo, Locke. I've had enough of Scotland. I've had enough of everything Rupert wanted.",
+     {
+      "to": "locke"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "nancy",
+     "Aunt Celia, the flat. Will you keep it?",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "celia",
+     "The view, darling. I'll keep the view. Rupert always said it cost more than the furniture. He was right about one thing.",
+     {
+      "to": "nancy"
+     }
+    ],
+    [
+     "edith",
+     "And I'll still be downstairs. Reading in the bath. Every Monday.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "celia",
+     "There won't be a column on Monday, Edith.",
+     {
+      "to": "edith"
+     }
+    ],
+    [
+     "edith",
+     "Then I'll read the old ones. Out loud. He'd like that.",
+     {
+      "to": "celia"
+     }
+    ],
+    [
+     "pause",
+     3.0
+    ],
+    [
+     "locke",
+     "Downstairs, all of you. The Rovers. Dawes will want us together, and I want a drink that nobody here has poured.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "edith",
+     "A large one. In a glass I've watched the whole way.",
+     {
+      "to": "all"
+     }
+    ],
+    [
+     "celia",
+     "Come with us. Please. I don't want to be the only one at the bar who knew him.",
+     {
+      "to": "mid"
+     }
+    ]
+   ]
+  }
+ ]
+}
