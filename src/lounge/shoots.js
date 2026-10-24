@@ -1,58 +1,77 @@
-import { GROUND, SHIFT, lift } from "./shoots-art";
+import { GROUND, SHIFT, SALOON, lift } from "./shoots-art";
+import {
+  bird,
+  runner,
+  card,
+  gunman,
+  thing,
+  DONT,
+  mulberry,
+  across,
+  flush,
+  toss,
+  float,
+  run,
+  charge,
+  hover,
+  cannon,
+  stairs,
+  balcony,
+  slide,
+  pick,
+  flyers
+} from "./shoot-paths";
+import { CARNIVAL } from "./campaign-carnival";
+import { DUCK } from "./campaign-duck";
+import { DEER } from "./campaign-deer";
+import { BOAR } from "./campaign-boar";
+import { BOND } from "./campaign-bond";
+import { SAFARI } from "./campaign-safari";
+import { HOSTAGE } from "./campaign-hostage";
+import { WEST } from "./campaign-west";
 
-// The featured shoots on the Rovers roof (Jay, 2026-10-19): seven worlds, one
-// per night, each a 30-minute round in waves inside a world drawn round the
-// roof (shoots-art.js). Like the clay stands (skeet-range.js) everything is a
-// fixed programme on the shared clock: a round is { sc, t0, seed, round } and
-// every headset works out the same targets from it, so only hits go over the
-// network.
+// Each shoot's levels 2 to 5 (campaign-*.js), by its key.
+const MORE = {
+  carnival: CARNIVAL,
+  duck: DUCK,
+  deer: DEER,
+  boar: BOAR,
+  bond: BOND,
+  safari: SAFARI,
+  hostage: HOSTAGE,
+  saloon: WEST
+};
+
+// The featured shoots on the Rovers roof (Jay, 2026-10-19): a world drawn
+// round the roof (shoots-art.js), its knockdown plates (plates.js) and the
+// targets thrown, run and walked through it. Like the clay stands
+// (skeet-range.js) everything is a fixed programme on the shared clock: a
+// show is { sc, lvl, t0, seed, round } and every headset works out the same
+// targets from it, so only hits go over the network.
 //
-// A round is 60 waves of 30 s:
-//   0- 6 min  the opener: carnival-style targets dressed for the night
-//   6-12      birds: small fast ones (25) and big slow ones (5)
-//  12-15      a breather: a few slow targets and the golden one
-//  15-24      the night's main event, speeding up
-//  24-29      the push: everything at once
-//  29-30      the finale, double points
-// then a 2-minute break and the next round (the pick from the board, or the
-// next night's world). Each round runs 15% faster, up to round 4.
+// Campaigns (Jay, 2026-10-24: "a multilevel game where we have to reach 5k
+// points and then it changes"): each of the eight shoots is five levels, each
+// level its own world. The shooters keep their own scores, but a level is
+// won as a team: when everyone's points in it add up to its goal (5,000) the
+// next level comes up (LEVEL_GAP s later), a new world with new targets. A
+// timed level (the western's quick draw) runs its length and moves on by
+// itself. After the fifth, the campaign is over: a break (the clay stands),
+// then the next campaign, 15% faster, up to the fourth.
 //
-// Range frame as in skeet-range.js: u to the shooter's right, f downrange, h
-// up from the roof deck; the worlds' ground is at h = GROUND.
+// A level runs in 30 s waves, getting busier over its first 8 minutes; every
+// 12th wave is a double-points wave. Range frame as in skeet-range.js: u to
+// the shooter's right, f downrange, h up from the roof deck; the worlds'
+// ground is at h = GROUND.
 
 export const WAVE = 30;
-export const WAVES = 60;
-export const ROUND = WAVE * WAVES;
+export const LEVEL_WAVES = 240; // (two hours: nobody is still on one level by then)
 export const BREAK = 120;
-export const CYCLE = ROUND + BREAK;
-export const SCENARIOS = ["carnival", "duck", "deer", "boar", "bond", "safari", "hostage"];
-const PHASES = [
-  ["opener", 0, 12],
-  ["birds", 12, 24],
-  ["breather", 24, 30],
-  ["main", 30, 48],
-  ["push", 48, 58],
-  ["finale", 58, 60]
-];
-export function phaseOf(w) {
-  const p = PHASES.find(([, a, b]) => w >= a && w < b) || PHASES[PHASES.length - 1];
-  return { key: p[0], from: p[1], to: p[2], p: (w - p[1]) / (p[2] - p[1]) };
-}
+export const GOAL = 5000;
+export const LEVEL_GAP = 8; // s from a level won to the next one starting
+// (the saloon came later, so it's last: rounds and picks go by number)
+export const SCENARIOS = ["carnival", "duck", "deer", "boar", "bond", "safari", "hostage", "saloon"];
 
 // Points: the smaller and faster, the more. Don't-shoots cost 25.
-const bird = (name, pts, r, sound) => ({ pts, r, dies: "fall", art: { bird: name }, face: "fly", sound });
-const animal = (name, pts, r, hy, sound) => ({ pts, r, hy, dies: "fall", art: { animal: name }, face: "run", sound });
-const card = (name, pts, r, sound = "thud", extra = {}) => ({
-  pts,
-  r,
-  dies: "fall",
-  art: { card: name },
-  face: "board",
-  sound,
-  ...extra
-});
-const thing = (name, c, pts, r, dies, face, sound) => ({ pts, r, dies, art: { thing: name, c }, face, sound });
-const DONT = { foe: true, name: "DON'T SHOOT!" };
 export const SHOW_KINDS = {
   // small, fast birds: 25; big, slow ones: 5
   pigeon: bird("pigeon", 25, 0.3, "chirp"),
@@ -96,15 +115,15 @@ export const SHOW_KINDS = {
   letterB: card("letterB", 10, 0.35, "ping"),
   letterC: card("letterC", 10, 0.35, "ping"),
   // the main events
-  deer: animal("deer", 10, 0.6, 1.65, "thud"),
-  stag: { ...animal("stag", 25, 0.6, 1.9, "thud"), name: "THE STAG" },
-  boar: animal("boar", 10, 0.5, 0.85, "squeal"),
-  piglet: animal("piglet", 25, 0.25, 0.35, "squeal"),
-  bigboar: { ...animal("bigboar", 25, 0.95, 1.5, "squeal"), name: "BIG TUSKER" },
-  lion: animal("lion", 10, 0.65, 1.3, "roar"),
-  lioness: animal("lioness", 10, 0.55, 1.15, "roar"),
-  antelope: animal("antelope", 15, 0.45, 1.4, "thud"),
-  zebra: animal("zebra", 5, 0.65, 1.45, "thud"),
+  deer: runner("buck", 0xff7a1a, 1.4, 0.6, "thud"),
+  stag: { ...runner("bigbuck", 0xffc93c, 1.9, 0.75, "thud"), name: "THE STAG" },
+  boar: runner("boar", 0xff7a1a, 0.85, 0.6, "squeal"),
+  piglet: runner("boar", 0xf28ab0, 0.5, 0.38, "squeal"),
+  bigboar: { ...runner("boar", 0xffc93c, 1.4, 0.95, "squeal"), name: "BIG TUSKER" },
+  lion: runner("lion", 0xe8344a, 1.2, 0.7, "roar"),
+  lioness: runner("lion", 0xff7a1a, 1.05, 0.62, "roar"),
+  antelope: runner("antelope", 0xff7a1a, 1.1, 0.5, "thud"),
+  zebra: runner("zebra", 0xf4efe2, 1.3, 0.65, "thud"),
   henchman: card("henchman", 10, 0.5),
   boss: { ...card("boss", 50, 0.45), name: "THE MASTERMIND" },
   bad: card("bad", 10, 0.5),
@@ -117,220 +136,32 @@ export const SHOW_KINDS = {
   ranger: { ...card("ranger", -25, 0.5, "wrong"), ...DONT },
   hostage: { ...card("hostage", -25, 0.45, "wrong"), ...DONT },
   mime: { ...card("mime", -25, 0.5, "wrong"), ...DONT, name: "IT'S THE MIME! DON'T SHOOT!" },
+  // the saloon: gunmen down the stairs and along the balcony (cut-outs like
+  // the pop-ups; one that gets to the floor and draws costs everyone 10),
+  // the ladies (don't), bottles sliding down the bar, hats and bottles in the air
+  cowboy: gunman("cowboy", 1.8),
+  gunslinger: gunman("gunslinger", 1.8),
+  outlaw: { ...gunman("outlaw", 1.85), pts: 100, name: "BLACK BART" },
+  lady: { ...gunman("lady", 1.75), pts: -25, sound: "wrong", ...DONT },
+  // (on the balcony, behind its railing: aim higher)
+  cowboyB: { ...gunman("cowboy", 1.8), hy: 1.35 },
+  gunslingerB: { ...gunman("gunslinger", 1.8), hy: 1.35 },
+  ladyB: { ...gunman("lady", 1.75), hy: 1.3, pts: -25, sound: "wrong", ...DONT },
+  whiskey: { ...thing("whiskey", 0, 25, 0.16, "shatter", "fixed", "glass"), hy: 0.15 },
+  beer: { ...thing("mug", 0, 25, 0.14, "shatter", "fixed", "glass"), hy: 0.08 },
+  bottleUp: { ...thing("whiskey", 0, 25, 0.17, "shatter", "tumble", "glass"), hy: 0.15 },
+  stetson: thing("stetson", 0, 15, 0.3, "fall", "spin", "thud"),
   // anywhere, now and then
-  golden: { ...thing("gold", 0, 50, 0.3, "shatter", "spin", "bell"), name: "GOLDEN TARGET · 50" }
+  golden: { ...thing("gold", 0, 50, 0.3, "shatter", "spin", "bell"), name: "GOLDEN TARGET · 50" },
+  // the campaigns' own
+  ...Object.assign({}, ...Object.values(MORE).map(m => m.kinds))
 };
 
-function mulberry(seed) {
-  let a = seed >>> 0;
-  return () => {
-    a = (a + 0x6d2b79f5) >>> 0;
-    let t = a;
-    t = Math.imul(t ^ (t >>> 15), t | 1);
-    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-}
-
-// ---- Paths: each returns { dur, pos(tau, out) } (+ hittable / turn / charge) --
-
-function across(R, o = {}) {
-  const dir = o.dir ?? (R(0, 1) < 0.5 ? 1 : -1);
-  const u0 = o.u0 ?? R(26, 32);
-  const v = o.v;
-  const f = o.f ?? R(12, 30);
-  const h = o.h ?? R(3, 11);
-  const ph = R(0, 6);
-  const amp = o.amp ?? 0.35;
-  const weave = o.weave ?? 0;
-  const climb = o.climb ?? 0;
-  return {
-    dur: (2 * u0) / v,
-    pos: (tau, out) =>
-      out.set(
-        -dir * u0 + dir * v * tau,
-        f + weave * Math.sin(ph + tau * 0.6),
-        h + amp * Math.sin(ph + tau * 2.6) + climb * tau
-      )
-  };
-}
-// Up out of the ground (reeds, scrub) and away, climbing.
-function flush(R, o = {}) {
-  const p = [o.u ?? R(-12, 12), o.f ?? R(10, 26), GROUND + 0.5];
-  const v = [R(-5, 5) * (o.S || 1), R(2, 5) * (o.S || 1), R(5, 8) * (o.S || 1)];
-  return {
-    dur: o.dur ?? 5,
-    pos: (tau, out) => out.set(p[0] + v[0] * tau, p[1] + v[1] * tau, p[2] + v[2] * tau - 0.6 * tau * tau)
-  };
-}
-// Thrown up and falling back (coconuts, chickens, teal).
-function toss(R, o = {}) {
-  const p = [o.u ?? R(-10, 10), o.f ?? R(10, 20), o.h ?? GROUND + 0.5];
-  const vh = o.vh ?? R(11, 15);
-  const vu = o.vu ?? R(-1.5, 1.5);
-  const g = 9.8;
-  return {
-    dur: (vh + Math.sqrt(vh * vh + 2 * g * Math.max(0, p[2] - GROUND))) / g,
-    pos: (tau, out) => out.set(p[0] + vu * tau, p[1], p[2] + vh * tau - 0.5 * g * tau * tau)
-  };
-}
-// Floating up (balloons), swaying.
-function float(R, o = {}) {
-  const u = o.u ?? R(-14, 14);
-  const f = o.f ?? R(10, 26);
-  const v = o.v ?? R(1.4, 2.6);
-  const h0 = o.h ?? GROUND + 0.5;
-  const ph = R(0, 6);
-  return {
-    dur: (26 - h0) / v,
-    pos: (tau, out) => out.set(u + 0.6 * Math.sin(ph + tau * 0.8), f + 0.3 * Math.sin(ph + tau * 0.5), h0 + v * tau)
-  };
-}
-// Running at the roof over the ground, zig-zagging, and a leap at the end. A
-// charger that gets there costs everyone on the roof (charge: true).
-function charge(R, o) {
-  const u0 = o.u0 ?? R(-30, 30);
-  const f0 = o.f0 ?? R(55, 75);
-  const u1 = o.u1 ?? R(-6, 6);
-  const f1 = 7;
-  const dist = Math.hypot(u1 - u0, f1 - f0);
-  const run = dist / o.v;
-  const leap = 0.8;
-  const zig = o.zig ?? R(0.5, 2.5);
-  const ph = R(0, 6);
-  const gait = o.gait ?? 9;
-  return {
-    dur: run + leap,
-    charge: true,
-    pos: (tau, out) => {
-      const k = Math.min(1, tau / run);
-      const fade = Math.min(1, (1 - k) * 4); // straightens up at the end
-      out.set(
-        u0 + (u1 - u0) * k + zig * fade * Math.sin(ph + tau * 1.7),
-        f0 + (f1 - f0) * k,
-        GROUND + o.bounce * Math.abs(Math.sin(tau * gait))
-      );
-      if (tau > run) {
-        const e = (tau - run) / leap;
-        out.y -= 4 * e;
-        out.z = GROUND + 3.2 * Math.sin(e * Math.PI * 0.75);
-      }
-      return out;
-    }
-  };
-}
-// Deer: walk out, stop and look, then bolt for the trees.
-function stalk(R, o = {}) {
-  const dir = R(0, 1) < 0.5 ? 1 : -1;
-  const u0 = -dir * R(18, 30);
-  const f = o.f ?? R(24, 42);
-  const walk = R(2.5, 4.5) / (o.S || 1);
-  const stop = R(1.2, 2.6) / (o.S || 1);
-  const vw = 1.6;
-  const vb = R(8, 11) * (o.S || 1);
-  const away = R(0, 1) < 0.5;
-  const bolt = away ? 2.2 : 3.2; // (into the trees, not out of the world)
-  return {
-    dur: walk + stop + bolt,
-    pos: (tau, out) => {
-      if (tau < walk) return out.set(u0 + dir * vw * tau, f, GROUND + 0.04 * Math.abs(Math.sin(tau * 5)));
-      const uw = u0 + dir * vw * walk;
-      if (tau < walk + stop) return out.set(uw, f, GROUND);
-      const t = tau - walk - stop;
-      return out.set(
-        uw + dir * vb * t * (away ? 0.4 : 1),
-        f + (away ? vb * t * 0.9 : 0),
-        GROUND + 0.6 * Math.abs(Math.sin(t * 6))
-      );
-    }
-  };
-}
-// Bounding across (antelope, zebra): hops.
-function bound(R, o) {
-  const dir = R(0, 1) < 0.5 ? 1 : -1;
-  const u0 = R(26, 32);
-  const f = o.f ?? R(16, 40);
-  return {
-    dur: (2 * u0) / o.v,
-    pos: (tau, out) => out.set(-dir * u0 + dir * o.v * tau, f, GROUND + o.hop * Math.abs(Math.sin(tau * o.rate)))
-  };
-}
-// A drone: fast, darting up and down.
-function dart(R, o) {
-  const a = across(R, { ...o, amp: 0 });
-  const ph = R(0, 6);
-  return {
-    dur: a.dur,
-    pos: (tau, out) => {
-      a.pos(tau, out);
-      out.z += 1.6 * Math.sin(ph + tau * 2.4);
-      out.y += 2 * Math.sin(ph * 2 + tau * 1.1);
-      return out;
-    }
-  };
-}
-// A helicopter: in, hover, out.
-function hover(R, o = {}) {
-  const dir = R(0, 1) < 0.5 ? 1 : -1;
-  const f = o.f ?? R(30, 40);
-  const h = o.h ?? R(9, 14);
-  const stop = R(-8, 8);
-  const tin = 5;
-  const thold = 4;
-  const u0 = -dir * 40;
-  return {
-    dur: tin + thold + 5,
-    pos: (tau, out) => {
-      let u;
-      if (tau < tin) {
-        const e = tau / tin;
-        u = u0 + (stop - u0) * (1 - (1 - e) * (1 - e));
-      } else if (tau < tin + thold) u = stop + 0.3 * Math.sin(tau * 2);
-      else u = stop + dir * 3 * (tau - tin - thold) ** 2;
-      return out.set(u, f + 0.4 * Math.sin(tau * 0.9), h + 0.4 * Math.sin(tau * 1.7));
-    }
-  };
-}
-// A human cannonball across the sky.
-function cannon(R, o = {}) {
-  const dir = R(0, 1) < 0.5 ? 1 : -1;
-  const vh = R(10, 13) * Math.sqrt(o.S || 1);
-  const g = 6;
-  const dur = (2 * vh) / g; // (lands back at the height it was fired from)
-  const vu = 52 / dur;
-  const p = [-dir * 26, o.f ?? R(18, 30), GROUND + 3];
-  return {
-    dur,
-    pos: (tau, out) => out.set(p[0] + dir * vu * tau, p[1], p[2] + vh * tau - 0.5 * g * tau * tau)
-  };
-}
-
-// ---- The worlds' programmes ----------------------------------------------------
-
-// add(t, kind, path): a target thrown at t s into the wave. c: { I (wave
-// intensity), S (speed, by round), p (progress through the phase) }.
-const pick = (R, list) => list[Math.floor(R(0, list.length))];
-
-// The birds wave and birds mixed into later phases: both sizes, crossers,
-// pairs, flushes, overhead.
-function birds(sc, R, add, c, n) {
-  const B = SCREEN[sc].birds;
-  for (let k = 0; k < n; k++) {
-    const t = 2 + (k * 26) / n + R(0, 1.5);
-    const small = R(0, 1) < 0.45;
-    const kind = small ? B[0] : B[1];
-    const v = (small ? R(10, 13) : R(5.5, 7.5)) * c.S;
-    const m = R(0, 1);
-    if (kind === "drone") add(t, kind, dart(R, { v, h: R(4, 10) }));
-    else if (m < 0.5) add(t, kind, across(R, { v, h: small ? R(4, 12) : R(3, 9), weave: small ? 2 : 0.8 }));
-    else if (m < 0.75 && SCREEN[sc].flush) add(t, kind, flush(R, { S: c.S * (small ? 1.3 : 1) }));
-    else {
-      const dir = R(0, 1) < 0.5 ? 1 : -1;
-      const f = R(14, 26);
-      add(t, kind, across(R, { v, dir, f, h: R(5, 10) }));
-      add(t + R(0.3, 0.8), kind, across(R, { v, dir, f: f + R(-2, 2), h: R(5, 10) }));
-    }
-  }
+// A world's birds: both sizes, crossers, pairs, flushes, overhead (indoors:
+// what it throws up instead).
+function birds(s, R, add, c, n) {
+  if (s.air) return s.air(R, add, c, n);
+  flyers(s.birds, R, add, c, n, s.flush);
 }
 
 // Per world: names, the birds [small, big], the don't-shoot, and the opener,
@@ -426,21 +257,17 @@ export const SCREEN = {
     music: "deer",
     amb: "forest",
     opener(R, add, c) {
-      birds("deer", R, add, c, Math.round(1 + 2 * c.I));
+      birds(SCREEN.deer, R, add, c, Math.round(1 + 2 * c.I));
     },
     main(R, add, c) {
       const n = Math.round(2 + 3 * c.I);
-      for (let k = 0; k < n; k++) add(1 + k * (24 / n), "deer", stalk(R, { S: c.S }));
-      if (R(0, 1) < 0.35 + 0.3 * c.p) add(R(4, 18), "stag", stalk(R, { S: c.S * 1.2, f: R(40, 55) }));
-      birds("deer", R, add, c, Math.round(1 + c.I));
+      for (let k = 0; k < n; k++) add(1 + k * (24 / n), "deer", run(R, { v: R(11, 14) * c.S }));
+      if (R(0, 1) < 0.35 + 0.3 * c.p) add(R(4, 18), "stag", run(R, { v: R(12, 15) * c.S, f: R(36, 50) }));
+      birds(SCREEN.deer, R, add, c, Math.round(1 + c.I));
     },
     finale(R, add, c) {
       for (let k = 0; k < 14; k++)
-        add(
-          1 + k * 1.8,
-          k % 5 === 4 ? "stag" : "deer",
-          bound(R, { v: R(7, 10) * c.S, hop: 0.9, rate: 5, f: R(18, 40) })
-        );
+        add(1 + k * 1.8, k % 5 === 4 ? "stag" : "deer", run(R, { v: R(12, 15) * c.S, f: R(16, 42) }));
     }
   },
   boar: {
@@ -459,19 +286,18 @@ export const SCREEN = {
     music: "boar",
     amb: "scrub",
     opener(R, add, c) {
-      if (R(0, 1) < 0.5) add(R(5, 20), "piglet", charge(R, { v: 6 * c.S, bounce: 0.25, gait: 14, f0: R(30, 45) }));
+      if (R(0, 1) < 0.5) add(R(5, 20), "piglet", charge(R, { v: R(10, 12) * c.S, f0: R(30, 45) }));
     },
     main(R, add, c) {
       const n = Math.round(2 + 3 * c.I);
-      for (let k = 0; k < n; k++)
-        add(1 + k * (22 / n), "boar", charge(R, { v: R(5, 7) * c.S, bounce: 0.18, gait: 10 }));
+      for (let k = 0; k < n; k++) add(1 + k * (22 / n), "boar", charge(R, { v: R(9, 11) * c.S }));
       for (let k = 0; k < Math.round(c.I * 2); k++)
-        add(R(2, 20), "piglet", charge(R, { v: R(7, 9) * c.S, bounce: 0.25, gait: 14, f0: R(35, 55) }));
+        add(R(2, 20), "piglet", charge(R, { v: R(10, 12) * c.S, f0: R(35, 55) }));
+      for (let k = 0; k < Math.round(c.I); k++) add(R(2, 20), "boar", run(R, { v: R(11, 14) * c.S }));
     },
     finale(R, add, c) {
-      add(2, "bigboar", charge(R, { v: 4.5 * c.S, bounce: 0.25, gait: 6, u0: 0, f0: 70, u1: 0, zig: 1 }));
-      for (let k = 0; k < 12; k++)
-        add(4 + k * 1.8, k % 3 ? "boar" : "piglet", charge(R, { v: R(6, 9) * c.S, bounce: 0.2, gait: 12 }));
+      add(2, "bigboar", charge(R, { v: 7 * c.S, f0: 70 }));
+      for (let k = 0; k < 12; k++) add(4 + k * 1.8, k % 3 ? "boar" : "piglet", charge(R, { v: R(9, 12) * c.S }));
     }
   },
   bond: {
@@ -501,11 +327,11 @@ export const SCREEN = {
     main(R, add, c) {
       // (the henchmen are in the lair's windows, as plates)
       if (R(0, 1) < 0.3 + 0.3 * c.p) add(R(2, 15), "heli", hover(R));
-      birds("bond", R, add, c, Math.round(1 + c.I));
+      birds(SCREEN.bond, R, add, c, Math.round(1 + c.I));
     },
     finale(R, add, c) {
       for (let k = 0; k < 3; k++) add(2 + k * 9, "heli", hover(R, { S: c.S }));
-      birds("bond", R, add, c, 10);
+      birds(SCREEN.bond, R, add, c, 10);
     }
   },
   safari: {
@@ -529,17 +355,12 @@ export const SCREEN = {
     main(R, add, c) {
       const n = Math.round(2 + 2.5 * c.I);
       for (let k = 0; k < n; k++)
-        add(
-          1 + k * (22 / n),
-          R(0, 1) < 0.5 ? "lion" : "lioness",
-          charge(R, { v: R(6, 8.5) * c.S, bounce: 0.3, gait: 7 })
-        );
+        add(1 + k * (22 / n), R(0, 1) < 0.5 ? "lion" : "lioness", charge(R, { v: R(9, 11) * c.S }));
       for (let k = 0; k < Math.round(1 + 2 * c.I); k++)
-        add(R(1, 22), R(0, 1) < 0.6 ? "antelope" : "zebra", bound(R, { v: R(6, 9) * c.S, hop: 0.8, rate: 4.5 }));
+        add(R(1, 22), R(0, 1) < 0.6 ? "antelope" : "zebra", run(R, { v: R(12, 15) * c.S }));
     },
     finale(R, add, c) {
-      for (let k = 0; k < 10; k++)
-        add(1 + k * 2.2, k % 3 ? "lioness" : "lion", charge(R, { v: R(7, 9.5) * c.S, bounce: 0.3, gait: 7 }));
+      for (let k = 0; k < 10; k++) add(1 + k * 2.2, k % 3 ? "lioness" : "lion", charge(R, { v: R(10, 12) * c.S }));
     }
   },
   hostage: {
@@ -558,41 +379,188 @@ export const SCREEN = {
     amb: "night",
     opener(R, add, c) {
       // (the practice line and the windows are plates; drones overhead)
-      birds("hostage", R, add, c, Math.round(1 + c.I));
+      birds(SCREEN.hostage, R, add, c, Math.round(1 + c.I));
     },
     main(R, add, c) {
-      birds("hostage", R, add, c, Math.round(2 + 2 * c.I));
+      birds(SCREEN.hostage, R, add, c, Math.round(2 + 2 * c.I));
     },
     finale(R, add, c) {
-      birds("hostage", R, add, c, 12);
+      birds(SCREEN.hostage, R, add, c, 12);
       add(4, "heli", hover(R));
+    }
+  },
+  saloon: {
+    name: "WILD WEST SALOON",
+    titles: [
+      "SHOTS ON THE HOUSE",
+      "HATS IN THE AIR",
+      "TAKE A BREATHER",
+      "TROUBLE ON THE STAIRS",
+      "SALOON BRAWL",
+      "THE GANG COMES DOWN · DOUBLE POINTS"
+    ],
+    dont: "lady",
+    music: "saloon",
+    amb: "saloon",
+    // (instead of birds: hats thrown up off the floor, bottles from behind the bar)
+    air(R, add, c, n) {
+      for (let k = 0; k < n; k++) {
+        const t = 2 + (k * 26) / n + R(0, 1.5);
+        const vu = R(-2, 2) * c.S;
+        if (R(0, 1) < 0.55) {
+          const u = R(-10, 10);
+          const f = R(2, 12);
+          add(t, "stetson", toss(R, { u, f, h: GROUND + 1, vh: Math.min(11.5, R(8.5, 10.5) * c.S), vu }));
+          if (R(0, 1) < 0.3)
+            add(t + 0.4, "stetson", toss(R, { u: u + 1, f, h: GROUND + 1, vh: R(8.5, 10.5), vu: -vu }));
+        } else
+          add(
+            t,
+            "bottleUp",
+            toss(R, {
+              u: R(-5, 5),
+              f: SALOON.BAR + 0.9,
+              h: GROUND + 1.3,
+              vh: Math.min(10, R(7, 9) * c.S),
+              vu: vu * 1.2
+            })
+          );
+      }
+    },
+    opener(R, add, c) {
+      for (let k = 0; k < Math.round(2 + 3 * c.I); k++)
+        add(R(1, 25), R(0, 1) < 0.6 ? "whiskey" : "beer", slide(R, { v: R(3, 5) * c.S }));
+    },
+    main(R, add, c) {
+      const n = Math.round(2 + 2.5 * c.I);
+      for (let k = 0; k < n; k++)
+        add(
+          1 + k * (22 / n) + R(0, 1.5),
+          R(0, 1) < 0.55 ? "cowboy" : "gunslinger",
+          stairs(R, { v: R(2.8, 3.8) * c.S, gun: true })
+        );
+      if (R(0, 1) < 0.4) add(R(2, 20), "lady", stairs(R, { v: R(2, 2.6) }));
+      if (R(0, 1) < 0.5) add(R(1, 14), R(0, 1) < 0.5 ? "cowboyB" : "gunslingerB", balcony(R, { v: R(2.4, 3.4) * c.S }));
+      if (R(0, 1) < 0.3) add(R(1, 14), "ladyB", balcony(R, { v: R(1.8, 2.4) }));
+    },
+    finale(R, add, c) {
+      for (let k = 0; k < 12; k++)
+        add(
+          1 + k * 1.9,
+          k % 2 ? "cowboy" : "gunslinger",
+          stairs(R, { side: k % 4 < 2 ? 1 : -1, v: R(3.2, 4.2) * c.S, gun: true })
+        );
+      add(12, "outlaw", stairs(R, { v: 2.6 * c.S, gun: true }));
+      for (let k = 0; k < 3; k++)
+        add(2 + k * 7, k % 2 ? "cowboyB" : "gunslingerB", balcony(R, { v: R(2.8, 3.6) * c.S }));
+      add(R(4, 16), "ladyB", balcony(R, { v: 2 }));
     }
   }
 };
-// Now and then, anywhere: the golden target.
-function extras(R, add, c, key) {
-  if (key === "finale") return;
-  const gold = key === "breather" ? 0.7 : key === "main" || key === "push" ? 0.25 : 0.1;
-  if (R(0, 1) < gold) add(R(3, 22), "golden", across(R, { v: R(11, 14) * c.S, h: R(4, 10), weave: 2.5 }));
+// Now and then, anywhere: the golden target (indoors, from wall to wall).
+function extras(R, add, c, indoor) {
+  const gold = 0.1 + 0.15 * c.p;
+  if (R(0, 1) < gold)
+    add(
+      R(3, 22),
+      "golden",
+      indoor
+        ? across(R, { u0: SALOON.W - 0.6, v: R(8, 11) * c.S, f: R(3, 20), h: GROUND + R(2.5, 5.5), weave: 1.2 })
+        : across(R, { v: R(11, 14) * c.S, h: R(4, 10), weave: 2.5 })
+    );
   // (the night's don't-shoot and the mime come up among the plates)
 }
-// ---- The round's waves ---------------------------------------------------------
+// ---- The campaigns ---------------------------------------------------------------
+
+// A level: { world (the shoots-art WORLDS and plates LAYOUTS key), name,
+// story (its banner's last line), goal (team points to win it; null: timed),
+// dur (s, a timed level), pistols (pistols only), music, amb, legend (the
+// board's points line), indoor (the golden target flies wall to wall), gold
+// (0: no golden target), x2(w) (double-points waves), title(w, x2), wave(R,
+// add, c) }. c: { I (busyness), S (speed), p (0..1 over the first 8
+// minutes), w (wave), x2 }.
+//
+// Each campaign's first level is its old featured shoot (SCREEN) as a level:
+// a six-wave cycle of its opener, birds and main event, and every 12th wave
+// its old finale.
+function classic(sc, name, story) {
+  const S0 = SCREEN[sc];
+  return {
+    world: sc,
+    name,
+    story,
+    music: S0.music,
+    amb: S0.amb,
+    indoor: !!S0.air,
+    wave(R, add, c) {
+      if (c.x2) return S0.finale(R, add, c);
+      const k = c.w % 6;
+      const air = n => birds(SCREEN[sc], R, add, c, n);
+      if (k === 0) {
+        S0.opener(R, add, c);
+        air(Math.round(1 + c.I));
+      } else if (k === 1) air(Math.round(5 + 4 * c.I));
+      else if (k === 2) S0.main(R, add, c);
+      else if (k === 3) {
+        S0.main(R, add, c);
+        air(2);
+      } else if (k === 4) {
+        S0.opener(R, add, c);
+        S0.main(R, add, { ...c, I: c.I * 0.8 });
+      } else {
+        S0.main(R, add, { ...c, I: c.I * 1.15 });
+        air(Math.round(2 + 2 * c.I));
+        S0.opener(R, add, { ...c, I: 0.3 });
+      }
+    }
+  };
+}
+
+// Each campaign's first level: the classic world, its name and banner line.
+const FIRST = {
+  carnival: ["THE MIDWAY", "Step right up!"],
+  duck: ["THE DECOY POND", "Opening morning on the marsh"],
+  deer: ["THE FOREST EDGE", "Quiet now. They're in the trees"],
+  boar: ["THE SCRUB", "Wild boar in the brush"],
+  bond: ["THE VILLAIN'S CASINO", "Your mission: the Mastermind"],
+  safari: ["THE SAVANNA", "The pride is out tonight"],
+  hostage: ["THE SHOOT HOUSE", "Hostages inside. Clear the house"],
+  saloon: ["THE SILVER SPUR SALOON", "Villa's men are drinking in the Silver Spur"]
+};
+export const CAMPAIGNS = Object.fromEntries(
+  SCENARIOS.map(k => [
+    k,
+    {
+      name: MORE[k].name,
+      done: MORE[k].done,
+      levels: [classic(k, FIRST[k][0], MORE[k].first || FIRST[k][1]), ...MORE[k].levels]
+    }
+  ])
+);
+
+export const levelsOf = sc => (CAMPAIGNS[SCENARIOS[sc]] || CAMPAIGNS.carnival).levels;
+export const campaignOf = sc => CAMPAIGNS[SCENARIOS[sc]] || CAMPAIGNS.carnival;
+export const levelOf = show => (show ? levelsOf(show.sc)[show.lvl | 0] || null : null);
+export const levelGoal = lv => (lv && lv.goal !== undefined ? lv.goal : GOAL);
+
+// ---- A level's waves -------------------------------------------------------------
 
 const waveCache = new Map();
 
-// Wave w of round `show` ({ sc, t0, seed, round }): { w, phase, title,
+// Wave w of level `show` ({ sc, lvl, t0, seed, round }): { w, x2, title,
 // launches }, each launch { id, kind, t0 (absolute s), dur, pos, ... }.
 export function showWave(show, w) {
-  const key = `${show.t0}|${show.sc}|${w}`;
+  const key = `${show.t0}|${show.sc}|${show.lvl | 0}|${w}`;
   let s = waveCache.get(key);
   if (s) return s;
-  const sc = SCENARIOS[show.sc] || SCENARIOS[0];
-  const S0 = SCREEN[sc];
-  const rnd = mulberry((show.seed >>> 0) ^ Math.imul(w + 1, 2654435761));
+  const lv = levelOf(show);
+  const rnd = mulberry((show.seed >>> 0) ^ Math.imul(w + 1, 2654435761) ^ Math.imul((show.lvl | 0) + 1, 40503));
   const R = (a, b) => a + (b - a) * rnd();
-  const ph = phaseOf(w);
-  const I = [0.7, 1.0, 0.8, 1.25][w % 4] * (ph.key === "main" ? 1 + 0.5 * ph.p : 1);
-  const c = { I, S: 1 + 0.15 * Math.min(3, Math.max(0, (show.round || 1) - 1)), p: ph.p };
+  const p = Math.min(1, w / 16);
+  const x2 = lv.x2 ? lv.x2(w) : w % 12 === 11;
+  const I = [0.7, 1.0, 0.8, 1.25][w % 4] * (1 + 0.6 * p);
+  const S = (1 + 0.15 * Math.min(3, Math.max(0, (show.round || 1) - 1))) * (1 + 0.1 * p);
+  const c = { I, S, p, w, x2 };
   const launches = [];
   const base = show.t0 + w * WAVE;
   const add = (t, kind, L) => {
@@ -603,7 +571,7 @@ export function showWave(show, w) {
       id: `s${Math.round(show.t0)}.${w}.${launches.length}`,
       kind,
       t0: base + t,
-      x2: ph.key === "finale",
+      x2,
       ...L,
       pos: (tau, out) => {
         path(tau, out);
@@ -613,20 +581,10 @@ export function showWave(show, w) {
       }
     });
   };
-  if (ph.key === "opener") S0.opener(R, add, c);
-  else if (ph.key === "birds") birds(sc, R, add, c, Math.round(5 + 4 * I));
-  else if (ph.key === "breather") {
-    const calm = { ...c, I: 0.35, S: c.S * 0.8 };
-    S0.opener(R, add, calm);
-  } else if (ph.key === "main") S0.main(R, add, c);
-  else if (ph.key === "push") {
-    S0.main(R, add, { ...c, I: I * 1.15 });
-    birds(sc, R, add, c, Math.round(2 + 2 * I));
-    S0.opener(R, add, { ...c, I: 0.3 });
-  } else S0.finale(R, add, c);
-  extras(R, add, c, ph.key);
+  lv.wave(R, add, c);
+  if (lv.gold !== 0 && !x2) extras(R, add, c, !!lv.indoor);
   launches.sort((a, b) => a.t0 - b.t0);
-  s = { w, phase: ph.key, title: S0.titles[PHASES.findIndex(p => p[0] === ph.key)], launches };
+  s = { w, x2, title: (lv.title && lv.title(w, x2)) || (x2 ? "DOUBLE POINTS" : lv.name), launches };
   waveCache.set(key, s);
   if (waveCache.size > 6) waveCache.delete(waveCache.keys().next().value);
   return s;
@@ -637,7 +595,7 @@ export function liveShow(show, T, out = []) {
   out.length = 0;
   const w = Math.floor((T - show.t0) / WAVE);
   for (const m of [w - 1, w]) {
-    if (m < 0 || m >= WAVES) continue;
+    if (m < 0 || m >= LEVEL_WAVES) continue;
     for (const L of showWave(show, m).launches) {
       const tau = T - L.t0;
       if (tau >= 0 && tau <= L.dur) out.push(L);
@@ -648,9 +606,10 @@ export function liveShow(show, T, out = []) {
 
 export function findShowLaunch(show, id) {
   if (!show || !String(id).startsWith("s")) return null;
-  const [, w] = String(id).slice(1).split(".");
+  const [t0, w] = String(id).slice(1).split(".");
   const n = Number(w);
-  if (!Number.isFinite(n) || n < 0 || n >= WAVES) return null;
+  // (a hit on the last level's target is nothing now)
+  if (Number(t0) !== Math.round(show.t0) || !Number.isFinite(n) || n < 0 || n >= LEVEL_WAVES) return null;
   return showWave(show, n).launches.find(L => L.id === id) || null;
 }
 

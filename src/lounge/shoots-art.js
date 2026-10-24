@@ -29,6 +29,33 @@ export const lift = f => 1.5 + 0.04 * Math.min(61, Math.max(0, f - SHIFT));
 // The ground's height at distance f (after the move).
 export const groundAt = f => GROUND + lift(f);
 
+// The saloon (Jay, 2026-10-22): the one world you shoot inside, walls left and
+// right so nothing is outside. As laid out (before SHIFT), h up from its floor:
+//   W     its side walls' inner faces at u = +-W
+//   FRONT the walls and ceiling start here (just behind the roof's south edge)
+//   BACK  the back wall's face; the upstairs rooms' doors are in it
+//   BAL   the balcony's floor; BALF its front edge, where the stairs come up
+//   SU    the stairs' middle at u = +-SU, rising from their foot at S0
+//   BAR   the bar's front, BARH its top; the back bar's bottles under the balcony
+//   CEIL  the ceiling
+export const SALOON = {
+  W: 15.85,
+  FRONT: -11,
+  BACK: 29.35,
+  BAL: 4.4,
+  BALF: 26.6,
+  SU: 14.6,
+  SW: 2.4,
+  S0: 17,
+  BAR: 22,
+  BARH: 1.21,
+  CEIL: 9.6,
+  UP_DOORS: [-11.5, -7, -2.3, 2.3, 7, 11.5],
+  DOWN_DOORS: [-10, 10],
+  TABLES: [-9, -3.2, 3.2, 9], // round tables at f 7
+  COVER: [-11.5, -6, 6, 11.5] // overturned tables at f 4 (clear of the tables behind)
+};
+
 const LIGHT = new THREE.Vector3(0.35, 0.85, 0.4).normalize();
 const VIEW = new THREE.Vector3(0, 0.3, 1).normalize();
 const HALF = new THREE.Vector3().addVectors(LIGHT, VIEW).normalize();
@@ -74,7 +101,7 @@ const pp = new THREE.Vector3();
 const ss = new THREE.Vector3();
 
 // One coloured part, placed: (geometry, colour, position, rotation, scale).
-function part(geo, hex, x = 0, y = 0, z = 0, rx = 0, ry = 0, rz = 0, sx = 1, sy = sx, sz = sx, gloss = 0) {
+export function part(geo, hex, x = 0, y = 0, z = 0, rx = 0, ry = 0, rz = 0, sx = 1, sy = sx, sz = sx, gloss = 0) {
   const g = geo;
   m4.compose(pp.set(x, y, z), qq.setFromEuler(ee.set(rx, ry, rz)), ss.set(sx, sy, sz));
   g.applyMatrix4(m4);
@@ -82,7 +109,7 @@ function part(geo, hex, x = 0, y = 0, z = 0, rx = 0, ry = 0, rz = 0, sx = 1, sy 
   return { geo: g, hex, gloss };
 }
 
-function merge(parts, fog = null) {
+export function merge(parts, fog = null) {
   const geos = parts.map(p => bake(p.geo, p.hex, p.gloss, fog));
   const out = mergeBufferGeometries(geos, false);
   geos.forEach(g => g.dispose());
@@ -91,12 +118,14 @@ function merge(parts, fog = null) {
   return out;
 }
 
-const BOX = (x, y, z) => new THREE.BoxGeometry(x, y, z);
-const CYL = (r0, r1, h, n = 10) => new THREE.CylinderGeometry(r0, r1, h, n);
-const BALL = (r, n = 10) => new THREE.SphereGeometry(r, n, Math.max(5, n >> 1));
-const CAP = (r, len, n = 8) => new THREE.CapsuleGeometry(r, len, 3, n);
-const CONE = (r, h, n = 8) => new THREE.ConeGeometry(r, h, n);
-const TORUS = (r, t, n = 14) => new THREE.TorusGeometry(r, t, 5, n);
+export const BOX = (x, y, z) => new THREE.BoxGeometry(x, y, z);
+export const CYL = (r0, r1, h, n = 10) => new THREE.CylinderGeometry(r0, r1, h, n);
+export const BALL = (r, n = 10) => new THREE.SphereGeometry(r, n, Math.max(5, n >> 1));
+export const CAP = (r, len, n = 8) => new THREE.CapsuleGeometry(r, len, 3, n);
+export const CONE = (r, h, n = 8) => new THREE.ConeGeometry(r, h, n);
+export const TORUS = (r, t, n = 14) => new THREE.TorusGeometry(r, t, 5, n);
+// A box long in f, cut every 2 m so the lift (buildWorld) bends it with the land.
+export const SLAB = (x, y, z) => new THREE.BoxGeometry(x, y, z, 1, 1, Math.max(1, Math.ceil(z / 2)));
 
 let BASIC = null;
 export function targetMaterial() {
@@ -266,7 +295,7 @@ function balloonGeo(hex, s = 1) {
     part(CYL(0.003, 0.003, 0.5 * s, 3), 0xeeeeee, 0, -0.52 * s, 0)
   ]);
 }
-const GEO = {
+export const GEO = {
   balloon: c => balloonGeo(c),
   bigBalloon: c => balloonGeo(c, 2.2),
   star: () => {
@@ -371,6 +400,29 @@ const GEO = {
       part(CYL(0.1, 0.105, 0.2, 14), 0x111111, 0, 0.1, 0),
       part(CYL(0.17, 0.17, 0.012, 16), 0x111111),
       part(CYL(0.106, 0.106, 0.035, 14), 0xb3122a, 0, 0.03, 0)
+    ]),
+  // (the saloon's: standing on their bases at the origin)
+  whiskey: () =>
+    merge([
+      part(CYL(0.045, 0.045, 0.19, 10), 0x8a4a1a, 0, 0.095, 0, 0, 0, 0, 1, 1, 1, 1.2),
+      part(CYL(0.046, 0.046, 0.07, 10), 0xf4e4c0, 0, 0.09, 0),
+      part(CONE(0.045, 0.05, 10), 0x8a4a1a, 0, 0.215, 0, 0, 0, 0, 1, 1, 1, 1.2),
+      part(CYL(0.014, 0.016, 0.08, 6), 0x6a3a14, 0, 0.27, 0, 0, 0, 0, 1, 1, 1, 1.2),
+      part(CYL(0.016, 0.016, 0.02, 6), 0xc8a070, 0, 0.315, 0)
+    ]),
+  mug: () =>
+    merge([
+      part(CYL(0.055, 0.05, 0.13, 10), 0xe8a838, 0, 0.065, 0, 0, 0, 0, 1, 1, 1, 1.2),
+      part(CYL(0.058, 0.058, 0.03, 10), 0xfff8e0, 0, 0.14, 0),
+      part(TORUS(0.035, 0.01, 8), 0xd8e8e8, 0.065, 0.07, 0)
+    ]),
+  // (pale, so it shows against the dark ceiling)
+  stetson: () =>
+    merge([
+      part(CYL(0.24, 0.24, 0.015, 16), 0xe8dcc0, 0, 0, 0, 0, 0, 0, 1, 1, 1.25),
+      part(CYL(0.105, 0.12, 0.13, 12), 0xe8dcc0, 0, 0.07, 0, 0, 0, 0, 1, 1, 1.2),
+      part(BOX(0.04, 0.03, 0.22), 0xc8b890, 0, 0.13, 0),
+      part(CYL(0.112, 0.112, 0.025, 12), 0x2a1a10, 0, 0.02, 0, 0, 0, 0, 1, 1, 1.2)
     ])
 };
 
@@ -405,7 +457,7 @@ function cardMesh(key, w, h, draw) {
   return g;
 }
 
-function person(ctx, W, H, o) {
+export function person(ctx, W, H, o) {
   // A figure filling the card: head, body, arms, legs, painted flat.
   const cx = W / 2;
   const u = W / 10;
@@ -417,12 +469,14 @@ function person(ctx, W, H, o) {
     ctx.stroke();
   };
   // legs
-  ctx.fillStyle = o.legs;
-  ctx.beginPath();
-  ctx.rect(cx - 2.2 * u, H * 0.62, 1.8 * u, H * 0.36);
-  ctx.rect(cx + 0.4 * u, H * 0.62, 1.8 * u, H * 0.36);
-  ctx.fill();
-  outline();
+  if (!o.dress) {
+    ctx.fillStyle = o.legs;
+    ctx.beginPath();
+    ctx.rect(cx - 2.2 * u, H * 0.62, 1.8 * u, H * 0.36);
+    ctx.rect(cx + 0.4 * u, H * 0.62, 1.8 * u, H * 0.36);
+    ctx.fill();
+    outline();
+  }
   // body
   ctx.fillStyle = o.body;
   ctx.beginPath();
@@ -446,6 +500,103 @@ function person(ctx, W, H, o) {
     ctx.fillStyle = o.tie;
     ctx.fillRect(cx - 0.3 * u, H * 0.31, 0.6 * u, H * 0.16);
   }
+  if (o.vest) {
+    ctx.fillStyle = o.vest;
+    for (const s of [-1, 1]) {
+      ctx.beginPath();
+      ctx.moveTo(cx + s * 3 * u, H * 0.3);
+      ctx.lineTo(cx + s * 0.8 * u, H * 0.3);
+      ctx.lineTo(cx + s * 0.5 * u, H * 0.6);
+      ctx.lineTo(cx + s * 2.65 * u, H * 0.64);
+      ctx.closePath();
+      ctx.fill();
+      outline();
+    }
+  }
+  if (o.poncho) {
+    // a striped serape from the shoulders
+    ctx.fillStyle = o.poncho;
+    ctx.beginPath();
+    ctx.moveTo(cx - 3.3 * u, H * 0.29);
+    ctx.lineTo(cx + 3.3 * u, H * 0.29);
+    ctx.lineTo(cx + 3.9 * u, H * 0.56);
+    ctx.lineTo(cx - 3.9 * u, H * 0.56);
+    ctx.closePath();
+    ctx.fill();
+    outline();
+    for (const [k, c] of [
+      [0.36, o.stripe || "#f2c230"],
+      [0.42, o.stripe2 || "#2f8a5a"],
+      [0.48, o.stripe || "#f2c230"]
+    ]) {
+      ctx.fillStyle = c;
+      ctx.fillRect(cx - 3.55 * u, H * k, 7.1 * u, H * 0.022);
+    }
+  }
+  if (o.bandolier) {
+    // two belts of cartridges crossed over the chest
+    ctx.lineCap = "butt";
+    for (const s of [-1, 1]) {
+      ctx.strokeStyle = o.bandolier;
+      ctx.lineWidth = 0.8 * u;
+      ctx.beginPath();
+      ctx.moveTo(cx + s * 2.5 * u, H * 0.3);
+      ctx.lineTo(cx - s * 2.2 * u, H * 0.6);
+      ctx.stroke();
+      ctx.fillStyle = "#e8c050";
+      for (let k = 1; k < 7; k++) {
+        const t = k / 7;
+        ctx.fillRect(cx + s * 2.5 * u - s * 4.7 * u * t - 0.12 * u, H * (0.3 + 0.3 * t) - 0.3 * u, 0.24 * u, 0.6 * u);
+      }
+    }
+    ctx.lineCap = "round";
+  }
+  if (o.collar) {
+    ctx.fillStyle = o.collar;
+    ctx.fillRect(cx - 0.7 * u, H * 0.29, 1.4 * u, H * 0.025);
+  }
+  if (o.badge) {
+    // a star on the chest
+    ctx.fillStyle = o.badge;
+    ctx.beginPath();
+    for (let k = 0; k < 10; k++) {
+      const a = (k / 10) * Math.PI * 2 - Math.PI / 2;
+      const r = (k % 2 ? 0.35 : 0.8) * u;
+      ctx.lineTo(cx - 1.4 * u + Math.cos(a) * r, H * 0.38 + Math.sin(a) * r);
+    }
+    ctx.closePath();
+    ctx.fill();
+  }
+  if (o.apron) {
+    ctx.fillStyle = o.apron;
+    ctx.beginPath();
+    ctx.rect(cx - 2.4 * u, H * 0.5, 4.8 * u, H * 0.4);
+    ctx.fill();
+    outline();
+  }
+  if (o.belt) {
+    ctx.fillStyle = o.belt;
+    ctx.fillRect(cx - 2.7 * u, H * 0.585, 5.4 * u, H * 0.035);
+    ctx.fillRect(cx + 2.1 * u, H * 0.6, 0.9 * u, H * 0.11); // holster
+    ctx.fillStyle = "#e8c050";
+    ctx.fillRect(cx - 0.4 * u, H * 0.585, 0.8 * u, H * 0.035);
+  }
+  if (o.dress) {
+    // a flared skirt to the floor, a band of trim at the hem
+    ctx.fillStyle = o.dress;
+    ctx.beginPath();
+    ctx.moveTo(cx - 2.5 * u, H * 0.55);
+    ctx.lineTo(cx + 2.5 * u, H * 0.55);
+    ctx.lineTo(cx + 4.3 * u, H * 0.975);
+    ctx.lineTo(cx - 4.3 * u, H * 0.975);
+    ctx.closePath();
+    ctx.fill();
+    outline();
+    if (o.trim) {
+      ctx.fillStyle = o.trim;
+      ctx.fillRect(cx - 4.1 * u, H * 0.925, 8.2 * u, H * 0.035);
+    }
+  }
   // arms
   ctx.strokeStyle = o.arms || o.body;
   ctx.lineWidth = 1.5 * u;
@@ -457,14 +608,21 @@ function person(ctx, W, H, o) {
     ctx.lineTo(cx + 4 * u, H * 0.08);
   } else {
     ctx.moveTo(cx - 2.8 * u, H * 0.33);
-    ctx.lineTo(cx - 3.6 * u, H * 0.6);
+    if (o.guns2) ctx.lineTo(cx - 4.2 * u, H * 0.36);
+    else if (o.hips) (ctx.lineTo(cx - 4 * u, H * 0.45), ctx.lineTo(cx - 2.6 * u, H * 0.55));
+    else ctx.lineTo(cx - 3.6 * u, H * 0.6);
     ctx.moveTo(cx + 2.8 * u, H * 0.33);
-    ctx.lineTo(cx + (o.gun ? 4.6 : 3.6) * u, H * (o.gun ? 0.36 : 0.6));
+    if (o.hips && !o.gun) (ctx.lineTo(cx + 4 * u, H * 0.45), ctx.lineTo(cx + 2.6 * u, H * 0.55));
+    else ctx.lineTo(cx + (o.gun ? 4.6 : 3.6) * u, H * (o.gun ? 0.36 : 0.6));
   }
   ctx.stroke();
   if (o.gun) {
     ctx.fillStyle = "#222";
     ctx.fillRect(cx + 4 * u, H * 0.31, 1.6 * u, 0.6 * u);
+  }
+  if (o.guns2) {
+    ctx.fillStyle = "#222";
+    ctx.fillRect(cx - 5 * u, H * 0.31, 1.2 * u, 0.6 * u);
   }
   // head
   ctx.fillStyle = o.skin || "#f0c9a0";
@@ -491,7 +649,50 @@ function person(ctx, W, H, o) {
       (ctx.fillRect(cx - 2.1 * u, H * 0.15, 0.9 * u, H * 0.16),
         ctx.fillRect(cx + 1.2 * u, H * 0.15, 0.9 * u, H * 0.16));
   }
-  if (o.hat) {
+  if (o.feather) {
+    ctx.fillStyle = o.feather;
+    ctx.beginPath();
+    ctx.ellipse(cx + 1.5 * u, H * 0.06, 0.5 * u, H * 0.06, 0.45, 0, Math.PI * 2);
+    ctx.fill();
+    outline();
+  }
+  if (o.hat && o.sombrero) {
+    // a sombrero: a tall peaked crown and a brim out past the shoulders
+    ctx.fillStyle = o.hat;
+    ctx.beginPath();
+    ctx.moveTo(cx - 1.6 * u, H * 0.095);
+    ctx.quadraticCurveTo(cx - 1.4 * u, H * 0.0, cx, H * 0.002);
+    ctx.quadraticCurveTo(cx + 1.4 * u, H * 0.0, cx + 1.6 * u, H * 0.095);
+    ctx.closePath();
+    ctx.fill();
+    outline();
+    ctx.beginPath();
+    ctx.ellipse(cx, H * 0.1, 4.7 * u, H * 0.026, 0, 0, Math.PI * 2);
+    ctx.fill();
+    outline();
+    ctx.fillStyle = o.hatBand || "#c0182a";
+    ctx.fillRect(cx - 1.55 * u, H * 0.075, 3.1 * u, H * 0.014);
+  } else if (o.hat && o.stetson) {
+    // a cowboy hat: dented crown, wide brim
+    ctx.fillStyle = o.hat;
+    ctx.beginPath();
+    ctx.moveTo(cx - 1.75 * u, H * 0.092);
+    ctx.lineTo(cx - 1.5 * u, H * 0.026);
+    ctx.lineTo(cx - 0.6 * u, H * 0.012);
+    ctx.lineTo(cx, H * 0.03);
+    ctx.lineTo(cx + 0.6 * u, H * 0.012);
+    ctx.lineTo(cx + 1.5 * u, H * 0.026);
+    ctx.lineTo(cx + 1.75 * u, H * 0.092);
+    ctx.closePath();
+    ctx.fill();
+    outline();
+    ctx.beginPath();
+    ctx.ellipse(cx, H * 0.094, 3.4 * u, H * 0.02, 0, 0, Math.PI * 2);
+    ctx.fill();
+    outline();
+    ctx.fillStyle = "#1a120c";
+    ctx.fillRect(cx - 1.7 * u, H * 0.074, 3.4 * u, H * 0.012);
+  } else if (o.hat) {
     ctx.fillStyle = o.hat;
     ctx.fillRect(cx - 2.6 * u, H * 0.075, 5.2 * u, 0.6 * u);
     ctx.fillRect(cx - 1.5 * u, H * (o.topHat ? -0.02 : 0.02), 3 * u, H * (o.topHat ? 0.1 : 0.06));
@@ -502,6 +703,33 @@ function person(ctx, W, H, o) {
     ctx.beginPath();
     ctx.arc(cx - 0.7 * u, H * 0.165, 0.25 * u, 0, Math.PI * 2);
     ctx.arc(cx + 0.7 * u, H * 0.165, 0.25 * u, 0, Math.PI * 2);
+    ctx.fill();
+  }
+  if (o.tache) {
+    ctx.fillStyle = o.hair || "#3a2414";
+    ctx.beginPath();
+    ctx.ellipse(cx - 0.5 * u, H * 0.205, 0.7 * u, 0.22 * u, -0.25, 0, Math.PI * 2);
+    ctx.ellipse(cx + 0.5 * u, H * 0.205, 0.7 * u, 0.22 * u, 0.25, 0, Math.PI * 2);
+    ctx.fill();
+  }
+  if (o.bandana) {
+    // round the neck, or pulled up over the face (masked)
+    const top = o.masked ? 0.188 : 0.235;
+    ctx.fillStyle = o.bandana;
+    ctx.beginPath();
+    ctx.moveTo(cx - 1.95 * u, H * top);
+    ctx.lineTo(cx + 1.95 * u, H * top);
+    ctx.lineTo(cx + 1.7 * u, H * (top + 0.03));
+    ctx.lineTo(cx, H * (top + 0.07));
+    ctx.lineTo(cx - 1.7 * u, H * (top + 0.03));
+    ctx.closePath();
+    ctx.fill();
+    outline();
+  }
+  if (o.lips) {
+    ctx.fillStyle = o.lips;
+    ctx.beginPath();
+    ctx.ellipse(cx, H * 0.215, 0.5 * u, 0.2 * u, 0, 0, Math.PI * 2);
     ctx.fill();
   }
   if (o.face === "white") {
@@ -518,7 +746,7 @@ function person(ctx, W, H, o) {
   }
 }
 
-function target(ctx, W, H, label, ring = "#e8344a") {
+export function target(ctx, W, H, label, ring = "#e8344a") {
   for (let k = 5; k > 0; k--) {
     ctx.fillStyle = k % 2 ? ring : "#fbfbf4";
     ctx.beginPath();
@@ -537,7 +765,7 @@ function target(ctx, W, H, label, ring = "#e8344a") {
   }
 }
 
-function silhouette(ctx, W, H, kind, fill) {
+export function silhouette(ctx, W, H, kind, fill) {
   // A tin-sign animal in profile, facing left.
   ctx.fillStyle = fill;
   ctx.strokeStyle = "#222";
@@ -668,6 +896,70 @@ export const CARDS = {
       hat: "#111",
       topHat: true,
       armsUp: true
+    }),
+  // the saloon
+  cowboy: (c, W, H) =>
+    person(c, W, H, {
+      body: "#e8dcc0",
+      vest: "#6a4224",
+      legs: "#3a4a6a",
+      hat: "#8a5a30",
+      stetson: true,
+      bandana: "#c0182a",
+      hair: "#3a2414",
+      tache: true,
+      belt: "#2a1a10",
+      gun: true
+    }),
+  gunslinger: (c, W, H) =>
+    person(c, W, H, {
+      body: "#3a3a3a",
+      vest: "#7a1a1a",
+      legs: "#2a2a2a",
+      hat: "#151515",
+      stetson: true,
+      hair: "#151515",
+      tache: true,
+      belt: "#151515",
+      gun: true,
+      skin: "#d8a880"
+    }),
+  outlaw: (c, W, H) =>
+    person(c, W, H, {
+      body: "#1a1a1a",
+      legs: "#1a1a1a",
+      vest: "#2a2a2a",
+      hat: "#0e0e0e",
+      stetson: true,
+      bandana: "#0e0e0e",
+      masked: true,
+      belt: "#3a2a1a",
+      gun: true,
+      guns2: true
+    }),
+  lady: (c, W, H) =>
+    person(c, W, H, {
+      body: "#9a1a5a",
+      dress: "#b0206a",
+      trim: "#f2c230",
+      shirt: "#f0c9a0",
+      arms: "#f0c9a0",
+      hips: true,
+      hair: "#2a1a10",
+      longHair: true,
+      feather: "#f2c230",
+      lips: "#c0182a"
+    }),
+  barkeep: (c, W, H) =>
+    person(c, W, H, {
+      body: "#f4efe2",
+      vest: "#2a2a2a",
+      legs: "#2a2a2a",
+      apron: "#fbfbf4",
+      hair: "#3a2414",
+      tache: true,
+      hat: "#2a2a2a",
+      arms: "#f4efe2"
     })
 };
 
@@ -828,7 +1120,12 @@ export const CARD_SIZE = {
   hiker: [0.9, 1.8],
   ranger: [0.9, 1.8],
   dog: [0.8, 0.8],
-  mime: [0.9, 1.8]
+  mime: [0.9, 1.8],
+  cowboy: [0.9, 1.8],
+  gunslinger: [0.9, 1.8],
+  outlaw: [0.9, 1.8],
+  lady: [0.9, 1.8],
+  barkeep: [0.9, 1.8]
 };
 
 const geoCache = new Map();
@@ -869,6 +1166,17 @@ export function artMesh(art) {
 }
 
 // ---- Worlds ----------------------------------------------------------------------
+
+function mulberry(seed) {
+  let a = seed >>> 0;
+  return () => {
+    a = (a + 0x6d2b79f5) >>> 0;
+    let t = a;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
 
 // The sky: an equirectangular painted canvas on a big inside-out sphere.
 // o: { top, mid, horizon, ground, sun: [azimuth deg (0 = downrange), elevation
@@ -955,17 +1263,6 @@ function skyTexture(o) {
   const tex = new THREE.CanvasTexture(c);
   tex.encoding = THREE.sRGBEncoding;
   return tex;
-}
-
-function mulberry(seed) {
-  let a = seed >>> 0;
-  return () => {
-    a = (a + 0x6d2b79f5) >>> 0;
-    let t = a;
-    t = Math.imul(t ^ (t >>> 15), t | 1);
-    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
 }
 
 // Scenery builder: P.add(geometry, colour, x, h, f, ...) in range terms (u, h,
@@ -1488,8 +1785,274 @@ export const WORLDS = {
       [10, 17.6, 0.95]
     ],
     cover: null
+  },
+  // Inside a saloon (SALOON above): bar and back bar at the far end under a
+  // balcony, a staircase up each side, the rooms' doors along the balcony.
+  saloon: {
+    sky: { top: "#100a06", mid: "#160e08", horizon: "#1c120a", ground: "#100a06", seed: 43 },
+    fog: 0x2a1a10,
+    build(P) {
+      const S = SALOON;
+      const G = GROUND;
+      const len = S.BACK + 0.3 - S.FRONT;
+      const mid = (S.FRONT + S.BACK + 0.3) / 2;
+      const B0 = S.BACK + 0.15; // the back wall's middle
+      // the floor: boards, dark between them
+      P.add(SLAB(2 * S.W + 0.6, 0.05, len), 0x2a1a10, 0, G - 0.12, mid);
+      for (let k = 0; k < 32; k++)
+        P.add(SLAB(0.98, 0.1, len), [0x7a5232, 0x6e4a2c, 0x845a38][k % 3], -15.5 + k, G - 0.05, mid);
+      // the side walls: wallpaper over wood panelling, windows, pictures, lamps
+      for (const s of [-1, 1]) {
+        const x = d => s * (S.W - d); // (d in from the wall's face)
+        P.add(SLAB(0.3, S.CEIL + 0.3, len), 0x6e2c26, s * (S.W + 0.15), G + S.CEIL / 2, mid);
+        P.add(SLAB(0.06, 1.2, len), 0x4e3020, x(0.03), G + 0.6, mid);
+        P.add(SLAB(0.1, 0.08, len), 0x2a1a10, x(0.05), G + 1.22, mid);
+        P.add(SLAB(0.1, 0.15, len), 0x2a1a10, x(0.05), G + 0.075, mid);
+        P.add(SLAB(0.08, 0.25, len), 0x3a2214, x(0.04), G + S.CEIL - 0.12, mid);
+        for (const f of [-5, 2, 9]) {
+          P.add(BOX(0.08, 2.0, 1.4), 0x2a1a10, x(0.04), G + 2.6, f);
+          P.add(BOX(0.04, 1.8, 1.2), 0x1a2a4a, x(0.1), G + 2.6, f);
+          P.add(BOX(0.03, 1.8, 0.06), 0x2a1a10, x(0.13), G + 2.6, f);
+          P.add(BOX(0.03, 0.06, 1.2), 0x2a1a10, x(0.13), G + 2.6, f);
+        }
+        for (const [f, c] of [
+          [-1, 0x3a4a2a],
+          [6, 0x5a3a2a],
+          [13, 0x2a3a4a]
+        ]) {
+          P.add(BOX(0.06, 1.0, 1.4), 0xc8a050, x(0.03), G + 3.2, f);
+          P.add(BOX(0.04, 0.8, 1.2), c, x(0.07), G + 3.2, f);
+        }
+        for (const f of [-3, 4, 11]) {
+          P.add(BOX(0.25, 0.05, 0.05), 0x2a1a10, x(0.12), G + 2.75, f);
+          P.add(BOX(0.16, 0.3, 0.16), 0xffd27a, x(0.25), G + 2.95, f);
+        }
+        // the door at the balcony's end the stairs' gunmen come out of
+        P.add(BOX(0.08, 2.6, 1.45), 0x3a2214, x(0.02), G + S.BAL + 1.3, S.BALF + 1.35);
+        P.add(BOX(0.06, 2.4, 1.2), 0x120a06, x(0.05), G + S.BAL + 1.2, S.BALF + 1.35);
+      }
+      // the ceiling and its beams
+      P.add(SLAB(2 * S.W + 0.6, 0.3, len), 0x3e2a1c, 0, G + S.CEIL + 0.15, mid);
+      for (let f = S.FRONT + 1; f < S.BACK; f += 3) P.add(BOX(2 * S.W, 0.35, 0.3), 0x2a1a10, 0, G + S.CEIL - 0.175, f);
+      // the back wall, in bands round its doors: panelled downstairs, papered up
+      const band = (h0, h1, doors, c) => {
+        let u = -S.W - 0.3;
+        for (const d of [...doors, S.W + 0.95]) {
+          const w = d - 0.65 - u;
+          if (w > 0) P.add(BOX(w, h1 - h0, 0.3), c, u + w / 2, G + (h0 + h1) / 2, B0);
+          u = d + 0.65;
+        }
+      };
+      band(0, 2.4, S.DOWN_DOORS, 0x5a3420);
+      band(2.4, S.BAL, [], 0x5a3420);
+      band(S.BAL, S.BAL + 2.4, S.UP_DOORS, 0x6e2c26);
+      band(S.BAL + 2.4, S.CEIL + 0.3, [], 0x6e2c26);
+      // the doors: frames, a dark room behind, the door swung open
+      const door = (c, hb) => {
+        P.add(BOX(0.12, 2.5, 0.1), 0x3a2214, c - 0.71, G + hb + 1.25, S.BACK - 0.03);
+        P.add(BOX(0.12, 2.5, 0.1), 0x3a2214, c + 0.71, G + hb + 1.25, S.BACK - 0.03);
+        P.add(BOX(1.54, 0.14, 0.1), 0x3a2214, c, G + hb + 2.47, S.BACK - 0.03);
+        P.add(BOX(2.6, 2.8, 0.1), 0x140c08, c, G + hb + 1.3, S.BACK + 2.6);
+        P.add(BOX(2.6, 0.05, 2.6), 0x1e140c, c, G + hb - 0.025, S.BACK + 1.4);
+        for (const s of [-1, 1]) P.add(BOX(0.1, 2.8, 2.6), 0x140c08, c + s * 1.3, G + hb + 1.3, S.BACK + 1.4);
+        P.add(BOX(2.6, 0.1, 2.6), 0x140c08, c, G + hb + 2.75, S.BACK + 1.4);
+        // (hinged on the side away from the middle, so it doesn't hide the doorway)
+        const sd = c >= 0 ? 1 : -1;
+        const a = 1.25;
+        P.add(
+          BOX(1.25, 2.3, 0.05),
+          0x7a4a2a,
+          c + sd * (0.65 + 0.625 * Math.cos(a)),
+          G + hb + 1.15,
+          S.BACK - 0.625 * Math.sin(a),
+          0,
+          sd > 0 ? -a : Math.PI + a,
+          0
+        );
+      };
+      for (const c of S.UP_DOORS) door(c, S.BAL);
+      for (const c of S.DOWN_DOORS) door(c, 0);
+      // a steer's skull over the middle doors, lamps between them
+      P.add(BOX(0.36, 0.5, 0.15), 0xe8e0d0, 0, G + S.BAL + 3.4, S.BACK - 0.1);
+      for (const s of [-1, 1])
+        P.add(CONE(0.07, 0.95, 6), 0xf4ecd8, s * 0.6, G + S.BAL + 3.55, S.BACK - 0.12, 0, 0, s * (Math.PI / 2 - 0.35));
+      for (const u of [-9.25, -4.65, 0, 4.65, 9.25]) {
+        if (u === 0) continue;
+        P.add(BOX(0.16, 0.3, 0.16), 0xffd27a, u, G + S.BAL + 1.95, S.BACK - 0.15);
+      }
+      // the balcony: floor, fascia, railing, posts down to the saloon floor
+      P.add(BOX(2 * S.W, 0.3, S.BACK - S.BALF), 0x5a3820, 0, G + S.BAL - 0.15, (S.BALF + S.BACK) / 2);
+      P.add(BOX(2 * S.W, 0.45, 0.12), 0x4a2c18, 0, G + S.BAL - 0.2, S.BALF - 0.02);
+      const railU = S.SU - S.SW / 2 - 0.05;
+      P.add(BOX(2 * railU, 0.08, 0.1), 0x3e2616, 0, G + S.BAL + 1.0, S.BALF + 0.08);
+      P.add(BOX(2 * railU, 0.06, 0.08), 0x3e2616, 0, G + S.BAL + 0.1, S.BALF + 0.08);
+      for (let u = -railU + 0.05; u < railU; u += 0.45)
+        P.add(BOX(0.05, 0.9, 0.05), 0x5a3820, u, G + S.BAL + 0.55, S.BALF + 0.08);
+      for (const u of [-railU, -8.3, 8.3, railU])
+        P.add(
+          BOX(0.25, S.BAL + (Math.abs(u) > 9 ? 1.1 : 0), 0.25),
+          0x4a2c18,
+          u,
+          G + (S.BAL + (Math.abs(u) > 9 ? 1.1 : 0)) / 2,
+          S.BALF + 0.12
+        );
+      // the stairs up each side wall to the balcony
+      const N = 16;
+      const rise = S.BAL / N;
+      const tread = (S.BALF - S.S0) / N;
+      for (const s of [-1, 1]) {
+        const inner = s * (S.SU - S.SW / 2 - 0.06);
+        for (let k = 0; k < N; k++) {
+          const top = (k + 1) * rise;
+          const f = S.S0 + (k + 0.5) * tread;
+          P.add(BOX(S.SW, top, tread), 0x5a3a22, s * S.SU, G + top / 2, f);
+          P.add(BOX(S.SW + 0.04, 0.04, tread + 0.04), 0x8a6040, s * S.SU, G + top + 0.005, f - 0.02);
+          const baluster = 1.0 - 0.5 * rise;
+          P.add(BOX(0.05, baluster, 0.05), 0x5a3820, inner, G + top + baluster / 2, f);
+        }
+        const L = Math.hypot(S.BALF - S.S0, S.BAL);
+        P.add(
+          BOX(0.08, 0.1, L),
+          0x3a2214,
+          inner,
+          G + 1.0 + S.BAL / 2,
+          (S.S0 + S.BALF) / 2,
+          Math.atan2(S.BAL, S.BALF - S.S0)
+        );
+        P.add(BOX(0.16, 1.25, 0.16), 0x3a2214, inner, G + 0.625, S.S0 + 0.1);
+        P.add(BALL(0.1, 6), 0x3a2214, inner, G + 1.3, S.S0 + 0.1);
+      }
+      // the bar: panelled front, dark top, brass foot rail, stools
+      P.add(BOX(14, 1.17, 0.9), 0x5a321c, 0, G + 0.585, S.BAR + 0.45);
+      for (let k = 0; k < 10; k++) P.add(BOX(1.2, 0.8, 0.04), 0x6a3e24, -6.3 + k * 1.4, G + 0.6, S.BAR - 0.02);
+      P.add(BOX(14.4, 0.06, 1.1), 0x3a2010, 0, G + S.BARH - 0.03, S.BAR + 0.45);
+      P.add(CYL(0.035, 0.035, 14, 6), 0xd8a840, 0, G + 0.22, S.BAR - 0.25, 0, 0, Math.PI / 2);
+      for (let u = -5; u <= 5; u += 2) {
+        P.add(CYL(0.2, 0.2, 0.06, 10), 0x6a2a1a, u, G + 0.76, S.BAR - 0.55);
+        P.add(CYL(0.04, 0.05, 0.74, 5), 0x2a1a10, u, G + 0.37, S.BAR - 0.55);
+      }
+      // the back bar under the balcony: cabinet, mirror, three shelves of bottles
+      P.add(BOX(13, 1.0, 1.0), 0x4a2a16, 0, G + 0.5, S.BACK - 0.5);
+      P.add(BOX(13.2, 0.05, 1.1), 0x3a2010, 0, G + 1.025, S.BACK - 0.55);
+      P.add(BOX(12, 2.25, 0.04), 0x8aa2ac, 0, G + 2.6, S.BACK - 0.03);
+      P.add(BOX(12.4, 0.15, 0.06), 0xc8a050, 0, G + 3.78, S.BACK - 0.05);
+      for (const s of [-1, 1]) {
+        P.add(BOX(0.15, 2.4, 0.06), 0xc8a050, s * 6.1, G + 2.6, S.BACK - 0.05);
+        P.add(BOX(0.3, S.BAL - 0.3, 0.3), 0x3a2214, s * 6.6, G + (S.BAL - 0.3) / 2, S.BACK - 0.2);
+      }
+      for (const h of [1.72, 2.37, 3.02]) P.add(BOX(12.4, 0.05, 0.4), 0x3a2214, 0, G + h - 0.025, S.BACK - 0.25);
+      // a piano on the left wall, a bench on the right
+      P.add(BOX(0.7, 1.35, 1.6), 0x2a1810, -S.W + 0.35, G + 0.675, 10);
+      P.add(BOX(0.28, 0.05, 1.45), 0xf4efe2, -S.W + 0.82, G + 0.74, 10);
+      P.add(BOX(0.3, 0.06, 1.5), 0x1a100a, -S.W + 0.84, G + 0.8, 10);
+      P.add(CYL(0.2, 0.2, 0.06, 10), 0x6a2a1a, -S.W + 1.45, G + 0.5, 10);
+      P.add(CYL(0.04, 0.05, 0.5, 5), 0x2a1a10, -S.W + 1.45, G + 0.25, 10);
+      P.add(BOX(0.5, 0.45, 3), 0x4a2c18, S.W - 0.3, G + 0.225, 10);
+      // round tables and chairs near, card tables further back
+      const chair = (u, f, back) => {
+        P.add(BOX(0.42, 0.05, 0.42), 0x4a2c18, u, G + 0.45, f);
+        for (const [a, b] of [
+          [-1, -1],
+          [1, -1],
+          [-1, 1],
+          [1, 1]
+        ])
+          P.add(BOX(0.04, 0.45, 0.04), 0x3a2214, u + a * 0.18, G + 0.225, f + b * 0.18);
+        P.add(BOX(0.42, 0.5, 0.04), 0x4a2c18, u, G + 0.72, f + back * 0.2);
+      };
+      const table = (u, f, r, top) => {
+        P.add(CYL(r, r, 0.05, 16), top, u, G + 0.785, f);
+        P.add(CYL(0.06, 0.08, 0.76, 6), 0x2a1a10, u, G + 0.38, f);
+        P.add(CYL(0.32, 0.36, 0.04, 10), 0x2a1a10, u, G + 0.02, f);
+        chair(u - r - 0.3, f + 0.3, 1);
+        chair(u + r + 0.3, f + 0.3, 1);
+        chair(u, f + r + 0.35, 1);
+      };
+      for (const u of S.TABLES) table(u, 7, 0.62, 0x5a3a22);
+      for (const u of [-7, 0, 7]) {
+        P.add(CYL(0.95, 0.95, 0.05, 18), 0x3a2214, u, G + 0.765, 13);
+        table(u, 13, 0.9, 0x1f5a32);
+        // chips and a hand of cards
+        if (u)
+          for (let k = 0; k < 4; k++)
+            P.add(
+              CYL(0.035, 0.035, 0.06 + 0.03 * k, 8),
+              [0xc0182a, 0x151515, 0xf4efe2, 0x2f6fe8][k],
+              u - 0.3 + k * 0.12,
+              G + 0.84 + 0.015 * k,
+              12.8
+            );
+      }
+      // overturned tables the pop-ups hide behind
+      for (const u of S.COVER) {
+        P.add(CYL(0.58, 0.58, 0.06, 16), 0x6a4426, u, G + 0.58, 3.85, Math.PI / 2);
+        P.add(TORUS(0.56, 0.035, 20), 0x3a2214, u, G + 0.58, 3.8);
+        for (const x of [-0.2, 0.2]) P.add(BOX(0.025, 1.0, 0.02), 0x3a2214, u + x, G + 0.58, 3.81);
+      }
+      // wagon-wheel chandeliers
+      for (const [u, f] of [
+        [-6, 3],
+        [6, 3],
+        [-6, 13],
+        [6, 13],
+        [0, 8]
+      ]) {
+        const h = G + 7.2;
+        P.add(TORUS(1.0, 0.05, 20), 0x3a2214, u, h, f, Math.PI / 2);
+        for (let k = 0; k < 3; k++) P.add(BOX(2.0, 0.04, 0.04), 0x3a2214, u, h, f, 0, (k * Math.PI) / 3, 0);
+        P.add(CYL(0.015, 0.015, S.CEIL - 7.2, 4), 0x2a1a10, u, (h + G + S.CEIL) / 2, f);
+        for (let k = 0; k < 8; k++) {
+          const a = (k / 8) * Math.PI * 2;
+          P.add(CYL(0.03, 0.03, 0.14, 5), 0xf4efe2, u + Math.cos(a), h + 0.12, f + Math.sin(a));
+          P.add(BALL(0.045, 4), 0xffd27a, u + Math.cos(a), h + 0.23, f + Math.sin(a));
+        }
+      }
+    },
+    slots: [],
+    cover: null
   }
 };
+
+// Painted signs on a world's buildings (w.signs: [text, u, h, f, w, hgt, bg,
+// fg, ry]), all on one canvas, one mesh; laid out like the scenery and moved
+// back and lifted with it.
+function signBoard(signs) {
+  const ROW = 128;
+  const canvas = document.createElement("canvas");
+  canvas.width = 1024;
+  canvas.height = 2 ** Math.ceil(Math.log2(ROW * signs.length));
+  const ctx = canvas.getContext("2d");
+  const geos = [];
+  signs.forEach(([text, u, h, f, w, hgt, bg = "#3a2414", fg = "#f2e2b8", ry = 0], k) => {
+    const pw = Math.min(1024, Math.round((ROW * w) / hgt));
+    const y = k * ROW;
+    ctx.fillStyle = bg;
+    ctx.fillRect(0, y, pw, ROW);
+    ctx.strokeStyle = fg;
+    ctx.lineWidth = 5;
+    ctx.strokeRect(6, y + 6, pw - 12, ROW - 12);
+    ctx.fillStyle = fg;
+    ctx.font = `900 ${Math.round(ROW * 0.62)}px serif`;
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText(text, pw / 2, y + ROW / 2 + 4, pw - 28);
+    const g = new THREE.PlaneGeometry(w, hgt);
+    const uv = g.attributes.uv;
+    for (let i = 0; i < uv.count; i++)
+      uv.setXY(i, (uv.getX(i) * pw) / 1024, 1 - (y + (1 - uv.getY(i)) * ROW) / canvas.height);
+    const fs = f + SHIFT;
+    g.applyMatrix4(m4.compose(pp.set(u, h + lift(fs), -fs), qq.setFromEuler(ee.set(0, ry, 0)), ss.set(1, 1, 1)));
+    geos.push(g);
+  });
+  const geo = mergeBufferGeometries(geos, false);
+  geos.forEach(g => g.dispose());
+  const tex = new THREE.CanvasTexture(canvas);
+  tex.encoding = THREE.sRGBEncoding;
+  tex.anisotropy = 4;
+  const mesh = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ map: tex, side: THREE.DoubleSide, fog: false }));
+  mesh.frustumCulled = false;
+  return mesh;
+}
 
 // Cover in front of a world's pop-up slots (counters, reeds, bushes).
 function addCover(P, w) {
@@ -1552,10 +2115,17 @@ export function buildWorld(key, extra) {
   const scenery = new THREE.Mesh(geo, new THREE.MeshBasicMaterial({ vertexColors: true, fog: false }));
   scenery.frustumCulled = false;
   group.add(scenery);
+  const signs = w.signs?.length ? signBoard(w.signs) : null;
+  if (signs) group.add(signs);
   group.traverse(o => (o.matrixNeedsUpdate = true));
   return {
     group,
     dispose() {
+      if (signs) {
+        signs.geometry.dispose();
+        signs.material.map.dispose();
+        signs.material.dispose();
+      }
       skyMat.map.dispose();
       skyMat.dispose();
       skyGeo.dispose();
@@ -1570,6 +2140,43 @@ export function buildWorld(key, extra) {
 }
 
 // ---- Ambience (made here, no files) ---------------------------------------------
+
+// An out-of-tune upright in the corner: 4 bars at 120 (the 8 s loop), oom-pah
+// left hand (C F G C) and a right hand wandering the pentatonic, each note two
+// strings a little apart.
+function honkyTonk(d, sr, R) {
+  const note = (t0, hz, dur, amp) => {
+    const i0 = Math.floor(t0 * sr);
+    const i1 = Math.min(d.length, Math.floor((t0 + dur) * sr));
+    for (let i = i0; i < i1; i++) {
+      const t = (i - i0) / sr;
+      const env = Math.exp(-t * 5) * Math.min(1, t * 300);
+      const w = 2 * Math.PI * hz * t;
+      d[i] += amp * env * (Math.sin(w) + Math.sin(w * 1.007) + 0.45 * Math.sin(2 * w) + 0.2 * Math.sin(3 * w * 1.003));
+    }
+  };
+  const hz = semis => 261.63 * 2 ** (semis / 12); // from middle C
+  const roots = [0, 5, 7, 0]; // C F G C
+  const scale = [0, 2, 4, 7, 9, 12, 14, 16];
+  const notes = [];
+  for (let bar = 0; bar < 4; bar++) {
+    const r = roots[bar];
+    const t = bar * 2;
+    notes.push([t, hz(r - 24), 0.45, 0.09], [t + 1, hz(r - 17), 0.45, 0.09]);
+    for (const b of [0.5, 1.5]) for (const c of [0, 4, 7]) notes.push([t + b, hz(r + c - 12), 0.3, 0.035]);
+    for (let e = 0; e < 8; e++) {
+      if (R() < 0.3) continue;
+      notes.push([t + e * 0.25, hz(scale[Math.floor(R() * scale.length)] + 12), 0.35, 0.05]);
+    }
+  }
+  // (and again from 8 s, so the loop's crossfade joins the tune to itself)
+  for (const off of [0, 8]) for (const [t, f, dur, amp] of notes) note(t + off, f, dur, amp);
+}
+
+// More backgrounds (the campaigns add theirs): AMBIENCE[kind](d, sr, R) adds
+// into d, a Float32Array of 8.5 s at sample rate sr, over the wind (R: a
+// seeded random 0..1). The tail past 8 s is crossfaded over the head.
+export const AMBIENCE = {};
 
 // A seamless 8 s loop of a world's background: wind, water, insects, a crowd.
 export function makeAmbience(ctx, kind) {
@@ -1592,7 +2199,26 @@ export function makeAmbience(ctx, kind) {
     bp = lp2 - lp;
     let v = 0;
     const wind = lp * (0.6 + 0.4 * Math.sin((t * 2 * Math.PI) / 8));
-    if (kind === "crowd" || kind === "casino") {
+    if (kind === "saloon") {
+      v = bp * (0.5 + 0.3 * Math.sin(t * 2.3) + 0.2 * Math.sin(t * 4.1)) * 0.7;
+    } else if (kind === "town" || kind === "noon") {
+      // desert wind gusting down the street, a windmill creaking (noon: a fly)
+      v = wind * (kind === "noon" ? 1.2 : 2.2);
+      const cr = (t * 0.5) % 1;
+      if (cr < 0.15) v += Math.sin(2 * Math.PI * (300 + 500 * cr) * t) * 0.03 * Math.sin((Math.PI * cr) / 0.15);
+      if (kind === "noon")
+        v += Math.sin(2 * Math.PI * 190 * t + 3 * Math.sin(t * 7)) * 0.012 * (0.5 + 0.5 * Math.sin(t * 1.3));
+    } else if (kind === "camp" || kind === "border") {
+      // a fire crackling (camp) or a river (border), crickets, now and then a coyote
+      v = kind === "camp" ? wind * 0.8 : bp * 0.9 + wind;
+      if (kind === "camp" && R() < 0.0009) v += noise() * 0.8; // (a crack from the fire)
+      v += Math.sin(2 * Math.PI * 4400 * t) * Math.max(0, Math.sin(t * 2 * Math.PI * 3)) ** 4 * 0.02;
+      const y = t % 8;
+      if (y > 5 && y < 6.6) {
+        const e = (y - 5) / 1.6;
+        v += Math.sin(2 * Math.PI * (700 + 500 * Math.sin(e * Math.PI)) * t) * 0.035 * Math.sin(e * Math.PI);
+      }
+    } else if (kind === "crowd" || kind === "casino") {
       // murmur: band noise swelling in voices
       v = bp * (0.5 + 0.3 * Math.sin(t * 3.1) + 0.2 * Math.sin(t * 5.3)) * 1.4;
       if (kind === "casino" && Math.floor(t * 3) % 7 === 0)
@@ -1617,6 +2243,8 @@ export function makeAmbience(ctx, kind) {
     }
     d[i] = v;
   }
+  if (kind === "saloon") honkyTonk(d, sr, R);
+  AMBIENCE[kind]?.(d, sr, R);
   // loop seam: crossfade the extra tail over the head
   for (let i = 0; i < fade; i++) {
     const k = i / fade;

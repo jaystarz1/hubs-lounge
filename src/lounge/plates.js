@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { GROUND, SHIFT, SPREAD, groundAt, CARDS, CARD_SIZE } from "./shoots-art";
+import { GROUND, SHIFT, SPREAD, SALOON, groundAt, CARDS, CARD_SIZE } from "./shoots-art";
 import { SHAPES } from "./plates-shapes";
 
 // Knockdown plates for the featured shoots (Jay, 2026-10-20: "give us falling
@@ -41,7 +41,7 @@ const TIERS = [
   { up: 0.9, pts: 25 }
 ];
 
-const PAINT = {
+export const PAINT = {
   white: 0xf4efe2,
   yellow: 0xf2c230,
   orange: 0xff7a1a,
@@ -54,9 +54,25 @@ const PAINT = {
   pink: 0xf28ab0,
   card: 0xffffff
 };
-const SOUND = { glass: "glass", bottle: "glass" };
-const SHATTER = new Set(["glass", "bottle"]);
-const PERSON = new Set(["henchman", "boss", "girl", "bad", "hostage", "mime", "farmer", "ranger", "hiker"]);
+const SOUND = { glass: "glass", bottle: "glass", mug: "glass" };
+export const SHATTER = new Set(["glass", "bottle", "mug"]);
+export const PLATE_SOUND = SOUND;
+export const PERSON = new Set([
+  "henchman",
+  "boss",
+  "girl",
+  "bad",
+  "hostage",
+  "mime",
+  "farmer",
+  "ranger",
+  "hiker",
+  "cowboy",
+  "gunslinger",
+  "outlaw",
+  "lady",
+  "barkeep"
+]);
 
 function mulberry(seed) {
   let a = seed >>> 0;
@@ -149,16 +165,30 @@ function drawShape(ctx, s, rim) {
   }
 }
 
+// (more outlines than fit on one: the atlas runs on to another page, each its
+// own texture and material)
+const PER_PAGE = (ATLAS / CELL) ** 2;
 function* atlasSteps() {
-  const canvas = document.createElement("canvas");
-  canvas.width = ATLAS;
-  canvas.height = ATLAS;
-  const ctx = canvas.getContext("2d");
+  const pages = [];
   const cells = {};
   let n = 0;
+  let ctx = null;
   const place = (key, aspect, draw) => {
+    if (!(aspect > 0 && aspect < 100)) {
+      // (a broken outline: draw it square rather than lose the whole atlas)
+      console.warn("plates: bad outline", key, aspect);
+      aspect = 1;
+    }
+    if (n % PER_PAGE === 0) {
+      const canvas = document.createElement("canvas");
+      canvas.width = ATLAS;
+      canvas.height = ATLAS;
+      ctx = canvas.getContext("2d");
+      pages.push({ canvas, ctx });
+    }
+    const page = pages.length - 1;
     const cx = (n % (ATLAS / CELL)) * CELL;
-    const cy = Math.floor(n / (ATLAS / CELL)) * CELL;
+    const cy = (Math.floor(n / (ATLAS / CELL)) % (ATLAS / CELL)) * CELL;
     n++;
     const room = CELL - 2 * PAD;
     const w = aspect >= 1 ? room : Math.round(room * aspect);
@@ -172,7 +202,7 @@ function* atlasSteps() {
     ctx.translate(x, y);
     draw(w, h);
     ctx.restore();
-    cells[key] = { x, y, w, h, aspect: w / h };
+    cells[key] = { x, y, w, h, aspect: w / h, page };
   };
   for (const [key, s] of Object.entries(SHAPES)) {
     const [x0, y0, x1, y1] = shapeBox(s);
@@ -196,7 +226,7 @@ function* atlasSteps() {
   // Hit masks: which of a MASK x MASK grid over each outline is solid (and a
   // cell's neighbours, so an edge is a hit).
   for (const c of Object.values(cells)) {
-    const img = ctx.getImageData(c.x, c.y, c.w, c.h).data;
+    const img = pages[c.page].ctx.getImageData(c.x, c.y, c.w, c.h).data;
     const raw = new Uint8Array(MASK * MASK);
     for (let j = 0; j < MASK; j++)
       for (let i = 0; i < MASK; i++) {
@@ -219,10 +249,12 @@ function* atlasSteps() {
     c.mask = mask;
     yield;
   }
-  const tex = new THREE.CanvasTexture(canvas);
-  tex.encoding = THREE.sRGBEncoding;
-  tex.anisotropy = 4;
-  const mat = new THREE.MeshBasicMaterial({ map: tex, alphaTest: 0.5, side: THREE.DoubleSide, fog: false });
+  const mats = pages.map(({ canvas }) => {
+    const tex = new THREE.CanvasTexture(canvas);
+    tex.encoding = THREE.sRGBEncoding;
+    tex.anisotropy = 4;
+    return new THREE.MeshBasicMaterial({ map: tex, alphaTest: 0.5, side: THREE.DoubleSide, fog: false });
+  });
   const geos = {};
   for (const [key, c] of Object.entries(cells)) {
     // a 1 x 1 card standing on its bottom edge, its UVs on its cell
@@ -234,7 +266,7 @@ function* atlasSteps() {
     }
     geos[key] = g;
   }
-  return { cells, mat, geos };
+  return { cells, mats, geos };
 }
 
 let job = null;
@@ -260,12 +292,30 @@ export function warmPlates(renderer) {
       if (r.done) atlas = r.value;
     }
     if (!atlas) setTimeout(step, 50);
-    else renderer?.initTexture?.(atlas.mat.map);
+    else for (const m of atlas.mats) renderer?.initTexture?.(m.map);
   };
   setTimeout(step, 2000);
 }
 // (for the preview harness)
-export const plateAtlas = () => getAtlas().mat.map.image;
+export const plateAtlas = (page = 0) => getAtlas().mats[page]?.map.image;
+
+// One plate on its own (the featured shoots' running animals): the outline on
+// a card h m tall standing on its bottom edge, facing -x; flip scale.x to face
+// +x.
+const cutMats = new Map();
+export function plateCutout(kind, tint, h) {
+  const A = getAtlas();
+  const page = A.cells[kind].page;
+  const key = `${page}:${tint}`;
+  if (!cutMats.has(key)) {
+    const m = A.mats[page].clone();
+    m.color.setHex(tint);
+    cutMats.set(key, m);
+  }
+  const mesh = new THREE.Mesh(A.geos[kind], cutMats.get(key));
+  mesh.scale.set(h * A.cells[kind].aspect, h, 1);
+  return mesh;
+}
 
 // ---- Layouts ----------------------------------------------------------------------
 
@@ -327,10 +377,12 @@ class Layout {
     const wood = o.wood ?? 0x5a3a22;
     if (base > 0.15 && o.perch) {
       // a pole (a dead tree, a post) under each
-      const at = this.plates.slice(-o.n);
+      // (where they are as laid out: PlateField moves the plates back before
+      // the scenery is built, and the scenery is moved back itself)
+      const at = this.plates.slice(-o.n).map(p => [p.u, p.f]);
       this.props.push(P => {
-        for (const p of at)
-          P.add(new THREE.CylinderGeometry(0.05, 0.08, base, 5), wood, p.u, GROUND + base / 2, p.f + 0.05);
+        for (const [u, f] of at)
+          P.add(new THREE.CylinderGeometry(0.05, 0.08, base, 5), wood, u, GROUND + base / 2, f + 0.05);
       });
     } else if (base > 0.15 && o.rail !== false) {
       // a thin rail on posts
@@ -379,9 +431,9 @@ class Layout {
   }
 }
 
-const span = (n, a, b) => Array.from({ length: n }, (_, k) => a + ((b - a) * k) / Math.max(1, n - 1));
+export const span = (n, a, b) => Array.from({ length: n }, (_, k) => a + ((b - a) * k) / Math.max(1, n - 1));
 
-const LAYOUTS = {
+export const LAYOUTS = {
   carnival(L) {
     L.row({ kind: "duck", n: 8, f: 8.5, u0: -4.2, u1: 4.2, base: 1.0, size: 0.42, tint: "yellow", bank: 4 });
     L.row({ kind: "rabbit", n: 6, f: 10.5, u0: -6, u1: 6, base: 1.7, size: 0.5, tint: "white", bank: 3 });
@@ -760,6 +812,104 @@ const LAYOUTS = {
       busy: 0.6,
       kinds: [["bad", 100, { pts: 25 }]]
     });
+  },
+
+  // Inside the saloon (shoots-art.js SALOON), everything where the room puts
+  // it (fixed): spittoons on the floor, glasses and bottles on the tables and
+  // the bar, three shelves of small bottles over the back bar. Gunmen pop up
+  // behind the overturned tables and the bar and step into the doorways;
+  // the ladies (and the barkeep) are don't-shoots.
+  saloon(L) {
+    const S = SALOON;
+    const fixed = { fixed: true, rail: false };
+    L.row({ ...fixed, kind: "spittoon", n: 6, f: 1.5, u0: -7.5, u1: 7.5, size: 0.32, tint: "gold", bank: 3 });
+    for (const u of S.TABLES)
+      L.row({
+        ...fixed,
+        kind: ["bottle", "mug", "bottle"],
+        n: 3,
+        f: 6.75,
+        u0: u - 0.32,
+        u1: u + 0.32,
+        base: 0.81,
+        size: 0.3,
+        tint: ["green", "gold", "brown"],
+        bank: 3
+      });
+    L.row({
+      ...fixed,
+      kind: ["spade", "heart", "diamond", "club"],
+      n: 4,
+      f: 12.4,
+      u0: -0.66,
+      u1: 0.66,
+      base: 0.82,
+      size: 0.45,
+      tint: ["white", "red", "red", "white"],
+      bank: 4
+    });
+    L.row({
+      ...fixed,
+      kind: ["mug", "glass"],
+      n: 10,
+      f: S.BAR + 0.25,
+      u0: -6.3,
+      u1: 6.3,
+      base: S.BARH,
+      size: 0.3,
+      tint: ["gold", "white"],
+      bank: 5
+    });
+    [1.72, 2.37, 3.02].forEach((base, k) =>
+      L.row({
+        ...fixed,
+        kind: "bottle",
+        n: 8,
+        f: S.BACK - 0.3,
+        u0: -5.6,
+        u1: 5.6,
+        base,
+        size: 0.42,
+        tint: [
+          ["green", "brown"],
+          ["brown", "gold"],
+          ["gold", "green"]
+        ][k],
+        bank: 4
+      })
+    );
+    const gunmen = (cowboy, gunslinger) => [
+      ["cowboy", cowboy],
+      ["gunslinger", gunslinger]
+    ];
+    L.pops({
+      fixed: true,
+      f: 4.3,
+      at: S.COVER.map(u => [u, 0]),
+      size: 1.7,
+      kinds: [...gunmen(45, 35), ["lady", 12, { dont: true }], ["outlaw", 8, { pts: 50 }]]
+    });
+    L.pops({
+      fixed: true,
+      f: S.BAR + 1.2,
+      at: [-4.5, 0, 4.5].map(u => [u, 0]),
+      size: 1.75,
+      kinds: [...gunmen(40, 35), ["barkeep", 25, { dont: true }]]
+    });
+    L.pops({
+      fixed: true,
+      f: S.BACK + 0.45,
+      at: S.UP_DOORS.map(u => [u, S.BAL]),
+      size: 1.7,
+      kinds: [...gunmen(35, 30), ["lady", 30, { dont: true }], ["outlaw", 5, { pts: 50 }]]
+    });
+    L.pops({
+      fixed: true,
+      f: S.BACK + 0.45,
+      at: S.DOWN_DOORS.map(u => [u, 0]),
+      size: 1.75,
+      kinds: [...gunmen(40, 35), ["lady", 25, { dont: true }]]
+    });
   }
 };
 
@@ -799,8 +949,11 @@ export class PlateField {
     this.meshes = {};
     const col = new THREE.Color();
     for (const [k, c] of Object.entries(counts)) {
-      if (!A.geos[k]) continue;
-      const im = new THREE.InstancedMesh(A.geos[k], A.mat, c);
+      if (!A.geos[k]) {
+        console.warn("plates: no outline for", k);
+        continue;
+      }
+      const im = new THREE.InstancedMesh(A.geos[k], A.mats[A.cells[k].page], c);
       im.frustumCulled = false;
       im.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
       im.name = `plates:${k}`;
@@ -976,7 +1129,7 @@ export class PlateField {
     const live = [];
     for (const p of this.plates) {
       const ps = this.pose(p, T);
-      if (ps && ps.live) live.push([p, ps]);
+      if (ps && ps.live && A.cells[ps.kind]) live.push([p, ps]);
     }
     for (const ray of rays) {
       let best = null;

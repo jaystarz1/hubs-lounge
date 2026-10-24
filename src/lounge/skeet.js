@@ -21,20 +21,22 @@ import {
 } from "./skeet-range";
 import {
   WAVE,
-  ROUND,
-  CYCLE,
+  BREAK,
+  LEVEL_GAP,
   SCENARIOS,
-  SCREEN,
   SHOW_KINDS,
-  phaseOf,
   showWave,
   liveShow,
   findShowLaunch,
-  tonight
+  tonight,
+  levelsOf,
+  levelOf,
+  levelGoal,
+  campaignOf
 } from "./shoots";
 import { buildWorld, artMesh, makeAmbience } from "./shoots-art";
 import { MUSIC } from "./range-music";
-import { PlateField, warmPlates } from "./plates";
+import { PlateField, warmPlates, plateCutout } from "./plates";
 
 Object.assign(KINDS, SHOW_KINDS);
 
@@ -114,12 +116,14 @@ const PICK_NAMES = [
   ["BOAR CHARGE", "THU"],
   ["SPY NIGHT", "FRI"],
   ["SAFARI", "SAT"],
-  ["HOSTAGE", "SUN"]
+  ["HOSTAGE", "SUN"],
+  ["WILD WEST", "VILLA'S TRAIL"]
 ];
 const IDLE = 90; // s with no gun up before a featured round is dropped
 const MUSIC_VOL = 0.2;
 const AMB_VOL = 0.16;
-const PENALTY = 10; // a charger that reaches the roof
+const PENALTY = 10; // a charger that reaches the roof (a kind can say more)
+const EARLY = 25; // the quick draw: shooting at him before DRAW!
 const BAD_COLOUR = "#ff4a4a";
 
 const SEND_EVERY = 0.1; // s, while holding
@@ -197,7 +201,7 @@ AFRAME.registerSystem("lounge-skeet", {
     this.newGame?.remove();
     for (const l of this.picker || []) l.remove();
     this.picker = null;
-    this.setWorld(-1);
+    this.setWorld("");
     this.stopMusic();
     this.setView(false);
     this.setSkybox(false);
@@ -290,7 +294,7 @@ AFRAME.registerSystem("lounge-skeet", {
     this.popups = [];
     this.tracers = [];
     this.players = new Map(); // client id -> { name, score, hits, shots, at }
-    this.me = { score: 0, hits: 0, shots: 0, streak: 0, best: 0 };
+    this.me = { score: 0, hits: 0, shots: 0, streak: 0, best: 0, lp: 0, lk: "" };
     this.hold = { left: null, right: null };
     this.rearHand = "right";
     this.prev = { left: { grip: false, trig: false }, right: { grip: false, trig: false } };
@@ -300,9 +304,11 @@ AFRAME.registerSystem("lounge-skeet", {
     this.boardSig = "";
     this.wasActive = false;
 
-    // The featured shoots: the round, the next pick, the world round the roof.
-    this.show = null; // { sc, t0, seed, round }
-    this.queued = null; // { sc, at }
+    // The featured shoots: the level being played, the next pick, the world
+    // round the roof.
+    this.show = null; // { sc, lvl, t0, seed, round }
+    this.queued = null; // { sc, lvl, at }
+    this.drawn = new Set(); // quick-draw slots that have had their DRAW!
     this.lastActive = 0;
     this.reached = new Set();
     this.statusKey = "";
@@ -316,7 +322,7 @@ AFRAME.registerSystem("lounge-skeet", {
     dirty(this.worldNode);
     this.root.add(this.worldNode);
     this.world = null;
-    this.worldSc = -1;
+    this.worldKey = "";
     this.worldOn = false;
     this.music = null;
     this.buildPicker(B);
@@ -329,7 +335,7 @@ AFRAME.registerSystem("lounge-skeet", {
     warmPlates(this.el.sceneEl.renderer);
   },
 
-  buildBoard(B, BD) {
+  buildBoard(B) {
     const centre = B(BOARD.x, BOARD.y, BOARD.z);
     const look = B(BOARD.x - 10, BOARD.y, BOARD.z);
     this.board = canvasPlane(BOARD.w, BOARD.h, 1200);
@@ -452,8 +458,8 @@ AFRAME.registerSystem("lounge-skeet", {
   },
 
   sendScore() {
-    const { score, hits, shots } = this.me;
-    this.send({ k: "score", score, hits, shots }, true);
+    const { score, hits, shots, lp, lk } = this.me;
+    this.send({ k: "score", score, hits, shots, lp, lk }, true);
   },
 
   myId() {
@@ -495,12 +501,14 @@ AFRAME.registerSystem("lounge-skeet", {
       const at = Number(d.at) || getServerTime() / 1000;
       const st = this.showStatus(at);
       if (this.plates && st.inRound)
-        this.plates.hit(String(d.id), at, d.by, st.phase.key === "finale", p => this.worldNode.localToWorld(p));
+        this.plates.hit(String(d.id), at, d.by, st.x2, p => this.worldNode.localToWorld(p));
     } else if (d.k === "score") {
       this.players.set(d.by, {
         score: Number(d.score) || 0,
         hits: Number(d.hits) || 0,
         shots: Number(d.shots) || 0,
+        lp: Number(d.lp) || 0,
+        lk: String(d.lk || ""),
         at: now
       });
     } else if (d.k === "reset") {
@@ -510,7 +518,7 @@ AFRAME.registerSystem("lounge-skeet", {
     } else if (d.k === "pick") {
       const sc = Number(d.sc);
       const at = Number(d.at) || 0;
-      if (SCENARIOS[sc] && (!this.queued || at > this.queued.at)) this.queued = { sc, at };
+      if (SCENARIOS[sc] && (!this.queued || at > this.queued.at)) this.queued = { sc, lvl: Number(d.lvl) | 0, at };
     }
   },
 
@@ -522,8 +530,8 @@ AFRAME.registerSystem("lounge-skeet", {
   },
 
   reset(broadcast) {
-    this.me = { score: 0, hits: 0, shots: 0, streak: 0, best: 0 };
-    for (const p of this.players.values()) Object.assign(p, { score: 0, hits: 0, shots: 0 });
+    this.me = { score: 0, hits: 0, shots: 0, streak: 0, best: 0, lp: 0, lk: this.levelKey() };
+    for (const p of this.players.values()) Object.assign(p, { score: 0, hits: 0, shots: 0, lp: 0 });
     if (broadcast) {
       this.send({ k: "reset" }, true);
       this.sendScore();
@@ -555,7 +563,10 @@ AFRAME.registerSystem("lounge-skeet", {
   },
 
   take(g, side, now) {
-    if (!this.show) this.startShow(getServerTime() / 1000, this.queued ? this.queued.sc : tonight());
+    if (!this.show) {
+      const q = this.queued;
+      this.startShow(getServerTime() / 1000, q ? q.sc : tonight(), q ? q.lvl : 0);
+    }
     this.lastActive = now;
     this.tookAt = now;
     g.holder = this.myId();
@@ -598,9 +609,11 @@ AFRAME.registerSystem("lounge-skeet", {
     let rayT = Infinity;
     const end = h.p.clone().addScaledVector(h.fwd, POINT_REACH);
     const pt = new THREE.Vector3();
+    const pistolsOnly = this.pistolsOnly();
     for (const g of this.guns) {
       if (g.holder) continue;
       if (g.spec.hands === 2 && busy) continue; // needs both hands free
+      if (pistolsOnly && g.type !== "pistol") continue;
       const [a, b] = this.gunEnds(g);
       const d = segDist(h.p, a, b);
       if (d < bestD) {
@@ -651,7 +664,6 @@ AFRAME.registerSystem("lounge-skeet", {
       if (this.held().length) this.releaseAll();
       return;
     }
-    const me = this.myId();
     const other = side => (side === "right" ? "left" : "right");
     // Grip: put a held gun down (either hand on a two-handed gun; it goes
     // back to the wall by itself), or pick one up. An empty hand also picks
@@ -739,8 +751,32 @@ AFRAME.registerSystem("lounge-skeet", {
     const hits = this.active ? shotHits(this.frame, muzzle, dir, T, live, this.broken, spec.spread0, spec.spreadK) : [];
     let scored = 0;
     let bad = 0;
+    // The quick draw: a shot at an outlaw before DRAW! costs you.
+    const early = live.filter(L => L.duel && T - L.t0 < L.duel.d && !this.fouled?.has(L.id));
+    if (early.length && this.active) {
+      const at = shotHits(
+        this.frame,
+        muzzle,
+        dir,
+        T,
+        early.map(L => ({ ...L, hittable: null })),
+        this.broken,
+        spec.spread0,
+        spec.spreadK
+      );
+      for (const L of at) {
+        if (!this.fouled) this.fouled = new Set();
+        this.fouled.add(L.id);
+        bad -= EARLY;
+        const p = this.frame
+          .toWorld(launchPos(L, T - L.t0, v1), new THREE.Vector3())
+          .addScaledVector(this.frame.up, 2.3);
+        this.popup(`TOO SOON -${EARLY}`, BAD_COLOUR, p);
+        this.play("wrong", p, 0.9, 12);
+      }
+    }
     for (const L of hits) {
-      const pts = this.pointsFor(L);
+      const pts = this.pointsFor(L, T);
       if (pts < 0) bad += pts;
       else scored += pts;
       this.breakTarget(L, this.myId(), pts, true);
@@ -769,7 +805,7 @@ AFRAME.registerSystem("lounge-skeet", {
         origin: r.origin.clone().applyMatrix4(inv),
         dir: r.dir.clone().transformDirection(inv)
       }));
-      const x2 = this.status.phase.key === "finale";
+      const x2 = !!this.status.x2;
       for (const h of this.plates.pick(local, T)) {
         const res = this.plates.hit(h.id, T, this.myId(), x2, p => this.worldNode.localToWorld(p));
         if (!res) continue;
@@ -781,6 +817,7 @@ AFRAME.registerSystem("lounge-skeet", {
     this.me.shots += 1;
     this.stats.shots++;
     this.me.score += scored + bad;
+    if (this.status?.inRound) this.me.lp += scored + bad;
     if (scored && !bad) {
       this.me.hits += 1;
       this.me.streak += 1;
@@ -860,7 +897,7 @@ AFRAME.registerSystem("lounge-skeet", {
       this.targets.set(L.id, t);
     }
     const spec = KINDS[L.kind];
-    if (spec.face === "run" || spec.face === "board") {
+    if (spec.face === "run" || spec.face === "board" || spec.face === "slide") {
       // knocked over where it stands (a charger, a cut-out)
       t.dead = { t: 0, topple: true, q0: t.mesh.quaternion.clone(), side: Math.random() < 0.5 ? 1 : -1 };
       t.mesh.position.copy(p);
@@ -896,7 +933,14 @@ AFRAME.registerSystem("lounge-skeet", {
 
   spawn(L) {
     const spec = KINDS[L.kind];
-    const mesh = spec.art ? artMesh(spec.art) : targetMesh(L.kind);
+    let mesh;
+    if (spec.art?.plate) {
+      // a running cut-out: square on to the stands, nose first (orientShow)
+      mesh = new THREE.Group();
+      const cut = plateCutout(spec.art.plate, spec.art.tint, spec.art.h);
+      mesh.add(cut);
+      mesh.userData = { wings: [], cut, w: cut.scale.x };
+    } else mesh = spec.art ? artMesh(spec.art) : targetMesh(L.kind);
     dirty(mesh);
     this.root.add(mesh);
     return { L, mesh, dead: null, announced: false };
@@ -927,9 +971,10 @@ AFRAME.registerSystem("lounge-skeet", {
     const key = `${text}|${colour}`;
     if (!this._popupTex) this._popupTex = new Map();
     const cache = this._popupTex;
+    const wide = text.length > 5 ? 2 : 1;
     if (!cache.has(key)) {
       const canvas = document.createElement("canvas");
-      canvas.width = 256;
+      canvas.width = 256 * wide;
       canvas.height = 128;
       const ctx = canvas.getContext("2d");
       ctx.font = "900 92px sans-serif";
@@ -937,9 +982,9 @@ AFRAME.registerSystem("lounge-skeet", {
       ctx.textBaseline = "middle";
       ctx.lineWidth = 12;
       ctx.strokeStyle = "rgba(0,0,0,0.85)";
-      ctx.strokeText(text, 128, 66);
+      ctx.strokeText(text, 128 * wide, 66, 256 * wide - 16);
       ctx.fillStyle = colour;
-      ctx.fillText(text, 128, 66);
+      ctx.fillText(text, 128 * wide, 66, 256 * wide - 16);
       const tex = new THREE.CanvasTexture(canvas);
       tex.encoding = THREE.sRGBEncoding;
       cache.set(key, tex);
@@ -951,7 +996,7 @@ AFRAME.registerSystem("lounge-skeet", {
     sprite.position.copy(p);
     dirty(sprite);
     this.root.add(sprite);
-    this.popups.push({ sprite, t: 0, from: p.clone() });
+    this.popups.push({ sprite, t: 0, from: p.clone(), wide });
   },
 
   showBanner(lines, colour = "#fff4d6", secs = 3.5) {
@@ -1034,12 +1079,23 @@ AFRAME.registerSystem("lounge-skeet", {
         t.mesh.position.copy(p);
         this.orient(t, tau, p);
         t.mesh.matrixNeedsUpdate = true;
-        if (L.charge && tau >= L.dur - 0.15 && !this.reached.has(L.id)) this.chargerArrived(L, p);
+        if (L.charge && tau >= (L.arrive ?? L.dur - 0.15) && !this.reached.has(L.id)) this.chargerArrived(L, p);
+        if (L.duel && tau >= L.duel.d && !this.drawn.has(L.t0)) {
+          // (one call for both lanes)
+          this.drawn.add(L.t0);
+          if (this.onRoofNow) {
+            this.showBanner(["DRAW!"], "#ff4a4a", 1.4);
+            this.play("bell", this.frame.toWorld(v2.set(0, 4, 2.5), new THREE.Vector3()), 1, 12);
+          }
+        }
         if (!t.announced) {
           t.announced = true;
           if (tau < 0.6) {
             const info = KINDS[L.kind];
-            if (info.art) {
+            if (L.say) this.showBanner(L.say, "#fff4d6", Math.min(3, L.duel ? L.duel.d - 0.2 : 3));
+            else if (L.duel) {
+              /* (no points banner on a duelist) */
+            } else if (info.art) {
               if (info.name && !this.banner.mesh.visible)
                 this.showBanner([info.name, `${info.pts} POINTS`], info.pts < 0 ? BAD_COLOUR : "#ffd24a", 2.2);
             } else if (info.name) {
@@ -1072,6 +1128,7 @@ AFRAME.registerSystem("lounge-skeet", {
       } else if (!alive.has(id)) this.dropTarget(id, t);
     }
     for (const [id, b] of this.broken) if (T - b.at > 120) this.broken.delete(id);
+    if (this.drawn.size > 40) this.drawn.clear();
   },
 
   dropTarget(id, t) {
@@ -1104,7 +1161,7 @@ AFRAME.registerSystem("lounge-skeet", {
       const dist = cam ? cam.getWorldPosition(v1).distanceTo(p.from) : 10;
       p.sprite.position.copy(p.from).y += 0.4 + e * 1.2;
       const s = Math.max(0.6, dist * 0.11);
-      p.sprite.scale.set(s, s / 2, 1);
+      p.sprite.scale.set(s * p.wide, s / 2, 1);
       p.sprite.material.opacity = e < 0.7 ? 1 : 1 - (e - 0.7) / 0.3;
       p.sprite.matrixNeedsUpdate = true;
       if (p.t > POPUP_TIME) {
@@ -1181,22 +1238,37 @@ AFRAME.registerSystem("lounge-skeet", {
     const rows = this.standings();
     const left = Math.max(0, Math.ceil((stand.n + 1) * STAND - T));
     const show = this.show && !status.idle ? this.show : null;
-    const world = show ? SCREEN[SCENARIOS[show.sc]] : null;
+    const camp = show ? campaignOf(show.sc) : null;
+    const levels = show ? levelsOf(show.sc) : [];
+    const lv = status.lv;
     const mmss = n => `${Math.floor(n / 60)}:${String(n % 60).padStart(2, "0")}`;
+    const team = this.team();
+    const goal = levelGoal(lv);
     let line;
+    let bar = null;
     if (!show)
       line = this.active ? `NOW: ${stand.title}   ·   next stand in ${left}s` : "Pick up a gun from the wall to start";
-    else if (status.starting) line = `ROUND ${show.round} STARTS IN ${status.starting}s`;
-    else if (status.inRound)
-      line = `ROUND ${show.round}  ·  ${showWave(show, status.w).title}  ·  ${mmss(status.left)} LEFT`;
-    else {
+    else if (status.starting)
+      line = `LEVEL ${show.lvl + 1} OF ${levels.length} · ${lv.name} · STARTS IN ${status.starting}s`;
+    else if (status.inRound) {
+      const title = showWave(show, status.w).title;
+      if (goal) {
+        line = `LEVEL ${show.lvl + 1}/${levels.length} · ${title} · TEAM ${team.toLocaleString()} / ${goal.toLocaleString()}`;
+        bar = Math.max(0, Math.min(1, team / goal));
+      } else {
+        line = `LEVEL ${show.lvl + 1}/${levels.length} · ${title} · ${mmss(Math.max(0, status.left))} LEFT`;
+        bar = Math.max(0, Math.min(1, 1 - status.left / lv.dur));
+      }
+    } else {
       const n = this.queued ? this.queued.sc : (show.sc + 1) % SCENARIOS.length;
-      line = `BREAK  ·  ${SCREEN[SCENARIOS[n]].name} IN ${mmss(status.left)}  ·  the clay stands are open`;
+      line = `${camp.name} DONE · ${campaignOf(n).name} IN ${mmss(Math.max(0, status.left))} · the clay stands are open`;
     }
     const best = this.sessionBest ? `   ·   BEST TONIGHT: ${this.sessionBest.name} ${this.sessionBest.score}` : "";
+    const total = rows.reduce((a, r) => a + r.score, 0);
     const sig = JSON.stringify([
       this.active,
       line,
+      bar && Math.round(bar * 200),
       best,
       rows.map(r => [r.id, name(r.id), r.score, r.hits, r.shots]),
       this.me.streak
@@ -1214,17 +1286,27 @@ AFRAME.registerSystem("lounge-skeet", {
     ctx.textBaseline = "middle";
     ctx.textAlign = "center";
     ctx.fillStyle = "#f3d27a";
-    ctx.font = "900 64px serif";
-    ctx.fillText(world && !status.inBreak ? world.name : "ROVERS ROOF CLAY CLUB", W / 2, 70, W - 60);
-    ctx.font = "600 34px sans-serif";
+    ctx.font = "900 60px serif";
+    ctx.fillText(camp && !status.inBreak ? camp.name : "ROVERS ROOF CLAY CLUB", W / 2, 66, W - 60);
+    ctx.font = "600 32px sans-serif";
     ctx.fillStyle = "#e9e3d0";
-    ctx.fillText(line, W / 2, 132, W - 60);
+    ctx.fillText(line, W / 2, 122, W - 60);
+    if (bar !== null) {
+      // the team's way through the level
+      ctx.fillStyle = "#0a160e";
+      ctx.fillRect(70, 148, W - 140, 22);
+      ctx.fillStyle = goal ? "#7fd18a" : "#d9b860";
+      ctx.fillRect(70, 148, (W - 140) * bar, 22);
+      ctx.strokeStyle = "#d9b860";
+      ctx.lineWidth = 3;
+      ctx.strokeRect(70, 148, W - 140, 22);
+    }
     ctx.textAlign = "left";
-    const top = 200;
-    const rowH = Math.min(92, (H - top - 140) / Math.max(1, rows.length));
+    const top = 222;
+    const rowH = Math.min(88, (H - top - 140) / Math.max(1, rows.length));
     ctx.font = "600 30px sans-serif";
     ctx.fillStyle = "#9fb8a4";
-    ctx.fillText("SHOOTER", 70, top - 26);
+    ctx.fillText(show ? `SHOOTER  ·  TEAM ${total.toLocaleString()}` : "SHOOTER", 70, top - 26);
     ctx.textAlign = "right";
     ctx.fillText("HITS / SHOTS", W - 330, top - 26);
     ctx.fillText("SCORE", W - 70, top - 26);
@@ -1244,20 +1326,20 @@ AFRAME.registerSystem("lounge-skeet", {
     });
     ctx.textAlign = "center";
     ctx.fillStyle = "#d9b860";
-    ctx.font = "700 32px sans-serif";
+    ctx.font = "700 30px sans-serif";
     const streak = this.me.streak >= 3 ? `   ·   ${this.me.streak} IN A ROW!` : "";
-    ctx.fillText(
-      show && !status.inBreak
-        ? `SMALL BIRDS 25  ·  BIG BIRDS 5  ·  GOLDEN 50  ·  DON'T-SHOOTS -25  ·  LAST MINUTE x2${streak}${best}`
-        : `CLAYS 25  ·  DUCKS & GOOSE 5  ·  SURPRISES 25${streak}${best}`,
-      W / 2,
-      H - 98,
-      W - 60
-    );
+    let legend = `CLAYS 25  ·  DUCKS & GOOSE 5  ·  SURPRISES 25${streak}${best}`;
+    if (show && !status.inBreak)
+      legend =
+        lv?.legend ||
+        `SMALLER + FASTER = MORE  ·  GOLDEN 50  ·  DON'T-SHOOTS -25  ·  ${goal ? `${goal.toLocaleString()} AS A TEAM TO WIN THE LEVEL` : ""}${streak}`;
+    ctx.fillText(legend, W / 2, H - 98, W - 60);
     ctx.fillStyle = "#9fb8a4";
     ctx.font = "500 25px sans-serif";
     ctx.fillText(
-      "Point at a gun + grip or trigger to pick it up · shotgun/rifle: both hands, trigger on the hand nearest your face · pistols: one per hand · grip again to put it down",
+      lv?.pistols && show && !status.inBreak
+        ? "PISTOLS ONLY · take one in each hand · grip to put it down"
+        : "Point at a gun + grip or trigger to pick it up · shotgun/rifle: both hands, trigger on the hand nearest your face · pistols: one per hand · grip again to put it down",
       W / 2,
       H - 50,
       W - 60
@@ -1267,7 +1349,13 @@ AFRAME.registerSystem("lounge-skeet", {
 
   // ---- featured shoots (shoots.js) ------------------------------------------
 
-  pointsFor(L) {
+  pointsFor(L, T = getServerTime() / 1000) {
+    if (L.duel) {
+      // the quick draw: 300 for a shot the moment he's called, down to 50
+      const dt = T - L.t0 - L.duel.d;
+      const pts = 5 * Math.round((50 + 250 * Math.max(0, 1 - dt / L.duel.react)) / 5);
+      return L.duel.x2 ? pts * 2 : pts;
+    }
     const pts = KINDS[L.kind].pts;
     return L.x2 && pts > 0 ? pts * 2 : pts;
   },
@@ -1280,20 +1368,33 @@ AFRAME.registerSystem("lounge-skeet", {
     if (a.thing === "apple") return [0xd92a2a, 0xf4e4c0];
     if (a.thing === "turnip") return [0x8a3aa8, 0xeee4f2, 0x3aa34a];
     if (a.thing === "coconut") return [0x6b4423, 0xffffff];
+    if (a.thing === "whiskey") return [0x8a4a1a, 0xf4e4c0, 0xe8f4ff];
+    if (a.thing === "mug") return [0xe8a838, 0xfff8e0, 0xe8f4ff];
+    if (a.thing === "stetson") return [0xe8dcc0, 0x2a1a10];
     if (a.bird) return [0xffffff, 0xd8d0c8, 0x8a7a66];
     if (a.animal) return [0xffffff, 0xf2c230, 0xe8344a];
+    if (a.plate) return [a.tint, a.tint, 0x1a1a1a];
     return [0xd8c8a8, 0xffffff, 0x555555];
   },
 
-  // A charger got to the roof: everyone up here with a gun loses PENALTY.
+  // A charger got to the roof (a gunman drew, dynamite landed, an outlaw
+  // beat you to the draw): everyone up here with a gun loses its penalty.
   chargerArrived(L, p) {
     this.reached.add(L.id);
-    this.play(KINDS[L.kind].sound || "roar", p, 1, 16);
+    const spec = KINDS[L.kind];
+    this.play(spec.arrive || spec.sound || "roar", p, 1, 16);
+    if (spec.blast) this.spawnDebris([0xff7a1a, 0xffd23a, 0x5a5a5a], p, v2.set(0, 4, 0));
     if (!this.held().length || !this.onRoofNow) return;
-    this.me.score -= PENALTY;
+    const pen = spec.penalty || PENALTY;
+    this.me.score -= pen;
+    if (this.status?.inRound) this.me.lp -= pen;
     this.me.streak = 0;
     this.scoreDirty = true;
-    this.popup(`-${PENALTY}`, BAD_COLOUR, p.clone().addScaledVector(this.frame.up, 1.5));
+    this.popup(
+      spec.lose ? `${spec.lose} -${pen}` : `-${pen}`,
+      BAD_COLOUR,
+      p.clone().addScaledVector(this.frame.up, spec.hy ? 2.3 : 1.5)
+    );
     for (const side of ["left", "right"]) if (this.hold[side]) this.pulse(side, 1, 200);
   },
 
@@ -1323,6 +1424,17 @@ AFRAME.registerSystem("lounge-skeet", {
       eye.y = 0;
       face(eye.clone());
       if (L.turn) mesh.quaternion.multiply(q1.setFromAxisAngle(Y, (1 - L.turn(tau)) * Math.PI * 0.5));
+    } else if (spec.face === "slide") {
+      const eye = this.frame.toWorld(v3.set(0, 0, 1.6), v3).sub(p);
+      eye.y = 0;
+      face(eye.clone());
+      // the outline faces its -x: turn it to face the way it runs
+      const nose = v3.set(-1, 0, 0).applyQuaternion(mesh.quaternion);
+      const sx = nose.dot(vel) < 0 ? -ud.w : ud.w;
+      if (ud.cut.scale.x !== sx) {
+        ud.cut.scale.x = sx;
+        ud.cut.matrixNeedsUpdate = true;
+      }
     } else if (spec.face === "spin") {
       const eye = this.frame.toWorld(v3.set(0, 0, 1.6), v3).sub(p);
       eye.y = 0;
@@ -1335,57 +1447,130 @@ AFRAME.registerSystem("lounge-skeet", {
     }
   },
 
-  // Where the featured round is at shared time T.
+  // The current level's key: points scored in it count towards it.
+  levelKey(show = this.show) {
+    return show ? `${show.sc}.${show.lvl | 0}.${Math.round(show.t0)}` : "";
+  },
+
+  // Everyone's points in this level (the team's way to its goal).
+  team() {
+    const key = this.levelKey();
+    if (!key) return 0;
+    const me = this.myId();
+    const present = window.APP?.hubChannel?.presence?.state || {};
+    let n = this.me.lk === key ? this.me.lp : 0;
+    for (const [id, p] of this.players) {
+      if (id === me || (!present[id] && Object.keys(present).length)) continue;
+      if (p.lk === key) n += p.lp;
+    }
+    return n;
+  },
+
+  pistolsOnly() {
+    const st = this.status;
+    return !!(st && (st.inRound || st.starting) && st.lv?.pistols);
+  },
+
+  // Where the featured shoot is at shared time T: { idle } | { starting, lv }
+  // | { inRound, lv, w, x2, left } | { inBreak, left } (the campaign is over).
   showStatus(T) {
     const s = this.show;
     if (!s) return { idle: true };
+    const lv = levelOf(s);
+    if (!lv) return { inBreak: true, done: true, left: Math.ceil(s.t0 + BREAK - T) };
     const t = T - s.t0;
-    if (t < 0) return { starting: Math.ceil(-t) };
-    if (t < ROUND) {
-      const w = Math.floor(t / WAVE);
-      return { inRound: true, w, phase: phaseOf(w), left: Math.ceil(ROUND - t) };
-    }
-    return { inBreak: true, left: Math.ceil(CYCLE - t) };
+    if (t < 0) return { starting: Math.ceil(-t), lv };
+    const w = Math.floor(t / WAVE);
+    return { inRound: true, lv, w, x2: showWave(s, w).x2, left: lv.dur ? Math.ceil(lv.dur - t) : null };
   },
 
-  startShow(T, sc) {
-    this.show = { sc, t0: Math.round(T) + 5, seed: (Math.random() * 4294967296) >>> 0, round: 1 };
+  startShow(T, sc, lvl = 0) {
+    const prev = this.show;
+    this.show = {
+      sc,
+      lvl: Math.min(lvl | 0, levelsOf(sc).length - 1),
+      t0: Math.round(T) + 5,
+      seed: (Math.random() * 4294967296) >>> 0,
+      round: 1
+    };
     this.queued = null;
-    this.roundStarted();
+    this.levelStarted(prev, true);
     this.sendShow(true);
   },
 
   sendShow(reliable) {
     if (!this.show) return;
-    const { sc, t0, seed, round } = this.show;
+    const { sc, lvl, t0, seed, round } = this.show;
     const q = this.queued;
-    this.send({ k: "show", sc, t0, seed, round, q: q ? q.sc : -1, qa: q ? q.at : 0 }, reliable);
+    this.send({ k: "show", sc, lvl, t0, seed, round, q: q ? q.sc : -1, ql: q ? q.lvl : 0, qa: q ? q.at : 0 }, reliable);
   },
 
-  // Someone else's round: the newer one wins (ties: the lower world, seed).
+  // Someone else's show: the newer one wins (ties: the lower world, seed).
   adoptShow(d) {
-    const s = { sc: Number(d.sc), t0: Number(d.t0), seed: Number(d.seed) >>> 0, round: Number(d.round) || 1 };
+    const s = {
+      sc: Number(d.sc),
+      lvl: Number(d.lvl) | 0,
+      t0: Number(d.t0),
+      seed: Number(d.seed) >>> 0,
+      round: Number(d.round) || 1
+    };
     if (!SCENARIOS[s.sc] || !Number.isFinite(s.t0)) return;
     const q = Number(d.q);
     const qa = Number(d.qa) || 0;
-    if (SCENARIOS[q] && (!this.queued || qa > this.queued.at)) this.queued = { sc: q, at: qa };
+    if (SCENARIOS[q] && (!this.queued || qa > this.queued.at)) this.queued = { sc: q, lvl: Number(d.ql) | 0, at: qa };
     const c = this.show;
     const better = !c || (s.t0 !== c.t0 ? s.t0 > c.t0 : s.sc !== c.sc ? s.sc < c.sc : s.seed < c.seed);
     if (!better) return;
-    if (this.queued && this.queued.at <= s.t0 - 4.5 && c && s.t0 > c.t0) this.queued = null;
+    if (this.queued && this.queued.at <= s.t0 - 4.5 && c && s.t0 > c.t0 && s.lvl === 0) this.queued = null;
     this.show = s;
-    this.roundStarted();
+    // (a new campaign, unless it's the next level of the one we're in)
+    const fresh = !c || c.sc !== s.sc || c.round !== s.round || s.lvl === 0 || s.lvl < c.lvl;
+    this.levelStarted(c, fresh);
   },
 
-  roundStarted() {
-    this.reset(false);
-    if (this.plates) this.plates.reset(this.show.seed);
+  // A level (or the campaign's end) began: fresh = a new campaign, scores to zero.
+  levelStarted(prev, fresh) {
+    if (fresh) this.reset(false);
+    this.me.lp = 0;
+    this.me.lk = this.levelKey();
+    this.scoreDirty = true;
     this.reached.clear();
     this.statusKey = "";
+    // the level just won
+    if (!fresh && prev && prev.sc === this.show.sc && this.show.lvl > prev.lvl && this.onRoofNow) {
+      const next = levelOf(this.show);
+      const won = levelOf(prev);
+      if (next)
+        this.showBanner(
+          [won && won.goal === null ? `${won.name} DONE` : "LEVEL CLEARED!", `NEXT: ${next.name}`],
+          "#7fd18a",
+          LEVEL_GAP - 1
+        );
+      this.play("ding", this.frame.toWorld(v1.set(0, 4, 2.5), new THREE.Vector3()), 0.9, 10);
+    }
+    if (!levelOf(this.show)) this.campaignOver();
   },
 
-  // At the end of a round's break: the next round if anyone still has a gun
-  // up (the pick from the board, or the next night's world), else stop.
+  // The level was won: everyone's points in it reached its goal. The next
+  // level (or the campaign's end) for everyone, LEVEL_GAP s from now.
+  levelUp(T) {
+    const s = this.show;
+    const lvl = s.lvl + 1;
+    const last = lvl >= levelsOf(s.sc).length;
+    this.show = {
+      sc: s.sc,
+      lvl,
+      t0: last ? Math.round(T) : Math.round(T) + LEVEL_GAP,
+      seed: Math.imul(s.seed ^ 0x9e3779b9, 2654435761) >>> 0,
+      round: s.round
+    };
+    this.levelStarted(s, false);
+    this.sendShow(true);
+  },
+
+  // Time moves the shoot on by itself: a timed level's end, the end of the
+  // break after a campaign (the next one if anyone still has a gun up: the
+  // pick from the board, or the next night's), or nobody playing.
   advanceShow(T, now) {
     const s = this.show;
     if (!s) return;
@@ -1393,44 +1578,64 @@ AFRAME.registerSystem("lounge-skeet", {
       this.show = null;
       return;
     }
-    if (T < s.t0 + CYCLE) return;
+    const lv = levelOf(s);
+    if (lv && lv.dur && T >= s.t0 + lv.dur) {
+      const next = s.lvl + 1 < levelsOf(s.sc).length;
+      this.show = { ...s, lvl: s.lvl + 1, t0: s.t0 + lv.dur + (next ? LEVEL_GAP : 0) };
+      this.levelStarted(s, false);
+      return;
+    }
+    if (lv || T < s.t0 + BREAK) return;
     if (!this.active) {
       this.show = null;
       return;
     }
-    const sc = this.queued ? this.queued.sc : (s.sc + 1) % SCENARIOS.length;
-    this.show = { sc, t0: s.t0 + CYCLE, seed: Math.imul(s.seed ^ 0x9e3779b9, 2654435761) >>> 0, round: s.round + 1 };
+    const q = this.queued;
+    const sc = q ? q.sc : (s.sc + 1) % SCENARIOS.length;
+    this.show = {
+      sc,
+      lvl: q ? Math.min(q.lvl | 0, levelsOf(sc).length - 1) : 0,
+      t0: s.t0 + BREAK,
+      seed: Math.imul(s.seed ^ 0x9e3779b9, 2654435761) >>> 0,
+      round: s.round + 1
+    };
     this.queued = null;
-    this.roundStarted();
+    this.levelStarted(s, true);
   },
 
-  roundOver() {
+  campaignOver() {
     const rows = this.standings();
     const top = rows[0];
+    const camp = campaignOf(this.show.sc);
+    const total = rows.reduce((a, r) => a + r.score, 0);
     if (top && top.score > 0) {
       const name = this.nameOf(top.id);
-      this.showBanner(["ROUND OVER", `${name} WINS · ${top.score}`], "#ffd24a", 6);
+      this.showBanner(
+        [...(camp.done || [`${camp.name} DONE`]), `TOP GUN: ${name} ${top.score} · TEAM ${total}`],
+        "#ffd24a",
+        8
+      );
       if (!this.sessionBest || top.score > this.sessionBest.score)
-        this.sessionBest = { name, score: top.score, sc: this.show ? this.show.sc : 0 };
-    } else this.showBanner(["ROUND OVER"], "#ffd24a", 4);
+        this.sessionBest = { name, score: top.score, sc: this.show.sc };
+    } else this.showBanner(camp.done || [`${camp.name} DONE`], "#ffd24a", 6);
     if (this.onRoofNow) this.play("gong", this.frame.toWorld(v1.set(0, 6, 3), new THREE.Vector3()), 0.6, 8);
   },
 
-  // Banners at a new round and each new phase.
+  // Banners as a level starts and at each double-points wave.
   announce(status) {
-    const key = status.inRound ? `${this.show.t0}|${status.phase.key}` : status.inBreak ? `${this.show.t0}|break` : "";
+    const key = status.inRound ? `${this.levelKey()}|${status.x2 ? status.w : "on"}` : "";
     if (key === this.statusKey) return;
-    const was = this.statusKey;
     this.statusKey = key;
     if (!key || !this.onRoofNow) return;
-    if (status.inBreak) {
-      if (was) this.roundOver();
-      return;
-    }
-    const sc = SCENARIOS[this.show.sc];
+    const lv = status.lv;
+    const n = levelsOf(this.show.sc).length;
     const title = showWave(this.show, status.w).title;
-    const lines = status.w === 0 ? [SCREEN[sc].name, `ROUND ${this.show.round} · ${title}`] : [title];
-    this.showBanner(lines, "#fff4d6", 4.5);
+    let lines;
+    if (status.x2) lines = [title];
+    else if (status.w === 0)
+      lines = [`LEVEL ${this.show.lvl + 1} OF ${n}`, lv.name, lv.story || campaignOf(this.show.sc).name];
+    else return;
+    this.showBanner(lines, "#fff4d6", 5);
     this.play("bell", this.frame.toWorld(v1.set(0, 3, 2), new THREE.Vector3()), 0.5, 6);
   },
 
@@ -1458,29 +1663,46 @@ AFRAME.registerSystem("lounge-skeet", {
     this.root.add(back);
     const scene = this.el.sceneEl;
     const L = [];
-    L.push(label(scene, centre, rot, 0, 0.5, 2.0, 0.22, ["PICK THE SHOOT"]));
+    L.push(label(scene, centre, rot, 0, 0.53, 2.0, 0.2, ["PICK THE SHOOT"]));
     PICK_NAMES.forEach((lines, i) => {
       const row = i < 4 ? 0 : 1;
-      const x = row === 0 ? -0.78 + i * 0.52 : -0.52 + (i - 4) * 0.52;
-      L.push(label(scene, centre, rot, x, row === 0 ? 0.2 : -0.1, 0.48, 0.26, lines, () => this.pickWorld(i)));
+      const x = -0.78 + (i % 4) * 0.52;
+      L.push(label(scene, centre, rot, x, row === 0 ? 0.27 : -0.01, 0.48, 0.24, lines, () => this.pickWorld(i)));
     });
-    L.push(label(scene, centre, rot, 0, -0.36, 2.0, 0.17, [""]));
-    L.push(label(scene, centre, rot, 0, -0.56, 1.0, 0.17, ["START IT NOW"], () => this.startNow()));
+    L.push(label(scene, centre, rot, 0, -0.25, 2.0, 0.15, [""]));
+    // which level to start at
+    this.levelButtons = [0, 1, 2, 3, 4].map(n =>
+      label(scene, centre, rot, -0.84 + n * 0.3, -0.47, 0.27, 0.15, [`LEVEL ${n + 1}`], () => this.pickLevel(n))
+    );
+    L.push(...this.levelButtons);
+    L.push(label(scene, centre, rot, 0.75, -0.47, 0.5, 0.15, ["START IT NOW"], () => this.startNow()));
     this.picker = L;
     this.pickerSig = "";
   },
 
   pickWorld(sc) {
     const T = getServerTime() / 1000;
-    this.queued = { sc, at: T };
-    this.send({ k: "pick", sc, at: T }, true);
+    this.queued = { sc, lvl: 0, at: T };
+    this.send({ k: "pick", sc, lvl: 0, at: T }, true);
+    this.pickerSig = "";
+  },
+
+  // Start the picked shoot at a later level (to try one without winning the
+  // ones before it).
+  pickLevel(lvl) {
+    const T = getServerTime() / 1000;
+    const sc = this.queued ? this.queued.sc : this.show ? this.show.sc : tonight();
+    if (lvl >= levelsOf(sc).length) return;
+    this.queued = { sc, lvl, at: T };
+    this.send({ k: "pick", sc, lvl, at: T }, true);
     this.pickerSig = "";
   },
 
   startNow() {
     const T = getServerTime() / 1000;
-    const sc = this.queued ? this.queued.sc : this.show ? this.show.sc : tonight();
-    this.startShow(T, sc);
+    const q = this.queued;
+    const sc = q ? q.sc : this.show ? this.show.sc : tonight();
+    this.startShow(T, sc, q ? q.lvl : 0);
     this.lastActive = performance.now() / 1000;
     this.pickerSig = "";
   },
@@ -1489,34 +1711,44 @@ AFRAME.registerSystem("lounge-skeet", {
     if (!this.picker) return;
     const now = this.show && (status.inRound || status.starting) ? this.show.sc : -1;
     const next = this.queued ? this.queued.sc : -1;
-    const sig = `${now}|${next}|${status.inBreak ? status.left : ""}|${status.starting || ""}`;
+    const qlvl = this.queued ? this.queued.lvl | 0 : 0;
+    const sig = `${now}|${next}|${qlvl}|${this.show ? this.show.lvl : ""}|${status.inBreak ? status.left : ""}|${status.starting || ""}`;
     if (sig === this.pickerSig) return;
     this.pickerSig = sig;
     PICK_NAMES.forEach((lines, i) => {
       const bg = i === next ? "#f3d27a" : i === now ? "#7fd18a" : "#202a30";
       this.picker[i + 1].draw(i === next ? [lines[0], "NEXT"] : i === now ? [lines[0], "NOW"] : lines, false, bg);
     });
+    const forSc = next >= 0 ? next : now >= 0 ? now : tonight();
+    const nLevels = levelsOf(forSc).length;
+    this.levelButtons.forEach((b, n) => {
+      const on = next >= 0 && n === qlvl;
+      b.draw(n < nLevels ? [`LEVEL ${n + 1}`] : ["·"], false, on ? "#f3d27a" : "#202a30");
+    });
     const name = i => PICK_NAMES[i][0];
+    const lvlName = (sc, n) => (n > 0 ? ` FROM LEVEL ${n + 1}` : "");
     let text;
-    if (status.starting) text = `${name(this.show.sc)} STARTS IN ${status.starting}`;
+    if (status.starting) text = `${name(this.show.sc)} LEVEL ${this.show.lvl + 1} STARTS IN ${status.starting}`;
     else if (status.inRound)
       text =
         next >= 0
-          ? `NOW: ${name(now)} · NEXT ROUND: ${name(next)}`
-          : `NOW: ${name(now)} · point + trigger to pick the next`;
+          ? `NOW: ${name(now)} L${this.show.lvl + 1} · NEXT: ${name(next)}${lvlName(next, qlvl)}`
+          : `NOW: ${name(now)} LEVEL ${this.show.lvl + 1} · point + trigger to pick the next`;
     else if (status.inBreak) {
       const n = next >= 0 ? next : (this.show.sc + 1) % SCENARIOS.length;
       text = `BREAK · ${name(n)} IN ${status.left}s`;
     } else
       text =
-        next >= 0 ? `PICK UP A GUN TO START ${name(next)}` : `TONIGHT: ${name(tonight())} · PICK UP A GUN TO START`;
-    this.picker[8].draw([text]);
+        next >= 0
+          ? `PICK UP A GUN TO START ${name(next)}${lvlName(next, qlvl)}`
+          : `TONIGHT: ${name(tonight())} · PICK UP A GUN TO START`;
+    this.picker[PICK_NAMES.length + 1].draw([text]);
   },
 
   // ---- the world round the roof -------------------------------------------------
 
-  setWorld(sc) {
-    if (this.worldSc === sc) return;
+  setWorld(key) {
+    if (this.worldKey === key) return;
     if (this.world) {
       this.worldNode.remove(this.world.group);
       this.world.dispose();
@@ -1524,17 +1756,17 @@ AFRAME.registerSystem("lounge-skeet", {
       this.plates.dispose();
       this.plates = null;
     }
-    this.worldSc = sc;
-    if (sc >= 0) {
+    this.worldKey = key;
+    if (key) {
       // the world's knockdown plates (plates.js), their rails and cover in its scenery
-      this.plates = new PlateField(SCENARIOS[sc], {
+      this.plates = new PlateField(key, {
         play: (name, p, vol, ref) => this.play(name, p, vol, ref),
         debris: (cols, p, vel) => this.spawnDebris(cols, p, vel),
         popup: (text, by, p) => this.popup(text, by ? this.colourFor(by) : BAD_COLOUR, p),
         bonus: (text, by, p) => this.popup(text, this.colourFor(by), p)
       });
       this.plates.reset(this.show ? this.show.seed : 1);
-      this.world = buildWorld(SCENARIOS[sc], P => this.plates.props(P));
+      this.world = buildWorld(key, P => this.plates.props(P));
       this.world.group.add(this.plates.group);
       this.worldNode.add(this.world.group);
     }
@@ -1568,14 +1800,14 @@ AFRAME.registerSystem("lounge-skeet", {
     this.music = null;
   },
 
-  startMusic(sc) {
+  startMusic(lv) {
     this.stopMusic();
     const scene = this.el.sceneEl;
     const audioSystem = scene.systems["hubs-systems"]?.audioSystem;
     if (!scene.audioListener || !audioSystem) return;
     const ctx = THREE.AudioContext.getContext();
-    const key = SCREEN[SCENARIOS[sc]].music;
-    const m = { sc, g: { calm: 0, drive: 0, amb: 0 } };
+    const key = lv.music;
+    const m = { lv, g: { calm: 0, drive: 0, amb: 0 } };
     this.music = m;
     const node = buf => {
       const a = new THREE.Audio(scene.audioListener);
@@ -1587,7 +1819,7 @@ AFRAME.registerSystem("lounge-skeet", {
       a.play();
       return a;
     };
-    m.amb = node(makeAmbience(ctx, SCREEN[SCENARIOS[sc]].amb));
+    m.amb = node(makeAmbience(ctx, lv.amb || "night"));
     const urls = MUSIC[key] || [];
     ["calm", "drive"].forEach(async (k, i) => {
       try {
@@ -1603,14 +1835,13 @@ AFRAME.registerSystem("lounge-skeet", {
   // and the world's ambience; only on the roof, faded in and out.
   updateMusic(dt, status) {
     const prefs = window.APP?.store?.state?.preferences;
-    const sc = this.show ? this.show.sc : -1;
-    const on = this.onRoofNow && sc >= 0 && !status.idle && !prefs?.disableSoundEffects;
-    if (on && (!this.music || this.music.sc !== sc)) this.startMusic(sc);
+    const lv = status.inRound || status.starting ? status.lv : null;
+    const on = this.onRoofNow && !!lv && !prefs?.disableSoundEffects;
+    if (on && (!this.music || this.music.lv !== lv)) this.startMusic(lv);
     const m = this.music;
     if (!m) return;
-    const ph = status.inRound ? status.phase.key : "";
-    const drive =
-      ph === "push" || ph === "finale" ? 1 : ph === "main" ? 0.6 : ph === "opener" || ph === "birds" ? 0.25 : 0;
+    // (the driving cut as the level gets busy, all of it on a double-points wave)
+    const drive = status.inRound ? (status.x2 ? 1 : 0.25 + 0.5 * Math.min(1, status.w / 16)) : 0;
     const want = {
       calm: on ? (status.inRound ? 1 - 0.85 * drive : 0.6) * MUSIC_VOL : 0,
       drive: on ? drive * MUSIC_VOL : 0,
@@ -1669,12 +1900,20 @@ AFRAME.registerSystem("lounge-skeet", {
     this.active = this.guns.some(g => g.holder && (g.holder === me || now - g.heard < STALE));
     if (this.active) this.lastActive = now;
     this.advanceShow(T, now);
-    const status = this.showStatus(T);
+    let status = this.showStatus(T);
     this.status = status;
-    // A featured round: its world round the roof (only drawn up here), the
+    // The level won: the team's points in it reached its goal.
+    const goal = levelGoal(status.lv);
+    if (status.inRound && goal && this.active && this.team() >= goal) {
+      this.levelUp(T);
+      status = this.status = this.showStatus(T);
+    }
+    // Pistols only: a long gun in your hands goes back to the wall.
+    if (this.pistolsOnly()) for (const g of this.held()) if (g.type !== "pistol") this.release(g);
+    // A featured level: its world round the roof (only drawn up here), the
     // clay stands put away.
     if ((status.inRound || status.starting) && this.onRoofNow) {
-      this.setWorld(this.show.sc);
+      this.setWorld(status.lv.world);
       this.setView(true);
     } else this.setView(false);
     if (!this._live) this._live = [];
@@ -1707,7 +1946,7 @@ AFRAME.registerSystem("lounge-skeet", {
     this.updateMusic(dt, status);
     // Scores: at most 4 a second while shooting (full auto), and every 8 s.
     if ((this.scoreDirty && now >= (this.nextScoreSend || 0)) || now >= (this.nextScoreTell || 0)) {
-      if (this.me.shots) this.sendScore();
+      if (this.me.shots || this.me.lp) this.sendScore();
       this.scoreDirty = false;
       this.nextScoreSend = now + 0.25;
       this.nextScoreTell = now + 8;
