@@ -22,6 +22,8 @@ import {
 import {
   WAVE,
   BREAK,
+  INTRO,
+  COUNT,
   LEVEL_GAP,
   SCENARIOS,
   SHOW_KINDS,
@@ -107,6 +109,17 @@ const SHAPE = {
 const BOARD = { x: 6.875, y: -14.25, z: COPING + 1.15, w: 2.4, h: 1.5 };
 const ROOF = { x1: -4.1, x2: 7.1, y1: -17.0, y2: -9.3, z1: 3.0, z2: 7.0 };
 const BANNER = { u: 0, f: 16, h: 7.2, w: 10, hgt: 1.9 };
+// The card between levels (shoots.js INTRO): a dark dome over the range
+// downrange of the coping, r m round the shooters' eyes, its words on a
+// panel just inside it.
+const CARD = { r: 10, f: 8, h: 2.0, w: 9, hgt: 4.5 };
+const CARD_IN = 0.5; // s, the card coming down
+const CARD_OUT = 0.8; // s, lifting on the new world (GO!)
+// The quick draw's READY... and DRAW! (Jay, 2026-10-24: the banner was too
+// high): a sign at head height between the two lanes, just in front of the
+// outlaws (campaign-west.js DUEL lanes at u +-3, f 15 after the move).
+const CALL = { u: 0, f: 14.4, h: 2.1, w: 4, hgt: 1.3 };
+const SPIN = 0.2; // s, an outlaw turning round on DRAW!
 // The world picker on the north-east parapet, by the walkout (shoots.js).
 const PICKER = { x: 4.95, y: -9.93, w: 2.15, h: 1.35 };
 const PICK_NAMES = [
@@ -287,6 +300,15 @@ AFRAME.registerSystem("lounge-skeet", {
     dirty(this.banner.mesh);
     this.root.add(this.banner.mesh);
     this.bannerUntil = 0;
+    this.call = canvasPlane(CALL.w, CALL.hgt, 900);
+    this.call.mesh.position.copy(this.frame.toWorld(v1.set(CALL.u, CALL.f, CALL.h)));
+    this.call.mesh.lookAt(this.frame.toWorld(v1.set(0, 0, 1.6)));
+    this.call.mesh.visible = false;
+    this.call.mesh.renderOrder = 6;
+    dirty(this.call.mesh);
+    this.root.add(this.call.mesh);
+    this.callUntil = 0;
+    this.buildCard();
 
     this.targets = new Map(); // launch id -> { L, mesh, dead }
     this.broken = new Map(); // launch id -> { by, at }
@@ -940,10 +962,31 @@ AFRAME.registerSystem("lounge-skeet", {
       const cut = plateCutout(spec.art.plate, spec.art.tint, spec.art.h);
       mesh.add(cut);
       mesh.userData = { wings: [], cut, w: cut.scale.x };
+      if (L.duel) {
+        // the quick draw: painted on the front only, a black back (he
+        // stands with his back to you until DRAW!: orientShow)
+        cut.material = this.sidedMat(cut.material, false);
+        const back = new THREE.Mesh(cut.geometry, this.sidedMat(cut.material, true));
+        back.scale.copy(cut.scale);
+        mesh.add(back);
+      }
     } else mesh = spec.art ? artMesh(spec.art) : targetMesh(L.kind);
     dirty(mesh);
     this.root.add(mesh);
     return { L, mesh, dead: null, announced: false };
+  },
+
+  // A cut-out's material, front only (back: false) or as a black back.
+  sidedMat(mat, back) {
+    if (!this._sided) this._sided = new Map();
+    const key = `${mat.uuid}|${back}`;
+    if (!this._sided.has(key)) {
+      const m = mat.clone();
+      m.side = back ? THREE.BackSide : THREE.FrontSide;
+      if (back) m.color.setHex(0x000000);
+      this._sided.set(key, m);
+    }
+    return this._sided.get(key);
   },
 
   spawnDebris(kind, p, vel) {
@@ -1019,6 +1062,162 @@ AFRAME.registerSystem("lounge-skeet", {
     this.bannerUntil = performance.now() / 1000 + secs;
   },
 
+  // The quick draw's call: lines[0] small over the big last line.
+  showCall(lines, colour, secs) {
+    const { canvas, ctx, tex, mesh } = this.call;
+    const W = canvas.width;
+    const H = canvas.height;
+    ctx.clearRect(0, 0, W, H);
+    ctx.fillStyle = "rgba(20,12,6,0.82)";
+    ctx.fillRect(0, 0, W, H);
+    ctx.strokeStyle = "#c8a060";
+    ctx.lineWidth = 10;
+    ctx.strokeRect(5, 5, W - 10, H - 10);
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    const big = lines[lines.length - 1];
+    if (lines.length > 1) {
+      ctx.font = "900 64px sans-serif";
+      ctx.fillStyle = "#f2c230";
+      ctx.fillText(lines[0], W / 2, H * 0.25, W - 40);
+    }
+    ctx.font = `900 ${lines.length > 1 ? 120 : 170}px sans-serif`;
+    ctx.fillStyle = colour;
+    ctx.fillText(big, W / 2, lines.length > 1 ? H * 0.64 : H / 2, W - 40);
+    tex.needsUpdate = true;
+    mesh.visible = true;
+    this.callUntil = performance.now() / 1000 + secs;
+  },
+
+  // ---- the card between levels ----------------------------------------------------
+
+  buildCard() {
+    // the dome: the downrange half of a sphere round the eyes, dark, a little
+    // lighter low down (a horizon), drawn over the world but not the roof
+    const grad = document.createElement("canvas");
+    grad.width = 4;
+    grad.height = 256;
+    const g = grad.getContext("2d");
+    const lin = g.createLinearGradient(0, 0, 0, 256);
+    lin.addColorStop(0, "#05060a");
+    lin.addColorStop(0.47, "#1a1712");
+    lin.addColorStop(0.53, "#14110d");
+    lin.addColorStop(1, "#040405");
+    g.fillStyle = lin;
+    g.fillRect(0, 0, 4, 256);
+    const tex = new THREE.CanvasTexture(grad);
+    tex.encoding = THREE.sRGBEncoding;
+    const dome = new THREE.Mesh(
+      new THREE.SphereGeometry(CARD.r, 48, 24, -0.25, Math.PI + 0.5, 0, Math.PI),
+      new THREE.MeshBasicMaterial({
+        map: tex,
+        side: THREE.BackSide,
+        transparent: true,
+        opacity: 0,
+        depthWrite: false,
+        fog: false
+      })
+    );
+    // (the sphere's z >= 0 half: downrange; its y: up)
+    const f = this.frame;
+    const x = new THREE.Vector3().crossVectors(f.up, f.f).normalize();
+    dome.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(x, f.up, f.f));
+    dome.position.copy(f.toWorld(v1.set(0, 0, 1.6)));
+    dome.renderOrder = 20;
+    dome.visible = false;
+    dirty(dome);
+    this.root.add(dome);
+    const words = canvasPlane(CARD.w, CARD.hgt, 1600);
+    words.mesh.position.copy(f.toWorld(v1.set(0, CARD.f, CARD.h)));
+    words.mesh.lookAt(f.toWorld(v1.set(0, 0, 1.6)));
+    words.mesh.material.opacity = 0;
+    words.mesh.renderOrder = 21;
+    words.mesh.visible = false;
+    dirty(words.mesh);
+    this.root.add(words.mesh);
+    this.card = { dome, words, alpha: 0, sig: "" };
+  },
+
+  // lines: [text, px, colour], top to bottom, spaced by size
+  drawCard(lines) {
+    const { canvas, ctx, tex } = this.card.words;
+    const W = canvas.width;
+    const H = canvas.height;
+    ctx.clearRect(0, 0, W, H);
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    const gap = 0.28;
+    const total = lines.reduce((a, [, px]) => a + px * (1 + gap), 0) - lines[lines.length - 1][1] * gap;
+    let y = (H - total) / 2;
+    for (const [text, px, colour] of lines) {
+      ctx.font = `900 ${px}px sans-serif`;
+      ctx.fillStyle = colour;
+      ctx.fillText(text, W / 2, y + px / 2, W - 60);
+      y += px * (1 + gap);
+    }
+    tex.needsUpdate = true;
+  },
+
+  // The card on the shared clock: the level won (a level-up's first seconds),
+  // the next one's introduction, 3, 2, 1, then GO! as it lifts on the new
+  // world. Only on the roof.
+  updateCard(T, dt, status) {
+    const c = this.card;
+    const s = this.show;
+    let phase = "";
+    if (this.onRoofNow && s && (status.starting || status.inRound)) {
+      const until = s.t0 - T;
+      if (until > 0) phase = until > INTRO + 1 && s.lvl > 0 ? "won" : until > COUNT ? "intro" : `n${Math.ceil(until)}`;
+      else if (-until < CARD_OUT && c.alpha > 0) phase = "go";
+    }
+    const want = phase && phase !== "go" ? 1 : 0;
+    c.alpha = want
+      ? Math.min(1, c.alpha + dt / CARD_IN)
+      : Math.max(0, c.alpha - dt / (phase === "go" ? CARD_OUT : CARD_IN));
+    const on = c.alpha > 0.002;
+    c.dome.visible = on;
+    c.words.mesh.visible = on;
+    c.dome.material.opacity = c.alpha;
+    c.words.mesh.material.opacity = c.alpha;
+    // (a new shoot started under the card redraws it)
+    const sig = phase && `${this.levelKey()}|${phase}`;
+    if (sig === c.sig) return;
+    c.sig = sig;
+    if (!phase) return;
+    const lv = status.lv;
+    const camp = campaignOf(s.sc);
+    const n = levelsOf(s.sc).length;
+    let lines;
+    if (phase === "won") {
+      const won = levelsOf(s.sc)[s.lvl - 1];
+      lines = [
+        [won.goal === null ? "DONE" : "LEVEL CLEARED!", 200, "#7fd18a"],
+        [won.name, 100, "#ffffff"],
+        [`NEXT: LEVEL ${s.lvl + 1} OF ${n}`, 80, "#f3d27a"]
+      ];
+    } else if (phase === "intro") {
+      lines = [
+        [s.lvl === 0 ? camp.name : `LEVEL ${s.lvl + 1} OF ${n}`, 84, "#f3d27a"],
+        [lv.name, 160, "#fff4d6"],
+        [lv.story || camp.first || camp.name, 80, "#ffffff"]
+      ];
+      if (s.lvl === 0) lines.splice(1, 0, [`LEVEL 1 OF ${n}`, 70, "#f3d27a"]);
+      const goal = levelGoal(lv);
+      if (lv.pistols) lines.push(["PISTOLS ONLY · ONE IN EACH HAND", 70, "#f2c230"]);
+      if (goal) lines.push([`TEAM GOAL ${goal.toLocaleString("en-US")}`, 70, "#7fd18a"]);
+      if (lv.legend) lines.push([lv.legend, 44, "#d8d0c0"]);
+    } else if (phase === "go") lines = [["GO!", 420, "#7fd18a"]];
+    else
+      lines = [
+        [lv.name, 80, "#f3d27a"],
+        [phase.slice(1), 480, "#ffffff"]
+      ];
+    this.drawCard(lines);
+    const at = this.frame.toWorld(v1.set(0, 4, 2.5), new THREE.Vector3());
+    if (phase === "go") this.play("bell", at, 0.7, 10);
+    else if (phase[0] === "n") this.play("ding", at, 0.6, 10);
+  },
+
   orient(t, tau, p) {
     const { L, mesh } = t;
     const ud = mesh.userData;
@@ -1084,7 +1283,7 @@ AFRAME.registerSystem("lounge-skeet", {
           // (one call for both lanes)
           this.drawn.add(L.t0);
           if (this.onRoofNow) {
-            this.showBanner(["DRAW!"], "#ff4a4a", 1.4);
+            this.showCall(["DRAW!"], "#ff4a4a", 1.2);
             this.play("bell", this.frame.toWorld(v2.set(0, 4, 2.5), new THREE.Vector3()), 1, 12);
           }
         }
@@ -1092,7 +1291,8 @@ AFRAME.registerSystem("lounge-skeet", {
           t.announced = true;
           if (tau < 0.6) {
             const info = KINDS[L.kind];
-            if (L.say) this.showBanner(L.say, "#fff4d6", Math.min(3, L.duel ? L.duel.d - 0.2 : 3));
+            if (L.say && L.duel) this.showCall(L.say, "#fff4d6", L.duel.d - tau);
+            else if (L.say) this.showBanner(L.say, "#fff4d6", 3);
             else if (L.duel) {
               /* (no points banner on a duelist) */
             } else if (info.art) {
@@ -1202,6 +1402,7 @@ AFRAME.registerSystem("lounge-skeet", {
       }
     }
     if (this.banner.mesh.visible && now > this.bannerUntil) this.banner.mesh.visible = false;
+    if (this.call.mesh.visible && now > this.callUntil) this.call.mesh.visible = false;
   },
 
   updateGuns(now, dt) {
@@ -1407,7 +1608,15 @@ AFRAME.registerSystem("lounge-skeet", {
       if (dir.lengthSq() < 1e-8) return;
       mesh.quaternion.setFromRotationMatrix(m1.lookAt(p, v3.copy(p).add(dir), Y));
     };
-    if (spec.face === "fly") {
+    if (L.duel) {
+      // the quick draw: his back to you (black) until DRAW!, then he spins
+      // round to face you, and from then you can shoot him
+      const eye = this.frame.toWorld(v3.set(0, 0, 1.6), v3).sub(p);
+      eye.y = 0;
+      face(eye.negate().clone());
+      const k = THREE.MathUtils.clamp((tau - L.duel.d) / SPIN, 0, 1);
+      if (k < 1) mesh.quaternion.multiply(q1.setFromAxisAngle(Y, Math.PI * (1 - k * k * (3 - 2 * k))));
+    } else if (spec.face === "fly") {
       vel.y *= 0.4;
       face(vel);
       const small = spec.pts >= 25;
@@ -1489,7 +1698,7 @@ AFRAME.registerSystem("lounge-skeet", {
     this.show = {
       sc,
       lvl: Math.min(lvl | 0, levelsOf(sc).length - 1),
-      t0: Math.round(T) + 5,
+      t0: Math.round(T) + INTRO,
       seed: (Math.random() * 4294967296) >>> 0,
       round: 1
     };
@@ -1536,18 +1745,9 @@ AFRAME.registerSystem("lounge-skeet", {
     this.scoreDirty = true;
     this.reached.clear();
     this.statusKey = "";
-    // the level just won
-    if (!fresh && prev && prev.sc === this.show.sc && this.show.lvl > prev.lvl && this.onRoofNow) {
-      const next = levelOf(this.show);
-      const won = levelOf(prev);
-      if (next)
-        this.showBanner(
-          [won && won.goal === null ? `${won.name} DONE` : "LEVEL CLEARED!", `NEXT: ${next.name}`],
-          "#7fd18a",
-          LEVEL_GAP - 1
-        );
+    // the level just won (the card says so: updateCard)
+    if (!fresh && prev && prev.sc === this.show.sc && this.show.lvl > prev.lvl && this.onRoofNow)
       this.play("ding", this.frame.toWorld(v1.set(0, 4, 2.5), new THREE.Vector3()), 0.9, 10);
-    }
     if (!levelOf(this.show)) this.campaignOver();
   },
 
@@ -1595,7 +1795,7 @@ AFRAME.registerSystem("lounge-skeet", {
     this.show = {
       sc,
       lvl: q ? Math.min(q.lvl | 0, levelsOf(sc).length - 1) : 0,
-      t0: s.t0 + BREAK,
+      t0: s.t0 + BREAK + INTRO,
       seed: Math.imul(s.seed ^ 0x9e3779b9, 2654435761) >>> 0,
       round: s.round + 1
     };
@@ -1621,21 +1821,14 @@ AFRAME.registerSystem("lounge-skeet", {
     if (this.onRoofNow) this.play("gong", this.frame.toWorld(v1.set(0, 6, 3), new THREE.Vector3()), 0.6, 8);
   },
 
-  // Banners as a level starts and at each double-points wave.
+  // A banner at each double-points wave (the card introduced the level).
   announce(status) {
     const key = status.inRound ? `${this.levelKey()}|${status.x2 ? status.w : "on"}` : "";
     if (key === this.statusKey) return;
     this.statusKey = key;
     if (!key || !this.onRoofNow) return;
-    const lv = status.lv;
-    const n = levelsOf(this.show.sc).length;
-    const title = showWave(this.show, status.w).title;
-    let lines;
-    if (status.x2) lines = [title];
-    else if (status.w === 0)
-      lines = [`LEVEL ${this.show.lvl + 1} OF ${n}`, lv.name, lv.story || campaignOf(this.show.sc).name];
-    else return;
-    this.showBanner(lines, "#fff4d6", 5);
+    if (!status.x2) return;
+    this.showBanner([showWave(this.show, status.w).title], "#fff4d6", 5);
     this.play("bell", this.frame.toWorld(v1.set(0, 3, 2), new THREE.Vector3()), 0.5, 6);
   },
 
@@ -1910,12 +2103,18 @@ AFRAME.registerSystem("lounge-skeet", {
     }
     // Pistols only: a long gun in your hands goes back to the wall.
     if (this.pistolsOnly()) for (const g of this.held()) if (g.type !== "pistol") this.release(g);
+    this.updateCard(T, dt, status);
     // A featured level: its world round the roof (only drawn up here), the
-    // clay stands put away.
-    if ((status.inRound || status.starting) && this.onRoofNow) {
+    // clay stands put away. While the card comes down, what was there stays
+    // (the new world goes up behind it).
+    if (status.starting && this.card.alpha < 1) {
+      if (!this.onRoofNow) this.setView(false);
+    } else if ((status.inRound || status.starting) && this.onRoofNow) {
       this.setWorld(status.lv.world);
       this.setView(true);
     } else this.setView(false);
+    // (under the card all the way down, no world at all, near ground included)
+    if (this.world) this.world.group.visible = this.worldOn && this.card.alpha < 1;
     if (!this._live) this._live = [];
     // (A featured round's targets fly inside its world, so only up here; no
     // clays in its 5 s countdown either.)

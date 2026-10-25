@@ -209,7 +209,9 @@ export const webXRUserBindings = addSetsToBindings({
       xform: xforms.copyIfTrue
     },
     {
-      src: [leftButton.a.pressed, rightButton.a.pressed],
+      // Left X is push-to-talk to the Mac (lounge/voice-controls.js), so only
+      // right A freezes (and shows Hubs' leave button while held).
+      src: [rightButton.a.pressed],
       dest: { value: lowerButtons },
       xform: xforms.any
     },

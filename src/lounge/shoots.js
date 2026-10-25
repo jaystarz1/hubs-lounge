@@ -67,7 +67,15 @@ export const WAVE = 30;
 export const LEVEL_WAVES = 240; // (two hours: nobody is still on one level by then)
 export const BREAK = 120;
 export const GOAL = 5000;
-export const LEVEL_GAP = 8; // s from a level won to the next one starting
+// Between levels (Jay, 2026-10-24: the change was "just a flick from one to
+// the other"): a card comes down over the range, says the level's won, then
+// introduces the next (its number, name and story) and counts 3, 2, 1, and
+// the card lifts on the new world as the shooting starts (skeet.js
+// updateCard). A shoot picked or starting after a break gets the card too,
+// without the "won" part.
+export const INTRO = 10; // s of card before a level: the introduction, then the 3-count
+export const COUNT = 3; // s, the 3-count at its end
+export const LEVEL_GAP = INTRO + 4; // s from a level won to the next one starting
 // (the saloon came later, so it's last: rounds and picks go by number)
 export const SCENARIOS = ["carnival", "duck", "deer", "boar", "bond", "safari", "hostage", "saloon"];
 

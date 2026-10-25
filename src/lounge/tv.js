@@ -8,6 +8,7 @@
 
 import qsTruthy from "../utils/qs_truthy";
 import { TvControls } from "./tv-controls";
+import { VoiceControls } from "./voice-controls";
 import { LightsPanel, setTvLive } from "./lights";
 import { MediaDevicesEvents } from "../utils/media-devices-utils";
 import { updateAudioSettings } from "../update-audio-settings";
@@ -106,6 +107,7 @@ AFRAME.registerSystem("lounge-tv", {
     tv.updateMatrices ? tv.updateMatrices() : tv.updateMatrixWorld(true);
     this.controls = new TvControls(this.sceneEl, tv, () => this.toggleMute());
     this.lightsPanel = new LightsPanel(this.sceneEl, tv);
+    this.voice = new VoiceControls(this.sceneEl, tv);
   },
 
   scan() {
@@ -185,6 +187,7 @@ AFRAME.registerSystem("lounge-tv", {
       });
     }
     // Dim the room while a live picture is on the wall (viewers only).
+    this.live = !!liveMaterial; // the Zoltar readback stays off the TV while this is true
     if (!this.isFeeder) setTvLive(!!liveMaterial);
     if (monitor && liveMaterial && monitor.material !== liveMaterial) {
       monitor.userData.idleMaterial = monitor.userData.idleMaterial || monitor.material;
@@ -306,6 +309,7 @@ AFRAME.registerSystem("lounge-tv", {
     clearInterval(this.scanInterval);
     this.controls?.remove();
     this.lightsPanel?.remove();
+    this.voice?.remove();
     if (isTvClient) this.stopFeeder();
   },
 

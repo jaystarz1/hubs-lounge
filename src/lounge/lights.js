@@ -71,7 +71,7 @@ export class LightsPanel {
     this.anchor = screen.getWorldPosition(new THREE.Vector3());
     this.rotation = screen.getWorldQuaternion(new THREE.Quaternion());
     this.segments = null;
-    this.button = label(scene, this.anchor, this.rotation, 1.75, 0.32, 0.5, 0.2, this.buttonText(), () =>
+    this.button = label(scene, this.anchor, this.rotation, -1.65, 0.6, 0.5, 0.2, this.buttonText(), () =>
       this.toggle()
     );
     this.unsubscribe = onLightLevel(() => this.redraw());
@@ -86,13 +86,13 @@ export class LightsPanel {
       this.segments = null;
       return;
     }
-    // Vertical slider under the button, on the flat wall right of the TV
-    // (the chimney breast starts 2 m left; a sconce sits 2.2 m right).
-    // Top step is 100 %, bottom is 10 %.
+    // Horizontal slider on the flat wall above the TV, centred on it (the
+    // sconces sit 1.65 m either side, the chimney breast starts 1.96 m left).
+    // Left step is 10 %, right is 100 %.
     this.segments = [];
     for (let i = 0; i < STEPS; i++) {
-      const level = (STEPS - i) / STEPS;
-      const item = label(this.scene, this.anchor, this.rotation, 1.75, 0.12 - i * 0.105, 0.34, 0.09, [""], () =>
+      const level = (i + 1) / STEPS;
+      const item = label(this.scene, this.anchor, this.rotation, (i - 4.5) * 0.22, 0.95, 0.2, 0.12, [""], () =>
         setLightLevel(level)
       );
       item.level = level;

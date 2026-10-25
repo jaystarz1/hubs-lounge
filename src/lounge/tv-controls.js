@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import { hideFromRecording } from "./record-core.cjs";
 
 const KEY = "lounge-tv-controller-v1";
 
@@ -67,14 +68,16 @@ export class TvControls {
       this.token = null;
     }
     this.status = this.add(0, -1.04, 2.5, 0.34, ["MAC SCREEN TV", "PAIR TV once, then START"]);
+    // One row of five centred under the TV, kept inside +-1.23 so the urn on the
+    // ledge (1.23..1.57 right of centre) never covers MUTE TV.
+    // Local only: MUTE needs no pairing and never touches the Mac or the other viewer.
+    const row = (i, ...rest) => this.add(-1 + i * 0.5, -1.34, 0.46, 0.2, ...rest);
     ["PAIR TV", "START", "STOP", "RETRY"].forEach((name, i) => {
-      this.add(-0.96 + i * 0.64, -1.34, 0.59, 0.2, [name], () =>
-        name === "PAIR TV" ? this.showPairing() : this.command(name.toLowerCase())
-      );
+      row(i, [name], () => (name === "PAIR TV" ? this.showPairing() : this.command(name.toLowerCase())));
     });
+    // RELOAD sits above the right sconce (mirrored by LIGHTS on the left).
     this.add(1.65, 0.6, 0.55, 0.19, ["RELOAD"], () => window.location.reload());
-    // Local only: needs no pairing and never touches the Mac or the other viewer.
-    const mute = this.add(1.65, -1.34, 0.59, 0.2, ["MUTE TV"], () => {
+    const mute = row(4, ["MUTE TV"], () => {
       const muted = onToggleMute();
       mute.draw([muted ? "UNMUTE TV" : "MUTE TV"], false, muted ? "#ffb347" : "#202a30");
     });
@@ -146,6 +149,7 @@ export class TvControls {
     this.keypad = [];
     const add = (...args) => {
       const item = label(this.scene, this.anchor, this.rotation, ...args);
+      hideFromRecording(item.el.object3D); // never in a recorded clip
       this.keypad.push(item);
       return item;
     };
