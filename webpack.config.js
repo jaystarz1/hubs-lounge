@@ -292,7 +292,10 @@ module.exports = async (env, argv) => {
   const internalHostname = process.env.INTERNAL_HOSTNAME || "hubs.local";
   return {
     cache: {
-      type: "filesystem"
+      type: "filesystem",
+      // Drop cache entries unused for a day. With the default (60 days) the cache
+      // reached 14 GB across ~158 release builds (2026-11-06).
+      maxAge: 24 * 60 * 60 * 1000
     },
     resolve: {
       alias: {
