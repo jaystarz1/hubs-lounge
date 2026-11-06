@@ -33,3 +33,25 @@ test("failed builds never change live root; published releases retain old assets
   fs.unlinkSync(path.join(base, ".public-releases/new/assets/hub-22222222.js"));
   assert.throws(() => publish(base, ".public-releases/new"));
 });
+
+test("publish keeps only the newest 3 releases and deletes the ones that fall off", t => {
+  const base = fs.mkdtempSync(path.join(os.tmpdir(), "lounge-release-prune-"));
+  t.after(() => fs.rmSync(base, { recursive: true, force: true }));
+  const make = (relative, hash) => {
+    const root = path.join(base, relative);
+    fs.mkdirSync(path.join(root, "assets"), { recursive: true });
+    fs.writeFileSync(path.join(root, `assets/hub-${hash}.js`), relative);
+    for (const page of ["index.html", "hub.html"])
+      fs.writeFileSync(path.join(root, page), `<html><script src="/assets/hub-${hash}.js"></script></html>`);
+  };
+  make(".public-releases/building", "99999999");
+  for (const [i, name] of ["r1", "r2", "r3", "r4", "r5"].entries()) {
+    make(`.public-releases/${name}`, `${i + 1}`.repeat(8));
+    publish(base, `.public-releases/${name}`);
+  }
+  assert.deepEqual(releases(base), [".public-releases/r5", ".public-releases/r4", ".public-releases/r3", "dist"]);
+  assert.equal(fs.existsSync(path.join(base, ".public-releases/r1")), false);
+  assert.equal(fs.existsSync(path.join(base, ".public-releases/r2")), false);
+  assert.equal(fs.existsSync(path.join(base, ".public-releases/r3")), true);
+  assert.equal(fs.existsSync(path.join(base, ".public-releases/building")), true);
+});

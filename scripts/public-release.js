@@ -30,13 +30,23 @@ function validate(root) {
   }
 }
 
+// Keep the live release plus a couple of previous ones for already-open tabs.
+// Each release is ~220 MB; unpruned, 158 of them reached 34 GB (2026-11-06).
+const KEEP_RELEASES = 3;
+
 function publish(base, relative) {
   if (!/^\.public-releases\/[a-z0-9-]+$/.test(relative)) throw new Error("Invalid release name");
   validate(path.join(base, relative));
   const history = releases(base).filter(x => x !== "dist" && x !== relative);
+  const kept = [relative, ...history].slice(0, KEEP_RELEASES);
   const temporary = path.join(base, `.public-current-${process.pid}.tmp`);
-  fs.writeFileSync(temporary, JSON.stringify([relative, ...history]));
+  fs.writeFileSync(temporary, JSON.stringify(kept));
   fs.renameSync(temporary, path.join(base, ".public-current.json"));
+  // Only delete releases that were published before and just fell off the list,
+  // never an unpublished build that may be in progress.
+  for (const old of history.slice(KEEP_RELEASES - 1)) {
+    fs.rmSync(path.join(base, old), { recursive: true, force: true });
+  }
 }
 
 function resolveFile(base, pathname) {
