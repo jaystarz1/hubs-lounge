@@ -317,13 +317,13 @@ const kinds = {
 
 // Out of a doorway (or from the dark, or across the ford) to a spot in front
 // of you; a gunman stops there, draws, and it costs everyone up there 10.
-function rush(R, pts, v, gun = true) {
+export function rush(R, pts, v, gun = true) {
   const w = walk(pts, v);
   if (!gun) return { dur: w.time + 0.5, pos: w.pos };
   return { dur: w.time + 2, charge: true, arrive: w.time + 0.8, pos: w.pos };
 }
 // Thrown at you; if it lands it goes off (charge: everyone up there pays).
-function lobbed(R, o) {
+export function lobbed(R, o) {
   const L = toss(R, o);
   return { ...L, charge: true, arrive: L.dur - 0.05 };
 }
@@ -353,14 +353,14 @@ const upperWindows = b => (b[3] === 2 ? (b[1] - b[0] >= 9.5 ? [-3, 0, 3] : [-2, 
 
 const DARK = 0x1a120c;
 
-function window_(P, u, h0, f, w = 1.3, h = 1.6) {
+export function window_(P, u, h0, f, w = 1.3, h = 1.6) {
   P.add(BOX(w + 0.24, h + 0.24, 0.08), 0xe8dcc0, u, G + h0 + h / 2, f - 0.03);
   P.add(BOX(w, h, 0.1), 0x24303a, u, G + h0 + h / 2, f - 0.05);
   P.add(BOX(0.06, h, 0.12), 0xe8dcc0, u, G + h0 + h / 2, f - 0.06);
   P.add(BOX(w, 0.06, 0.12), 0xe8dcc0, u, G + h0 + h / 2, f - 0.06);
 }
 
-function saguaro(P, u, f, s = 1) {
+export function saguaro(P, u, f, s = 1) {
   const c = 0x4a7a3a;
   P.add(CYL(0.28 * s, 0.32 * s, 5 * s, 7), c, u, G + 2.5 * s, f);
   P.add(BALL(0.28 * s, 6), c, u, G + 5 * s, f);
@@ -374,12 +374,12 @@ function saguaro(P, u, f, s = 1) {
   }
 }
 
-function barrel(P, u, f, c = 0x7a4a26) {
+export function barrel(P, u, f, c = 0x7a4a26) {
   P.add(CYL(0.36, 0.33, 0.95, 10), c, u, G + 0.475, f);
   for (const h of [0.15, 0.8]) P.add(CYL(0.37, 0.37, 0.05, 10), 0x2a2a2a, u, G + h, f);
 }
 
-function wagon(P, u, f, covered = false, ry = 0) {
+export function wagon(P, u, f, covered = false, ry = 0) {
   const at = (x, z) => [u + x * Math.cos(ry) + z * Math.sin(ry), f - x * Math.sin(ry) + z * Math.cos(ry)];
   const [cu, cf] = at(0, 0);
   P.add(BOX(3.6, 0.6, 1.6), 0x7a5232, cu, G + 1.05, cf, 0, ry, 0);
@@ -411,7 +411,7 @@ function wagon(P, u, f, covered = false, ry = 0) {
   }
 }
 
-function horse(P, u, f, ry = 0, c = 0x6a4428) {
+export function horse(P, u, f, ry = 0, c = 0x6a4428) {
   const dx = Math.cos(ry);
   const dz = -Math.sin(ry);
   P.add(BOX(1.7, 0.7, 0.55), c, u, G + 1.35, f, 0, ry, 0);
@@ -427,7 +427,7 @@ function horse(P, u, f, ry = 0, c = 0x6a4428) {
   P.add(BOX(0.12, 0.7, 0.1), 0x2a1a10, u - dx * 0.9, G + 1.3, f - dz * 0.9, 0, ry, -0.4);
 }
 
-function fence(P, u0, u1, f, posts = 2.4, c = 0x7a5a3a) {
+export function fence(P, u0, u1, f, posts = 2.4, c = 0x7a5a3a) {
   const len = Math.abs(u1 - u0);
   const mid = (u0 + u1) / 2;
   for (const h of [0.55, 1.05]) P.add(BOX(len, 0.1, 0.08), c, mid, G + h, f);
@@ -435,13 +435,13 @@ function fence(P, u0, u1, f, posts = 2.4, c = 0x7a5a3a) {
   for (let k = 0; k <= n; k++) P.add(BOX(0.14, 1.3, 0.14), c, u0 + ((u1 - u0) * k) / n, G + 0.65, f);
 }
 // A split-rail fence running away from you along f.
-function fenceF(P, u, f0, f1, c = 0x7a5a3a) {
+export function fenceF(P, u, f0, f1, c = 0x7a5a3a) {
   const len = f1 - f0;
   for (const h of [0.55, 1.05]) P.add(SLAB(0.08, 0.1, len), c, u, G + h, (f0 + f1) / 2);
   for (let f = f0; f <= f1 + 0.01; f += 2) P.add(BOX(0.14, 1.3, 0.14), c, u, G + 0.65, f);
 }
 
-function waterTower(P, u, f) {
+export function waterTower(P, u, f) {
   for (const [a, b] of [
     [-1.4, -1.4],
     [1.4, -1.4],
@@ -454,7 +454,7 @@ function waterTower(P, u, f) {
   P.add(CONE(2.7, 1.4, 14), 0x5a4a3a, u, G + 13.3, f);
 }
 
-function windmill(P, u, f) {
+export function windmill(P, u, f) {
   for (const s of [-1, 1]) {
     P.add(BOX(0.12, 10.5, 0.12), 0x8a8a8a, u + s * 0.9, G + 5.1, f + 0.9, 0.08, 0, -s * 0.08);
     P.add(BOX(0.12, 10.5, 0.12), 0x8a8a8a, u + s * 0.9, G + 5.1, f - 0.9, -0.08, 0, -s * 0.08);

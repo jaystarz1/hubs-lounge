@@ -295,6 +295,11 @@ function balloonGeo(hex, s = 1) {
     part(CYL(0.003, 0.003, 0.5 * s, 3), 0xeeeeee, 0, -0.52 * s, 0)
   ]);
 }
+// Walkers (the campaigns add theirs): RIGS[key]() -> { body: geometry, legs:
+// [{ geo (hanging from its pivot at the origin), at: [x, y, z], ph (phase,
+// rad), amp (swing, rad) }], stride (m a full step cycle covers) }.
+export const RIGS = {};
+
 export const GEO = {
   balloon: c => balloonGeo(c),
   bigBalloon: c => balloonGeo(c, 2.2),
@@ -1160,6 +1165,20 @@ export function artMesh(art) {
   } else if (art.thing) {
     const key = `thing:${art.thing}:${art.c || ""}`;
     g.add(solid(cached(key, () => GEO[art.thing](art.c))));
+  } else if (art.rig) {
+    // a walker: its body, and legs on pivots that swing as it goes (skeet.js
+    // orientShow, face "walk")
+    const rig = cached(`rig:${art.rig}`, () => RIGS[art.rig]());
+    ud.legs = [];
+    g.add(solid(rig.body));
+    for (const leg of rig.legs) {
+      const pv = new THREE.Group();
+      pv.position.set(leg.at[0], leg.at[1], leg.at[2]);
+      pv.add(solid(leg.geo));
+      g.add(pv);
+      ud.legs.push({ pv, ph: leg.ph, amp: leg.amp ?? 0.35 });
+    }
+    ud.stride = rig.stride;
   }
   g.userData = ud;
   return g;
@@ -1176,6 +1195,90 @@ function mulberry(seed) {
     t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
     return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
   };
+}
+
+// A planet (or a moon, or a battle station) painted on the sky: a disc r px
+// high (wider by 1/cos(el), so it's round on the sphere), lit from one side,
+// with bands, a ring, or (station) its equator trench and the dish.
+function planet(ctx, x, y, o, R) {
+  const r = o.r;
+  const sx = 1 / Math.cos((o.el * Math.PI) / 180);
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.scale(sx, 1);
+  if (o.ring) {
+    ctx.strokeStyle = o.ring;
+    ctx.lineWidth = r * 0.12;
+    ctx.beginPath();
+    ctx.ellipse(0, 0, r * 1.9, r * 0.38, -0.25, Math.PI, Math.PI * 2);
+    ctx.stroke();
+  }
+  ctx.beginPath();
+  ctx.arc(0, 0, r, 0, Math.PI * 2);
+  ctx.clip();
+  ctx.fillStyle = o.colour;
+  ctx.fillRect(-r, -r, 2 * r, 2 * r);
+  for (const [k, c, w] of o.bands || []) {
+    ctx.fillStyle = c;
+    ctx.beginPath();
+    for (let a = -r; a <= r; a += 2) {
+      const yy = k * r + Math.sin(a * 0.07 + k * 9) * r * 0.03;
+      if (a === -r) ctx.moveTo(a, yy);
+      else ctx.lineTo(a, yy);
+    }
+    for (let a = r; a >= -r; a -= 2) ctx.lineTo(a, k * r + w * r + Math.sin(a * 0.05 + k * 4) * r * 0.03);
+    ctx.closePath();
+    ctx.fill();
+  }
+  if (o.station) {
+    // panels in rows of lighter and darker grey, the equator trench, the dish
+    for (let j = -10; j < 10; j++)
+      for (let i = -10; i < 10; i++) {
+        if (R() < 0.45) continue;
+        ctx.fillStyle = R() < 0.5 ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.09)";
+        ctx.fillRect((i * r) / 10, (j * r) / 10, r / 10 - 1, r / 10 - 1);
+      }
+    ctx.fillStyle = "rgba(0,0,0,0.55)";
+    ctx.fillRect(-r, -r * 0.03, 2 * r, r * 0.06);
+    const dx = -r * 0.38;
+    const dy = -r * 0.42;
+    const dish = ctx.createRadialGradient(dx - r * 0.05, dy - r * 0.05, 0, dx, dy, r * 0.26);
+    dish.addColorStop(0, "#2a2e33");
+    dish.addColorStop(0.7, "#6a7078");
+    dish.addColorStop(1, "#4a4e55");
+    ctx.fillStyle = dish;
+    ctx.beginPath();
+    ctx.arc(dx, dy, r * 0.26, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = "rgba(0,0,0,0.5)";
+    ctx.lineWidth = Math.max(1, r * 0.02);
+    ctx.stroke();
+    ctx.fillStyle = o.lit ? "#9dff7a" : "#3a3e44";
+    ctx.beginPath();
+    ctx.arc(dx, dy, r * 0.05, 0, Math.PI * 2);
+    ctx.fill();
+  }
+  // the night side
+  const lx = o.light ?? 0.6;
+  const shade = ctx.createRadialGradient(lx * r * 0.7, -r * 0.35, r * 0.2, 0, 0, r * 1.25);
+  shade.addColorStop(0, "rgba(0,0,0,0)");
+  shade.addColorStop(0.55, "rgba(0,0,0,0.05)");
+  shade.addColorStop(1, `rgba(0,0,0,${o.dark ?? 0.85})`);
+  ctx.fillStyle = shade;
+  ctx.fillRect(-r, -r, 2 * r, 2 * r);
+  ctx.restore();
+  if (o.ring) {
+    // (the near half of the ring, in front of the disc)
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.scale(sx, 1);
+    ctx.strokeStyle = o.ring;
+    ctx.lineWidth = r * 0.12;
+    ctx.beginPath();
+    ctx.ellipse(0, 0, r * 1.9, r * 0.38, -0.25, 0, Math.PI);
+    ctx.stroke();
+    ctx.restore();
+  }
 }
 
 // The sky: an equirectangular painted canvas on a big inside-out sphere.
@@ -1201,8 +1304,20 @@ function skyTexture(o) {
   // (x = 0 at azimuth 180 deg, i.e. behind; downrange is the middle, x = W/2)
   const X = az => (((az + 180) % 360) / 360) * W;
   const Yel = el => H / 2 - (el / 90) * (H / 2);
-  if (o.sun) {
-    const [az, el, colour, size] = o.sun;
+  // (planets and moons hung in the sky; the sun, or suns: Tatooine has two)
+  if (o.nebula)
+    for (const [az, el, r, colour] of o.nebula) {
+      const x = X(az);
+      const y = Yel(el);
+      const glow = ctx.createRadialGradient(x, y, 0, x, y, r);
+      glow.addColorStop(0, colour);
+      glow.addColorStop(1, "rgba(0,0,0,0)");
+      ctx.fillStyle = glow;
+      ctx.fillRect(x - r, y - r, 2 * r, 2 * r);
+    }
+  for (const pl of o.planets || []) planet(ctx, X(pl.az), Yel(pl.el), pl, R);
+  for (const sun of o.sun ? [o.sun, ...(o.suns || [])] : []) {
+    const [az, el, colour, size] = sun;
     const x = X(az);
     const y = Yel(el);
     const glow = ctx.createRadialGradient(x, y, 0, x, y, size * 5);
@@ -2091,9 +2206,11 @@ export function buildWorld(key, extra) {
     // Real points: one pixel each, however close you look.
     const R = mulberry(41);
     const pos = [];
-    for (let k = 0; k < 420; k++) {
+    // (stars: "all" for space, right down to the horizon and below)
+    const lo = w.sky.stars === "all" ? -0.3 : 0.08;
+    for (let k = 0; k < (w.sky.stars === "all" ? 900 : 420); k++) {
       const az = R() * Math.PI * 2;
-      const el = Math.asin(0.08 + 0.92 * R());
+      const el = Math.asin(lo + (1 - lo) * R());
       pos.push(Math.cos(el) * Math.sin(az) * 94, Math.sin(el) * 94, Math.cos(el) * Math.cos(az) * 94);
     }
     const geo = new THREE.BufferGeometry();

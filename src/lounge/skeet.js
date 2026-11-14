@@ -130,8 +130,17 @@ const PICK_NAMES = [
   ["SPY NIGHT", "FRI"],
   ["SAFARI", "SAT"],
   ["HOSTAGE", "SUN"],
-  ["WILD WEST", "VILLA'S TRAIL"]
+  ["WILD WEST", "VILLA'S TRAIL"],
+  ["STAR WARS", "FAR, FAR AWAY"],
+  ["INDIANA JONES", "RAIDERS"]
 ];
+// Blaster bolts (a galaxy level, Jay 2026-10-30): how fast they fly (m/s)
+// and how far before they fade. A hit is still decided the moment you fire;
+// the bolt is how everyone sees it go.
+const BOLT_SPEED = 150;
+const BOLT_RANGE = 90;
+const BOLT_INDOOR = 45;
+const MAX_BOLTS = 60;
 const IDLE = 90; // s with no gun up before a featured round is dropped
 const MUSIC_VOL = 0.2;
 const AMB_VOL = 0.16;
@@ -312,9 +321,13 @@ AFRAME.registerSystem("lounge-skeet", {
 
     this.targets = new Map(); // launch id -> { L, mesh, dead }
     this.broken = new Map(); // launch id -> { by, at }
+    this.wounds = new Map(); // launch id -> hits taken (the big movers: KINDS hp)
     this.debris = [];
     this.popups = [];
     this.tracers = [];
+    this.bolts = [];
+    this.blasts = [];
+    this.lasersOn = false;
     this.players = new Map(); // client id -> { name, score, hits, shots, at }
     this.me = { score: 0, hits: 0, shots: 0, streak: 0, best: 0, lp: 0, lk: "" };
     this.hold = { left: null, right: null };
@@ -514,11 +527,14 @@ AFRAME.registerSystem("lounge-skeet", {
       const g = this.guns[d.i];
       if (g && g.holder === d.by) {
         this.stats.shotsHeard++;
-        this.shotFx(g, false);
+        this.shotFx(g, false, null, null, Number(d.d) || 0);
       }
     } else if (d.k === "hit") {
       const L = this.findLaunch(d.id);
       if (L) this.breakTarget(L, d.by, Number(d.pts) || KINDS[L.kind].pts, false);
+    } else if (d.k === "wound") {
+      const L = this.findLaunch(d.id);
+      if (L && !this.broken.has(L.id)) this.wound(L, d.by);
     } else if (d.k === "phit") {
       const at = Number(d.at) || getServerTime() / 1000;
       const st = this.showStatus(at);
@@ -797,7 +813,18 @@ AFRAME.registerSystem("lounge-skeet", {
         this.play("wrong", p, 0.9, 12);
       }
     }
+    // (how far to the nearest thing hit: a bolt stops there)
+    let dist = Infinity;
     for (const L of hits) {
+      const at = this.frame.toWorld(launchPos(L, T - L.t0, v1), v2);
+      if (KINDS[L.kind].hy) at.addScaledVector(this.frame.up, KINDS[L.kind].hy);
+      dist = Math.min(dist, at.distanceTo(muzzle));
+    }
+    for (const L of hits) {
+      if (this.wound(L, this.myId()) > 0) {
+        this.send({ k: "wound", id: L.id }, true);
+        continue;
+      }
       const pts = this.pointsFor(L, T);
       if (pts < 0) bad += pts;
       else scored += pts;
@@ -829,6 +856,7 @@ AFRAME.registerSystem("lounge-skeet", {
       }));
       const x2 = !!this.status.x2;
       for (const h of this.plates.pick(local, T)) {
+        if (h.point) dist = Math.min(dist, this.worldNode.localToWorld(h.point.clone()).distanceTo(muzzle));
         const res = this.plates.hit(h.id, T, this.myId(), x2, p => this.worldNode.localToWorld(p));
         if (!res) continue;
         if (res.pts < 0) bad += res.pts;
@@ -846,26 +874,44 @@ AFRAME.registerSystem("lounge-skeet", {
       this.me.best = Math.max(this.me.best, this.me.streak);
     } else this.me.streak = 0;
     g.rounds += 1;
-    this.shotFx(g, true, muzzle, dir);
+    const hitAt = Number.isFinite(dist) ? Math.round(dist * 10) / 10 : 0;
+    this.shotFx(g, true, muzzle, dir, hitAt);
     if (spec.hands === 2) {
       this.pulse(side, spec.buzz, spec.auto ? 40 : 90);
       this.pulse(side === "right" ? "left" : "right", spec.buzz * 0.6, spec.auto ? 30 : 70);
     } else this.pulse(side, spec.buzz, 60);
-    this.send({ k: "shot", i: g.i }, false);
+    this.send({ k: "shot", i: g.i, d: hitAt }, false);
     this.scoreDirty = true;
   },
 
-  shotFx(g, mine, muzzle, dir) {
+  shotFx(g, mine, muzzle, dir, dist = 0) {
     const now = performance.now() / 1000;
     g.kick = 1;
     g.flashUntil = now + (g.spec.auto ? 0.035 : 0.06);
     const { smoke } = g.mesh.userData;
-    if (!g.spec.auto || !smoke.visible) {
+    if (!this.lasersOn && (!g.spec.auto || !smoke.visible)) {
       smoke.visible = true;
       smoke.userData.t = 0;
     }
     g.mesh.updateMatrices();
     const at = muzzle || g.spec.muzzle.clone().applyMatrix4(g.mesh.matrixWorld);
+    if (this.lasersOn) {
+      // Blasters: a bolt (the bowcaster throws three) for everyone's shots,
+      // stopping where it hit if it hit something.
+      this.play(g.spec.laser, at, mine ? 0.9 : 0.8, 3);
+      const d0 = dir || Z.clone().applyQuaternion(g.mesh.quaternion).normalize();
+      const range = dist > 0 ? dist : this.status?.lv?.indoor ? BOLT_INDOOR : BOLT_RANGE;
+      const n = g.spec.pellets > 1 ? 3 : 1;
+      for (let k = 0; k < n; k++) {
+        const dk = d0.clone();
+        if (k) {
+          const side = v3.crossVectors(d0, Y).normalize();
+          dk.addScaledVector(side, (k === 1 ? 1 : -1) * 0.012).normalize();
+        }
+        this.bolt(at, dk, k ? range * 1.05 : range, g.spec.bolt, !!dist && !k);
+      }
+      return;
+    }
     this.play(g.spec.sound, at, mine ? 0.9 : 0.8, 3);
     // A faint streak down the line of the shot, so you can see where it went
     // (every third round on full auto).
@@ -881,6 +927,78 @@ AFRAME.registerSystem("lounge-skeet", {
       dirty(tr);
       this.root.add(tr);
       this.tracers.push({ mesh: tr, t: 0 });
+    }
+  },
+
+  // A blaster bolt from p along dir for `range` m (spark: a flash where it stops).
+  bolt(p, dir, range, colour = 0xff2a1a, spark = false) {
+    if (this.bolts.length >= MAX_BOLTS) {
+      const old = this.bolts.shift();
+      this.root.remove(old.mesh);
+    }
+    if (!this._boltGeo) {
+      // a white-hot core in a coloured glow, 1.6 m long, along +y
+      this._boltGeo = {
+        core: new THREE.CylinderGeometry(0.011, 0.011, 1.5, 6, 1),
+        glow: new THREE.CylinderGeometry(0.034, 0.034, 1.65, 8, 1)
+      };
+      this._boltMats = new Map();
+    }
+    if (!this._boltMats.has(colour)) {
+      const c = new THREE.Color(colour);
+      this._boltMats.set(colour, {
+        core: new THREE.MeshBasicMaterial({ color: c.clone().lerp(new THREE.Color(0xffffff), 0.75) }),
+        glow: new THREE.MeshBasicMaterial({
+          color: c,
+          transparent: true,
+          opacity: 0.6,
+          depthWrite: false,
+          blending: THREE.AdditiveBlending
+        })
+      });
+    }
+    const m = this._boltMats.get(colour);
+    const g = new THREE.Group();
+    const core = new THREE.Mesh(this._boltGeo.core, m.core);
+    const glow = new THREE.Mesh(this._boltGeo.glow, m.glow);
+    core.frustumCulled = glow.frustumCulled = false;
+    g.add(core, glow);
+    g.quaternion.setFromUnitVectors(Y, dir);
+    g.position.copy(p).addScaledVector(dir, 0.85);
+    dirty(g);
+    this.root.add(g);
+    this.bolts.push({ mesh: g, dir: dir.clone(), left: range, colour, spark });
+  },
+
+  // A flash (a spark where a bolt hits, a fireball when something blows up).
+  blast(p, size, colour = 0xff9a3a, life = 0.5) {
+    if (this.blasts.length > 24) return;
+    if (!this._blastGeo) this._blastGeo = new THREE.SphereGeometry(1, 12, 8);
+    const mat = new THREE.MeshBasicMaterial({
+      color: colour,
+      transparent: true,
+      opacity: 0.9,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending
+    });
+    const m = new THREE.Mesh(this._blastGeo, mat);
+    m.position.copy(p);
+    m.scale.setScalar(size * 0.3);
+    m.frustumCulled = false;
+    dirty(m);
+    this.root.add(m);
+    this.blasts.push({ mesh: m, t: 0, size, life });
+  },
+
+  // The galaxy's levels: every gun is a blaster (the same guns, the same hands).
+  setLasers(on) {
+    if (on === this.lasersOn) return;
+    this.lasersOn = on;
+    for (const g of this.guns || []) {
+      const ud = g.mesh.userData;
+      ud.real.visible = !on;
+      ud.blaster.visible = on;
+      if (on) ud.smoke.visible = false;
     }
   },
 
@@ -905,10 +1023,29 @@ AFRAME.registerSystem("lounge-skeet", {
     return OTHER_COLOURS[(k < 0 ? 0 : k) % OTHER_COLOURS.length];
   },
 
+  // A hit on a big mover that doesn't bring it down: sparks, a clang and the
+  // shots still to go. Returns how many more it takes (0: this one's the kill).
+  wound(L, by) {
+    const spec = KINDS[L.kind];
+    const hp = spec.pts > 0 && !L.duel ? spec.hp || 1 : 1;
+    const n = (this.wounds.get(L.id) || 0) + 1;
+    if (n >= hp) return 0;
+    this.wounds.set(L.id, n);
+    const T = getServerTime() / 1000;
+    const at = this.frame.toWorld(launchPos(L, THREE.MathUtils.clamp(T - L.t0, 0, L.dur), v1), new THREE.Vector3());
+    if (spec.hy) at.addScaledVector(this.frame.up, spec.hy);
+    this.blast(at, 1.2, this.lasersOn ? 0xffe0a0 : 0xffc060, 0.3);
+    this.spawnDebris([0x3a3a3a, 0x8a8a8a, 0xffb040], at, v2.set(0, 0, 0));
+    this.play(spec.boom || spec.sound === "clank" || L.kind === "heli" ? "clank" : "thud", at, 0.9, 12);
+    this.popup(`${hp - n} MORE`, this.colourFor(by), at);
+    return hp - n;
+  },
+
   breakTarget(L, by, pts, mine) {
     if (this.broken.has(L.id)) return;
     const T = getServerTime() / 1000;
     this.broken.set(L.id, { by, at: T });
+    this.wounds.delete(L.id);
     const tau = THREE.MathUtils.clamp(T - L.t0, 0, L.dur);
     const p = this.frame.toWorld(launchPos(L, tau, v1), new THREE.Vector3());
     const p2 = this.frame.toWorld(launchPos(L, Math.min(L.dur, tau + 0.05), v2), new THREE.Vector3());
@@ -933,6 +1070,10 @@ AFRAME.registerSystem("lounge-skeet", {
     const at = p.clone();
     if (spec.hy) at.addScaledVector(this.frame.up, spec.hy);
     this.spawnDebris(spec.art ? this.debrisFor(spec) : L.kind, at, vel);
+    if (spec.boom) {
+      this.blast(at, spec.boom);
+      this.play("boom", at, 1, 18);
+    }
     this.popup(pts < 0 ? `${pts}` : `+${pts}`, pts < 0 ? BAD_COLOUR : this.colourFor(by), at);
     if (spec.art) {
       this.play(spec.sound || "thud", at, 1, 10);
@@ -1289,6 +1430,7 @@ AFRAME.registerSystem("lounge-skeet", {
         }
         if (!t.announced) {
           t.announced = true;
+          if (KINDS[L.kind].flyby && this.onRoofNow) this.play(KINDS[L.kind].flyby, p, 0.8, 18);
           if (tau < 0.6) {
             const info = KINDS[L.kind];
             if (L.say && L.duel) this.showCall(L.say, "#fff4d6", L.duel.d - tau);
@@ -1296,10 +1438,12 @@ AFRAME.registerSystem("lounge-skeet", {
             else if (L.duel) {
               /* (no points banner on a duelist) */
             } else if (info.art) {
+              const hits = info.pts > 0 && info.hp > 1 ? ` · ${info.hp} HITS` : "";
               if (info.name && !this.banner.mesh.visible)
-                this.showBanner([info.name, `${info.pts} POINTS`], info.pts < 0 ? BAD_COLOUR : "#ffd24a", 2.2);
+                this.showBanner([info.name, `${info.pts} POINTS${hits}`], info.pts < 0 ? BAD_COLOUR : "#ffd24a", 2.2);
             } else if (info.name) {
-              this.showBanner([`${info.name}!`, `${info.pts} POINTS`], "#ffd24a", 2.6);
+              const hits = info.hp > 1 ? ` · ${info.hp} HITS` : "";
+              this.showBanner([`${info.name}!`, `${info.pts} POINTS${hits}`], "#ffd24a", 2.6);
               if (L.kind === "goose") this.play("honk", p, 1, 14);
             } else if (L.kind === "duck" && Math.random() < 0.3) this.play("quack", p, 0.7, 12);
             else if (L.kind === "clay") this.play("thunk", p, 0.5, 8);
@@ -1332,6 +1476,7 @@ AFRAME.registerSystem("lounge-skeet", {
   },
 
   dropTarget(id, t) {
+    this.wounds.delete(id);
     this.root.remove(t.mesh);
     t.mesh.traverse(o => {
       if (o.geometry && !o.geometry.userData.shared) o.geometry.dispose();
@@ -1379,10 +1524,38 @@ AFRAME.registerSystem("lounge-skeet", {
         this.tracers.splice(k, 1);
       }
     }
+    for (let k = this.bolts.length - 1; k >= 0; k--) {
+      const b = this.bolts[k];
+      const step = Math.min(b.left, BOLT_SPEED * dt);
+      b.mesh.position.addScaledVector(b.dir, step);
+      b.mesh.matrixNeedsUpdate = true;
+      b.left -= step;
+      if (b.left <= 0) {
+        if (b.spark) this.blast(b.mesh.position.clone().addScaledVector(b.dir, 0.8), 0.6, b.colour, 0.18);
+        this.root.remove(b.mesh);
+        this.bolts.splice(k, 1);
+      }
+    }
+    for (let k = this.blasts.length - 1; k >= 0; k--) {
+      const b = this.blasts[k];
+      b.t += dt;
+      const e = b.t / b.life;
+      b.mesh.scale.setScalar(b.size * (0.3 + 0.7 * Math.sqrt(e)));
+      b.mesh.material.opacity = 0.9 * (1 - e);
+      b.mesh.matrixNeedsUpdate = true;
+      if (e >= 1) {
+        this.root.remove(b.mesh);
+        b.mesh.material.dispose();
+        this.blasts.splice(k, 1);
+      }
+    }
     for (const g of this.guns) {
-      const { kick, flash, smoke } = g.mesh.userData;
-      flash.visible = now < g.flashUntil;
+      const { kick, flash, zap, smoke } = g.mesh.userData;
+      const lit = now < g.flashUntil;
+      flash.visible = lit && !this.lasersOn;
+      zap.visible = lit && this.lasersOn;
       flash.matrixNeedsUpdate = true;
+      zap.matrixNeedsUpdate = true;
       if (g.kick > 0) {
         g.kick = Math.max(0, g.kick - dt / 0.18);
         const e = g.kick * g.kick;
@@ -1585,6 +1758,22 @@ AFRAME.registerSystem("lounge-skeet", {
     const spec = KINDS[L.kind];
     this.play(spec.arrive || spec.sound || "roar", p, 1, 16);
     if (spec.blast) this.spawnDebris([0xff7a1a, 0xffd23a, 0x5a5a5a], p, v2.set(0, 4, 0));
+    if (spec.blast && this.lasersOn) {
+      this.blast(p, 2.2);
+      this.play("boom", p, 0.8, 14);
+    }
+    if (this.lasersOn && spec.fires && this.onRoofNow) {
+      // he fires back: a bolt at the roof (they never quite hit you)
+      const from = p.clone().addScaledVector(this.frame.up, (spec.hy || 1) * spec.fires);
+      const eye = this.frame.toWorld(v3.set(0, 0, 1.6), new THREE.Vector3());
+      const miss = v1
+        .set(Math.random() - 0.5, Math.random() * 0.6 + 0.2, 0)
+        .normalize()
+        .multiplyScalar(0.9);
+      const dir = eye.add(miss).sub(from);
+      const range = dir.length() + 6;
+      this.bolt(from, dir.normalize(), range, 0xff2a1a);
+    }
     if (!this.held().length || !this.onRoofNow) return;
     const pen = spec.penalty || PENALTY;
     this.me.score -= pen;
@@ -1653,6 +1842,28 @@ AFRAME.registerSystem("lounge-skeet", {
       mesh.quaternion.setFromAxisAngle(v3.set(0, 0, 1), 0.12 * Math.sin(tau * 1.3 + L.t0));
     } else if (spec.face === "tumble") {
       mesh.rotation.set(tau * 3, tau * 2, tau);
+    } else if (spec.face === "watch") {
+      // (a probe droid: looking at you, turning a little this way and that)
+      const eye = this.frame.toWorld(v3.set(0, 0, 1.6), v3).sub(p);
+      eye.y = 0;
+      face(eye.clone());
+      mesh.quaternion.multiply(q1.setFromAxisAngle(Y, 0.5 * Math.sin(tau * 0.9 + L.t0)));
+    } else if (spec.face === "walk") {
+      // a walker (an AT-AT, an AT-ST): faces the way it goes, its legs
+      // swinging while it moves, still when it stops to fire
+      vel.y = 0;
+      const moving = vel.lengthSq() > 1e-6;
+      if (moving) face(vel);
+      else {
+        const eye = this.frame.toWorld(v3.set(0, 0, 1.6), v3).sub(p);
+        eye.y = 0;
+        face(eye.clone());
+      }
+      if (moving) t.legPh = tau * (spec.cadence || 1) * Math.PI * 2;
+      for (const leg of ud.legs || []) {
+        leg.pv.rotation.x = leg.amp * Math.sin((t.legPh || 0) + leg.ph);
+        leg.pv.matrixNeedsUpdate = true;
+      }
     }
   },
 
@@ -1857,18 +2068,19 @@ AFRAME.registerSystem("lounge-skeet", {
     const scene = this.el.sceneEl;
     const L = [];
     L.push(label(scene, centre, rot, 0, 0.53, 2.0, 0.2, ["PICK THE SHOOT"]));
+    // (five a row: the week, the West, the galaxy)
     PICK_NAMES.forEach((lines, i) => {
-      const row = i < 4 ? 0 : 1;
-      const x = -0.78 + (i % 4) * 0.52;
-      L.push(label(scene, centre, rot, x, row === 0 ? 0.27 : -0.01, 0.48, 0.24, lines, () => this.pickWorld(i)));
+      const row = i < 5 ? 0 : 1;
+      const x = -0.84 + (i % 5) * 0.42 + (row ? 0.21 : 0);
+      L.push(label(scene, centre, rot, x, row === 0 ? 0.27 : -0.01, 0.39, 0.24, lines, () => this.pickWorld(i)));
     });
     L.push(label(scene, centre, rot, 0, -0.25, 2.0, 0.15, [""]));
-    // which level to start at
-    this.levelButtons = [0, 1, 2, 3, 4].map(n =>
-      label(scene, centre, rot, -0.84 + n * 0.3, -0.47, 0.27, 0.15, [`LEVEL ${n + 1}`], () => this.pickLevel(n))
+    // which level to start at (ten a campaign)
+    this.levelButtons = Array.from({ length: 10 }, (_, n) =>
+      label(scene, centre, rot, -0.96 + n * 0.165, -0.47, 0.15, 0.15, [`L${n + 1}`], () => this.pickLevel(n))
     );
     L.push(...this.levelButtons);
-    L.push(label(scene, centre, rot, 0.75, -0.47, 0.5, 0.15, ["START IT NOW"], () => this.startNow()));
+    L.push(label(scene, centre, rot, 0.84, -0.47, 0.42, 0.15, ["START IT NOW"], () => this.startNow()));
     this.picker = L;
     this.pickerSig = "";
   },
@@ -1916,7 +2128,7 @@ AFRAME.registerSystem("lounge-skeet", {
     const nLevels = levelsOf(forSc).length;
     this.levelButtons.forEach((b, n) => {
       const on = next >= 0 && n === qlvl;
-      b.draw(n < nLevels ? [`LEVEL ${n + 1}`] : ["·"], false, on ? "#f3d27a" : "#202a30");
+      b.draw(n < nLevels ? [`L${n + 1}`] : ["·"], false, on ? "#f3d27a" : "#202a30");
     });
     const name = i => PICK_NAMES[i][0];
     const lvlName = (sc, n) => (n > 0 ? ` FROM LEVEL ${n + 1}` : "");
@@ -2103,6 +2315,7 @@ AFRAME.registerSystem("lounge-skeet", {
     }
     // Pistols only: a long gun in your hands goes back to the wall.
     if (this.pistolsOnly()) for (const g of this.held()) if (g.type !== "pistol") this.release(g);
+    this.setLasers(!!((status.inRound || status.starting) && status.lv?.lasers));
     this.updateCard(T, dt, status);
     // A featured level: its world round the roof (only drawn up here), the
     // clay stands put away. While the card comes down, what was there stays

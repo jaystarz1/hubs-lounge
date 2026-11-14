@@ -11,6 +11,10 @@ import * as THREE from "three";
 // events the moment they happen. Batches go every 15 s (and on leaving) to
 // /_lounge/telemetry on the asset host, which appends them to
 // services/hubs/telemetry/<day>.jsonl; bin/telemetry reads them back.
+//
+// Also per sample since 2026-11-14: head yaw/pitch, the visibility zone and how many
+// things it is skipping; and every 30 s a "draws" event, one frame's draw calls by group
+// (note: a counted frame covers one to two frames of calls, compare the proportions).
 const SAMPLE_EVERY = 1000; // ms
 const POST_EVERY = 15000; // ms
 const KEEP = 900; // records held while posts fail
@@ -18,6 +22,7 @@ const SLOW_FRAME = 34; // ms, under 30 fps
 const HITCH = 250; // ms, a frame this long is logged as an event
 const AUDIO_SLOW = 0.8; // audio clock / wall clock below this while running = stalled
 const MAX_ERRORS = 20; // per minute
+const DRAWS_EVERY = 30; // samples between per-group draw-call counts
 
 function postUrl() {
   const s = [...document.scripts].find(x => /\/_lounge\/runtime\.js$/.test(x.src));
@@ -35,6 +40,7 @@ AFRAME.registerSystem("lounge-telemetry", {
     this.errors = { n: 0, minute: 0 };
     this.last = {};
     this.audioMark = null;
+    this.drawTick = 0;
     try {
       new PerformanceObserver(list => {
         for (const e of list.getEntries()) {
@@ -48,9 +54,29 @@ AFRAME.registerSystem("lounge-telemetry", {
     window.addEventListener("error", e => this.error(e.message || String(e.error), e.filename, e.lineno));
     window.addEventListener("unhandledrejection", e => this.error(String(e.reason?.stack || e.reason)));
     document.addEventListener("visibilitychange", () => this.event("visibility", { hidden: document.hidden }));
-    window.addEventListener("pagehide", () => this.flush(true));
+    // Why a page went away: a reload from inside VR shows as pagehide with vr true and a
+    // new session seconds later (the wall RELOAD button logs itself first, tv-controls.js).
+    window.addEventListener("pagehide", e => {
+      this.event("pagehide", {
+        vr: this.el.sceneEl.is("vr-mode"),
+        persisted: e.persisted,
+        up: Math.round(performance.now() / 1000)
+      });
+      this.flush(true);
+    });
     const scene = this.el.sceneEl;
-    scene.addEventListener("enter-vr", () => this.event("enter-vr"));
+    scene.addEventListener("enter-vr", () => {
+      this.event("enter-vr");
+      // The headset's own view of the session: "visible-blurred" or "hidden" is a system
+      // overlay over the room (an incoming call, the Meta menu), which document.hidden misses.
+      const session = scene.renderer?.xr?.getSession?.();
+      if (session && session !== this.xrSession) {
+        this.xrSession = session;
+        session.addEventListener("visibilitychange", () =>
+          this.event("xr-visibility", { state: session.visibilityState })
+        );
+      }
+    });
     scene.addEventListener("exit-vr", () => this.event("exit-vr"));
     // Why a headset left the room, and the A/X freeze that shows the leave button.
     scene.addEventListener("leave_room_requested", () => this.event("leave", { via: "leave-room button" }));
@@ -79,6 +105,9 @@ AFRAME.registerSystem("lounge-telemetry", {
       if (gap > HITCH) this.event("hitch", { ms: Math.round(gap) });
     }
     f.last = t;
+    // A draw count (countDraws) covers whole frames: started mid-frame, so end it
+    // on the second tick after, when one full frame has been drawn in between.
+    if (this.endCount && ++this.countFrames >= 2) this.endCount();
   },
 
   push(rec) {
@@ -143,12 +172,31 @@ AFRAME.registerSystem("lounge-telemetry", {
     s.recv = app?.dialog?._recvTransport?.connectionState;
     s.peers = Object.keys(app?.hubChannel?.presence?.state || {}).length;
     for (const k of ["sock", "send", "recv"]) this.watch(k, s[k]);
+    // The microphone track: a call taking the mic shows as muted or ended.
+    const mic = app?.dialog?._localMediaStream?.getAudioTracks?.()[0];
+    if (mic) this.watch("mic", `${mic.readyState}${mic.muted ? " muted" : ""}${mic.enabled ? "" : " off"}`);
     const pov = document.getElementById("avatar-pov-node")?.object3D;
     if (pov)
       s.pos = pov
         .getWorldPosition(new THREE.Vector3())
         .toArray()
         .map(n => Math.round(n * 10) / 10);
+    // Which way the head points (degrees, 0 = -z, turning left is positive; pitch up
+    // is positive). What gets drawn depends on it: three.js culls by view frustum only.
+    const cam = scene.camera;
+    if (cam) {
+      const e = cam.matrixWorld.elements;
+      s.yaw = Math.round((Math.atan2(e[8], e[10]) * 180) / Math.PI);
+      s.pitch = Math.round((Math.asin(Math.max(-1, Math.min(1, -e[9]))) * 180) / Math.PI);
+    }
+    // Per-room visibility (visibility.js): the room it is culling for, things skipped.
+    const vis = scene.systems["lounge-visibility"];
+    if (vis) {
+      s.zone = vis.stats.zone || undefined;
+      s.cull = vis.stats.culled;
+    }
+    // Every 30 s, one frame's draw calls by what they belong to.
+    if (r && ++this.drawTick % DRAWS_EVERY === 0) this.countDraws(r);
     // The range.
     const sk = scene.systems["lounge-skeet"];
     if (sk?.ready) {
@@ -184,6 +232,41 @@ AFRAME.registerSystem("lounge-telemetry", {
       s.ambBeds = amb.stats.beds;
     }
     this.push(s);
+  },
+
+  // Wraps the renderer's draw for exactly one frame and logs a "draws" event:
+  // calls per group (room model static / figures, range, Zoltar, avatars, other).
+  countDraws(renderer) {
+    if (this.counting) return;
+    const scene = this.el.sceneEl;
+    const roots = [
+      ["room", document.getElementById("environment-scene")?.object3D],
+      ["range", scene.systems["lounge-skeet"]?.root],
+      ["zoltar", scene.systems["lounge-zoltar"]?.root]
+    ];
+    const group = object => {
+      for (let p = object; p; p = p.parent) {
+        for (const [name, root] of roots)
+          if (p === root) return name === "room" && object.isSkinnedMesh ? "figures" : name;
+        if (p.el?.components?.["player-info"] || p.el?.id === "avatar-rig") return "avatars";
+      }
+      return "other";
+    };
+    const tally = {};
+    const original = renderer.renderBufferDirect;
+    this.counting = true;
+    renderer.renderBufferDirect = function (camera, sc, geometry, material, object) {
+      const k = group(object);
+      tally[k] = (tally[k] || 0) + 1;
+      return original.apply(this, arguments);
+    };
+    this.endCount = () => {
+      renderer.renderBufferDirect = original;
+      this.counting = false;
+      this.endCount = null;
+      this.event("draws", { ...tally, zone: scene.systems["lounge-visibility"]?.stats.zone || undefined });
+    };
+    this.countFrames = 0;
   },
 
   flush(leaving) {

@@ -34,6 +34,7 @@ const RISE = 0.3; // s to stand up (or pop up, or slide out)
 const FLAT = 1.45; // rad, lying back
 const BANK_BACK = 0.8; // s after a bank is cleared it stands up again
 const BANK_PER = 10; // bonus per plate in a cleared bank
+const BANK_MAX = 25; // most a plate in a bank is worth
 const DONT = -25;
 const TIERS = [
   { up: 3.0, pts: 5 },
@@ -976,6 +977,8 @@ export class PlateField {
       p.f += SHIFT;
       p.o = new THREE.Vector3(p.u, groundAt(p.f) + p.base, -p.f);
       if (p.pts === undefined && p.mode === "stand") p.pts = sizePoints(p.size, p.u, p.f, p.o.y + p.size / 2);
+      // (a plate in a bank is never worth more than 25: Jay, 2026-10-31, "no 50s for the banks")
+      if (p.bank !== null && p.pts > BANK_MAX) p.pts = BANK_MAX;
       // faces the stands; r: the shooter's right across its face
       n0.set(-p.u, 0, p.f).normalize();
       p.n = n0.clone();

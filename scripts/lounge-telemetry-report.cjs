@@ -113,8 +113,44 @@ for (const [id, s] of [...sessions].sort((a, b) => (a[1].samples[0]?.t || 0) - (
           0
         )}`
       );
+    // Per-room visibility (lounge/visibility.js): frame rate and draw calls where it is culling, and where not.
+    const rooms = {};
+    for (const r of vr) (rooms[r.zone || "no zone"] = rooms[r.zone || "no zone"] || []).push(r);
+    if (vr.some(r => r.cull !== undefined))
+      for (const [k, rs] of Object.entries(rooms))
+        console.log(
+          `   ${k.padEnd(10)} ${String(rs.length).padStart(5)} s  fps median ${pct(
+            rs.map(r => r.fps),
+            0.5
+          )}  draw calls median ${pct(
+            rs.map(r => r.calls || 0),
+            0.5
+          )} (worst 5% ${pct(
+            rs.map(r => -(r.calls || 0)),
+            0.05
+          ) * -1})  skipped median ${pct(
+            rs.map(r => r.cull || 0),
+            0.5
+          )}`
+        );
+    // One frame's draw calls by group, every 30 s ("draws" events): the median of each.
+    const draws = s.events.filter(e => e.e === "draws");
+    if (draws.length) {
+      const keys = [...new Set(draws.flatMap(d => Object.keys(d)))].filter(k => !["e", "t", "zone"].includes(k));
+      console.log(
+        `   draw calls by group (median of ${draws.length} counted frames): ${keys
+          .map(
+            k =>
+              `${k} ${pct(
+                draws.map(d => d[k] || 0),
+                0.5
+              )}`
+          )
+          .join(", ")}`
+      );
+    }
   }
-  const glitches = s.events.filter(e => !["start", "guns"].includes(e.e));
+  const glitches = s.events.filter(e => !["start", "guns", "draws"].includes(e.e));
   const gunEvents = s.events.filter(e => e.e === "guns");
   if (gunEvents.length) console.log(`   gun changes: ${gunEvents.length}`);
   if (!glitches.length) console.log("   no glitches logged");

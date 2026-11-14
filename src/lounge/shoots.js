@@ -29,6 +29,18 @@ import { BOND } from "./campaign-bond";
 import { SAFARI } from "./campaign-safari";
 import { HOSTAGE } from "./campaign-hostage";
 import { WEST } from "./campaign-west";
+import { GALAXY } from "./campaign-galaxy";
+import { INDY } from "./campaign-indy";
+import { INDY_MORE } from "./campaign-indy-more";
+import { GALAXY_MORE } from "./campaign-galaxy-more";
+import { WEST_MORE } from "./campaign-west-more";
+import { BOND_MORE } from "./campaign-bond-more";
+import { HOSTAGE_MORE } from "./campaign-hostage-more";
+import { CARNIVAL_MORE } from "./campaign-carnival-more";
+import { SAFARI_MORE } from "./campaign-safari-more";
+import { DEER_MORE } from "./campaign-deer-more";
+import { DUCK_MORE } from "./campaign-duck-more";
+import { BOAR_MORE } from "./campaign-boar-more";
 
 // Each shoot's levels 2 to 5 (campaign-*.js), by its key.
 const MORE = {
@@ -39,7 +51,24 @@ const MORE = {
   bond: BOND,
   safari: SAFARI,
   hostage: HOSTAGE,
-  saloon: WEST
+  saloon: WEST,
+  galaxy: GALAXY,
+  indy: INDY
+};
+// And five more each (Jay, 2026-10-31: "add five more levels to each set";
+// campaign-*-more.js), played before its last level, so every campaign still
+// ends on its finale: ten levels a campaign.
+const EXTRA = {
+  carnival: CARNIVAL_MORE,
+  boar: BOAR_MORE,
+  duck: DUCK_MORE,
+  deer: DEER_MORE,
+  safari: SAFARI_MORE,
+  bond: BOND_MORE,
+  hostage: HOSTAGE_MORE,
+  saloon: WEST_MORE,
+  galaxy: GALAXY_MORE,
+  indy: INDY_MORE
 };
 
 // The featured shoots on the Rovers roof (Jay, 2026-10-19): a world drawn
@@ -50,9 +79,9 @@ const MORE = {
 // targets from it, so only hits go over the network.
 //
 // Campaigns (Jay, 2026-10-24: "a multilevel game where we have to reach 5k
-// points and then it changes"): each of the eight shoots is five levels, each
+// points and then it changes"): each of the nine shoots is five levels, each
 // level its own world. The shooters keep their own scores, but a level is
-// won as a team: when everyone's points in it add up to its goal (5,000) the
+// won as a team: when everyone's points in it add up to its goal (7,500) the
 // next level comes up (LEVEL_GAP s later), a new world with new targets. A
 // timed level (the western's quick draw) runs its length and moves on by
 // itself. After the fifth, the campaign is over: a break (the clay stands),
@@ -66,7 +95,7 @@ const MORE = {
 export const WAVE = 30;
 export const LEVEL_WAVES = 240; // (two hours: nobody is still on one level by then)
 export const BREAK = 120;
-export const GOAL = 5000;
+export const GOAL = 7500; // (Jay, 2026-10-31: was 5,000, "so that it takes a bit longer")
 // Between levels (Jay, 2026-10-24: the change was "just a flick from one to
 // the other"): a card comes down over the range, says the level's won, then
 // introduces the next (its number, name and story) and counts 3, 2, 1, and
@@ -76,8 +105,9 @@ export const GOAL = 5000;
 export const INTRO = 10; // s of card before a level: the introduction, then the 3-count
 export const COUNT = 3; // s, the 3-count at its end
 export const LEVEL_GAP = INTRO + 4; // s from a level won to the next one starting
-// (the saloon came later, so it's last: rounds and picks go by number)
-export const SCENARIOS = ["carnival", "duck", "deer", "boar", "bond", "safari", "hostage", "saloon"];
+// (the saloon came later, so it's after the week; then the galaxy: rounds
+// and picks go by number)
+export const SCENARIOS = ["carnival", "duck", "deer", "boar", "bond", "safari", "hostage", "saloon", "galaxy", "indy"];
 
 // Points: the smaller and faster, the more. Don't-shoots cost 25.
 export const SHOW_KINDS = {
@@ -96,7 +126,7 @@ export const SHOW_KINDS = {
   peacock: bird("peacock", 5, 0.6, "honk"),
   vulture: bird("vulture", 5, 0.7, "caw"),
   drone: { ...thing("drone", 0, 25, 0.3, "fall", "level", "clank") },
-  heli: { ...thing("heli", 0, 5, 1.3, "fall", "level", "ufo"), name: "HELICOPTER" },
+  heli: { ...thing("heli", 0, 20, 1.3, "fall", "level", "ufo"), name: "HELICOPTER" },
   // carnival things and their disguises
   tinduck: card("tinduck", 10, 0.35, "ping"),
   star: thing("star", 0, 15, 0.3, "shatter", "spin", "ping"),
@@ -162,8 +192,40 @@ export const SHOW_KINDS = {
   // anywhere, now and then
   golden: { ...thing("gold", 0, 50, 0.3, "shatter", "spin", "bell"), name: "GOLDEN TARGET · 50" },
   // the campaigns' own
-  ...Object.assign({}, ...Object.values(MORE).map(m => m.kinds))
+  ...Object.assign({}, ...Object.values(MORE).map(m => m.kinds)),
+  ...Object.assign({}, ...Object.values(EXTRA).map(m => m.kinds || {}))
 };
+
+// The big movers (machines, the elephant, the balloons) take more than one
+// hit: the shots it takes to bring one down. Points come with the last one.
+export const TOUGH = {
+  atat: 5,
+  tieV: 5,
+  i_tank: 5,
+  hostage_train: 5,
+  carnival_hotairA: 4,
+  carnival_hotairB: 4,
+  carnival_hotairC: 4,
+  heli: 4,
+  i_fighter: 4,
+  i_truck: 4,
+  i_boulder: 4,
+  safari_elephant: 4,
+  bond_cabin: 4,
+  skiff: 4,
+  tie: 3,
+  tieI: 3,
+  cloudcar: 3,
+  atst: 3,
+  hostage_van: 3,
+  hostage_vanY: 3,
+  hostage_boat: 3,
+  bond_car: 3,
+  bond_boat: 3,
+  bond_boatB: 3,
+  bond_sat: 3
+};
+for (const [k, hp] of Object.entries(TOUGH)) if (SHOW_KINDS[k]) SHOW_KINDS[k].hp = hp;
 
 // A world's birds: both sizes, crossers, pairs, flushes, overhead (indoors:
 // what it throws up instead).
@@ -524,7 +586,8 @@ function classic(sc, name, story) {
   };
 }
 
-// Each campaign's first level: the classic world, its name and banner line.
+// Each campaign's first level: the classic world, its name and banner line
+// (a campaign with no classic world, the galaxy, brings all five itself).
 const FIRST = {
   carnival: ["THE MIDWAY", "Step right up!"],
   duck: ["THE DECOY POND", "Opening morning on the marsh"],
@@ -535,13 +598,20 @@ const FIRST = {
   hostage: ["THE SHOOT HOUSE", "Hostages inside. Clear the house"],
   saloon: ["THE SILVER SPUR SALOON", "Villa's men are drinking in the Silver Spur"]
 };
+function withExtra(k, levels) {
+  const more = EXTRA[k]?.levels || [];
+  return [...levels.slice(0, -1), ...more, levels[levels.length - 1]];
+}
 export const CAMPAIGNS = Object.fromEntries(
   SCENARIOS.map(k => [
     k,
     {
       name: MORE[k].name,
       done: MORE[k].done,
-      levels: [classic(k, FIRST[k][0], MORE[k].first || FIRST[k][1]), ...MORE[k].levels]
+      levels: withExtra(
+        k,
+        SCREEN[k] ? [classic(k, FIRST[k][0], MORE[k].first || FIRST[k][1]), ...MORE[k].levels] : MORE[k].levels
+      )
     }
   ])
 );

@@ -343,6 +343,8 @@ export const GUN_TYPES = {
     pellets: 9,
     cone: 0.022,
     sound: "shot",
+    laser: "bowcaster",
+    bolt: 0x7dff4a,
     kick: 1,
     buzz: 1
   },
@@ -355,6 +357,8 @@ export const GUN_TYPES = {
     pellets: 1,
     cone: 0.003,
     sound: "rifle",
+    laser: "blasterR",
+    bolt: 0xff2a1a,
     kick: 0.35,
     buzz: 0.55
   },
@@ -367,6 +371,8 @@ export const GUN_TYPES = {
     pellets: 1,
     cone: 0.004,
     sound: "pistol",
+    laser: "blaster",
+    bolt: 0xff2a1a,
     kick: 0.7,
     buzz: 0.7
   }
@@ -422,6 +428,28 @@ function mats() {
     hat: std(0x111111, 0.7, 0, { emissive: srgb(0x080808) }),
     hatBand: basic(0xb3122a),
     flash: new THREE.MeshBasicMaterial({ color: 0xffd27a, transparent: true, opacity: 0.9, depthWrite: false }),
+    // the blasters (in the galaxy's levels the guns are these: skeet.js setLasers)
+    black: std(0x161618, 0.45, 0.6),
+    gunmetal: std(0x4a4e55, 0.35, 0.85),
+    chrome: std(0xb8bcc4, 0.2, 0.95),
+    bronze: std(0x8a6a3a, 0.4, 0.8),
+    leather: std(0x5a3a22, 0.8),
+    zap: new THREE.MeshBasicMaterial({
+      color: 0xff4a3a,
+      transparent: true,
+      opacity: 0.85,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending
+    }),
+    zapG: new THREE.MeshBasicMaterial({
+      color: 0x9dff6a,
+      transparent: true,
+      opacity: 0.85,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending
+    }),
+    glowR: basic(0xff3a2a),
+    glowG: basic(0x8dff5a),
     smoke: new THREE.MeshBasicMaterial({ color: 0xcfcac2, transparent: true, opacity: 0.35, depthWrite: false }),
     tracer: new THREE.MeshBasicMaterial({ color: 0xfff1c0, transparent: true, opacity: 0.35, depthWrite: false })
   });
@@ -440,25 +468,68 @@ const box = (sx, sy, sz) => new THREE.BoxGeometry(sx, sy, sz);
 const cyl = (r0, r1, h, n = 12) => new THREE.CylinderGeometry(r0, r1, h, n);
 const ball = (r, n = 12) => new THREE.SphereGeometry(r, n, Math.max(6, n >> 1));
 
-// The guns. Origin at the pistol grip (the trigger hand), -z forward along
-// the barrel; a "kick" group takes the recoil, with a muzzle flash and a puff
-// of smoke at the muzzle (hidden until a shot).
-export function gunMesh(type = "shotgun") {
-  const M = mats();
-  const g = new THREE.Group();
-  const kick = new THREE.Group(); // recoil moves this
-  g.add(kick);
-  if (type === "pistol") pistolBody(kick, M);
-  else if (type === "rifle") rifleBody(kick, M);
-  else shotgunBody(kick, M);
-  const mz = GUN_TYPES[type].muzzle;
-  const flash = part(kick, cyl(0.07, 0.0, 0.22, 10), M.flash, mz.x, mz.y, mz.z - 0.11, -Math.PI / 2);
-  flash.scale.setScalar(type === "shotgun" ? 1 : 0.6);
-  flash.visible = false;
-  const smoke = part(kick, ball(0.06, 10), M.smoke.clone(), mz.x, mz.y, mz.z - 0.06);
-  smoke.visible = false;
-  g.userData = { kick, flash, smoke, muzzle: mz };
-  return g;
+// Han's DL-44: a heavy black pistol, the conical flash suppressor, a scope.
+function dl44(k, M) {
+  part(k, box(0.034, 0.046, 0.13), M.black, 0, 0.05, -0.06); // body
+  part(k, box(0.03, 0.02, 0.05), M.gunmetal, 0, 0.025, -0.04); // frame under it
+  part(k, cyl(0.012, 0.012, 0.07, 10), M.black, 0, 0.052, -0.14, Math.PI / 2); // barrel
+  part(k, cyl(0.02, 0.012, 0.035, 10), M.gunmetal, 0, 0.052, -0.172, Math.PI / 2); // suppressor
+  part(k, new THREE.TorusGeometry(0.016, 0.003, 6, 12), M.glowR, 0, 0.052, -0.19); // emitter
+  part(k, cyl(0.009, 0.009, 0.1, 8), M.black, 0.0, 0.092, -0.06, Math.PI / 2); // scope
+  part(k, cyl(0.011, 0.009, 0.014, 8), M.chrome, 0.0, 0.092, -0.11, Math.PI / 2);
+  for (const z of [-0.03, -0.09]) part(k, box(0.008, 0.02, 0.008), M.black, 0, 0.078, z); // mounts
+  part(k, box(0.03, 0.11, 0.045), M.leather, 0, -0.03, 0.015, 0.25); // grip
+  part(k, box(0.008, 0.03, 0.04), M.chrome, 0.02, 0.055, -0.02); // power pack
+  part(k, new THREE.TorusGeometry(0.018, 0.003, 6, 12, Math.PI), M.gunmetal, 0, 0.012, -0.03, 0, Math.PI / 2, Math.PI);
+  part(k, box(0.005, 0.02, 0.005), M.chrome, 0, 0.012, -0.03, 0.3); // trigger
+}
+
+// The stormtrooper's E-11: a black tube with its cooling holes, the side
+// magazine, a scope, the folding stock.
+function e11(k, M) {
+  part(k, cyl(0.022, 0.022, 0.42, 12), M.black, 0, 0.03, -0.34, Math.PI / 2); // body
+  for (let z = -0.5; z <= -0.18; z += 0.04)
+    for (const a of [0, 1, 2])
+      part(
+        k,
+        box(0.008, 0.008, 0.016),
+        M.gunmetal,
+        Math.sin(a * 1.2 - 1.2) * 0.022,
+        0.03 + Math.cos(a * 1.2 - 1.2) * 0.022,
+        z
+      );
+  part(k, cyl(0.027, 0.027, 0.06, 12), M.black, 0, 0.03, -0.585, Math.PI / 2); // muzzle shroud
+  part(k, cyl(0.012, 0.012, 0.05, 8), M.gunmetal, 0, 0.022, -0.63, Math.PI / 2);
+  part(k, new THREE.TorusGeometry(0.014, 0.003, 6, 12), M.glowR, 0, 0.02, -0.657); // emitter
+  part(k, box(0.11, 0.022, 0.032), M.black, -0.07, 0.03, -0.16); // magazine (to the left)
+  part(k, cyl(0.013, 0.013, 0.17, 10), M.black, 0, 0.074, -0.2, Math.PI / 2); // scope
+  part(k, cyl(0.015, 0.013, 0.02, 10), M.chrome, 0, 0.074, -0.29, Math.PI / 2);
+  part(k, box(0.01, 0.025, 0.012), M.black, 0, 0.058, -0.14); // mount
+  part(k, box(0.03, 0.09, 0.04), M.black, 0, -0.045, 0.0, 0.3); // grip
+  part(k, box(0.006, 0.02, 0.006), M.chrome, 0, -0.005, -0.04, 0.3); // trigger
+  part(k, box(0.04, 0.03, 0.06), M.black, 0, 0.025, -0.1); // receiver block
+  for (const x of [-0.016, 0.016]) part(k, box(0.006, 0.01, 0.26), M.gunmetal, x, 0.02, 0.1); // stock rods
+  part(k, box(0.04, 0.08, 0.012), M.black, 0, 0.0, 0.235); // butt
+}
+
+// Chewie's bowcaster: a long bronze body, the bow across its front with its
+// polarising orbs, a scope; green bolts.
+function bowcaster(k, M) {
+  part(k, box(0.05, 0.07, 0.5), M.bronze, 0, 0.0, -0.3); // body
+  part(k, box(0.04, 0.04, 0.3), M.leather, 0, -0.02, 0.15); // stock
+  part(k, box(0.045, 0.11, 0.03), M.leather, 0, -0.035, 0.31); // butt
+  part(k, box(0.03, 0.09, 0.045), M.leather, 0, -0.06, 0.0, 0.3); // grip
+  part(k, box(0.006, 0.02, 0.006), M.chrome, 0, -0.04, -0.035, 0.3); // trigger
+  part(k, cyl(0.014, 0.014, 0.3, 10), M.gunmetal, 0, 0.012, -0.69, Math.PI / 2); // barrel
+  part(k, new THREE.TorusGeometry(0.017, 0.004, 6, 12), M.glowG, 0, 0.012, -0.838); // emitter
+  for (const s of [-1, 1]) {
+    // the bow, swept back to each side, an orb at each tip
+    part(k, box(0.22, 0.016, 0.03), M.gunmetal, s * 0.12, 0.03, -0.58, 0, s * 0.35, 0);
+    part(k, ball(0.022, 10), M.glowG, s * 0.225, 0.03, -0.54);
+  }
+  part(k, box(0.42, 0.003, 0.003), M.chrome, 0, 0.03, -0.53); // string
+  part(k, cyl(0.014, 0.014, 0.2, 10), M.black, 0, 0.06, -0.25, Math.PI / 2); // scope
+  part(k, box(0.03, 0.05, 0.08), M.black, 0, -0.05, -0.32); // cocking box
 }
 
 // A semi-automatic pistol: slide, frame, grip.
@@ -507,6 +578,38 @@ function shotgunBody(kick, M) {
   part(kick, ball(0.0035, 8), M.brass, 0, 0.041, -0.83); // bead
   part(kick, ball(0.0025, 8), M.brass, 0, 0.039, -0.5); // mid bead
   part(kick, box(0.046, 0.04, 0.25), M.walnut, 0, -0.018, -0.27); // forend
+}
+
+// The guns. Origin at the pistol grip (the trigger hand), -z forward along
+// the barrel; a "kick" group takes the recoil, with a muzzle flash and a puff
+// of smoke at the muzzle (hidden until a shot). Each is two guns in one: the
+// real one, and (hidden) the blaster it turns into in a galaxy level (Jay,
+// 2026-10-30: "would it be possible for the guns to shoot laser beams"): a
+// DL-44 for the pistol, an E-11 for the carbine, a bowcaster for the
+// shotgun, each with its glowing emitter flash at the same muzzle.
+export function gunMesh(type = "shotgun") {
+  const M = mats();
+  const g = new THREE.Group();
+  const kick = new THREE.Group(); // recoil moves this
+  g.add(kick);
+  const real = new THREE.Group();
+  const blaster = new THREE.Group();
+  kick.add(real, blaster);
+  blaster.visible = false;
+  if (type === "pistol") (pistolBody(real, M), dl44(blaster, M));
+  else if (type === "rifle") (rifleBody(real, M), e11(blaster, M));
+  else (shotgunBody(real, M), bowcaster(blaster, M));
+  const mz = GUN_TYPES[type].muzzle;
+  const flash = part(kick, cyl(0.07, 0.0, 0.22, 10), M.flash, mz.x, mz.y, mz.z - 0.11, -Math.PI / 2);
+  flash.scale.setScalar(type === "shotgun" ? 1 : 0.6);
+  flash.visible = false;
+  const zap = part(kick, ball(0.05, 10), type === "shotgun" ? M.zapG : M.zap, mz.x, mz.y, mz.z - 0.03);
+  zap.scale.set(1, 1, 1.8);
+  zap.visible = false;
+  const smoke = part(kick, ball(0.06, 10), M.smoke.clone(), mz.x, mz.y, mz.z - 0.06);
+  smoke.visible = false;
+  g.userData = { kick, flash, zap, smoke, muzzle: mz, real, blaster };
+  return g;
 }
 
 function wing(M, side) {
@@ -598,6 +701,26 @@ function render(ctx, dur, fn) {
   for (let i = 0; i < n; i++) peak = Math.max(peak, Math.abs(d[i]));
   if (peak > 0) for (let i = 0; i < n; i++) d[i] *= 0.95 / peak;
   return buf;
+}
+
+function blasterSound(ctx, noise, dur, f0, fall, crack) {
+  return render(ctx, dur, (d, sr, n) => {
+    const parts = [1, 1.37, 1.93, 2.61];
+    const ph = parts.map(() => 0);
+    let lp = 0;
+    for (let i = 0; i < n; i++) {
+      const t = i / sr;
+      lp += 0.6 * (noise() - lp);
+      let v = 0;
+      parts.forEach((m, k) => {
+        // (the higher the partial, the sooner it falls: a spring's dispersion)
+        const f = 240 + f0 * m * Math.exp(-t * fall * (1 + 0.35 * k));
+        ph[k] += (2 * Math.PI * f) / sr;
+        v += Math.sin(ph[k]) * (1 - 0.2 * k);
+      });
+      d[i] = v * Math.exp(-t * (8 + fall * 0.2)) * Math.min(1, t * 900) + lp * crack * Math.exp(-t * 120);
+    }
+  });
 }
 
 export function makeSounds(ctx) {
@@ -827,6 +950,94 @@ export function makeSounds(ctx) {
       for (let i = 0; i < n; i++) {
         const t = i / sr;
         d[i] = (Math.sin(2 * Math.PI * 1760 * t) + 0.4 * Math.sin(2 * Math.PI * 2640 * t)) * Math.exp(-t * 7);
+      }
+    }),
+    // The galaxy's (campaign-galaxy.js): blasters, TIE fighters, explosions.
+    // A blaster: the falling metallic "pew" (a spring struck, its partials
+    // sweeping down, the high ones first), a little crack at the start.
+    blaster: blasterSound(ctx, noise, 0.32, 2600, 15, 1),
+    blasterR: blasterSound(ctx, noise, 0.24, 3200, 22, 0.8),
+    bowcaster: render(ctx, 0.5, (d, sr, n) => {
+      const ph = [0, 0, 0];
+      let lp = 0;
+      for (let i = 0; i < n; i++) {
+        const t = i / sr;
+        lp += 0.12 * (noise() - lp);
+        let v = 0;
+        [1, 1.51, 2.27].forEach((m, k) => {
+          ph[k] += (2 * Math.PI * (160 + 900 * m * Math.exp(-t * (9 + 4 * k)))) / sr;
+          v += Math.sin(ph[k]) * Math.exp(-t * (6 + 3 * k)) * (1 - 0.25 * k);
+        });
+        d[i] = v + lp * 2.5 * Math.exp(-t * 18) + Math.sin(2 * Math.PI * 55 * t) * Math.exp(-t * 12) * 0.6;
+      }
+    }),
+    // Bolt into armour: a crackle and a fizz.
+    sizzle: render(ctx, 0.3, (d, sr, n) => {
+      let prev = 0;
+      for (let i = 0; i < n; i++) {
+        const t = i / sr;
+        const x = noise() * (rnd() < 0.3 ? 1 : 0.15);
+        d[i] = ((x - prev) * 0.9 + Math.sin(2 * Math.PI * 5200 * t) * 0.1 * noise()) * Math.exp(-t * 14);
+        prev = x;
+      }
+    }),
+    // Something blowing up: a crack, a rolling low boom.
+    boom: render(ctx, 1.6, (d, sr, n) => {
+      let lp = 0;
+      let lp2 = 0;
+      for (let i = 0; i < n; i++) {
+        const t = i / sr;
+        const x = noise();
+        lp += 0.04 * (x - lp);
+        lp2 += 0.4 * (x - lp2);
+        d[i] =
+          lp * 9 * Math.exp(-t * 2.6) * (1 + 0.5 * Math.sin(t * 23)) +
+          lp2 * Math.exp(-t * 30) +
+          Math.sin(2 * Math.PI * (40 + 30 * Math.exp(-t * 8)) * t) * Math.exp(-t * 4) * 0.8;
+      }
+    }),
+    // A TIE fighter going by: the howl (a growl and a scream through a
+    // sweeping resonance), louder and higher as it comes, lower going away.
+    tie: render(ctx, 1.6, (d, sr, n) => {
+      let ph = 0;
+      let b1 = 0;
+      let b2 = 0;
+      for (let i = 0; i < n; i++) {
+        const t = i / sr;
+        const e = t / 1.6;
+        const dop = 1.25 - 0.55 * e; // (the Doppler drop as it passes)
+        const f = (900 + 500 * Math.sin(t * 13)) * dop;
+        // a resonant band-pass on noise (two-pole)
+        const w = (2 * Math.PI * f) / sr;
+        const r = 0.985;
+        const y = noise() * 0.2 + 2 * r * Math.cos(w) * b1 - r * r * b2;
+        b2 = b1;
+        b1 = y;
+        ph += (2 * Math.PI * 118 * dop * (1 + 0.04 * Math.sin(t * 31))) / sr;
+        const saw = ((ph / (2 * Math.PI)) % 1) * 2 - 1;
+        const env = Math.sin(Math.PI * Math.min(1, e * 1.1)) ** 1.5;
+        d[i] = (y * 0.6 + saw * 0.35) * env;
+      }
+    }),
+    // A snake: the hiss (Indiana Jones).
+    hiss: render(ctx, 0.7, (d, sr, n) => {
+      let prev = 0;
+      for (let i = 0; i < n; i++) {
+        const t = i / sr;
+        const x = noise();
+        d[i] = (x - prev) * Math.min(1, t * 20) * Math.exp(-Math.max(0, t - 0.3) * 8);
+        prev = x * 0.6;
+      }
+    }),
+    // A droid's worried warble (R2).
+    beep: render(ctx, 0.7, (d, sr, n) => {
+      let ph = 0;
+      for (let i = 0; i < n; i++) {
+        const t = i / sr;
+        const k = Math.floor(t * 9);
+        const f = [2200, 3100, 1800, 2900, 3400, 2000, 2600][k % 7] * (1 + 0.15 * Math.sin(t * 90));
+        ph += (2 * Math.PI * f) / sr;
+        d[i] = Math.sin(ph) * ((t * 9) % 1 < 0.8 ? 1 : 0) * 0.6;
       }
     }),
     // The trap throwing a clay, far off.

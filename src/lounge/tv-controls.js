@@ -76,7 +76,10 @@ export class TvControls {
       row(i, [name], () => (name === "PAIR TV" ? this.showPairing() : this.command(name.toLowerCase())));
     });
     // RELOAD sits above the right sconce (mirrored by LIGHTS on the left).
-    this.add(1.65, 0.6, 0.55, 0.19, ["RELOAD"], () => window.location.reload());
+    this.add(1.65, 0.6, 0.55, 0.19, ["RELOAD"], () => {
+      this.el.sceneEl.systems["lounge-telemetry"]?.event("reload", { via: "wall button" });
+      window.location.reload();
+    });
     const mute = row(4, ["MUTE TV"], () => {
       const muted = onToggleMute();
       mute.draw([muted ? "UNMUTE TV" : "MUTE TV"], false, muted ? "#ffb347" : "#202a30");

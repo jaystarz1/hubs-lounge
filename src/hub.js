@@ -56,6 +56,7 @@ import "./lounge/skeet";
 import "./lounge/ambience";
 import "./lounge/mystery";
 import "./lounge/telemetry";
+import "./lounge/visibility";
 import "./lounge/record";
 import { remapStaleAvatarId } from "./lounge/avatars";
 import { detectOS, detect } from "detect-browser";
