@@ -17,12 +17,16 @@ import TALK from "./bed-talk.json";
 //     cutlery, darts, the espresso machine come at random from where the
 //     people (or the bar) are. No laughs or cheers (Jay, 2026-10-22, the third
 //     time a generated one came out as a child: a quiet dinner party, no kids)
+//   - the talk at the dinner table and in the Rovers is one long conversation
+//     each (Jay, 2026-11-14: the same lines kept coming round): about fifty
+//     short exchanges played in order, the place kept between visits (talkTrack)
 //   - the mime: whooshes when his clubs and torches fly, a cymbal and an "ooh"
 //     when a dove or a rabbit appears, squeaks as he twists balloons; clapping
 //     comes from the guests' own hands meeting (and a round of applause when
 //     enough of them do); on his rounds all of it low and cut short (ROAD); while he is on the Rovers stage (or the finale's
-//     lights are down) the pub drops to a murmur that swells with a gasp when
-//     a prop appears or a reveal lands, and every half minute or so anyway
+//     lights are down) the pub drops to a murmur that swells with a word from
+//     someone ("react": 36 of them, none twice until all are said) when a prop
+//     appears or a reveal lands, and every half minute or so anyway
 //   - the couples in bed (the NE couple's loop, the café lady and the mime once
 //     a night in the SW room): they talk (bed-talk.json, two voices each, no
 //     moans or bed noise, which came out as hiss and "power tools"): a few
@@ -44,6 +48,8 @@ for (const n of Object.keys(URLS)) {
   const m = n.match(/^(.*)-(\d+)$/);
   if (m) (GROUPS[m[1]] = GROUPS[m[1]] || []).push(n);
 }
+// A room's long conversation: "tt-dining" -> its clips in script order.
+const inOrder = group => (GROUPS[group] || []).slice().sort((a, b) => a.match(/\d+$/)[0] - b.match(/\d+$/)[0]);
 // What a voicesOnly zone still plays: the one crowd sound that is just people
 // talking (the murder's gasp). No claps, applause, "ooh" or the mime's props
 // there, ever, him in the room or not (Jay, 2026-10-22: "in the dining room i
@@ -78,6 +84,8 @@ const ZONES = {
     box: [-4, 7, -16.85, -9.8, -0.6, 3.3],
     doors: [[0, -9.8, 1.2]],
     bed: ["bed-pub", n => 0.1 + 0.03 * Math.min(n, 12)],
+    // (the regulars' talk over the murmur: 48 exchanges, in order, about ten minutes)
+    track: { group: "tt-rovers", level: n => 0.1 + 0.02 * Math.min(n, 12) },
     music: { name: "pub-piano", at: [-2.62, -15.3, 1.1], who: "Pno", level: 0.24 },
     shots: [
       { groups: ["clink", "pint"], every: [5, 12], people: 2, at: [3.2, -14.4, 1.1], vol: 0.35 },
@@ -90,7 +98,9 @@ const ZONES = {
       [6.1, 7.85, 1.2],
       [6.8, 4.2, 1.2]
     ],
-    bed: ["bed-dining", n => (n >= 3 ? 0.08 + 0.025 * Math.min(n, 12) : 0.04)],
+    // The table's talk is one long track (52 exchanges, in order, about ten
+    // minutes; it was a 72 s loop), with the far end of the table muffled under it.
+    track: { group: "tt-dining", level: n => (n >= 3 ? 0.08 + 0.025 * Math.min(n, 12) : 0.04), far: 0.4 },
     music: { name: "dining-strings", level: 0.08, people: 3 },
     // Voices only (Jay, 2026-10-21/22): no cutlery, glasses, chairs, claps,
     // applause or mime sounds. While the mime is in the room the talk drops to
@@ -186,7 +196,10 @@ AFRAME.registerSystem("lounge-ambience", {
   },
 
   teardown() {
-    for (const z of Object.values(this.zones || {})) this.stopBeds(z);
+    for (const z of Object.values(this.zones || {})) {
+      this.stopBeds(z);
+      this.stopTrack(z);
+    }
     for (const c of this.cards || []) c.remove();
     this.cards = [];
     this.ready = false;
@@ -336,6 +349,7 @@ AFRAME.registerSystem("lounge-ambience", {
         "splash"
       ])
         for (const n of GROUPS[g] || []) out.add(n);
+    if (z.name === "rovers") for (const n of GROUPS.react || []) out.add(n);
     for (const c of Object.values(this.couples))
       if (c.zone === z.name) for (const n of Object.keys(URLS)) if (n.startsWith(`talk-${c.key}-`)) out.add(n);
     return out;
@@ -391,6 +405,126 @@ AFRAME.registerSystem("lounge-ambience", {
       b.src.disconnect();
     }
     z.beds = null;
+  },
+
+  // A room's long conversation (lounge-assets/table-talk.py): its clips one after
+  // another with a pause between, in script order, and the place kept between
+  // visits and reloads, so nothing comes round again until the whole of it has
+  // been heard. Only the clip playing and the next are held decoded. far: a
+  // second lane half the track away, quiet and muffled.
+  // (Web Audio buffers, never a media element: the Quest's party call pauses those.)
+  talkTrack(now, z, level) {
+    const tr = z.track;
+    const names = (tr.names = tr.names || inOrder(tr.group));
+    if (!names.length || !z.gain) return;
+    const on = z.heard > 0.005;
+    if (!z.lanes) {
+      if (!on) return;
+      let at = 0;
+      try {
+        at = parseInt(localStorage.getItem(`lounge-talk-${z.name}`), 10) || 0;
+      } catch {
+        /* no storage: from the top */
+      }
+      z.lanes = [{ i: at % names.length, vol: 1 }];
+      if (tr.far) z.lanes.push({ i: (at + (names.length >> 1)) % names.length, vol: tr.far, far: true });
+      for (const lane of z.lanes) {
+        lane.gain = this.ctx.createGain();
+        lane.gain.gain.value = 0;
+        if (lane.far) {
+          lane.out = this.ctx.createBiquadFilter();
+          lane.out.type = "lowpass";
+          lane.out.frequency.value = 900;
+          lane.gain.connect(lane.out);
+        } else lane.out = lane.gain;
+        lane.out.connect(z.gain);
+      }
+    }
+    if (!on) {
+      if (now - z.quietSince > 4) this.stopTrack(z);
+      return;
+    }
+    for (const lane of z.lanes) {
+      lane.gain.gain.setTargetAtTime(level * lane.vol, this.ctx.currentTime, 0.5);
+      const name = names[lane.i];
+      this.load([name, names[(lane.i + 1) % names.length]]);
+      // (level 0: a mystery has the room; the talk waits where it is)
+      if (lane.src || level <= 0 || now < (lane.nextAt || 0) || !this.buffers.has(name)) continue;
+      const src = this.ctx.createBufferSource();
+      src.buffer = this.buffers.get(name);
+      src.connect(lane.gain);
+      src.onended = () => {
+        src.disconnect();
+        if (lane.src !== src) return;
+        lane.src = null;
+        this.nextClip(z, lane, R(1.5, 3.5));
+      };
+      src.start();
+      lane.src = src;
+    }
+  },
+
+  nextClip(z, lane, gap) {
+    const names = z.track.names;
+    this.buffers.delete(names[lane.i]);
+    lane.i = (lane.i + 1) % names.length;
+    lane.nextAt = this.now + gap;
+    if (lane.far) return;
+    try {
+      localStorage.setItem(`lounge-talk-${z.name}`, String(lane.i));
+    } catch {
+      /* not kept */
+    }
+  },
+
+  // Left the room: the clip cut off is not said again, the next one is.
+  stopTrack(z) {
+    for (const lane of z.lanes || []) {
+      const src = lane.src;
+      lane.src = null;
+      if (src) {
+        try {
+          src.stop();
+        } catch {
+          /* already stopped */
+        }
+        this.nextClip(z, lane, 0);
+      }
+      lane.out.disconnect();
+    }
+    z.lanes = null;
+  },
+
+  // One of the pub's reactions to the act, none said twice until all have been.
+  react(z) {
+    const have = (GROUPS.react || []).filter(n => this.buffers.has(n));
+    if (!have.length) return;
+    if (!this.deck) {
+      try {
+        this.deck = JSON.parse(localStorage.getItem("lounge-react-deck") || "[]").filter(n => URLS[n]);
+      } catch {
+        this.deck = [];
+      }
+    }
+    if (!this.deck.length) {
+      this.deck = (GROUPS.react || []).slice();
+      for (let k = this.deck.length - 1; k > 0; k--) {
+        const j = Math.floor(Math.random() * (k + 1));
+        [this.deck[k], this.deck[j]] = [this.deck[j], this.deck[k]];
+      }
+      // (not the one just heard, straight after the reshuffle)
+      if (this.deck.length > 1 && this.deck[this.deck.length - 1] === this.lastReact) this.deck.reverse();
+    }
+    const k = this.deck.findLastIndex(n => this.buffers.has(n));
+    if (k < 0) return;
+    const name = this.deck.splice(k, 1)[0];
+    if (!this.play(z, name, null, R(0.35, 0.5))) return this.deck.push(name);
+    this.lastReact = name;
+    try {
+      localStorage.setItem("lounge-react-deck", JSON.stringify(this.deck));
+    } catch {
+      /* not kept */
+    }
   },
 
   panner(b, ref = 2) {
@@ -531,19 +665,20 @@ AFRAME.registerSystem("lounge-ambience", {
         z.quietSince = now;
         this.startBeds(z);
       } else if (z.beds && now - z.quietSince > 4) this.stopBeds(z);
+      const n = z.people.length;
+      // (scripted: every word in the room is the mystery's, no chatter bed under it)
+      const hush = z.scripted
+        ? 0
+        : z.name === "rovers" && this.watching
+          ? now < this.swellUntil
+            ? SWELL
+            : MURMUR
+          : z.hushed
+            ? MURMUR
+            : 1;
+      if (z.track) this.talkTrack(now, z, z.track.level(n) * hush);
       if (z.beds) {
         beds++;
-        const n = z.people.length;
-        // (scripted: every word in the room is the mystery's, no chatter bed under it)
-        const hush = z.scripted
-          ? 0
-          : z.name === "rovers" && this.watching
-            ? now < this.swellUntil
-              ? SWELL
-              : MURMUR
-            : z.hushed
-              ? MURMUR
-              : 1;
         for (const b of z.beds) {
           let level = b.level(n) * hush;
           if (b.music) level = this.musicLevel(z, b.music);
@@ -700,7 +835,7 @@ AFRAME.registerSystem("lounge-ambience", {
     }
   },
 
-  // The watching pub surprised: a gasp from the room and the murmur swells for
+  // The watching pub surprised: a word from the room (react) and the murmur swells for
   // a few seconds; the next unprompted one in `gap` seconds.
   surprise(at, gap, force = false) {
     if (!force && at < (this.surpriseCool || 0)) return;
@@ -708,7 +843,7 @@ AFRAME.registerSystem("lounge-ambience", {
     this.surpriseCool = at + 6;
     this.surpriseAt = at + gap;
     this.swellUntil = at + R(2.5, 4);
-    this.later.push({ at, fn: () => this.play(rov, "gasp", null, R(0.35, 0.5)) });
+    this.later.push({ at, fn: () => this.react(rov) });
   },
 
   // Guests' hands meeting: a clap from there; enough of them, a round of applause.
