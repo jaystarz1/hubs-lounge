@@ -91,6 +91,9 @@ function dinnerAt() {
 // with nobody left to recompute it is let go.
 const MYSTERY_FROM = 19;
 const MYSTERY_TO = 6;
+// Off for ordinary evenings until the week's acting is in the room model (the
+// figures have no DinnerMys<Night> clips yet): a case runs only with ?mystery.
+const MYSTERY_LIVE = false;
 const BEAT_MS = 360000;
 const KEEP_MS = 70 * 60000;
 let mysteryCheck = { at: -Infinity, on: false };
@@ -117,7 +120,7 @@ export function mysteryOn() {
   const forced = new URLSearchParams(location.search).has("mystery");
   const { hour } = torontoParts(now);
   const evening = hour >= MYSTERY_FROM || hour < MYSTERY_TO;
-  const on = (forced || evening) && mysteryNight(now / 1000) !== null;
+  const on = (forced || (MYSTERY_LIVE && evening)) && mysteryNight(now / 1000) !== null;
   mysteryCheck = { at: now, on };
   return on;
 }

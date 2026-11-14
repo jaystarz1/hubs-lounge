@@ -84,6 +84,32 @@ AFRAME.registerSystem("lounge-telemetry", {
     scene.addEventListener("stateadded", e => e.detail === "frozen" && this.event("frozen"));
     scene.addEventListener("stateremoved", e => e.detail === "frozen" && this.event("thawed"));
     this.event("start", { ua: navigator.userAgent, path: location.pathname });
+    // How long the room took to load, and whether the big files came from the
+    // browser's cache (wire 0) or down the line again: "load", once per page.
+    scene.addEventListener(
+      "environment-scene-loaded",
+      () => {
+        const mb = n => Math.round(n / 1e5) / 10;
+        const sum = { model: [0, 0], js: [0, 0], audio: [0, 0] };
+        for (const e of performance.getEntriesByType("resource")) {
+          const k = /\.glb/.test(e.name) ? "model" : /\.js/.test(e.name) ? "js" : /\.mp3/.test(e.name) ? "audio" : null;
+          if (!k) continue;
+          sum[k][0] += e.encodedBodySize;
+          sum[k][1] += e.transferSize;
+        }
+        const room = performance.getEntriesByType("resource").find(e => /lounge-[0-9a-f]+\.+glb/.test(e.name));
+        this.event("load", {
+          s: Math.round(performance.now() / 100) / 10,
+          modelS: room ? Math.round(room.duration / 100) / 10 : undefined,
+          modelMB: mb(sum.model[0]),
+          modelWire: mb(sum.model[1]),
+          jsMB: mb(sum.js[0]),
+          jsWire: mb(sum.js[1]),
+          audioMB: mb(sum.audio[0])
+        });
+      },
+      { once: true }
+    );
     this.sampler = setInterval(() => this.sample(), SAMPLE_EVERY);
     this.poster = setInterval(() => this.flush(false), POST_EVERY);
   },

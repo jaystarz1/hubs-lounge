@@ -150,7 +150,15 @@ for (const [id, s] of [...sessions].sort((a, b) => (a[1].samples[0]?.t || 0) - (
       );
     }
   }
-  const glitches = s.events.filter(e => !["start", "guns", "draws"].includes(e.e));
+  // How long the room took to load and what came down the line ("load", once per page).
+  const load = s.events.find(e => e.e === "load");
+  if (load)
+    console.log(
+      `   load: room ready ${load.s} s after the page opened; model ${load.modelMB} MB in ${load.modelS} s (${
+        load.modelWire < 1 ? "from the headset's cache" : `${load.modelWire} MB downloaded`
+      }), script ${load.jsWire < 0.1 ? "cached" : `${load.jsWire} MB downloaded`}`
+    );
+  const glitches = s.events.filter(e => !["start", "guns", "draws", "load"].includes(e.e));
   const gunEvents = s.events.filter(e => e.e === "guns");
   if (gunEvents.length) console.log(`   gun changes: ${gunEvents.length}`);
   if (!glitches.length) console.log("   no glitches logged");
