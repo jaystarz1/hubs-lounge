@@ -483,7 +483,8 @@ const cablecarWave = (R, add, c) => {
   const k = c.w % 6;
   const n = x => Math.round(x * c.I);
   for (let j = 0; j < 2 + n(1.6); j++) cab(R(1, 22));
-  for (let j = 0; j < 1 + n(1); j++) add(R(1, 22), "bond_boat", run(R, { v: R(10, 14) * c.S, f: R(16, 40) }));
+  for (let j = 0; j < 1 + n(1); j++)
+    add(R(1, 22), "bond_boat", run(R, { v: R(10, 14) * c.S, f: R(16, 40), steady: true }));
   for (let j = 0; j < n(1.2); j++)
     add(
       R(1, 22),
@@ -707,7 +708,8 @@ LAYOUTS.bond_rig = L => {
   });
 };
 const rigWave = (R, add, c) => {
-  const boat = t => add(t, R(0, 1) < 0.5 ? "bond_boat" : "bond_boatB", run(R, { v: R(12, 16) * c.S, f: R(10, 18) }));
+  const boat = t =>
+    add(t, R(0, 1) < 0.5 ? "bond_boat" : "bond_boatB", run(R, { v: R(12, 16) * c.S, f: R(10, 18), steady: true }));
   const deck = t => {
     const h = pick(R, RIG.DECKS);
     add(t, "bond_henchRun", {

@@ -109,15 +109,40 @@ export function float(R, o = {}) {
     pos: (tau, out) => out.set(u + 0.6 * Math.sin(ph + tau * 0.8), f + 0.3 * Math.sin(ph + tau * 0.5), h0 + v * tau)
   };
 }
-// A cut-out animal running straight across the ground, fast, bobbing.
+// A cut-out animal running across the ground, bobbing. Not on a rail (Jay,
+// 2026-11-14): it comes across on a slant, drifts, changes pace, and one in
+// three pulls up for a moment to look before it bolts on. steady: no stop (a
+// boat, a truck); straight: holds its distance (it is on a road).
 export function run(R, o) {
   const dir = R(0, 1) < 0.5 ? 1 : -1;
   const u0 = R(26, 32);
-  const f = o.f ?? R(14, 42);
+  const f0 = o.f ?? R(14, 42);
   const ph = R(0, 6);
+  const slant = o.straight ? 0 : R(-1, 1) * Math.min(5, 1 + f0 * 0.12);
+  const drift = o.straight ? 0 : R(0.2, 1.1);
+  const dw = R(0.07, 0.13);
+  const pace = R(0.15, 0.4);
+  const pw = R(0.7, 1.5);
+  const stop = !o.steady && R(0, 1) < 0.34 ? R(0.5, 1.0) : 0;
+  const len = 2 * u0;
+  const base = len / o.v + pace / pw;
+  const at = base * R(0.3, 0.65); // when it pulls up
+  // distance run by tau (never backwards: pace < 1)
+  const gone = tau => {
+    const t = stop ? (tau < at ? tau : tau < at + stop ? at : tau - stop) : tau;
+    return o.v * (t + (pace / pw) * (Math.sin(ph + pw * t) - Math.sin(ph)));
+  };
   return {
-    dur: (2 * u0) / o.v,
-    pos: (tau, out) => out.set(-dir * u0 + dir * o.v * tau, f, GROUND + 0.08 * Math.abs(Math.sin(ph + tau * 11)))
+    dur: base + stop + 0.4,
+    pos: (tau, out) => {
+      const s = gone(tau);
+      const k = s / len;
+      return out.set(
+        -dir * u0 + dir * s,
+        Math.max(4, f0 + slant * (2 * k - 1) + drift * Math.sin(ph + s * dw)),
+        GROUND + 0.08 * Math.abs(Math.sin(ph + s * 0.85))
+      );
+    }
   };
 }
 // Charging the roof on a diagonal (a cut-out coming straight on is edge-on),

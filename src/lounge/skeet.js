@@ -38,7 +38,7 @@ import {
 } from "./shoots";
 import { buildWorld, artMesh, makeAmbience } from "./shoots-art";
 import { MUSIC } from "./range-music";
-import { PlateField, warmPlates, plateCutout } from "./plates";
+import { PlateField, warmPlates, plateCutout, closeAtlas, plateClass } from "./plates";
 
 Object.assign(KINDS, SHOW_KINDS);
 
@@ -1828,11 +1828,24 @@ AFRAME.registerSystem("lounge-skeet", {
       face(eye.clone());
       // the outline faces its -x: turn it to face the way it runs
       const nose = v3.set(-1, 0, 0).applyQuaternion(mesh.quaternion);
-      const sx = nose.dot(vel) < 0 ? -ud.w : ud.w;
-      if (ud.cut.scale.x !== sx) {
-        ud.cut.scale.x = sx;
-        ud.cut.matrixNeedsUpdate = true;
-      }
+      const along = nose.dot(vel);
+      // (pulled up to look: it keeps facing the way it was going)
+      if (Math.abs(along) > 0.02) {
+        const sx = along < 0 ? -ud.w : ud.w;
+        if (ud.cut.scale.x !== sx) {
+          ud.cut.scale.x = sx;
+          ud.cut.matrixNeedsUpdate = true;
+        }
+        // an animal's gallop: rocking, nose down then up, legs gathering
+        // and reaching; a man's legs scissor
+        if (ud.animal === undefined) ud.animal = plateClass(spec.art.plate) === "animal";
+        const pace = Math.min(1, Math.abs(along) / 0.3);
+        if (ud.animal) {
+          const gait = pace * 0.07 * Math.sin(tau * 10.5 + L.t0);
+          mesh.quaternion.multiply(q1.setFromAxisAngle(v3.set(0, 0, 1), sx < 0 ? -gait : gait));
+        }
+        ud.cut.userData.stride?.(pace * Math.sin(tau * (ud.animal ? 10.5 : 8) + L.t0 + 1.2));
+      } else ud.cut.userData.stride?.(0);
     } else if (spec.face === "spin") {
       const eye = this.frame.toWorld(v3.set(0, 0, 1.6), v3).sub(p);
       eye.y = 0;
@@ -2162,19 +2175,42 @@ AFRAME.registerSystem("lounge-skeet", {
       this.plates = null;
     }
     this.worldKey = key;
+    if (!key) closeAtlas();
     if (key) {
-      // the world's knockdown plates (plates.js), their rails and cover in its scenery
-      this.plates = new PlateField(key, {
-        play: (name, p, vol, ref) => this.play(name, p, vol, ref),
-        debris: (cols, p, vel) => this.spawnDebris(cols, p, vel),
-        popup: (text, by, p) => this.popup(text, by ? this.colourFor(by) : BAD_COLOUR, p),
-        bonus: (text, by, p) => this.popup(text, this.colourFor(by), p)
-      });
+      // the world's knockdown plates (plates.js), their seats and cover in its
+      // scenery; the level's sheet of outlines holds its runners' too
+      this.plates = new PlateField(
+        key,
+        {
+          play: (name, p, vol, ref) => this.play(name, p, vol, ref),
+          debris: (cols, p, vel) => this.spawnDebris(cols, p, vel),
+          popup: (text, by, p) => this.popup(text, by ? this.colourFor(by) : BAD_COLOUR, p),
+          bonus: (text, by, p) => this.popup(text, this.colourFor(by), p)
+        },
+        this.runnerKinds()
+      );
       this.plates.reset(this.show ? this.show.seed : 1);
       this.world = buildWorld(key, P => this.plates.props(P));
       this.world.group.add(this.plates.group);
       this.worldNode.add(this.world.group);
     }
+  },
+
+  // The cut-out outlines this level's movers use (from a look through its
+  // waves), so they are on the level's sheet before the first one runs.
+  runnerKinds() {
+    const out = new Set();
+    if (!this.show) return [];
+    try {
+      for (let w = 0; w < 13; w++)
+        for (const L of showWave(this.show, w).launches) {
+          const k = KINDS[L.kind]?.art?.plate;
+          if (k) out.add(k);
+        }
+    } catch (e) {
+      console.warn("lounge-skeet: runnerKinds", e);
+    }
+    return [...out];
   },
 
   // While a world is up the city skyline and sky go (the world has its own).

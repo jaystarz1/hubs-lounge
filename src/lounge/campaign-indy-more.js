@@ -358,7 +358,7 @@ const airfieldWave = (R, add, c) => {
     for (let k = 0; k < 7; k++) out(2 + k * 3);
     for (let k = 0; k < 5; k++)
       add(2 + k * 5, "i_fighter", across(R, { v: R(20, 26) * c.S, h: R(8, 16), f: R(20, 45), weave: 2 }));
-    add(8, "i_truck", run(R, { v: R(9, 11) * c.S, f: 40 }));
+    add(8, "i_truck", run(R, { v: R(9, 11) * c.S, f: 40, straight: true, steady: true }));
     return;
   }
   const k = c.w % 6;
@@ -368,7 +368,7 @@ const airfieldWave = (R, add, c) => {
   if (k !== 0)
     for (let j = 0; j < 1 + n(1.5); j++)
       add(R(1, 24), "i_fighter", across(R, { v: R(20, 26) * c.S, h: R(8, 16), f: R(20, 45), weave: 2 }));
-  if (k === 1 || k === 4) add(R(2, 20), "i_truck", run(R, { v: R(9, 11) * c.S, f: 40 }));
+  if (k === 1 || k === 4) add(R(2, 20), "i_truck", run(R, { v: R(9, 11) * c.S, f: 40, straight: true, steady: true }));
   if (k === 2 || k === 5)
     add(R(2, 20), "i_sidecar", run(R, { v: R(12, 15) * c.S, f: (AIR.RUNWAY[0] + AIR.RUNWAY[1]) / 2 }));
   if (k === 5)
